@@ -237,26 +237,38 @@ export default function RipotekWebsite() {
       <section id="about" className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">About Ripotek Technologies</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">About </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek Technologies</span>
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Founded in March 2023 and headquartered in Calgary, Alberta, we&apos;re a specialized consultancy focused on helping organizations unlock the full potential of their data and AI investments.</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
               <Eye className="w-12 h-12 text-teal-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="text-gray-900">Our </span>
+                <span className="text-teal-600">Vision</span>
+              </h3>
               <p className="text-gray-700">To be Canada&apos;s most trusted partner in data and AI transformation, recognized for delivering enterprise-grade solutions that empower organizations to compete on analytics and innovation while building self-sufficient teams through world-class training.</p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
               <Target className="w-12 h-12 text-teal-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="text-gray-900">Our </span>
+                <span className="text-teal-600">Mission</span>
+              </h3>
               <p className="text-gray-700">We architect modern data platforms, accelerate AI adoption, and train technical professionals who drive business outcomes. Through deep expertise in Azure, Databricks, Fabric, and Power BI, we deliver governed, scalable solutions paired with knowledge transfer that sticks.</p>
             </div>
           </div>
 
           <div className="mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Core Values</h3>
+            <h3 className="text-3xl font-bold text-center mb-12">
+              <span className="text-gray-900">Our Core </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
+            </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {coreValues.map((value, idx) => (
                 <div key={idx} className="text-center hover-lift cursor-pointer">
@@ -271,7 +283,10 @@ export default function RipotekWebsite() {
           </div>
 
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Meet Our Team</h3>
+            <h3 className="text-3xl font-bold text-center mb-12">
+              <span className="text-gray-900">Meet Our </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
+            </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {team.map((member, idx) => (
                 <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine overflow-hidden">
@@ -299,7 +314,10 @@ export default function RipotekWebsite() {
       <section id="services" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">Our </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Services</span>
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">End-to-end consulting and managed services across the modern data and AI stack</p>
           </div>
 
@@ -333,7 +351,10 @@ export default function RipotekWebsite() {
       <section id="training" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Training Programs</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">Professional </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Training Programs</span>
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Live instructor-led courses with hands-on projects, mentorship, and 85% job placement rate</p>
           </div>
 
@@ -379,7 +400,9 @@ export default function RipotekWebsite() {
       <section id="cases" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Case Studies</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Case Studies</span>
+            </h2>
             <p className="text-xl text-gray-600">Real transformations. Measurable impact. Lasting partnerships.</p>
           </div>
 
@@ -437,7 +460,10 @@ export default function RipotekWebsite() {
 
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            <span className="text-gray-900">What Our </span>
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Clients Say</span>
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-white rounded-xl p-8 shadow-lg hover-lift card-shine">
@@ -460,7 +486,10 @@ export default function RipotekWebsite() {
 
       <section id="resources" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Resource Library</h2>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-900">Resource </span>
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Library</span>
+          </h2>
           <p className="text-xl text-gray-600 mb-12">Whitepapers, webinar replays, templates, and demo videos</p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -529,7 +558,10 @@ export default function RipotekWebsite() {
       <section id="careers" className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Join Our Team</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">Join Our </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
+            </h2>
             <p className="text-xl text-gray-600">Build the future of data and AI with us</p>
           </div>
 
@@ -567,7 +599,10 @@ export default function RipotekWebsite() {
           </div>
 
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Open Positions</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center">
+              <span className="text-gray-900">Open </span>
+              <span className="text-teal-600">Positions</span>
+            </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {careers.map((job, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 shadow-lg hover-lift card-shine border-l-4 border-teal-500">
@@ -605,7 +640,10 @@ export default function RipotekWebsite() {
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">Get In </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Touch</span>
+            </h2>
             <p className="text-xl text-gray-600">Ready to transform your data strategy? Let&apos;s talk.</p>
           </div>
 
