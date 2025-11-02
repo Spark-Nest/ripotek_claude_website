@@ -137,7 +137,7 @@ export default function RipotekWebsite() {
                 <span className="text-white font-bold text-xl">R</span>
               </div>
               <div>
-                <div className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
+                <div className="text-2xl font-extrabold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent tracking-tight">Ripotek</div>
                 <div className="text-xs text-gray-600 italic">Design. Engineer. Deliver.</div>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function RipotekWebsite() {
               {navigation.map(item => (
                 <a key={item.name} href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors">{item.name}</a>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl">Book Discovery Call</button>
+              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl font-bold">Let&apos;s Talk</button>
             </div>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
@@ -161,7 +161,7 @@ export default function RipotekWebsite() {
               {navigation.map(item => (
                 <a key={item.name} href={item.href} className="block text-gray-700 hover:text-teal-600 font-medium py-2" onClick={() => setMobileMenuOpen(false)}>{item.name}</a>
               ))}
-              <button className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">Book Discovery Call</button>
+              <button className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition font-bold">Let&apos;s Talk</button>
             </div>
           </div>
         )}
@@ -178,7 +178,7 @@ export default function RipotekWebsite() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
                 <Sparkles className="w-4 h-4" />
-                Calgary's Premier Data & AI Consultancy
+                Calgary&apos;s Premier Data & AI Consultancy
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Transform Data Into <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Strategic Advantage</span>
@@ -238,14 +238,14 @@ export default function RipotekWebsite() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">About Ripotek Technologies</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Founded in March 2023 and headquartered in Calgary, Alberta, we're a specialized consultancy focused on helping organizations unlock the full potential of their data and AI investments.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Founded in March 2023 and headquartered in Calgary, Alberta, we&apos;re a specialized consultancy focused on helping organizations unlock the full potential of their data and AI investments.</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
               <Eye className="w-12 h-12 text-teal-600 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-700">To be Canada's most trusted partner in data and AI transformation, recognized for delivering enterprise-grade solutions that empower organizations to compete on analytics and innovation while building self-sufficient teams through world-class training.</p>
+              <p className="text-gray-700">To be Canada&apos;s most trusted partner in data and AI transformation, recognized for delivering enterprise-grade solutions that empower organizations to compete on analytics and innovation while building self-sufficient teams through world-class training.</p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
@@ -444,7 +444,7 @@ export default function RipotekWebsite() {
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => <span key={j} className="text-yellow-400 text-xl">★</span>)}
                 </div>
-                <p className="text-gray-700 italic mb-6">"{t.quote}"</p>
+                <p className="text-gray-700 italic mb-6">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center gap-3">
                   <img src={t.image} alt={t.author} className="w-12 h-12 rounded-full object-cover" />
                   <div>
@@ -594,7 +594,7 @@ export default function RipotekWebsite() {
           </div>
 
           <div className="text-center bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-            <p className="text-gray-700 mb-4">Don't see the right role? We're always looking for talented individuals.</p>
+            <p className="text-gray-700 mb-4">Don&apos;t see the right role? We&apos;re always looking for talented individuals.</p>
             <button className="bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold hover-lift">
               Send Us Your Resume
             </button>
@@ -606,7 +606,7 @@ export default function RipotekWebsite() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-            <p className="text-xl text-gray-600">Ready to transform your data strategy? Let's talk.</p>
+            <p className="text-xl text-gray-600">Ready to transform your data strategy? Let&apos;s talk.</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
