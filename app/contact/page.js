@@ -49,8 +49,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (403) 555-DATO',
-      link: 'tel:+14035553286'
+      value: '+1 306 999-3552',
+      link: 'tel:+13069993552'
     }
   ];
 

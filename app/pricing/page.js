@@ -526,7 +526,7 @@ export default function PricingCalculator() {
               <div className="space-y-2 text-sm text-gray-300">
                 <p>Calgary, Alberta</p>
                 <p>info@ripotek.com</p>
-                <p>(403) 555-0123</p>
+                <p>+1 306 999-3552</p>
               </div>
             </div>
           </div>

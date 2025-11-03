@@ -292,7 +292,7 @@ export default function BusinessIntelligenceAnalystSyllabus() {
                 <Phone className="w-5 h-5 text-green-600" />
                 Phone
               </h4>
-              <p className="text-gray-700 text-sm mb-2">+1 (403) 999-RIPO</p>
+              <p className="text-gray-700 text-sm mb-2">+1 306 999-3552</p>
             </div>
 
             <div>

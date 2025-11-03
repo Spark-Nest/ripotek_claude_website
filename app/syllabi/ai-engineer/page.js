@@ -174,7 +174,7 @@ export default function AIEngineerSyllabus() {
         <footer className="border-t-4 border-pink-600 pt-8 mt-12">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div><h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2"><Mail className="w-5 h-5 text-pink-600" />Contact</h4><p className="text-gray-700 text-sm">training@ripotek.com</p></div>
-            <div><h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2"><Phone className="w-5 h-5 text-pink-600" />Phone</h4><p className="text-gray-700 text-sm">+1 (403) 999-RIPO</p></div>
+            <div><h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2"><Phone className="w-5 h-5 text-pink-600" />Phone</h4><p className="text-gray-700 text-sm">+1 306 999-3552</p></div>
             <div><h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2"><Globe className="w-5 h-5 text-pink-600" />Online</h4><p className="text-gray-700 text-sm">www.ripotek.com/training</p></div>
           </div>
           <div className="border-t border-gray-200 pt-6 text-center">
