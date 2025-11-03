@@ -1,0 +1,648 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Briefcase, MapPin, DollarSign, Clock, Users, CheckCircle, Target, Award, Heart, TrendingUp, Mail, Calendar, Plane } from 'lucide-react';
+
+export default function SeniorDataArchitectPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navigation = [
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Training', href: '/training' },
+    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Resources', href: '/resources' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Contact', href: '/contact' }
+  ];
+
+  const jobHighlights = [
+    { icon: MapPin, label: 'Location', value: 'Calgary, AB (Hybrid - 2 days/week)' },
+    { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' },
+    { icon: DollarSign, label: 'Salary Range', value: '$130,000 - $165,000 CAD + bonus' },
+    { icon: Plane, label: 'Travel', value: '10-20% (Western Canada)' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">R</span>
+              </div>
+              <div>
+                <div className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
+                <div className="text-xs text-gray-600 italic">Design. Engineer. Deliver.</div>
+              </div>
+            </a>
+
+            <div className="hidden lg:flex items-center gap-8">
+              {navigation.map((item) => (
+                <a key={item.name} href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+                  {item.name}
+                </a>
+              ))}
+              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let&apos;s Talk</button>
+            </div>
+
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t">
+            <div className="px-4 py-4 space-y-3">
+              {navigation.map((item) => (
+                <a key={item.name} href={item.href} className="block text-gray-700 hover:text-teal-600 font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+        <div className="max-w-5xl mx-auto">
+          <a href="/careers" className="inline-flex items-center text-teal-300 hover:text-teal-200 mb-6 transition">
+            ← Back to Careers
+          </a>
+          <h1 className="text-5xl font-bold text-white mb-4">Senior Data Architect</h1>
+          <p className="text-xl text-gray-300 mb-8">Consulting Department</p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {jobHighlights.map((item, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <div className="flex items-center gap-2 text-teal-300 mb-2">
+                  <item.icon className="w-5 h-5" />
+                  <span className="text-sm font-semibold">{item.label}</span>
+                </div>
+                <p className="text-white text-sm">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Apply Now Button - Sticky */}
+      <div className="sticky top-20 z-40 bg-white border-b shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 py-4">
+          <a
+            href="mailto:careers@ripotek.ca?subject=Application: Senior Data Architect"
+            className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
+          >
+            <Mail className="w-5 h-5" />
+            Apply Now
+          </a>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto space-y-12">
+
+          {/* Role Overview */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Target className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Role Overview</h2>
+            </div>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              As a Senior Data Architect, you&apos;ll lead the design and implementation of modern data platforms for enterprise clients across Energy, Financial Services, and Public Sector. You&apos;ll work directly with C-level stakeholders to translate business requirements into scalable, governed data architectures on Azure, Databricks, and Microsoft Fabric.
+            </p>
+          </div>
+
+          {/* Key Responsibilities */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <CheckCircle className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Key Responsibilities</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Client Delivery (60%)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Lead data architecture assessments and gap analysis for enterprise clients</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Design target-state architectures (lakehouse, data mesh, modern data warehouse)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Create detailed technical roadmaps with phased implementation plans</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Architect end-to-end solutions: ingestion, storage, processing, consumption layers</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Develop governance frameworks: data cataloging, lineage, quality, security</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Lead discovery workshops and present architectural recommendations to executives</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Mentor junior consultants and provide technical oversight on projects</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Ensure solutions align with industry best practices and compliance requirements (GDPR, PIPEDA, SOC 2)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Pre-Sales & Business Development (20%)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Support sales team with technical discovery and proposal development</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Develop client-facing architecture diagrams and solution designs</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Provide effort estimates and technical scoping for proposals</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Present capabilities and case studies to prospective clients</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Participate in industry conferences and networking events</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Thought Leadership (10%)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Contribute to Ripotek&apos;s knowledge base and best practices</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Mentor team members on architecture patterns and methodologies</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Stay current with emerging technologies and platform updates</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Write whitepapers and blog posts on data architecture topics</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Present at internal lunch-and-learns and training sessions</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Internal Projects (10%)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Contribute to Ripotek&apos;s internal IP development (accelerators, frameworks, templates)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Participate in hiring and interviewing candidates</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Support development of training curriculum content</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Participate in strategic planning and service offerings refinement</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Required Qualifications */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Award className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Required Qualifications</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Experience</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>8+ years in data architecture, engineering, or related roles</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>5+ years designing and implementing enterprise data platforms</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>3+ years with Azure data services (Data Lake, Synapse, Data Factory, Databricks)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Proven track record delivering 5+ large-scale data platform implementations</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Experience across multiple industries (Energy, Finance, or Public Sector preferred)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Technical Skills</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Cloud Platforms:</p>
+                    <p className="text-gray-700">Azure (primary), AWS or GCP (secondary)</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Data Platforms:</p>
+                    <p className="text-gray-700">Azure Synapse, Databricks, Microsoft Fabric, Snowflake</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Data Modeling:</p>
+                    <p className="text-gray-700">Dimensional modeling, Data Vault 2.0, one big table patterns</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Architecture Frameworks:</p>
+                    <p className="text-gray-700">TOGAF, Zachman, or similar</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Governance Tools:</p>
+                    <p className="text-gray-700">Azure Purview, Collibra, or similar</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">Programming:</p>
+                    <p className="text-gray-700">SQL (advanced), Python or Scala (intermediate)</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">DevOps:</p>
+                    <p className="text-gray-700">Git, Azure DevOps, CI/CD pipelines</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold text-gray-900">BI Tools:</p>
+                    <p className="text-gray-700">Power BI, Tableau, or Looker</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Soft Skills</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Exceptional communication skills - can explain complex technical concepts to non-technical stakeholders</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Strong facilitation skills for workshops and discovery sessions</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Proven ability to influence and gain stakeholder buy-in</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Experience managing client relationships and expectations</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Comfortable presenting to C-level executives</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Self-motivated with ability to work independently</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <span>Strong problem-solving and critical thinking skills</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Preferred Qualifications */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <TrendingUp className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Preferred Qualifications</h2>
+            </div>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Microsoft Certified: Azure Solutions Architect Expert</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Databricks Certified Data Engineer or Architect</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>TOGAF 9.2 certification</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Experience with data mesh or modern data architecture patterns</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Knowledge of AI/ML platform design</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Prior consulting experience (Big 4, boutique firm, or independent)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-600 mt-1">✓</span>
+                <span>Industry-specific domain knowledge (Oil & Gas, Banking, Government)</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* What We Offer */}
+          <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Heart className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">What We Offer</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Compensation & Benefits</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Competitive salary: $130K-$165K based on experience</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Annual performance bonus (10-20% of salary)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>RRSP matching (5% of salary)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Comprehensive health, dental, and vision insurance</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Professional development budget ($5,000/year)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Certification and training support</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Annual tech allowance ($1,500)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Work Environment</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Hybrid model: 2 days/week in Calgary office, 3 days remote</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Flexible hours (core hours 10am-3pm MT)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Modern downtown Calgary office with standing desks</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Latest MacBook Pro or Surface Laptop</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Home office setup allowance ($2,000)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Growth & Development</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Work on cutting-edge Azure, Databricks, and AI projects</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Exposure to diverse industries and use cases</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Mentorship from seasoned architects (15-20+ years experience)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Opportunity to contribute to training curriculum</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Clear path to Principal Architect and leadership roles</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Conference attendance and speaking opportunities</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Culture & Impact</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Small team environment - your impact is visible and valued</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Direct client interaction - you own the relationship</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Collaborative, low-ego culture focused on client success</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Contribute to training the next generation of data professionals</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Opportunity to work on projects that drive real business transformation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Interview Process */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Users className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Interview Process</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div>
+                  <h4 className="font-bold text-gray-900">Phone Screen (30 min)</h4>
+                  <p className="text-gray-700">HR and hiring manager</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div>
+                  <h4 className="font-bold text-gray-900">Technical Interview (90 min)</h4>
+                  <p className="text-gray-700">Whiteboard architecture design exercise</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div>
+                  <h4 className="font-bold text-gray-900">Case Study Presentation (60 min)</h4>
+                  <p className="text-gray-700">Present solution to mock client scenario</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div>
+                  <h4 className="font-bold text-gray-900">Culture Fit (45 min)</h4>
+                  <p className="text-gray-700">Meet with leadership and peers</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div>
+                  <h4 className="font-bold text-gray-900">Reference Checks</h4>
+                  <p className="text-gray-700">3 professional references</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center gap-2 text-gray-700">
+                <Calendar className="w-5 h-5 text-teal-600" />
+                <span className="font-semibold">Timeline:</span>
+                <span>2-3 weeks from application to offer</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to Join Our Team?</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              We&apos;d love to hear from you. Apply now and let&apos;s build something amazing together.
+            </p>
+            <a
+              href="mailto:careers@ripotek.ca?subject=Application: Senior Data Architect"
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold text-lg"
+            >
+              <Mail className="w-6 h-6" />
+              Apply for This Position
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">R</span>
+                </div>
+                <span className="font-bold text-xl">Ripotek</span>
+              </div>
+              <p className="text-gray-400 text-sm">Design. Engineer. Deliver.</p>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/services" className="hover:text-teal-400 transition">Data Architecture</a></li>
+                <li><a href="/services" className="hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Training</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/training" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training" className="hover:text-teal-400 transition">AI Engineer</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/case-studies" className="hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/careers" className="hover:text-teal-400 transition">Careers</a></li>
+                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+            <div className="flex gap-6 text-sm text-gray-400">
+              <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+              <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

@@ -42,6 +42,7 @@ export default function RipotekHomePage() {
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' }
@@ -133,9 +134,9 @@ export default function RipotekHomePage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
             </button>
           </div>
         </div>

@@ -1,0 +1,586 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowLeft, Calendar, Clock, User, Linkedin, Twitter, Mail, ChevronRight, CheckCircle, Zap, DollarSign, TrendingUp } from 'lucide-react';
+
+export default function BlogPost() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const sections = document.querySelectorAll('h2[id]');
+      const scrollPosition = window.scrollY + 150;
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navigation = [
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Training', href: '/training' },
+    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Resources', href: '/resources' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Contact', href: '/contact' }
+  ];
+
+  const postMeta = {
+    title: 'Small Wins, Big Impact: Why Process Automation Is No Longer Optional for Small Businesses',
+    author: 'David Thompson',
+    authorTitle: 'Senior Solutions Architect',
+    authorBio: 'David Thompson specializes in helping small and mid-sized businesses leverage automation and AI to compete with larger enterprises. With 10+ years in systems integration and process optimization, he has helped 50+ SMBs reduce costs and scale operations.',
+    date: 'October 15, 2024',
+    readTime: '7 min read',
+    category: 'Best Practices',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop'
+  };
+
+  const tableOfContents = [
+    { id: 'automation-imperative', title: 'The Automation Imperative' },
+    { id: 'quick-wins', title: 'Quick Wins: Where to Start' },
+    { id: 'modern-tools', title: 'Modern Tools for Small Businesses' },
+    { id: 'roi-calculation', title: 'Calculating Your ROI' },
+    { id: 'implementation', title: 'Implementation Best Practices' },
+    { id: 'common-mistakes', title: 'Common Mistakes to Avoid' }
+  ];
+
+  const relatedPosts = [
+    {
+      slug: 'navigating-ai-revolution',
+      title: 'Navigating the AI Revolution: A Strategic Guide for Business Leaders',
+      category: 'Best Practices',
+      readTime: '8 min read'
+    },
+    {
+      slug: 'azure-data-engineering-best-practices',
+      title: '10 Azure Data Engineering Best Practices Every Team Should Know',
+      category: 'Azure',
+      readTime: '10 min read'
+    },
+    {
+      slug: 'power-bi-vs-tableau-2025',
+      title: 'Power BI vs Tableau in 2025: Which BI Tool Should You Choose?',
+      category: 'Business Intelligence',
+      readTime: '11 min read'
+    }
+  ];
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareTitle = postMeta.title;
+
+  const handleShare = (platform) => {
+    const urls = {
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`,
+      email: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`
+    };
+    window.open(urls[platform], '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">R</span>
+              </div>
+              <div>
+                <div className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
+                <div className="text-xs text-gray-600 italic">Design. Engineer. Deliver.</div>
+              </div>
+            </a>
+
+            <div className="hidden lg:flex items-center gap-8">
+              {navigation.map((item) => (
+                <a key={item.name} href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+                  {item.name}
+                </a>
+              ))}
+              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">
+                Let's Talk
+              </a>
+            </div>
+
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t">
+            <div className="px-4 py-4 space-y-3">
+              {navigation.map((item) => (
+                <a key={item.name} href={item.href} className="block text-gray-700 hover:text-teal-600 font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Back to Blog */}
+      <div className="pt-24 pb-8 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <a href="/blog" className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium transition">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Blog
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="pb-12 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6">
+            <span className="px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold">
+              {postMeta.category}
+            </span>
+          </div>
+
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            {postMeta.title}
+          </h1>
+
+          <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
+            <div className="flex items-center gap-2">
+              <User className="w-5 h-5" />
+              <span className="font-medium">{postMeta.author}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-5 h-5" />
+              <span>{postMeta.date}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5" />
+              <span>{postMeta.readTime}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 pb-8 border-b">
+            <span className="text-gray-600 font-medium">Share:</span>
+            <button onClick={() => handleShare('linkedin')} className="p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Share on LinkedIn">
+              <Linkedin className="w-5 h-5 text-gray-600" />
+            </button>
+            <button onClick={() => handleShare('twitter')} className="p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Share on Twitter">
+              <Twitter className="w-5 h-5 text-gray-600" />
+            </button>
+            <button onClick={() => handleShare('email')} className="p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Share via Email">
+              <Mail className="w-5 h-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-12 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12">
+            {/* Main Article */}
+            <article className="lg:col-span-8">
+              <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+                <img src={postMeta.image} alt={postMeta.title} className="w-full h-64 lg:h-96 object-cover rounded-xl mb-12" />
+
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                    Small businesses face mounting pressure to do more with less. Process automation powered by AI and low-code platforms is leveling the playing field against larger competitors—but only for those who act now.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-8">
+                    This isn't about replacing humans with robots. It's about freeing your team from repetitive tasks so they can focus on what truly matters: serving customers, innovating, and growing the business.
+                  </p>
+
+                  <h2 id="automation-imperative" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    The Automation Imperative: Small Businesses Are Winning
+                  </h2>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The automation revolution isn't just for Fortune 500 companies anymore. Modern tools are affordable, accessible, and designed for non-technical users.
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-6 my-8">
+                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                      <DollarSign className="w-12 h-12 text-teal-600 mx-auto mb-3" />
+                      <div className="text-3xl font-bold text-gray-900 mb-2">40%</div>
+                      <p className="text-sm text-gray-700">Average cost reduction from basic automation</p>
+                    </div>
+                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                      <Zap className="w-12 h-12 text-teal-600 mx-auto mb-3" />
+                      <div className="text-3xl font-bold text-gray-900 mb-2">60%</div>
+                      <p className="text-sm text-gray-700">Faster processing for routine tasks</p>
+                    </div>
+                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                      <TrendingUp className="w-12 h-12 text-teal-600 mx-auto mb-3" />
+                      <div className="text-3xl font-bold text-gray-900 mb-2">3x</div>
+                      <p className="text-sm text-gray-700">ROI within first year for SMBs</p>
+                    </div>
+                  </div>
+
+                  <h2 id="quick-wins" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    Quick Wins: Where to Start Automating
+                  </h2>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Don't try to automate everything at once. Start with these high-impact, low-complexity processes:
+                  </p>
+
+                  <div className="space-y-6 mb-8">
+                    <div className="bg-white border-2 border-teal-200 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">1. Invoice Processing</h3>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Problem:</span> Manual data entry from paper/PDF invoices takes 5-10 minutes per invoice.
+                      </p>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Solution:</span> Use AI-powered OCR tools (Microsoft Form Recognizer, UiPath Document Understanding) to extract data automatically.
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Impact:</span> 85% time savings, 90% fewer errors
+                      </p>
+                    </div>
+
+                    <div className="bg-white border-2 border-teal-200 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">2. Customer Onboarding</h3>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Problem:</span> Repetitive email sequences, document collection, and account setup.
+                      </p>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Solution:</span> Power Automate workflows trigger personalized emails, collect forms, and provision accounts.
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Impact:</span> Onboarding time reduced from 3 days to 2 hours
+                      </p>
+                    </div>
+
+                    <div className="bg-white border-2 border-teal-200 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">3. Inventory Management</h3>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Problem:</span> Manual stock counts, spreadsheet tracking, reactive ordering.
+                      </p>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Solution:</span> Automated alerts when inventory hits thresholds, auto-generate purchase orders.
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Impact:</span> 30% reduction in stockouts, 20% lower carrying costs
+                      </p>
+                    </div>
+
+                    <div className="bg-white border-2 border-teal-200 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">4. Customer Support Triage</h3>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Problem:</span> Support staff manually categorizing and routing tickets.
+                      </p>
+                      <p className="text-gray-700 mb-3">
+                        <span className="font-semibold">Solution:</span> AI chatbots (Azure Bot Service, Zendesk AI) handle FAQs, route complex queries.
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Impact:</span> 50% of tickets resolved instantly, 40% faster response times
+                      </p>
+                    </div>
+                  </div>
+
+                  <h2 id="modern-tools" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    Modern Tools Built for Small Businesses
+                  </h2>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    You don't need a six-figure budget or a dedicated IT team. These platforms are designed for business users:
+                  </p>
+
+                  <div className="bg-gray-50 rounded-xl p-6 mb-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Low-Code/No-Code Platforms:</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="font-semibold text-gray-900">Microsoft Power Automate:</span>
+                          <p className="text-gray-700">Connect 500+ apps, build workflows with drag-and-drop. Starts at $15/user/month.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="font-semibold text-gray-900">Zapier:</span>
+                          <p className="text-gray-700">Easiest to learn. Perfect for simple integrations. Free tier available.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="font-semibold text-gray-900">Airtable + Make.com:</span>
+                          <p className="text-gray-700">Flexible database + automation. Great for custom workflows.</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <h2 id="roi-calculation" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    Calculating Your Automation ROI
+                  </h2>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Use this simple framework to prioritize automation projects:
+                  </p>
+
+                  <div className="bg-teal-50 border-2 border-teal-600 rounded-xl p-6 mb-8">
+                    <h4 className="text-lg font-bold text-gray-900 mb-4">ROI Formula:</h4>
+                    <div className="space-y-3 mb-4">
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Time Saved:</span> (Hours per task × Tasks per week × Hourly rate) × 52 weeks
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Error Reduction:</span> (Cost per error × Errors per month) × 12
+                      </p>
+                      <p className="text-gray-700">
+                        <span className="font-semibold">Total Annual Benefit:</span> Time Saved + Error Reduction
+                      </p>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 mt-4">
+                      <p className="text-gray-900 font-semibold mb-2">Example: Invoice Processing</p>
+                      <p className="text-gray-700 text-sm">
+                        Time saved: (8 min/invoice × 50 invoices/week × $30/hr) × 52 = $10,400/year<br/>
+                        Error reduction: ($100/error × 5 errors/month) × 12 = $6,000/year<br/>
+                        <span className="font-bold text-teal-600">Total Benefit: $16,400/year</span><br/>
+                        Tool cost: $180/year (Power Automate)<br/>
+                        <span className="font-bold text-teal-600">ROI: 9,000%</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <h2 id="implementation" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    Implementation Best Practices
+                  </h2>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <span className="font-semibold text-gray-900">Start Small:</span>
+                        <p className="text-gray-700">Pick one process, automate it fully, measure results. Then scale.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <span className="font-semibold text-gray-900">Document Processes First:</span>
+                        <p className="text-gray-700">Map out current workflows before automating. You'll spot inefficiencies.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <span className="font-semibold text-gray-900">Involve End Users:</span>
+                        <p className="text-gray-700">The people doing the work know the pain points best.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <span className="font-semibold text-gray-900">Build in Error Handling:</span>
+                        <p className="text-gray-700">Automation will fail. Design graceful fallbacks and alerts.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <span className="font-semibold text-gray-900">Monitor & Iterate:</span>
+                        <p className="text-gray-700">Track metrics weekly. Optimize based on real usage.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h2 id="common-mistakes" className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    Common Mistakes to Avoid
+                  </h2>
+
+                  <div className="bg-red-50 border-l-4 border-red-600 rounded-r-xl p-6 mb-8">
+                    <h4 className="text-lg font-bold text-gray-900 mb-4">Don't Do This:</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-600 font-bold">×</span>
+                        <span className="text-gray-700">Automating broken processes (fix them first)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-600 font-bold">×</span>
+                        <span className="text-gray-700">Over-engineering simple workflows</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-600 font-bold">×</span>
+                        <span className="text-gray-700">Skipping employee training</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-600 font-bold">×</span>
+                        <span className="text-gray-700">Setting and forgetting (automation needs maintenance)</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    The Competitive Edge
+                  </h2>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Your larger competitors are already automating. The businesses that thrive in 2025 and beyond will be those that embrace automation early—regardless of size.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-8">
+                    The question isn't whether to automate, but how quickly you can start capturing these gains.
+                  </p>
+
+                  <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Automate Your Business?</h3>
+                    <p className="text-gray-700 mb-6">
+                      Ripotek helps small and mid-sized businesses identify automation opportunities and implement solutions that deliver measurable ROI.
+                    </p>
+                    <a href="/contact" className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold">
+                      Schedule a Free Assessment <ChevronRight className="w-5 h-5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4 space-y-8">
+              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Table of Contents</h3>
+                <nav className="space-y-2">
+                  {tableOfContents.map((item) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className={`block text-sm py-2 px-3 rounded-lg transition ${
+                        activeSection === item.id
+                          ? 'bg-teal-50 text-teal-700 font-semibold'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      }`}
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    DT
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">{postMeta.author}</h4>
+                    <p className="text-sm text-gray-600">{postMeta.authorTitle}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {postMeta.authorBio}
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl shadow-lg p-6 text-white">
+                <h3 className="text-xl font-bold mb-3">Process Automation Help</h3>
+                <p className="text-gray-200 mb-4 text-sm">
+                  Get expert guidance on automating your business processes.
+                </p>
+                <a href="/contact" className="block w-full text-center bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                  Get Started
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {relatedPosts.map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-gray-50 rounded-xl p-6 hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition group"
+              >
+                <div className="mb-3">
+                  <span className="px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full">
+                    {post.category}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-teal-600 transition">
+                  {post.title}
+                </h3>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Clock className="w-4 h-4" />
+                  {post.readTime}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">R</span>
+                </div>
+                <span className="font-bold text-xl">Ripotek</span>
+              </div>
+              <p className="text-gray-400 text-sm">Design. Engineer. Deliver.</p>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/services" className="hover:text-teal-400 transition">Data Architecture</a></li>
+                <li><a href="/services" className="hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Training</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/training" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training" className="hover:text-teal-400 transition">AI Engineer</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/blog" className="hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
