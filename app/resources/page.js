@@ -326,6 +326,24 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* Download Capabilities Deck */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <Download className="w-16 h-16 text-teal-400 mx-auto mb-6" />
+          <h2 className="text-4xl font-bold text-white mb-6">Download Our Capabilities Deck</h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Get a comprehensive overview of our services, case studies, and technology expertise in one convenient PDF.
+          </p>
+          <a
+            href="/ripotek-capabilities-deck.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold hover-lift"
+          >
+            <Download className="w-5 h-5" /> Download Capabilities Deck
+          </a>
+        </div>
+      </section>
+
       {/* Subscribe CTA Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
