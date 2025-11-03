@@ -103,7 +103,7 @@ export default function AzureSolutionsConsultantPage() {
       <div className="sticky top-20 z-40 bg-white border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-4">
           <a
-            href="mailto:careers@ripotek.ca?subject=Application: Azure Solutions Consultant"
+            href="mailto:careers@ripotek.com?subject=Application: Azure Solutions Consultant"
             className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
           >
             <Mail className="w-5 h-5" />
@@ -562,7 +562,7 @@ export default function AzureSolutionsConsultantPage() {
               Join our team and work on cutting-edge Azure solutions for enterprise clients.
             </p>
             <a
-              href="mailto:careers@ripotek.ca?subject=Application: Azure Solutions Consultant"
+              href="mailto:careers@ripotek.com?subject=Application: Azure Solutions Consultant"
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold text-lg"
             >
               <Mail className="w-6 h-6" />

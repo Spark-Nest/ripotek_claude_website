@@ -103,7 +103,7 @@ export default function PowerBIInstructorPage() {
       <div className="sticky top-20 z-40 bg-white border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-4">
           <a
-            href="mailto:careers@ripotek.ca?subject=Application: Power BI Instructor"
+            href="mailto:careers@ripotek.com?subject=Application: Power BI Instructor"
             className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
           >
             <Mail className="w-5 h-5" />
@@ -633,7 +633,7 @@ export default function PowerBIInstructorPage() {
               Help students transform their careers and become successful BI professionals.
             </p>
             <a
-              href="mailto:careers@ripotek.ca?subject=Application: Power BI Instructor"
+              href="mailto:careers@ripotek.com?subject=Application: Power BI Instructor"
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold text-lg"
             >
               <Mail className="w-6 h-6" />

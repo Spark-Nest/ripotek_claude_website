@@ -43,8 +43,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'info@ripotek.ca',
-      link: 'mailto:info@ripotek.ca'
+      value: 'info@ripotek.com',
+      link: 'mailto:info@ripotek.com'
     },
     {
       icon: Phone,

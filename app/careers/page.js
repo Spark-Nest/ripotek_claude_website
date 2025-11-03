@@ -41,15 +41,17 @@ export default function CareersPage() {
     },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' }
   ];
 
   const careers = [
-    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)' },
-    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote' },
-    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB' },
-    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB' }
+    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$130K - $165K + bonus', slug: 'senior-data-architect' },
+    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote', salary: '$80-$120/hour', slug: 'power-bi-instructor' },
+    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB', salary: '$95K - $130K + bonus', slug: 'azure-solutions-consultant' },
+    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$55K - $70K', slug: 'student-success-coordinator' },
+    { title: 'Junior Data Engineer', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$65K - $80K', slug: 'junior-data-engineer' }
   ];
 
   const benefits = [
@@ -237,10 +239,11 @@ export default function CareersPage() {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">{job.dept}</span>
                       <span className="px-3 py-1 bg-teal-50 text-teal-700 text-sm rounded-full">{job.type}</span>
                     </div>
+                    <p className="text-gray-900 font-semibold text-lg">{job.salary}</p>
                   </div>
                   <MapPin className="w-5 h-5 text-gray-400" />
                 </div>
@@ -248,9 +251,9 @@ export default function CareersPage() {
                   <MapPin className="w-4 h-4" />
                   {job.location}
                 </p>
-                <button className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2">
-                  Apply Now <ArrowRight className="w-4 h-4" />
-                </button>
+                <a href={`/careers/${job.slug}`} className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2">
+                  View Details <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             ))}
           </div>

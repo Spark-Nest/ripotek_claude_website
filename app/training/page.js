@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Clock, DollarSign, CheckCircle, GraduationCap, ArrowRight, Calendar, Users, Award, Target } from 'lucide-react';
+import { Menu, X, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Clock, DollarSign, CheckCircle, GraduationCap, ArrowRight, Calendar, Users, Award, Target, Download, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function TrainingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState('all');
+  const [expandedSection, setExpandedSection] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,7 @@ export default function TrainingPage() {
     { name: 'Training', href: '/training' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' }
   ];
@@ -38,7 +40,8 @@ export default function TrainingPage() {
       image: '📈',
       color: 'from-blue-500 to-cyan-500',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
-      nextStart: 'January 15, 2025'
+      nextStart: 'January 15, 2025',
+      syllabusFile: '/syllabi/power-bi-analyst'
     },
     {
       title: 'Azure Data Engineer',
@@ -51,7 +54,8 @@ export default function TrainingPage() {
       image: '☁️',
       color: 'from-purple-500 to-blue-500',
       schedule: 'Tue/Thu/Sun 6-9pm MT',
-      nextStart: 'February 1, 2025'
+      nextStart: 'February 1, 2025',
+      syllabusFile: '/syllabi/azure-data-engineer'
     },
     {
       title: 'Databricks Engineer',
@@ -64,7 +68,8 @@ export default function TrainingPage() {
       image: '⚡',
       color: 'from-orange-500 to-red-500',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
-      nextStart: 'January 22, 2025'
+      nextStart: 'January 22, 2025',
+      syllabusFile: '/syllabi/databricks-engineer'
     },
     {
       title: 'Business Intelligence Analyst',
@@ -77,7 +82,8 @@ export default function TrainingPage() {
       image: '📊',
       color: 'from-green-500 to-teal-500',
       schedule: 'Tue/Thu 6-9pm MT',
-      nextStart: 'February 10, 2025'
+      nextStart: 'February 10, 2025',
+      syllabusFile: '/syllabi/business-intelligence-analyst'
     },
     {
       title: 'AI Engineer',
@@ -90,7 +96,8 @@ export default function TrainingPage() {
       image: '🤖',
       color: 'from-pink-500 to-purple-500',
       schedule: 'Wed/Fri/Sun 6-9pm MT',
-      nextStart: 'March 1, 2025'
+      nextStart: 'March 1, 2025',
+      syllabusFile: '/syllabi/ai-engineer'
     },
     {
       title: 'Prompt Engineering',
@@ -103,7 +110,8 @@ export default function TrainingPage() {
       image: '💡',
       color: 'from-yellow-500 to-orange-500',
       schedule: 'Mon/Wed 6-9pm MT',
-      nextStart: 'January 29, 2025'
+      nextStart: 'January 29, 2025',
+      syllabusFile: '/syllabi/prompt-engineering'
     },
     {
       title: 'Python for Data',
@@ -116,7 +124,8 @@ export default function TrainingPage() {
       image: '🐍',
       color: 'from-green-600 to-emerald-600',
       schedule: 'Sat/Sun 10am-1pm MT',
-      nextStart: 'February 5, 2025'
+      nextStart: 'February 5, 2025',
+      syllabusFile: '/syllabi/python-for-data'
     },
     {
       title: 'Azure Data Factory Masterclass',
@@ -129,7 +138,8 @@ export default function TrainingPage() {
       image: '🏭',
       color: 'from-indigo-500 to-blue-600',
       schedule: 'Tue/Thu 6-9pm MT',
-      nextStart: 'February 18, 2025'
+      nextStart: 'February 18, 2025',
+      syllabusFile: '/syllabi/azure-data-factory-masterclass'
     }
   ];
 
@@ -297,9 +307,20 @@ export default function TrainingPage() {
                   <p className="text-sm text-gray-600">Next Start: <span className="font-semibold text-teal-600">{program.nextStart}</span></p>
                 </div>
 
-                <button className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift">
-                  Enroll Now
-                </button>
+                <div className="space-y-3">
+                  <button className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift">
+                    Enroll Now
+                  </button>
+                  <a
+                    href={program.syllabusFile}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-white border-2 border-teal-600 text-teal-600 py-3 rounded-lg hover:bg-teal-50 transition font-semibold hover-lift flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-4 h-4" />
+                    View Syllabus
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -357,6 +378,292 @@ export default function TrainingPage() {
             <a href="/contact" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               Join Talent Network <ArrowRight className="w-5 h-5" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Onboarding Checklist */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <FileText className="w-16 h-16 text-teal-600 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-gray-900">Student Onboarding </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Checklist</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to know to prepare for your first day and succeed in your program
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {/* Pre-Program Setup */}
+            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+              <button
+                onClick={() => setExpandedSection(expandedSection === 'pre-program' ? null : 'pre-program')}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
+                    <span className="text-teal-700 font-bold">1</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Pre-Program Setup (1 Week Before)</h3>
+                </div>
+                {expandedSection === 'pre-program' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+              </button>
+              {expandedSection === 'pre-program' && (
+                <div className="px-6 pb-6 border-t border-gray-200">
+                  <div className="mt-6 space-y-6">
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-teal-600" />
+                        Administrative Setup
+                      </h4>
+                      <ul className="space-y-2 ml-7">
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Complete enrollment paperwork and training agreement</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Submit payment or set up financing</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Join Student Slack workspace (check email for invite)</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Add program dates to your calendar</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-teal-600" />
+                        Technical Setup
+                      </h4>
+                      <ul className="space-y-2 ml-7">
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>System Requirements: Windows 10/11 or macOS, 8GB RAM minimum, stable internet</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Install required software (program-specific - check your syllabus)</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Create GitHub account and Microsoft account</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Update LinkedIn profile</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-teal-600" />
+                        Learning Platform Access
+                      </h4>
+                      <ul className="space-y-2 ml-7">
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Log into learning portal and verify course access</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Download course syllabus and review weekly outline</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Test video conferencing setup (Zoom/Teams)</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <span className="text-teal-600 mt-1">•</span>
+                          <span>Complete pre-assessment if assigned</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* First Day */}
+            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+              <button
+                onClick={() => setExpandedSection(expandedSection === 'first-day' ? null : 'first-day')}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-700 font-bold">2</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">First Day of Class</h3>
+                </div>
+                {expandedSection === 'first-day' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+              </button>
+              {expandedSection === 'first-day' && (
+                <div className="px-6 pb-6 border-t border-gray-200">
+                  <div className="mt-6 space-y-4">
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Log in 15 minutes early to test audio/video</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Have notebook ready for notes (digital or physical)</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Introduce yourself: name, background, career goals</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Review program structure and attendance policy (80% required)</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Learn about support resources (office hours, TA support)</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Schedule 1-on-1 with instructor for Week 2-3</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Week 1 */}
+            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+              <button
+                onClick={() => setExpandedSection(expandedSection === 'week-1' ? null : 'week-1')}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <span className="text-purple-700 font-bold">3</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Week 1 Action Items</h3>
+                </div>
+                {expandedSection === 'week-1' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+              </button>
+              {expandedSection === 'week-1' && (
+                <div className="px-6 pb-6 border-t border-gray-200">
+                  <div className="mt-6 space-y-6">
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-3">Academic</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Complete Week 1 labs (due Sunday 11:59 PM MT)</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Join or form a study group (3-4 students)</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Review recorded sessions for concepts you need to revisit</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Ask your first question in Slack or office hours</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-3">Career Prep</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Submit resume for career services review</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Update LinkedIn: Add &quot;Currently enrolled in [Program] at Ripotek&quot;</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Complete career goals form</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-gray-700">
+                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <span>Join alumni network on LinkedIn</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Success Tips */}
+            <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-8 border-2 border-teal-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Award className="w-6 h-6 text-teal-600" />
+                Quick Tips from Alumni
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 border-l-4 border-teal-600">
+                  <p className="text-gray-700 italic">&quot;Don&apos;t fall behind on labs - it&apos;s SO hard to catch up. Do them the same week as the lesson.&quot;</p>
+                  <p className="text-sm text-gray-600 mt-2">- Sarah, Azure DE Graduate</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 border-l-4 border-blue-600">
+                  <p className="text-gray-700 italic">&quot;Join a study group immediately. My group kept me accountable and we all got jobs together.&quot;</p>
+                  <p className="text-sm text-gray-600 mt-2">- Priya, AI Engineer Graduate</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 border-l-4 border-purple-600">
+                  <p className="text-gray-700 italic">&quot;Use ChatGPT/Copilot to explain errors, but type the code yourself. Copy-paste won&apos;t help you learn.&quot;</p>
+                  <p className="text-sm text-gray-600 mt-2">- Marcus, Power BI Graduate</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Support Resources */}
+            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Users className="w-6 h-6 text-teal-600" />
+                Support Resources
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-3">Contact</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="text-gray-700"><span className="font-semibold">Technical Issues:</span> support@ripotek.com</li>
+                    <li className="text-gray-700"><span className="font-semibold">Career Services:</span> careers@ripotek.com</li>
+                    <li className="text-gray-700"><span className="font-semibold">Instructor Questions:</span> Use Slack or office hours</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-3">Learning Resources</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="text-gray-700">Office Hours: Tue/Thu 5-6 PM MT</li>
+                    <li className="text-gray-700">Recorded Sessions: Available within 24 hours</li>
+                    <li className="text-gray-700">1-on-1 Mentorship: Book via Calendly</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="bg-gradient-to-r from-blue-900 to-teal-600 rounded-xl p-8 text-center text-white">
+              <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+              <p className="text-lg mb-6 text-blue-100">You&apos;re not alone - your cohort, instructors, and TAs are here to help!</p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <a href="/contact" className="bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                  Contact Support
+                </a>
+                <a href="/resources" className="bg-teal-700 text-white px-6 py-3 rounded-lg hover:bg-teal-800 transition font-semibold border-2 border-white/20">
+                  View Resources
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

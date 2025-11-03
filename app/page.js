@@ -44,6 +44,7 @@ export default function RipotekHomePage() {
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' }
   ];
@@ -56,11 +57,31 @@ export default function RipotekHomePage() {
   ];
 
   const partners = [
-    { name: 'Microsoft Azure', logo: '☁️' },
-    { name: 'Databricks', logo: '🧱' },
-    { name: 'Microsoft Fabric', logo: '🎯' },
-    { name: 'Power BI', logo: '📊' },
-    { name: 'Snowflake', logo: '❄️' }
+    {
+      name: 'Microsoft Azure',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
+      url: 'https://azure.microsoft.com'
+    },
+    {
+      name: 'Databricks',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
+      url: 'https://www.databricks.com'
+    },
+    {
+      name: 'Microsoft Fabric',
+      logo: 'https://www.microsoft.com/en-us/microsoft-fabric/assets/images/microsoft-fabric-logo.svg',
+      url: 'https://www.microsoft.com/en-us/microsoft-fabric'
+    },
+    {
+      name: 'Power BI',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
+      url: 'https://powerbi.microsoft.com'
+    },
+    {
+      name: 'Snowflake',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+      url: 'https://www.snowflake.com'
+    }
   ];
 
   const servicesOverview = [
@@ -101,12 +122,12 @@ export default function RipotekHomePage() {
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1"
+                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap text-sm xl:text-base"
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -126,7 +147,7 @@ export default function RipotekHomePage() {
                   )}
                 </div>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl">
+              <button className="bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base">
                 Let's Talk
               </button>
             </div>
@@ -175,7 +196,7 @@ export default function RipotekHomePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
                 <Sparkles className="w-4 h-4" />
-                Calgary's Premier Data & AI Consultancy
+                Canada's Premier Data & AI Consultancy
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Transform Data Into
@@ -229,15 +250,51 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-12 bg-white border-y">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-gray-600 mb-8 font-semibold">TRUSTED TECHNOLOGY PARTNERS</p>
-          <div className="flex flex-wrap justify-center items-center gap-12">
+      <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-3">
+              <span className="text-xs font-bold tracking-widest text-teal-600 uppercase bg-teal-50 px-4 py-2 rounded-full">
+                Powered By Industry Leaders
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              <span className="text-gray-900">Trusted </span>
+              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Technology Partners
+              </span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Building world-class solutions with cutting-edge platforms
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20">
             {partners.map((p, i) => (
-              <div key={i} className="flex items-center gap-3 text-gray-700 hover-lift cursor-pointer">
-                <span className="text-4xl">{p.logo}</span>
-                <span className="font-semibold text-lg">{p.name}</span>
-              </div>
+              <a
+                key={i}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:-translate-y-2"
+                title={p.name}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-white rounded-xl p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 border-2 border-transparent group-hover:border-teal-500/20">
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `<span class="text-gray-700 font-semibold text-lg">${p.name}</span>`;
+                    }}
+                  />
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -354,69 +411,6 @@ export default function RipotekHomePage() {
             </p>
             <a href="/training" className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold">
               Explore All Programs <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Case Study */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Proven </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Results</span>
-            </h2>
-            <p className="text-xl text-gray-600">Real transformations that drive measurable business impact</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden shadow-lg hover-lift card-shine border-l-4 border-teal-500">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="relative h-64 md:h-auto overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop" alt="Energy case study" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-6xl">🛢️</div>
-              </div>
-
-              <div className="md:col-span-2 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-2xl font-bold text-gray-900">Major Canadian Energy Producer</h3>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-700 text-sm rounded-full">Energy</span>
-                </div>
-
-                <p className="text-gray-700 mb-6">
-                  Transformed legacy data warehouse into modern Azure Synapse + Databricks lakehouse, reducing reporting from 72 hours to 15 minutes and saving $2.4M annually.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">72 hours to 15 minutes reporting</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">$2.4M annual savings</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">40% infrastructure cost reduction</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">28% less downtime</span>
-                  </div>
-                </div>
-
-                <a href="/case-studies" className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700">
-                  Read Full Case Study <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <a href="/case-studies" className="inline-flex items-center gap-2 text-gray-700 hover:text-teal-600 font-semibold">
-              View All Case Studies <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>
