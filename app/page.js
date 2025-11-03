@@ -69,7 +69,7 @@ export default function RipotekHomePage() {
     },
     {
       name: 'Microsoft Fabric',
-      logo: 'https://www.microsoft.com/en-us/microsoft-fabric/assets/images/microsoft-fabric-logo.svg',
+      logo: '/partners/microsoft-fabric.png',
       url: 'https://www.microsoft.com/en-us/microsoft-fabric'
     },
     {
