@@ -35,8 +35,7 @@ export default function BlogPost() {
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Careers', href: '/careers' }
   ];
 
   const postMeta = {

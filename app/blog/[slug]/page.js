@@ -1305,8 +1305,7 @@ export default function BlogPostPage({ params }) {
     { name: 'Training', href: '/training' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Resources', href: '/resources' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Careers', href: '/careers' }
   ];
 
   const toc = generateTOC(post.content);
