@@ -11,17 +11,17 @@ export default function PowerBIAnalystSyllabus() {
   return (
     <div className="min-h-screen bg-white">
       {/* Print-hidden navigation buttons */}
-      <div className="print:hidden fixed top-4 right-4 z-50 flex gap-3">
+      <div className="print:hidden fixed top-4 left-4 right-4 md:left-auto md:right-4 z-50 flex flex-col md:flex-row gap-3">
         <a
           href="/training"
-          className="bg-white shadow-lg rounded-lg px-4 py-2 flex items-center gap-2 text-gray-700 hover:bg-gray-50 transition"
+          className="bg-white shadow-lg rounded-lg px-4 py-2 flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Training
         </a>
         <button
           onClick={handlePrint}
-          className="bg-teal-600 text-white shadow-lg rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-teal-700 transition"
+          className="bg-teal-600 text-white shadow-lg rounded-lg px-4 py-2 flex items-center justify-center gap-2 hover:bg-teal-700 transition"
         >
           <Printer className="w-4 h-4" />
           Print to PDF
@@ -29,7 +29,7 @@ export default function PowerBIAnalystSyllabus() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto p-8 print:p-12">
+      <div className="max-w-5xl mx-auto pt-32 md:pt-8 px-4 md:px-8 pb-8 print:p-12">
         {/* Header */}
         <header className="mb-12 border-b-4 border-teal-600 pb-8">
           <div className="flex items-start justify-between mb-6">

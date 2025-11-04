@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Calculator, TrendingUp, DollarSign, Clock, Users, CheckCircle, AlertCircle, Download, Mail, Calendar, Menu, X } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 export default function PricingCalculator() {
   const [serviceType, setServiceType] = useState('consulting');
@@ -124,8 +125,7 @@ export default function PricingCalculator() {
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Careers', href: '/careers' }
   ];
 
   return (
@@ -531,8 +531,34 @@ export default function PricingCalculator() {
             </div>
           </div>
 
-          <div className="border-t border-white/20 pt-8 text-center text-sm text-gray-300">
-            <p>&copy; 2024 Ripotek. All rights reserved.</p>
+          <div className="border-t border-white/20 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+              <p className="text-gray-300 text-sm text-center md:text-left">&copy; 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-300">
+                <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 pt-6 border-t border-white/20">
+              <a href="https://www.linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition" aria-label="LinkedIn">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a href="https://www.facebook.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 transition" aria-label="Facebook">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-pink-400 transition" aria-label="Instagram">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-red-500 transition" aria-label="YouTube">
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              <a href="https://github.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100 transition" aria-label="GitHub">
+                <FaGithub className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

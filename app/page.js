@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase, Play, ChevronRight, Star, Rocket } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 export default function RipotekHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -55,8 +56,7 @@ export default function RipotekHomePage() {
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Careers', href: '/careers' }
   ];
 
   const stats = [
@@ -223,8 +223,8 @@ export default function RipotekHomePage() {
                   )}
                 </div>
               ))}
-              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base">
-                Book a Call
+              <a href="/contact" className="bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base">
+                Let's Talk
               </a>
             </div>
 
@@ -252,8 +252,8 @@ export default function RipotekHomePage() {
                   {item.name}
                 </a>
               ))}
-              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="block w-full bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition text-center">
-                Book a Call
+              <a href="/contact" className="block w-full bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition text-center">
+                Let's Talk
               </a>
             </div>
           </div>
@@ -318,7 +318,7 @@ export default function RipotekHomePage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-6 justify-center mb-16">
-              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+              <a href="/contact#book-call" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
                 <Calendar className="w-6 h-6" />
                 <span>Book Discovery Call</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -604,7 +604,7 @@ export default function RipotekHomePage() {
             Let's discuss how we can help you unlock the full potential of your data and AI investments
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
-            <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+            <a href="/contact#book-call" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
               <Calendar className="w-6 h-6" />
               <span>Book Free Discovery Call</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -666,12 +666,33 @@ export default function RipotekHomePage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
-              <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
-              <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+              <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-400">
+                <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 pt-6 border-t border-gray-800">
+              <a href="https://www.linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition" aria-label="LinkedIn">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a href="https://www.facebook.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition" aria-label="Facebook">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              <a href="https://github.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-200 transition" aria-label="GitHub">
+                <FaGithub className="w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>

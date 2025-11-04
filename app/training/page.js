@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Clock, DollarSign, CheckCircle, GraduationCap, ArrowRight, Calendar, Users, Award, Target, Download, FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 export default function TrainingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,8 +25,7 @@ export default function TrainingPage() {
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Resources', href: '/resources' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Careers', href: '/careers' }
   ];
 
   const trainingPrograms = [
@@ -711,12 +711,33 @@ export default function TrainingPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
-              <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
-              <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+              <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-400">
+                <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 pt-6 border-t border-gray-800">
+              <a href="https://www.linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition" aria-label="LinkedIn">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a href="https://www.facebook.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition" aria-label="Facebook">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              <a href="https://github.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-200 transition" aria-label="GitHub">
+                <FaGithub className="w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>
