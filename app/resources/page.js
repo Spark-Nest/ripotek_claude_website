@@ -92,7 +92,7 @@ export default function ResourcesPage() {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</button>
+              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</a>
             </div>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
@@ -109,7 +109,7 @@ export default function ResourcesPage() {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">Let's Talk</button>
+              <a href="/contact" className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition block text-center">Let's Talk</a>
             </div>
           </div>
         )}
@@ -303,26 +303,27 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Blog & Newsletter Coming Soon */}
+      {/* Blog & Insights */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
-            <Zap className="w-4 h-4" />
-            Coming Soon
+            <BookOpen className="w-4 h-4" />
+            Latest Insights
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Blog & Newsletter
+            Blog & Industry Insights
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Stay updated with the latest insights in data engineering, analytics, and AI. Expert articles, tutorials, and industry trends delivered to your inbox.
+            Explore expert articles, tutorials, and industry trends in data engineering, analytics, and AI. Stay ahead with insights from our team.
           </p>
-          <div className="inline-flex items-center gap-4 px-8 py-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20">
-            <Calendar className="w-8 h-8 text-teal-400" />
-            <div className="text-left">
-              <div className="text-2xl font-bold text-white">Q2 2025</div>
-              <div className="text-sm text-gray-300">Launch Date</div>
-            </div>
-          </div>
+          <a
+            href="/blog"
+            className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold hover-lift"
+          >
+            <BookOpen className="w-5 h-5" />
+            Read Our Blog
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
       </section>
 

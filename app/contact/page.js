@@ -66,14 +66,14 @@ export default function ContactPage() {
       icon: Calendar,
       title: 'Book Discovery Call',
       description: 'Schedule a 30-minute consultation with our experts',
-      href: '#',
+      href: '#book-call',
       color: 'from-teal-600 to-cyan-500'
     },
     {
       icon: FileText,
       title: 'Request Proposal',
       description: 'Get a customized proposal for your project',
-      href: '#',
+      href: '#send-message',
       color: 'from-blue-600 to-indigo-500'
     },
     {
@@ -174,7 +174,7 @@ export default function ContactPage() {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</button>
+              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</a>
             </div>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
@@ -209,10 +209,195 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Information Card */}
+      {/* Contact Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 md:p-12 shadow-xl mb-16 hover-lift card-shine">
+          {/* Quick Action Buttons */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              <span className="text-gray-900">Quick </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Actions</span>
+            </h2>
+            <p className="text-center text-gray-600 mb-8">Choose the option that best fits your needs</p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {quickActions.map((action, idx) => (
+                <a
+                  key={idx}
+                  href={action.href}
+                  className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
+                >
+                  <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <action.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{action.title}</h3>
+                  <p className="text-gray-600 text-sm">{action.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Calendly and Contact Form Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            {/* Schedule a Discovery Call - Calendly */}
+            <div id="book-call" className="scroll-mt-24">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+                <div className="bg-gradient-to-r from-teal-600 to-cyan-500 px-8 py-6">
+                  <h2 className="text-3xl font-bold text-white mb-2">Schedule a Discovery Call</h2>
+                  <p className="text-gray-100">Book a free 30-minute consultation</p>
+                </div>
+                <div className="p-8 flex-1 flex items-center justify-center">
+                  <div className="bg-white rounded-xl overflow-hidden w-full" style={{ height: '650px' }}>
+                    <iframe
+                      src="https://calendly.com/paroyal007/30min"
+                      width="100%"
+                      height="650"
+                      frameBorder="0"
+                      title="Schedule a meeting with Ripotek"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Send Us a Message - Contact Form */}
+            <div id="send-message" className="scroll-mt-24">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+                <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-8 py-6">
+                  <h2 className="text-3xl font-bold text-white mb-2">Send Us a Message</h2>
+                  <p className="text-gray-300">We'll get back to you within 24 hours</p>
+                </div>
+
+                {/* Tabs */}
+                <div className="border-b border-gray-200 bg-gray-50 flex-shrink-0">
+                  <div className="flex overflow-x-auto">
+                    {inquiryTabs.map((tab) => (
+                      <button
+                        key={tab.id}
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          setFormData(prev => ({ ...prev, inquiryType: '' }));
+                        }}
+                        className={`flex items-center gap-2 px-6 py-4 font-semibold whitespace-nowrap transition-colors border-b-2 ${
+                          activeTab === tab.id
+                            ? 'border-teal-600 text-teal-600 bg-white'
+                            : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                        }`}
+                      >
+                        <tab.icon className="w-5 h-5" />
+                        {tab.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="p-8 flex-1 overflow-y-auto">
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                        placeholder="John"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                      placeholder="john.doe@example.com"
+                    />
+                  </div>
+
+                  <div className="mb-6">
+                    <label htmlFor="inquiryType" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Inquiry Type *
+                    </label>
+                    <select
+                      id="inquiryType"
+                      name="inquiryType"
+                      value={formData.inquiryType}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition appearance-none bg-white"
+                    >
+                      <option value="">Select an option...</option>
+                      {inquiryTypes[activeTab].map((type, idx) => (
+                        <option key={idx} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="mb-6">
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition resize-none"
+                      placeholder="Tell us about your project, goals, or questions..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-8 py-4 rounded-lg hover:from-teal-700 hover:to-cyan-600 transition shadow-lg hover:shadow-xl font-semibold text-lg flex items-center justify-center gap-2 hover-lift"
+                  >
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </button>
+
+                  <p className="text-center text-gray-600 text-sm mt-4">
+                    By submitting this form, you agree to our Privacy Policy and Terms of Service
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Information Card */}
+          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 md:p-12 shadow-xl hover-lift card-shine">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {contactInfo.map((info, idx) => (
                 <div key={idx} className="text-center">
@@ -248,164 +433,6 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Quick Action Buttons */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-4">
-              <span className="text-gray-900">Quick </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Actions</span>
-            </h2>
-            <p className="text-center text-gray-600 mb-8">Choose the option that best fits your needs</p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {quickActions.map((action, idx) => (
-                <a
-                  key={idx}
-                  href={action.href}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
-                >
-                  <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <action.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{action.title}</h3>
-                  <p className="text-gray-600 text-sm">{action.description}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact Form with Tabs */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-8 py-6">
-              <h2 className="text-3xl font-bold text-white mb-2">Send Us a Message</h2>
-              <p className="text-gray-300">We'll get back to you within 24 hours</p>
-            </div>
-
-            {/* Tabs */}
-            <div className="border-b border-gray-200 bg-gray-50">
-              <div className="flex overflow-x-auto">
-                {inquiryTabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => {
-                      setActiveTab(tab.id);
-                      setFormData(prev => ({ ...prev, inquiryType: '' }));
-                    }}
-                    className={`flex items-center gap-2 px-6 py-4 font-semibold whitespace-nowrap transition-colors border-b-2 ${
-                      activeTab === tab.id
-                        ? 'border-teal-600 text-teal-600 bg-white'
-                        : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                    }`}
-                  >
-                    <tab.icon className="w-5 h-5" />
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="p-8">
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                    placeholder="John"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                    placeholder="Doe"
-                  />
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                  placeholder="john.doe@example.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="inquiryType" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Inquiry Type *
-                </label>
-                <select
-                  id="inquiryType"
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition appearance-none bg-white"
-                >
-                  <option value="">Select an option...</option>
-                  {inquiryTypes[activeTab].map((type, idx) => (
-                    <option key={idx} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition resize-none"
-                  placeholder="Tell us about your project, goals, or questions..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-8 py-4 rounded-lg hover:from-teal-700 hover:to-cyan-600 transition shadow-lg hover:shadow-xl font-semibold text-lg flex items-center justify-center gap-2 hover-lift"
-              >
-                <Send className="w-5 h-5" />
-                Send Message
-              </button>
-
-              <p className="text-center text-gray-600 text-sm mt-4">
-                By submitting this form, you agree to our Privacy Policy and Terms of Service
-              </p>
-            </form>
           </div>
         </div>
       </section>

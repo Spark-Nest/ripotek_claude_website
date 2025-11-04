@@ -1,17 +1,27 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase, Play, ChevronRight, Star, Rocket } from 'lucide-react';
 
 export default function RipotekHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [trainingDropdown, setTrainingDropdown] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Trigger stats animation when section comes into view
+      const statsSection = document.getElementById('stats-section');
+      if (statsSection) {
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setStatsVisible(true);
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -50,10 +60,10 @@ export default function RipotekHomePage() {
   ];
 
   const stats = [
-    { value: '85%', label: 'Graduate Placement', sublabel: 'Within 90 Days' },
-    { value: '50+', label: 'Enterprise Clients', sublabel: 'Across Canada' },
-    { value: '2,000+', label: 'Professionals Trained', sublabel: 'Since 2023' },
-    { value: '$12M+', label: 'Client Value', sublabel: 'Measurable ROI' }
+    { value: 85, suffix: '%', label: 'Graduate Placement', sublabel: 'Within 90 Days', icon: GraduationCap },
+    { value: 50, suffix: '+', label: 'Enterprise Clients', sublabel: 'Across Canada', icon: Building2 },
+    { value: 2000, suffix: '+', label: 'Professionals Trained', sublabel: 'Since 2023', icon: Users },
+    { value: 12, prefix: '$', suffix: 'M+', label: 'Client Value', sublabel: 'Measurable ROI', icon: TrendingUp }
   ];
 
   const partners = [
@@ -85,32 +95,98 @@ export default function RipotekHomePage() {
   ];
 
   const servicesOverview = [
-    { icon: Database, title: 'Data Engineering', description: 'Modern lakehouse architectures on Azure, Databricks & Fabric', link: '/services' },
-    { icon: BarChart3, title: 'Analytics & BI', description: 'Enterprise Power BI dashboards and semantic modeling', link: '/services' },
-    { icon: Brain, title: 'AI & MLOps', description: 'GenAI integration and production-grade machine learning', link: '/services' },
-    { icon: GraduationCap, title: 'Professional Training', description: 'Live instructor-led programs with 85% placement rate', link: '/training' }
+    {
+      icon: Database,
+      title: 'Data Engineering',
+      description: 'Build scalable data platforms with Azure, Databricks & Fabric. Modern lakehouse architectures that power your analytics.',
+      link: '/services',
+      color: 'from-blue-500 to-cyan-500',
+      features: ['Data Lakehouse', 'ETL Pipelines', 'Real-time Processing']
+    },
+    {
+      icon: BarChart3,
+      title: 'Analytics & BI',
+      description: 'Transform data into insights with enterprise Power BI solutions. Self-service analytics at scale.',
+      link: '/services',
+      color: 'from-purple-500 to-pink-500',
+      features: ['Power BI Dashboards', 'Semantic Models', 'Data Governance']
+    },
+    {
+      icon: Brain,
+      title: 'AI & MLOps',
+      description: 'Deploy production-grade AI solutions. From GenAI integration to MLOps automation.',
+      link: '/services',
+      color: 'from-teal-500 to-green-500',
+      features: ['GenAI Integration', 'ML Pipelines', 'Model Monitoring']
+    },
+    {
+      icon: GraduationCap,
+      title: 'Professional Training',
+      description: 'Accelerate your career with industry-leading programs. 85% job placement rate.',
+      link: '/training',
+      color: 'from-orange-500 to-red-500',
+      features: ['Live Instruction', 'Hands-on Projects', 'Career Support']
+    }
   ];
 
   const whyRipotek = [
-    { icon: Target, title: 'Industry Expertise', description: 'Deep experience in Energy, Finance, and Public Sector' },
-    { icon: Users, title: 'Knowledge Transfer', description: 'We train your teams to own the solutions we build' },
-    { icon: Award, title: 'Proven Results', description: '$12M+ in measurable client value since 2023' },
-    { icon: Sparkles, title: 'Modern Stack', description: 'Azure, Databricks, Fabric, Power BI, and cutting-edge AI' }
+    {
+      icon: Target,
+      title: 'Industry Expertise',
+      description: 'Deep experience across Energy, Finance, Healthcare, and Public Sector',
+      stat: '10+ Years'
+    },
+    {
+      icon: Users,
+      title: 'Knowledge Transfer',
+      description: 'We train your teams to own and evolve the solutions we build',
+      stat: '2000+ Trained'
+    },
+    {
+      icon: Award,
+      title: 'Proven Results',
+      description: 'Measurable business impact with every engagement',
+      stat: '$12M+ ROI'
+    },
+    {
+      icon: Sparkles,
+      title: 'Modern Stack',
+      description: 'Azure, Databricks, Fabric, Power BI, and cutting-edge AI',
+      stat: '5 Partners'
+    }
   ];
 
-  const featuredTraining = [
-    { title: 'Azure Data Engineer', duration: '24 Weeks', price: '$3,999', level: 'Intermediate-Advanced', icon: Database },
-    { title: 'Power BI Analyst', duration: '12 Weeks', price: '$1,599', level: 'Beginner-Intermediate', icon: BarChart3 },
-    { title: 'AI Engineer', duration: '24 Weeks', price: '$3,999', level: 'Advanced', icon: Brain }
+  const testimonials = [
+    {
+      quote: "Ripotek transformed our data infrastructure in 6 months. The team's expertise in Azure and Databricks is unmatched.",
+      author: "Sarah Mitchell",
+      role: "VP of Analytics",
+      company: "Major Energy Corp",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+    },
+    {
+      quote: "Their training program gave me the skills to land my dream job. The hands-on approach and career support were invaluable.",
+      author: "James Chen",
+      role: "Data Engineer",
+      company: "Financial Services",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
+    },
+    {
+      quote: "Working with Ripotek has been transformative. They don't just deliver solutions - they build capability.",
+      author: "Maria Garcia",
+      role: "Director of IT",
+      company: "Healthcare Provider",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo as Home Link */}
+            {/* Logo */}
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">R</span>
@@ -127,7 +203,7 @@ export default function RipotekHomePage() {
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap text-sm xl:text-base"
+                    className={`${scrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap text-sm xl:text-base`}
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -147,9 +223,9 @@ export default function RipotekHomePage() {
                   )}
                 </div>
               ))}
-              <button className="bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base">
-                Let's Talk
-              </button>
+              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base">
+                Book a Call
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -176,81 +252,241 @@ export default function RipotekHomePage() {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
-                Let's Talk
-              </button>
+              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="block w-full bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition text-center">
+                Book a Call
+              </a>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with animated gradient */}
+        <div className="absolute inset-0 z-0">
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background - using different source */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1920&h=1080&fit=crop"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
+            <source src="https://player.vimeo.com/external/370467553.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+          </video>
+
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.3) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+
+          {/* Animated particles effect - more visible */}
+          <div className="absolute inset-0 z-10">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-cyan-400 rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+            <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-purple-500 rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }}></div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 py-32">
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-8 backdrop-blur-sm border border-teal-400/30">
+              <Sparkles className="w-5 h-5" />
+              <span>Canada's Premier Data & AI Consultancy</span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              Transform Data Into
+              <span className="block bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent mt-2">
+                Strategic Advantage
+              </span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Enterprise consulting, training, and managed services in <span className="text-teal-400 font-semibold">Azure</span>, <span className="text-teal-400 font-semibold">Databricks</span>, <span className="text-teal-400 font-semibold">Fabric</span>, and <span className="text-teal-400 font-semibold">AI</span>
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-6 justify-center mb-16">
+              <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+                <Calendar className="w-6 h-6" />
+                <span>Book Discovery Call</span>
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="/services" className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
+                <Rocket className="w-6 h-6" />
+                <span>Explore Services</span>
+              </a>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8 text-white/80 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-400" />
+                <span>50+ Enterprise Clients</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-400" />
+                <span>85% Job Placement</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-400" />
+                <span>$12M+ Client ROI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-teal-400 rounded-full"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Animated Stats Section */}
+      <section id="stats-section" className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 opacity-50"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <div key={i} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                  {stat.prefix}{statsVisible ? stat.value : 0}{stat.suffix}
+                </div>
+                <div className="text-gray-900 font-semibold mb-1">{stat.label}</div>
+                <div className="text-sm text-gray-600">{stat.sublabel}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview - Modern Cards */}
+      <section className="py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
-                <Sparkles className="w-4 h-4" />
-                Canada's Premier Data & AI Consultancy
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Transform Data Into
-                <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
-                  Strategic Advantage
-                </span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Enterprise consulting, training, and managed services in Azure, Databricks, Fabric, and AI. We architect solutions that scale, train teams that excel, and deliver outcomes that matter.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl hover:shadow-2xl flex items-center gap-2 text-lg font-semibold hover-lift">
-                  <Calendar className="w-5 h-5" /> Book Discovery Call
-                </a>
-                <a href="/services" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 flex items-center gap-2 text-lg font-semibold hover-lift">
-                  Explore Services <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
-
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 pt-12 border-t border-white/20">
-                {stats.map((stat, i) => (
-                  <div key={i} className="text-center hover-lift cursor-pointer">
-                    <div className="text-3xl font-bold text-teal-400 mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-300">{stat.label}</div>
-                    <div className="text-xs text-gray-500">{stat.sublabel}</div>
-                  </div>
-                ))}
-              </div>
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-bold tracking-widest text-teal-600 uppercase bg-teal-50 px-6 py-3 rounded-full shadow-lg">
+                What We Do
+              </span>
             </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
+              <span className="text-gray-900">Comprehensive </span>
+              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Data Solutions
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              From strategy to implementation, we deliver end-to-end data and AI solutions that drive real business value
+            </p>
+          </div>
 
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 hover-lift">
-              <h3 className="text-2xl font-bold text-white mb-6">Why Industry Leaders Choose Us</h3>
-              <div className="space-y-4">
-                {[
-                  'Governed self-service BI at enterprise scale',
-                  'Azure & Databricks modernization expertise',
-                  'GenAI integration & production MLOps',
-                  '85% training-to-hire placement rate',
-                  'Real-world projects, not theory'
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-teal-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-200">{item}</span>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {servicesOverview.map((service, idx) => (
+              <a
+                key={idx}
+                href={service.link}
+                className="group relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-teal-500/20 overflow-hidden transform hover:-translate-y-2"
+              >
+                {/* Gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+
+                <div className="relative z-10">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <service.icon className="w-8 h-8 text-white" />
                   </div>
-                ))}
-              </div>
+
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                    {service.description}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`}></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-2 text-teal-600 font-semibold group-hover:gap-4 transition-all">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a href="/services" className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-600 to-blue-600 text-white px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-semibold transform hover:scale-105 duration-300">
+              <span>Explore All Services</span>
+              <ChevronRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Ripotek Section */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-bold tracking-widest text-teal-600 uppercase bg-teal-50 px-6 py-3 rounded-full shadow-lg">
+                Why Choose Us
+              </span>
             </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Built Different
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              We're not just consultants—we're your partners in transformation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyRipotek.map((item, idx) => (
+              <div key={idx} className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-bold text-teal-600 mb-3">{item.stat}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
@@ -300,181 +536,132 @@ export default function RipotekHomePage() {
         </div>
       </section>
 
-      {/* Why Ripotek Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Why </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek?</span>
+      {/* Testimonials Section */}
+      <section className="py-24 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-bold tracking-widest text-teal-300 uppercase bg-teal-500/20 px-6 py-3 rounded-full shadow-lg border border-teal-400/30">
+                Client Success Stories
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-tight">
+              Don't Just Take Our Word
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're not just consultants—we're your partners in data transformation
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Hear from the organizations and professionals we've helped transform
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyRipotek.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
-                <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-teal-600" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, idx) => (
+              <div key={idx} className="group bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-white/90 mb-6 leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="text-white font-semibold">{testimonial.author}</div>
+                    <div className="text-teal-300 text-sm">{testimonial.role}</div>
+                    <div className="text-white/60 text-xs">{testimonial.company}</div>
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Overview */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">What We </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Offer</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              End-to-end solutions from strategy to implementation
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {servicesOverview.map((service, idx) => (
-              <a
-                key={idx}
-                href={service.link}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
-              >
-                <service.icon className="w-12 h-12 text-teal-600 mb-4 group-hover:scale-110 transition" />
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <span className="text-teal-600 font-semibold inline-flex items-center gap-2">
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </span>
-              </a>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a href="/services" className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-lg text-lg font-semibold hover-lift">
-              View All Services <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Training Highlight */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Launch Your </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Data Career</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Industry-leading training with hands-on projects and 85% job placement
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {featuredTraining.map((program, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-                <program.icon className="w-12 h-12 text-teal-600 mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {program.duration}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <DollarSign className="w-4 h-4" />
-                    CAD {program.price}
-                  </span>
-                </div>
-                <div className="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-sm rounded-full mb-6">
-                  {program.level}
-                </div>
-                <a href="/training" className="block w-full text-center bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold">
-                  Learn More
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-xl text-center hover-lift card-shine">
-            <GraduationCap className="w-16 h-16 text-teal-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Training-to-Hire Program</h3>
-            <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
-              85% of our graduates secure positions within 90 days. Partner companies across Energy, Financial Services, and Public Sectors actively recruit our talent.
-            </p>
-            <a href="/training" className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold">
-              Explore All Programs <ArrowRight className="w-5 h-5" />
-            </a>
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Data Strategy?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how we can help you unlock the full potential of your data and AI investments.
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920')] bg-cover bg-center opacity-10"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+            Ready to Transform Your
+            <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent mt-2">
+              Data Strategy?
+            </span>
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Let's discuss how we can help you unlock the full potential of your data and AI investments
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Calendar className="w-5 h-5" /> Book Discovery Call
+          <div className="flex flex-wrap gap-6 justify-center">
+            <a href="https://calendly.com/paroyal007/30min" target="_blank" rel="noopener noreferrer" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+              <Calendar className="w-6 h-6" />
+              <span>Book Free Discovery Call</span>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="/ripotek-capabilities-deck.pdf" download className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Download className="w-5 h-5" /> Download Capabilities Deck
+            <a href="/ripotek-capabilities-deck.pdf" download className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
+              <Download className="w-6 h-6" />
+              <span>Download Capabilities Deck</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">R</span>
                 </div>
                 <span className="font-bold text-xl">Ripotek</span>
               </div>
-              <p className="text-gray-400 text-sm">Design. Engineer. Deliver.</p>
+              <p className="text-gray-400 text-sm mb-4">Design. Engineer. Deliver.</p>
+              <p className="text-gray-400 text-sm">
+                Empowering organizations with cutting-edge data and AI solutions.
+              </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/services" className="hover:text-teal-400 transition">Data Architecture</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">MLOps & AI</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">Managed Services</a></li>
+              <h4 className="font-bold mb-6 text-lg">Services</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/services" className="text-gray-400 hover:text-teal-400 transition">Data Engineering</a></li>
+                <li><a href="/services" className="text-gray-400 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services" className="text-gray-400 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services" className="text-gray-400 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Training</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/training" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">Databricks Engineer</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">AI Engineer</a></li>
+              <h4 className="font-bold mb-6 text-lg">Training</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/training" className="text-gray-400 hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training" className="text-gray-400 hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training" className="text-gray-400 hover:text-teal-400 transition">Databricks Engineer</a></li>
+                <li><a href="/training" className="text-gray-400 hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="hover:text-teal-400 transition">Case Studies</a></li>
-                <li><a href="/careers" className="hover:text-teal-400 transition">Careers</a></li>
-                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/about" className="text-gray-400 hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/case-studies" className="text-gray-400 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/blog" className="text-gray-400 hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="/careers" className="text-gray-400 hover:text-teal-400 transition">Careers</a></li>
+                <li><a href="/contact" className="text-gray-400 hover:text-teal-400 transition">Contact</a></li>
               </ul>
             </div>
           </div>

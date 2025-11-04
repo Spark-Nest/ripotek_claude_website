@@ -245,9 +245,9 @@ export default function CaseStudiesPage() {
                   )}
                 </div>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl">
+              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl">
                 Let's Talk
-              </button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -274,9 +274,9 @@ export default function CaseStudiesPage() {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
+              <a href="/contact" className="w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition block text-center">
                 Let's Talk
-              </button>
+              </a>
             </div>
           </div>
         )}
