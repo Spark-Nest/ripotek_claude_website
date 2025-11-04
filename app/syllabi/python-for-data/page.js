@@ -25,7 +25,7 @@ export default function PythonForDataSyllabus() {
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900">Ripotek Technologies Inc.</h1>
-                  <p className="text-gray-600 italic">Design. Engineer. Deliver.</p>
+  <p className="text-gray-700 text-base md:text-lg font-semibold italic">Design. Engineer. Deliver.</p>
                 </div>
               </div>
             </div>

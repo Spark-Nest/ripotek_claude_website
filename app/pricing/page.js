@@ -495,7 +495,7 @@ export default function PricingCalculator() {
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                   <span className="text-teal-600 font-bold text-lg">R</span>
                 </div>
-                <div className="text-xl font-bold">Ripotek</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight">Ripotek</div>
               </div>
               <p className="text-gray-300 text-sm">
                 Empowering organizations with cutting-edge data and AI solutions.
