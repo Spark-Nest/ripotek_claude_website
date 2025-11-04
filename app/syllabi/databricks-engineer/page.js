@@ -9,7 +9,7 @@ export default function DatabricksEngineerSyllabus() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Print-hidden navigation buttons */}
       <div className="print:hidden fixed top-4 left-4 right-4 md:left-auto md:right-4 z-50 flex flex-col md:flex-row gap-3">
         <a
@@ -32,19 +32,19 @@ export default function DatabricksEngineerSyllabus() {
       <div className="max-w-5xl mx-auto pt-32 md:pt-8 px-4 md:px-8 pb-8 print:p-12">
         {/* Header */}
         <header className="mb-12 border-b-4 border-orange-600 pb-8">
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center print:shadow-none shadow-lg">
                   <span className="text-white font-bold text-2xl">R</span>
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">Ripotek Technologies Inc.</h1>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight break-words">Ripotek Technologies Inc.</h1>
   <p className="text-gray-700 text-base md:text-lg font-semibold italic">Design. Engineer. Deliver.</p>
                 </div>
               </div>
             </div>
-            <div className="text-right text-sm text-gray-600">
+            <div className="text-left md:text-right text-sm text-gray-600 break-words max-w-full">
               <p>Calgary, Alberta</p>
               <p>www.ripotek.com</p>
               <p>training@ripotek.com</p>
@@ -690,7 +690,7 @@ export default function DatabricksEngineerSyllabus() {
           </div>
 
           <div className="border-t border-gray-200 pt-6 text-center">
-            <p className="text-gray-600 text-sm mb-2">
+            <p className="text-gray-600 text-sm mb-2 break-words">
               Ripotek Technologies Inc. | Calgary, Alberta, Canada
             </p>
             <p className="text-gray-500 text-xs">

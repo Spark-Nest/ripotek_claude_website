@@ -7,7 +7,7 @@ export default function AzureDataFactoryMasterclassSyllabus() {
   const handlePrint = () => { window.print(); };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <div className="print:hidden fixed top-4 left-4 right-4 md:left-auto md:right-4 z-50 flex flex-col md:flex-row gap-3">
         <a href="/training" className="bg-white shadow-lg rounded-lg px-4 py-2 flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition">
           <ArrowLeft className="w-4 h-4" />Back to Training</a>
@@ -17,19 +17,19 @@ export default function AzureDataFactoryMasterclassSyllabus() {
 
       <div className="max-w-5xl mx-auto pt-32 md:pt-8 px-4 md:px-8 pb-8 print:p-12">
         <header className="mb-12 border-b-4 border-indigo-600 pb-8">
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg print:shadow-none">
                   <span className="text-white font-bold text-2xl">R</span>
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">Ripotek Technologies Inc.</h1>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight break-words">Ripotek Technologies Inc.</h1>
   <p className="text-gray-700 text-base md:text-lg font-semibold italic">Design. Engineer. Deliver.</p>
                 </div>
               </div>
             </div>
-            <div className="text-right text-sm text-gray-600">
+            <div className="text-left md:text-right text-sm text-gray-600 break-words max-w-full">
               <p>Calgary, Alberta</p>
               <p>www.ripotek.com</p>
               <p>training@ripotek.com</p>
@@ -202,7 +202,7 @@ export default function AzureDataFactoryMasterclassSyllabus() {
             <div><h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2"><Globe className="w-5 h-5 text-indigo-600" />Online</h4><p className="text-gray-700 text-sm">www.ripotek.com/training</p></div>
           </div>
           <div className="border-t border-gray-200 pt-6 text-center">
-            <p className="text-gray-600 text-sm mb-2">Ripotek Technologies Inc. | Calgary, Alberta, Canada</p>
+            <p className="text-gray-600 text-sm mb-2 break-words">Ripotek Technologies Inc. | Calgary, Alberta, Canada</p>
             <p className="text-gray-500 text-xs">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
           </div>
         </footer>
