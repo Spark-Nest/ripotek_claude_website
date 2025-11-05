@@ -1589,7 +1589,7 @@ export default function BlogPostPage({ params }) {
                 <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">R</span>
                 </div>
-                <span className="font-bold text-xl">Ripotek</span>
+                <span className="font-bold text-xl">Ripotek Technologies Inc.</span>
               </div>
               <p className="text-gray-400 text-sm">Design. Engineer. Deliver.</p>
             </div>

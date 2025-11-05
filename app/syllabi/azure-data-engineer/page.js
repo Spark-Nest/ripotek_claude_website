@@ -40,7 +40,7 @@ export default function AzureDataEngineerSyllabus() {
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight break-words">Ripotek Technologies Inc.</h1>
-  <p className="text-gray-700 text-base md:text-lg font-semibold italic">Design. Engineer. Deliver.</p>
+  <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>
                 </div>
               </div>
             </div>
@@ -840,3 +840,6 @@ export default function AzureDataEngineerSyllabus() {
     </div>
   );
 }
+
+
+

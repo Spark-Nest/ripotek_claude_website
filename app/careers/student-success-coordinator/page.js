@@ -71,8 +71,8 @@ export default function StudentSuccessCoordinatorPage() {
                 <span className="text-white font-bold text-xl">R</span>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
-                <div className="text-sm md:text-base text-gray-700 font-semibold italic">Design. Engineer. Deliver.</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
 
@@ -713,9 +713,9 @@ export default function StudentSuccessCoordinatorPage() {
                 <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">R</span>
                 </div>
-                <span className="font-extrabold text-2xl md:text-3xl tracking-tight">Ripotek</span>
+                <span className="font-extrabold text-2xl md:text-3xl tracking-tight">Ripotek Technologies Inc.</span>
               </div>
-              <p className="text-gray-300 text-base md:text-lg font-semibold">Design. Engineer. Deliver.</p>
+              <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>
             </div>
 
             <div>
@@ -748,7 +748,7 @@ export default function StudentSuccessCoordinatorPage() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+            <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
             <div className="flex gap-6 text-sm text-gray-400">
               <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
               <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
@@ -759,4 +759,11 @@ export default function StudentSuccessCoordinatorPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
 
