@@ -103,6 +103,114 @@ export default function PricingCalculator() {
     setMonthlyEstimate(monthly);
   };
 
+  const handleDownloadEstimatePDF = () => {
+    const now = new Date();
+    const ref = `RPK-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+    const timelineText = getTimelineEstimate();
+    const serviceSummary = serviceType === 'consulting'
+      ? `Consulting Service: ${selectedConsultingService} • Scope: ${projectScope} • Timeline: ${timeline}`
+      : `Training Program: ${selectedTrainingProgram}`;
+    const managedLine = serviceType === 'consulting' && managedServices
+      ? `<div class="row"><span>Managed Services</span><span>${formatCurrency(monthlyEstimate)}/mo</span></div>`
+      : '';
+
+    const html = `<!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ripotek Estimate ${ref}</title>
+        <style>
+          :root{ --bg:#0b1220; --teal:#0f766e; --cyan:#22d3ee; --ink:#0f172a; --muted:#475569; }
+          *{ box-sizing:border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          @page { size: Letter; margin: 20mm; }
+          html, body{ height:100%; }
+          body{ margin:0; background:#fff; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; color:#0f172a; }
+          .page{ padding:0; }
+          .wrap{ padding:40px 48px; }
+          .letterhead{ display:flex; align-items:center; gap:12px; }
+          .logo{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; background:linear-gradient(135deg,#0f766e,#0b1220); box-shadow:0 8px 24px rgba(2,132,199,.25); }
+          .brand{ line-height:1; }
+          .brand .name{ font-size:18px; font-weight:800; letter-spacing:.2px; background:linear-gradient(90deg,#0b1220,#0f766e); -webkit-background-clip:text; background-clip:text; color:transparent; }
+          .brand .tag{ font-size:10px; color:#64748b; font-style:italic; }
+          .bar{ height:6px; background:linear-gradient(90deg,#0b1220,#0f766e,#22d3ee); border-radius:6px; margin:16px 0 28px; }
+          .title{ font-size:28px; font-weight:800; color:#0b1220; margin:0 0 6px; }
+          .subtitle{ color:#475569; margin:0 0 24px; }
+          .meta{ display:flex; flex-wrap:wrap; gap:16px; margin:8px 0 24px; color:#334155; }
+          .meta div{ font-size:12px; }
+          .card{ border:1px solid #e2e8f0; border-radius:14px; padding:18px 20px; margin:14px 0; }
+          .row{ display:flex; justify-content:space-between; align-items:center; padding:6px 0; font-size:14px; }
+          .muted{ color:#64748b; }
+          .total{ font-size:20px; font-weight:800; color:#0f766e; }
+          .grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+          .section-title{ font-weight:700; font-size:14px; color:#0b1220; margin:18px 0 8px; }
+          .footer{ margin-top:28px; padding-top:16px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; color:#64748b; font-size:12px; }
+          .screen-tip{ font-size:12px; color:#64748b; margin-top:8px; }
+          @media print{ .btn, .screen-tip{ display:none } body{ background:#fff } .wrap{ padding:0 } .grid{ gap:12px } }
+          .btn{ margin-top:12px; padding:10px 14px; border:1px solid #e2e8f0; border-radius:10px; background:#0f766e; color:#fff; font-weight:600; }
+        </style>
+      </head>
+      <body>
+        <div class="page">
+          <div class="wrap">
+          <div class="letterhead">
+            <div class="logo">R</div>
+            <div class="brand">
+              <div class="name">Ripotek Technologies Inc.</div>
+              <div class="tag">Design. Engineer. Deliver.</div>
+            </div>
+          </div>
+          <div class="bar"></div>
+          <h1 class="title">Project Estimate</h1>
+          <p class="subtitle">Modern, professional estimate tailored to your selection.</p>
+          <div class="meta">
+            <div><strong>Ref:</strong> ${ref}</div>
+            <div><strong>Date:</strong> ${now.toLocaleString()}</div>
+            <div><strong>Service:</strong> ${serviceType === 'consulting' ? 'Consulting' : 'Training'}</div>
+          </div>
+
+          <div class="grid">
+            <div class="card">
+              <div class="section-title">Summary</div>
+              <div class="row"><span>${serviceSummary}</span><span></span></div>
+              <div class="row"><span>Team Size</span><span>${teamSize} ${serviceType === 'consulting' ? 'consultant(s)' : 'student(s)'}</span></div>
+              <div class="row"><span>Timeline</span><span>${timelineText}</span></div>
+              ${managedLine}
+            </div>
+            <div class="card">
+              <div class="section-title">Investment</div>
+              ${serviceType === 'training' ? `<div class="row"><span>Program (${selectedTrainingProgram})</span><span>${formatCurrency(trainingProgramPrices[selectedTrainingProgram] || 0)} / person</span></div>` : ''}
+              <div class="row"><span class="muted">Subtotal</span><span class="muted">${formatCurrency(estimate)}</span></div>
+              <div class="row total"><span>Total</span><span>${formatCurrency(estimate)}</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Message</div>
+            <p class="muted">Thank you for considering Ripotek. This estimate is a starting point — we tailor solutions to your goals, team, and timelines. Reply to this PDF or book a discovery call and we’ll finalize a detailed proposal.</p>
+          </div>
+
+          <div class="footer">
+            <div>Ripotek • Calgary, Alberta • info@ripotek.com • +1 306-999-3552</div>
+            <div>ripotek.com</div>
+          </div>
+
+          <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+          <div class="screen-tip">Tip: For best results, enable “Background graphics” in your print dialog.</div>
+          </div>
+        </div>
+      </body>
+    </html>`;
+
+    const w = window.open('', '_blank');
+    if (!w) return;
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    try { setTimeout(() => w.print(), 300); } catch (e) {}
+  };
+
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-CA', {
       style: 'currency',
@@ -546,11 +654,11 @@ export default function PricingCalculator() {
 
                 {/* CTAs */}
                 <div className="space-y-3">
-                  <a href="/contact" className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition">
+                  <a href="/contact#send-message" className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition">
                     <Mail className="w-5 h-5" />
                     Request Detailed Proposal
                   </a>
-                  <button className="w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition border border-white/20">
+                  <button onClick={handleDownloadEstimatePDF} className="w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition border border-white/20">
                     <Download className="w-5 h-5" />
                     Download Estimate PDF
                   </button>
@@ -571,7 +679,7 @@ export default function PricingCalculator() {
           <div className="mt-12 bg-white rounded-2xl shadow-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Let's Talk</h3>
             <p className="text-gray-600 mb-6">Book a free 30-minute discovery call to discuss your specific needs and get a detailed proposal.</p>
-            <a href="/contact" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition inline-flex items-center gap-2">
+            <a href="/contact#book-call" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" />
               Book Discovery Call
             </a>
