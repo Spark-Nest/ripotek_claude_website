@@ -161,7 +161,7 @@ export default function PricingCalculator() {
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-out py-2">
                       {item.dropdown.map((subItem) => (
                         <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors">{subItem.name}</a>
                       ))}
@@ -184,7 +184,12 @@ export default function PricingCalculator() {
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link, i) => (
-                <a key={i} href={link.href} className="block text-gray-700 hover:text-teal-600 transition font-medium py-2">
+                <a
+                  key={i}
+                  href={link.href}
+                  className="block text-gray-700 hover:text-teal-600 transition font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   {link.name}
                 </a>
               ))}

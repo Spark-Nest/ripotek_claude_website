@@ -208,7 +208,7 @@ export default function ContactPage() {
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-out py-2">
                       {item.dropdown.map((subItem) => (
                         <a
                           key={subItem.name}
@@ -290,12 +290,12 @@ export default function ContactPage() {
             {/* Schedule a Discovery Call - Calendly */}
             <div id="book-call" className="scroll-mt-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
-                <div className="bg-gradient-to-r from-teal-600 to-cyan-500 px-8 py-6">
+                <div className="bg-gradient-to-r from-teal-600 to-cyan-500 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Schedule a Discovery Call</h2>
                   <p className="text-gray-100">Book a free 30-minute consultation</p>
                 </div>
-                <div className="p-8 flex-1 flex items-center justify-center">
-                  <div className="bg-white rounded-xl overflow-hidden w-full" style={{ height: '650px' }}>
+                <div className="p-4 sm:p-8 flex-1 flex items-center justify-center">
+                  <div className="bg-white rounded-xl overflow-hidden w-full max-w-full" style={{ height: '650px' }}>
                     <iframe
                       src="https://calendly.com/paroyal007/30min"
                       width="100%"
