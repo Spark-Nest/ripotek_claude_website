@@ -48,6 +48,7 @@ export default function CareersPage() {
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' }

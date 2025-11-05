@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calculator, TrendingUp, DollarSign, Clock, Users, CheckCircle, AlertCircle, Download, Mail, Calendar, Menu, X } from 'lucide-react';
+import { Calculator, TrendingUp, DollarSign, Clock, Users, CheckCircle, AlertCircle, Download, Mail, Calendar, Menu, X, ChevronDown } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 export default function PricingCalculator() {
@@ -154,10 +154,20 @@ export default function PricingCalculator() {
             </a>
 
             <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link, i) => (
-                <a key={i} href={link.href} className="text-gray-700 hover:text-teal-600 transition font-medium">
-                  {link.name}
-                </a>
+              {navLinks.map((item, i) => (
+                <div key={i} className="relative group">
+                  <a href={item.href} className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center gap-1">
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                  </a>
+                  {item.dropdown && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                      {item.dropdown.map((subItem) => (
+                        <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors">{subItem.name}</a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition font-semibold">
                 Get Started

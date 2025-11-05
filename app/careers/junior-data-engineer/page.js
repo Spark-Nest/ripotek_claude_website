@@ -17,10 +17,39 @@ export default function JuniorDataEngineerPage() {
 
   const navigation = [
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Training', href: '/training' },
+    {
+      name: 'Services',
+      href: '/services',
+      dropdown: [
+        { name: 'What we do', href: '/services' },
+        { name: 'Strategy & Governance', href: '/services#strategy-&-governance' },
+        { name: 'Data Platform Build', href: '/services#data-platform-build' },
+        { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
+        { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
+        { name: 'Managed Services', href: '/services#managed-services' },
+        { name: 'Enterprise Training', href: '/services#enterprise-training' }
+      ]
+    },
+    {
+      name: 'Training',
+      href: '/training',
+      dropdown: [
+        { name: 'Ripotek Academy', href: '/training' },
+        { name: 'All Programs', href: '/training#our-programs' },
+        { name: 'Power BI Analyst', href: '/training#power-bi-analyst' },
+        { name: 'Azure Data Engineer', href: '/training#azure-data-engineer' },
+        { name: 'Databricks Engineer', href: '/training#databricks-engineer' },
+        { name: 'AI Engineer', href: '/training#ai-engineer' },
+        { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
+        { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
+        { name: 'Python for Data', href: '/training#python-for-data' },
+        { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
+      ]
+    },
     { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' }
   ];
 
@@ -667,3 +696,4 @@ export default function JuniorDataEngineerPage() {
     </div>
   );
 }
+

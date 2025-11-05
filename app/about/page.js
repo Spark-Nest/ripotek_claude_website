@@ -18,10 +18,39 @@ export default function AboutPage() {
 
   const navigation = [
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Training', href: '/training' },
+    {
+      name: 'Services',
+      href: '/services',
+      dropdown: [
+        { name: 'What we do', href: '/services' },
+        { name: 'Strategy & Governance', href: '/services#strategy-&-governance' },
+        { name: 'Data Platform Build', href: '/services#data-platform-build' },
+        { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
+        { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
+        { name: 'Managed Services', href: '/services#managed-services' },
+        { name: 'Enterprise Training', href: '/services#enterprise-training' }
+      ]
+    },
+    {
+      name: 'Training',
+      href: '/training',
+      dropdown: [
+        { name: 'Ripotek Academy', href: '/training' },
+        { name: 'All Programs', href: '/training#our-programs' },
+        { name: 'Power BI Analyst', href: '/training#power-bi-analyst' },
+        { name: 'Azure Data Engineer', href: '/training#azure-data-engineer' },
+        { name: 'Databricks Engineer', href: '/training#databricks-engineer' },
+        { name: 'AI Engineer', href: '/training#ai-engineer' },
+        { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
+        { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
+        { name: 'Python for Data', href: '/training#python-for-data' },
+        { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
+      ]
+    },
     { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Careers', href: '/careers' }
   ];
 
@@ -65,9 +94,28 @@ export default function AboutPage() {
 
             <div className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
-                  {item.name}
-                </a>
+                <div key={item.name} className="relative group">
+                  <a
+                    href={item.href}
+                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1"
+                  >
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                  </a>
+                  {item.dropdown && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                      {item.dropdown.map((subItem) => (
+                        <a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</a>
             </div>
