@@ -311,7 +311,7 @@ export default function ContactPage() {
             {/* Send Us a Message - Contact Form */}
             <div id="send-message" className="scroll-mt-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
-                <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-8 py-6">
+                <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Send Us a Message</h2>
                   <p className="text-gray-300">We'll get back to you within 24 hours</p>
                 </div>
@@ -340,7 +340,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="p-8 flex-1 overflow-y-auto">
+                <form onSubmit={handleSubmit} className="p-4 sm:p-8 flex-1 overflow-y-auto">
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
