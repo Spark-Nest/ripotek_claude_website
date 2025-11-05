@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, , ChevronDown } from 'lucide-react';
+import { Menu, X, Calendar, Clock, User, ArrowLeft, ArrowRight, Share2, Linkedin, Twitter, Facebook, Mail, ChevronRight, ChevronDown } from 'lucide-react';
 
 // Blog post data
 const blogData = {
