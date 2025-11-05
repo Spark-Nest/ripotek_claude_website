@@ -286,16 +286,16 @@ export default function ContactPage() {
           </div>
 
           {/* Calendly and Contact Form Side by Side */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16">
             {/* Schedule a Discovery Call - Calendly */}
             <div id="book-call" className="scroll-mt-24">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col w-full mx-auto">
                 <div className="bg-gradient-to-r from-teal-600 to-cyan-500 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Schedule a Discovery Call</h2>
                   <p className="text-gray-100">Book a free 30-minute consultation</p>
                 </div>
-                <div className="p-4 sm:p-8 flex-1 flex items-center justify-center">
-                  <div className="bg-white rounded-xl overflow-hidden w-full max-w-full" style={{ height: '650px' }}>
+                <div className="p-4 sm:p-8 flex-1 flex items-center justify-center min-w-0">
+                  <div className="bg-white rounded-xl overflow-hidden w-full max-w-full min-w-0" style={{ height: '650px' }}>
                     <iframe
                       src="https://calendly.com/paroyal007/30min"
                       width="100%"
@@ -310,7 +310,7 @@ export default function ContactPage() {
 
             {/* Send Us a Message - Contact Form */}
             <div id="send-message" className="scroll-mt-24">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col w-full mx-auto">
                 <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Send Us a Message</h2>
                   <p className="text-gray-300">We'll get back to you within 24 hours</p>
@@ -340,7 +340,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="p-4 sm:p-8 flex-1 overflow-y-auto">
+                <form onSubmit={handleSubmit} className="p-4 sm:p-8 flex-1 overflow-y-auto min-w-0">
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
