@@ -211,12 +211,12 @@ export default function TrainingPage() {
           <div className="inline-block px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6">
             Training-to-Hire Model | 85% Placement Rate
           </div>
-          <h1 className="text-5xl font-bold text-white mb-6">
-            <span className="block">Launch Your </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Data Career</span>
+          <h1 className="text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+            <span className="block">Launch your data Career</span>
+            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Industry-leading training programs with hands-on projects, mentorship, and direct pathways to employment.
+            Career-accelerating training with real projects, 1:1 mentorship, and an <span className="text-teal-300 font-semibold">85% placement rate</span> — powered by our Training-to-Hire model.
           </p>
         </div>
       </section>
@@ -244,7 +244,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Training Programs */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50">
+      <section id="our-programs" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">
@@ -272,7 +272,11 @@ export default function TrainingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {filteredPrograms.map((program, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine overflow-hidden relative">
+              <div
+                key={idx}
+                id={program.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+                className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine overflow-hidden relative scroll-mt-24"
+              >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${program.color} opacity-10 rounded-bl-full`}></div>
                 <div className="text-5xl mb-4">{program.image}</div>
                 <program.icon className="w-12 h-12 text-teal-600 mb-4" />
