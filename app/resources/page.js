@@ -104,21 +104,23 @@ export default function ResourcesPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+        <div className="w-full px-6 lg:px-8">
+          <div className="flex items-center h-20">
+            {/* Logo - Far Left */}
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
               </div>
             </a>
 
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation Links - Centered */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 py-2"
+                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 py-2 text-sm xl:text-base whitespace-nowrap"
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -140,8 +142,10 @@ export default function ResourcesPage() {
                   )}
                 </div>
               ))}
-              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</a>
             </div>
+
+            {/* Let's Talk Button - Far Right */}
+            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">Let's Talk</a>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300">
               {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
