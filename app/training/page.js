@@ -263,8 +263,14 @@ export default function TrainingPage() {
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Career-accelerating training with real projects, 1:1 mentorship, and an <span className="text-teal-300 font-semibold">85% placement rate</span> — powered by our Training-to-Hire model.
+            Career-accelerating training with real projects, 1:1 mentorship, and an <span className="text-teal-300 font-semibold">85% placement rate</span> - powered by our Training-to-Hire model.
           </p>
+          {/* CTA scroller cue */}
+          <div className="mt-10 flex justify-center">
+            <a href="#our-programs" className="animate-bounce text-teal-300/90 text-sm px-5 py-2 rounded-full border border-teal-400/40 bg-white/10 hover:bg-white/20 transition backdrop-blur-sm shadow-sm">
+              Explore Programs
+            </a>
+          </div>
         </div>
       </section>
 
@@ -807,8 +813,5 @@ export default function TrainingPage() {
     </div>
   );
 }
-
-
-
 
 
