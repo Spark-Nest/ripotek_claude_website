@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, Award, Briefcase, Calendar, CheckCircle, Heart, Send, Users } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, DollarSign } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
-export default function CareersPage() {
+export default function RefundPolicyPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -54,30 +54,12 @@ export default function CareersPage() {
     { name: 'Careers', href: '/careers' }
   ];
 
-  const careers = [
-    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$130K - $165K + bonus', slug: 'senior-data-architect' },
-    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote', salary: '$80-$120/hour', slug: 'power-bi-instructor' },
-    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB', salary: '$95K - $130K + bonus', slug: 'azure-solutions-consultant' },
-    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$55K - $70K', slug: 'student-success-coordinator' },
-    { title: 'Junior Data Engineer', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$65K - $80K', slug: 'junior-data-engineer' }
-  ];
-
-  const benefits = [
-    'Work on cutting-edge data and AI projects',
-    'Flexible hybrid work model',
-    'Competitive salary and benefits',
-    'Professional development budget',
-    'Collaborative team culture',
-    'Make real impact for clients'
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo as Home Link */}
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">R</span>
@@ -87,7 +69,6 @@ export default function CareersPage() {
               </div>
             </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
@@ -120,7 +101,6 @@ export default function CareersPage() {
               </a>
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300"
@@ -130,7 +110,6 @@ export default function CareersPage() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
@@ -153,147 +132,205 @@ export default function CareersPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="relative pt-32 pb-16 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Join Our Team
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Build the future of data and AI with us. Work on cutting-edge projects that transform how organizations leverage their data.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl hover:shadow-2xl flex items-center gap-2 text-lg font-semibold hover-lift">
-                <Briefcase className="w-5 h-5" /> View Open Positions
-              </a>
-              <a href="#culture" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 flex items-center gap-2 text-lg font-semibold hover-lift">
-                Learn About Our Culture <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Work at Ripotek Section */}
-      <section id="culture" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Why Work at </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek?</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join a team that's passionate about data, innovation, and making a real impact
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Benefits & Perks</h3>
-              <div className="space-y-4">
-                {benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl p-8 shadow-lg text-white hover-lift card-shine">
-              <h3 className="text-2xl font-bold mb-6">Our Commitment</h3>
-              <p className="text-gray-200 leading-relaxed mb-6">
-                At Ripotek, we believe in empowering our team members to grow, innovate, and make meaningful contributions. We foster an inclusive environment where diverse perspectives drive better solutions.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Heart className="w-6 h-6 text-teal-400" />
-                  <span>Mentorship programs</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Users className="w-6 h-6 text-teal-400" />
-                  <span>Community engagement</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-6 h-6 text-teal-400" />
-                  <span>Recognition & rewards</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Open Positions Section */}
-      <section id="positions" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Open </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Positions</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Explore opportunities to join our growing team
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {careers.map((job, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-teal-500 hover-lift card-shine">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h4>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">{job.dept}</span>
-                      <span className="px-3 py-1 bg-teal-50 text-teal-700 text-sm rounded-full">{job.type}</span>
-                    </div>
-                    <p className="text-gray-900 font-semibold text-lg">{job.salary}</p>
-                  </div>
-                  <MapPin className="w-5 h-5 text-gray-400" />
-                </div>
-                <p className="text-gray-600 mb-4 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  {job.location}
-                </p>
-                <a href={`/careers/${job.slug}`} className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2">
-                  View Details <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center bg-gray-50 rounded-2xl p-8 shadow-lg hover-lift card-shine">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Don't see the right role?</h3>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              We're always looking for talented individuals who are passionate about data and AI. Send us your resume and let's explore how you can contribute to our mission.
-            </p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold hover-lift">
-              <Send className="w-5 h-5" />
-              Send Us Your Resume
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Make an Impact?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join a team that's transforming how organizations leverage data and AI. Apply today and help us build the future.
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <DollarSign className="w-16 h-16 text-teal-400 mx-auto mb-6" />
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Refund Policy</h1>
+          <p className="text-xl text-gray-300">
+            Last updated: January 1, 2025
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Briefcase className="w-5 h-5" /> View All Positions
-            </a>
-            <a href="/contact" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Calendar className="w-5 h-5" /> Schedule a Chat
-            </a>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-8">
+
+            <div>
+              <p className="text-gray-700 leading-relaxed">
+                At Ripotek Technologies Inc., we strive to provide exceptional training and consulting services. This Refund Policy outlines the terms and conditions for refunds and cancellations of our services.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Training Program Refunds</h2>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Full Refund Eligibility</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You are eligible for a full refund (100%) if you cancel your enrollment:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>More than 14 days before the program start date</li>
+                <li>Within the first session if you are not satisfied with the program (satisfaction guarantee applies to first-time enrollments only)</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Partial Refund</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Partial refunds are available under the following conditions:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li><strong>7-14 days before start:</strong> 50% refund of the program fee</li>
+                <li><strong>Less than 7 days before start:</strong> No refund available</li>
+                <li><strong>After program commencement:</strong> Refunds are calculated on a pro-rata basis for unused sessions, minus a 25% administrative fee</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Corporate Training Programs</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Corporate and enterprise training programs have customized refund terms outlined in the service agreement. Please refer to your specific contract for cancellation and refund policies.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Consulting Services Refunds</h2>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Project-Based Services</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                For project-based consulting engagements:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Refunds are based on work completed and deliverables provided</li>
+                <li>Cancellation must be provided in writing with 14 days notice</li>
+                <li>Any work completed up to the cancellation date will be billed at the contracted rate</li>
+                <li>Deposits and retainer fees are non-refundable</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Managed Services</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                For ongoing managed services:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Services are billed monthly in advance</li>
+                <li>Cancellation requires 30 days written notice</li>
+                <li>No refunds for partial months of service</li>
+                <li>Final month will be pro-rated based on actual usage</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Refund Request Process</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                To request a refund, please follow these steps:
+              </p>
+              <ol className="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+                <li className="pl-2">
+                  <strong>Submit a written request:</strong> Email your refund request to info@ripotek.com with "Refund Request" in the subject line
+                </li>
+                <li className="pl-2">
+                  <strong>Include required information:</strong>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 ml-8 mt-2">
+                    <li>Your full name and contact information</li>
+                    <li>Program or service name and enrollment/contract date</li>
+                    <li>Reason for cancellation</li>
+                    <li>Original payment method and transaction reference</li>
+                  </ul>
+                </li>
+                <li className="pl-2">
+                  <strong>Await confirmation:</strong> You will receive an email confirmation within 2 business days acknowledging your request
+                </li>
+                <li className="pl-2">
+                  <strong>Review and approval:</strong> Our team will review your request and determine eligibility based on this policy
+                </li>
+              </ol>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Processing Time</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Once your refund is approved:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Refunds will be processed within 10 business days of approval</li>
+                <li>Refunds will be issued to the original payment method</li>
+                <li>Credit card refunds may take an additional 5-10 business days to appear on your statement, depending on your financial institution</li>
+                <li>Wire transfer refunds may be subject to processing fees</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                You will receive an email notification once your refund has been processed.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Non-Refundable Items</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                The following items and fees are non-refundable under all circumstances:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Registration fees and administrative charges</li>
+                <li>Third-party certification exam fees</li>
+                <li>Software licenses and subscriptions purchased through us</li>
+                <li>Digital downloads and course materials accessed or downloaded</li>
+                <li>Promotional or discounted program fees (special pricing terms apply)</li>
+                <li>Travel and accommodation expenses (if applicable)</li>
+                <li>Deposits and retainer fees for consulting services</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Program Transfers</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                As an alternative to cancellation, we offer the following transfer options:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li><strong>Transfer to another program:</strong> You may transfer your enrollment to a different program of equal or lesser value with no penalty if requested more than 7 days before the start date</li>
+                <li><strong>Transfer to future session:</strong> You may defer your enrollment to a future session of the same program once, subject to availability, with at least 7 days notice</li>
+                <li><strong>Transfer fees:</strong> Transfers to programs of greater value will require payment of the difference</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Transfer requests must be submitted in writing to info@ripotek.com.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Ripotek-Initiated Cancellations</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                In the event that Ripotek Technologies Inc. must cancel a program or service:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>You will receive a full refund (100%) of all fees paid</li>
+                <li>You will be notified as soon as possible, typically at least 7 days in advance</li>
+                <li>You will be offered the option to transfer to an alternative program or future session</li>
+                <li>Ripotek is not responsible for any indirect costs such as travel or accommodation</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Exceptional Circumstances</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We understand that unforeseen circumstances may arise. In cases of:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Serious illness or medical emergencies (documentation required)</li>
+                <li>Family emergencies</li>
+                <li>Natural disasters or force majeure events</li>
+                <li>Other extraordinary circumstances beyond your control</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                We will review refund requests on a case-by-case basis. Please contact us at info@ripotek.com to discuss your situation. Documentation may be required to support exceptional circumstance claims.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Information</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                For questions about our refund policy or to submit a refund request, please contact us:
+              </p>
+              <div className="bg-gray-50 p-6 rounded-lg space-y-2">
+                <p className="text-gray-700"><strong>Ripotek Technologies Inc.</strong></p>
+                <p className="text-gray-700">Email: info@ripotek.com</p>
+                <p className="text-gray-700">Phone: +1 306-999-3552</p>
+                <p className="text-gray-700">Address: Calgary, Alberta, Canada</p>
+              </div>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Our team is available Monday through Friday, 9:00 AM to 5:00 PM Mountain Time, to assist with your refund inquiries.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
@@ -388,13 +425,3 @@ export default function CareersPage() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-

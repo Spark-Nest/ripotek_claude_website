@@ -200,7 +200,6 @@ export default function RipotekHomePage() {
               </div>
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
-                <div className={`${scrolled ? 'text-gray-600' : 'text-teal-200'} text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center`}>Design. Engineer. Deliver.</div>
               </div>
             </a>
 
@@ -210,22 +209,24 @@ export default function RipotekHomePage() {
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className={`${scrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap text-sm xl:text-base`}
+                    className={`${scrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap text-sm xl:text-base py-2`}
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-out py-2">
-                      {item.dropdown.map((subItem) => (
-                        <a
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
-                        >
-                          {subItem.name}
-                        </a>
-                      ))}
+                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-white rounded-lg shadow-xl py-2">
+                        {item.dropdown.map((subItem) => (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -684,9 +685,9 @@ export default function RipotekHomePage() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
               <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
               <div className="flex gap-6 text-base text-gray-300">
-                <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
-                <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
-                <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+                <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>
               </div>
             </div>
 

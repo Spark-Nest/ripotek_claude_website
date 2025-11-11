@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, Award, Briefcase, Calendar, CheckCircle, Heart, Send, Users } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, Scale } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
-export default function CareersPage() {
+export default function TermsOfServicePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -54,30 +54,12 @@ export default function CareersPage() {
     { name: 'Careers', href: '/careers' }
   ];
 
-  const careers = [
-    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$130K - $165K + bonus', slug: 'senior-data-architect' },
-    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote', salary: '$80-$120/hour', slug: 'power-bi-instructor' },
-    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB', salary: '$95K - $130K + bonus', slug: 'azure-solutions-consultant' },
-    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$55K - $70K', slug: 'student-success-coordinator' },
-    { title: 'Junior Data Engineer', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$65K - $80K', slug: 'junior-data-engineer' }
-  ];
-
-  const benefits = [
-    'Work on cutting-edge data and AI projects',
-    'Flexible hybrid work model',
-    'Competitive salary and benefits',
-    'Professional development budget',
-    'Collaborative team culture',
-    'Make real impact for clients'
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo as Home Link */}
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">R</span>
@@ -87,7 +69,6 @@ export default function CareersPage() {
               </div>
             </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
@@ -120,7 +101,6 @@ export default function CareersPage() {
               </a>
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300"
@@ -130,7 +110,6 @@ export default function CareersPage() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
@@ -153,147 +132,186 @@ export default function CareersPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="relative pt-32 pb-16 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Join Our Team
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Build the future of data and AI with us. Work on cutting-edge projects that transform how organizations leverage their data.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl hover:shadow-2xl flex items-center gap-2 text-lg font-semibold hover-lift">
-                <Briefcase className="w-5 h-5" /> View Open Positions
-              </a>
-              <a href="#culture" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 flex items-center gap-2 text-lg font-semibold hover-lift">
-                Learn About Our Culture <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Work at Ripotek Section */}
-      <section id="culture" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Why Work at </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek?</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join a team that's passionate about data, innovation, and making a real impact
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Benefits & Perks</h3>
-              <div className="space-y-4">
-                {benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl p-8 shadow-lg text-white hover-lift card-shine">
-              <h3 className="text-2xl font-bold mb-6">Our Commitment</h3>
-              <p className="text-gray-200 leading-relaxed mb-6">
-                At Ripotek, we believe in empowering our team members to grow, innovate, and make meaningful contributions. We foster an inclusive environment where diverse perspectives drive better solutions.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Heart className="w-6 h-6 text-teal-400" />
-                  <span>Mentorship programs</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Users className="w-6 h-6 text-teal-400" />
-                  <span>Community engagement</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-6 h-6 text-teal-400" />
-                  <span>Recognition & rewards</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Open Positions Section */}
-      <section id="positions" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Open </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Positions</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Explore opportunities to join our growing team
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {careers.map((job, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-teal-500 hover-lift card-shine">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h4>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">{job.dept}</span>
-                      <span className="px-3 py-1 bg-teal-50 text-teal-700 text-sm rounded-full">{job.type}</span>
-                    </div>
-                    <p className="text-gray-900 font-semibold text-lg">{job.salary}</p>
-                  </div>
-                  <MapPin className="w-5 h-5 text-gray-400" />
-                </div>
-                <p className="text-gray-600 mb-4 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  {job.location}
-                </p>
-                <a href={`/careers/${job.slug}`} className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2">
-                  View Details <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center bg-gray-50 rounded-2xl p-8 shadow-lg hover-lift card-shine">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Don't see the right role?</h3>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              We're always looking for talented individuals who are passionate about data and AI. Send us your resume and let's explore how you can contribute to our mission.
-            </p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold hover-lift">
-              <Send className="w-5 h-5" />
-              Send Us Your Resume
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Make an Impact?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join a team that's transforming how organizations leverage data and AI. Apply today and help us build the future.
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <Scale className="w-16 h-16 text-teal-400 mx-auto mb-6" />
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Terms of Service</h1>
+          <p className="text-xl text-gray-300">
+            Last updated: January 1, 2025
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Briefcase className="w-5 h-5" /> View All Positions
-            </a>
-            <a href="/contact" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Calendar className="w-5 h-5" /> Schedule a Chat
-            </a>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-8">
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
+              <p className="text-gray-700 leading-relaxed">
+                By accessing and using the services provided by Ripotek Technologies Inc. ("we," "our," or "us"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these Terms of Service, please do not use our services or website.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Use of Services</h2>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Permitted Use</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You may use our services for lawful purposes only. You agree to use our services in compliance with all applicable laws, regulations, and these Terms of Service.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Prohibited Activities</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You agree not to:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Use our services for any illegal or unauthorized purpose</li>
+                <li>Violate any international, federal, provincial, or state regulations</li>
+                <li>Infringe upon or violate our intellectual property rights or the rights of others</li>
+                <li>Transmit any malicious code, viruses, or harmful data</li>
+                <li>Attempt to gain unauthorized access to our systems or networks</li>
+                <li>Interfere with or disrupt the integrity or performance of our services</li>
+                <li>Share login credentials or access to paid training programs</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. User Accounts</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                When you create an account with us, you must provide accurate, complete, and current information. You are responsible for:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Maintaining the confidentiality of your account credentials</li>
+                <li>All activities that occur under your account</li>
+                <li>Notifying us immediately of any unauthorized use of your account</li>
+                <li>Ensuring that your account information remains accurate and up-to-date</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                We reserve the right to suspend or terminate accounts that violate these Terms of Service or are inactive for extended periods.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Intellectual Property</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                All content, materials, and services provided by Ripotek Technologies Inc., including but not limited to:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Training materials, videos, and course content</li>
+                <li>Website design, graphics, and text</li>
+                <li>Software, code, and technical documentation</li>
+                <li>Logos, trademarks, and brand materials</li>
+                <li>Consulting deliverables and methodologies</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                These materials are owned by or licensed to Ripotek Technologies Inc. and are protected by intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Training Programs and Services</h2>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Program Access</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Upon enrollment in our training programs, you receive a limited, non-exclusive, non-transferable license to access the course materials for the duration specified in your enrollment agreement.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Program Requirements</h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>You must attend scheduled sessions as outlined in the program description</li>
+                <li>You are responsible for having the necessary technical requirements and software</li>
+                <li>Completion certificates are awarded based on attendance and assessment criteria</li>
+                <li>Program schedules and content may be modified to reflect industry changes</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">Consulting Services</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Consulting services are provided based on agreed-upon statements of work. Deliverables, timelines, and responsibilities will be outlined in separate service agreements.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Payment Terms</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Payment terms for our services:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>All prices are listed in Canadian Dollars (CAD) unless otherwise specified</li>
+                <li>Payment is required in full prior to program start date or as outlined in your service agreement</li>
+                <li>We accept major credit cards, wire transfers, and other payment methods as specified</li>
+                <li>Prices are subject to change with 30 days notice</li>
+                <li>Corporate training and consulting services may have customized payment terms</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Failure to make timely payments may result in suspension of access to services until payment is received.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cancellation and Refunds</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our cancellation and refund policies are detailed in our <a href="/refund-policy" className="text-teal-600 hover:text-teal-700 underline">Refund Policy</a>. Key points include:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Cancellations must be submitted in writing via email</li>
+                <li>Refund eligibility depends on the timing of cancellation and program type</li>
+                <li>Some services and fees may be non-refundable</li>
+                <li>We reserve the right to cancel programs due to insufficient enrollment</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Please review our complete Refund Policy for detailed information on cancellations, refunds, and transfers.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Limitation of Liability</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                To the maximum extent permitted by law, Ripotek Technologies Inc. shall not be liable for:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Loss of profits, revenue, data, or business opportunities</li>
+                <li>Service interruptions or technical difficulties</li>
+                <li>Errors or inaccuracies in content or materials</li>
+                <li>Third-party actions or content</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Our total liability for any claims arising from or related to our services shall not exceed the amount paid by you for the specific service giving rise to the claim.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Governing Law</h2>
+              <p className="text-gray-700 leading-relaxed">
+                These Terms of Service shall be governed by and construed in accordance with the laws of the Province of Alberta and the federal laws of Canada applicable therein, without regard to conflict of law principles. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Alberta, Canada.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to Terms</h2>
+              <p className="text-gray-700 leading-relaxed">
+                We reserve the right to modify or replace these Terms of Service at any time. We will provide notice of any material changes by posting the new Terms of Service on this page and updating the "Last updated" date. Your continued use of our services after any changes constitutes acceptance of the new Terms of Service.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Information</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                If you have any questions about these Terms of Service, please contact us:
+              </p>
+              <div className="bg-gray-50 p-6 rounded-lg space-y-2">
+                <p className="text-gray-700"><strong>Ripotek Technologies Inc.</strong></p>
+                <p className="text-gray-700">Email: info@ripotek.com</p>
+                <p className="text-gray-700">Phone: +1 306-999-3552</p>
+                <p className="text-gray-700">Address: Calgary, Alberta, Canada</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -388,13 +406,3 @@ export default function CareersPage() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-

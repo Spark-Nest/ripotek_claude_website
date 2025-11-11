@@ -291,22 +291,23 @@ export default function PricingCalculator() {
               </div>
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
-                <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
 
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((item, i) => (
                 <div key={i} className="relative group">
-                  <a href={item.href} className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center gap-1">
+                  <a href={item.href} className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center gap-1 py-2">
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-out py-2">
-                      {item.dropdown.map((subItem) => (
-                        <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors">{subItem.name}</a>
-                      ))}
+                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-white rounded-lg shadow-xl py-2">
+                        {item.dropdown.map((subItem) => (
+                          <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors">{subItem.name}</a>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -688,52 +689,57 @@ export default function PricingCalculator() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-8 mb-8">
+          <div className="grid md:grid-cols-12 gap-12 mb-12">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">R</span>
                 </div>
-                <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-none block text-left truncate">Ripotek Technologies Inc.</span>
+                <div className="min-w-0">
+                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-none block text-left truncate">Ripotek Technologies Inc.</span>
+                  <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
+                </div>
               </div>
-              <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-left">Design. Engineer. Deliver.</p>
-              <p className="text-gray-300 text-base leading-relaxed max-w-xl mt-4">
+              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
                 Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
               </p>
               <div className="mt-6 space-y-3 text-gray-300 text-base">
-                <div>Calgary, Alberta, Canada</div>
-                <div>info@ripotek.com</div>
-                <div>+1 306-999-3552</div>
+                <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
+                <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
               </div>
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/services" className="hover:text-teal-400 transition">Data Architecture</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+              <h4 className="font-bold mb-6 text-lg">Services</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
+                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Training</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/training" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">AI Engineer</a></li>
+              <h4 className="font-bold mb-6 text-lg">Training</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
+                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="hover:text-teal-400 transition">Case Studies</a></li>
-                <li><a href="/careers" className="hover:text-teal-400 transition">Careers</a></li>
-                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
+                <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -741,10 +747,10 @@ export default function PricingCalculator() {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
               <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-              <div className="flex gap-6 text-sm text-gray-400">
-                <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
-                <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
-                <a href="#" className="hover:text-teal-400 transition">Refund Policy</a>
+              <div className="flex gap-6 text-base text-gray-300">
+                <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>
               </div>
             </div>
 
