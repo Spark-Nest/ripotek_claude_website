@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, Award, Users, Target, Eye, Heart, Lightbulb, Shield, MapPin, Mail, Phone, Linkedin } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
@@ -83,9 +84,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
+              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
               </div>
@@ -261,7 +260,7 @@ export default function AboutPage() {
             {team.map((member, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border border-gray-100">
                 <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  <Image src={member.image} alt={member.name} fill className="object-cover" sizes="128px" />
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-1 text-center">{member.name}</h4>
                 <p className="text-teal-600 font-semibold mb-4 text-center">{member.role}</p>
@@ -304,9 +303,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-12 gap-12 mb-12">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">R</span>
-                </div>
+                <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <div className="min-w-0">
                   <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
@@ -388,7 +385,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-
-
-

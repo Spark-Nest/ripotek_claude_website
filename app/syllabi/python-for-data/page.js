@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Printer, ArrowLeft, Code, Clock, DollarSign, Calendar, Award, CheckCircle, BookOpen, Briefcase, Mail, Phone, Globe } from 'lucide-react';
 
 export default function PythonForDataSyllabus() {
@@ -20,9 +21,7 @@ export default function PythonForDataSyllabus() {
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg print:shadow-none">
-                  <span className="text-white font-bold text-2xl">R</span>
-                </div>
+                <Image src="/favicon.svg" alt="Ripotek logo" width={64} height={64} className="w-16 h-16 rounded-lg shadow-lg print:shadow-none" />
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight break-words">Ripotek Technologies Inc.</h1>
   <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>

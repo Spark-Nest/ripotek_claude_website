@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, BookOpen, CheckCircle, Download, FileText, Video, Code } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
@@ -106,9 +107,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
+              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
               </div>
@@ -232,7 +231,7 @@ export default function ResourcesPage() {
             {demoVideos.map((video, idx) => (
               <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift card-shine group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+                  <Image src={video.thumbnail} alt={video.title} fill className="object-cover group-hover:scale-110 transition duration-500" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
                     <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition">
                       <Video className="w-8 h-8 text-teal-600 ml-1" />
@@ -489,9 +488,7 @@ export default function ResourcesPage() {
           <div className="grid md:grid-cols-12 gap-12 mb-12">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">R</span>
-                </div>
+                <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <div className="min-w-0">
                   <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
@@ -573,7 +570,3 @@ export default function ResourcesPage() {
     </div>
   );
 }
-
-
-
-

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, Calendar, Clock, User, ArrowLeft, ArrowRight, Share2, Linkedin, Twitter, Facebook, Mail, ChevronRight, ChevronDown } from 'lucide-react';
 
 // Blog post data
@@ -1352,9 +1353,7 @@ export default function BlogPostPage({ params }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
+              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
                 <div className="text-xs text-gray-600 italic">Design. Engineer. Deliver.</div>
@@ -1471,7 +1470,7 @@ export default function BlogPostPage({ params }) {
       {/* Featured Image */}
       <section className="py-0 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img src={post.featuredImage} alt={post.title} className="w-full h-96 object-cover rounded-2xl shadow-lg -mt-12" />
+          <Image src={post.featuredImage} alt={post.title} width={1200} height={600} className="w-full h-96 object-cover rounded-2xl shadow-lg -mt-12" />
         </div>
       </section>
 
@@ -1497,7 +1496,7 @@ export default function BlogPostPage({ params }) {
 
                 {/* Author Card in Sidebar */}
                 <div className="mt-8 bg-gray-50 rounded-2xl p-6 hover-lift card-shine">
-                  <img src={post.author.image} alt={post.author.name} className="w-20 h-20 rounded-full mx-auto mb-4" />
+                  <Image src={post.author.image} alt={post.author.name} width={80} height={80} className="w-20 h-20 rounded-full mx-auto mb-4" />
                   <h4 className="font-bold text-gray-900 text-center mb-1">{post.author.name}</h4>
                   <p className="text-sm text-teal-600 text-center mb-3">{post.author.role}</p>
                   <p className="text-sm text-gray-600 text-center">{post.author.bio}</p>
@@ -1513,7 +1512,7 @@ export default function BlogPostPage({ params }) {
 
               {/* Author Card - Mobile */}
               <div className="lg:hidden mt-12 bg-gray-50 rounded-2xl p-6 hover-lift card-shine">
-                <img src={post.author.image} alt={post.author.name} className="w-20 h-20 rounded-full mx-auto mb-4" />
+                <Image src={post.author.image} alt={post.author.name} width={80} height={80} className="w-20 h-20 rounded-full mx-auto mb-4" />
                 <h4 className="font-bold text-gray-900 text-center mb-1">{post.author.name}</h4>
                 <p className="text-sm text-teal-600 text-center mb-3">{post.author.role}</p>
                 <p className="text-sm text-gray-600 text-center">{post.author.bio}</p>
@@ -1548,7 +1547,7 @@ export default function BlogPostPage({ params }) {
               {relatedPosts.map(([relatedSlug, relatedPost]) => (
                 <article key={relatedSlug} className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift card-shine">
                   <div className="relative h-48 overflow-hidden">
-                    <img src={relatedPost.featuredImage} alt={relatedPost.title} className="w-full h-full object-cover" />
+                    <Image src={relatedPost.featuredImage} alt={relatedPost.title} fill className="object-cover" sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 100vw" />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-teal-600 text-white text-sm font-semibold rounded-full">
                         {relatedPost.category}
@@ -1586,9 +1585,7 @@ export default function BlogPostPage({ params }) {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">R</span>
-                </div>
+                <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <span className="font-bold text-xl">Ripotek Technologies Inc.</span>
               </div>
               <p className="text-gray-400 text-sm">Design. Engineer. Deliver.</p>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowLeft, Calendar, Clock, User, Linkedin, Twitter, Mail, ChevronRight, CheckCircle, Zap, DollarSign, TrendingUp } from 'lucide-react';
 
 export default function BlogPost() {
@@ -123,9 +124,7 @@ export default function BlogPost() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
+              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
                 <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
@@ -235,7 +234,7 @@ export default function BlogPost() {
             {/* Main Article */}
             <article className="lg:col-span-8">
               <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
-                <img src={postMeta.image} alt={postMeta.title} className="w-full h-64 lg:h-96 object-cover rounded-xl mb-12" />
+                <Image src={postMeta.image} alt={postMeta.title} width={1200} height={600} className="w-full h-64 lg:h-96 object-cover rounded-xl mb-12" />
 
                 <div className="prose prose-lg max-w-none">
                   <p className="text-xl text-gray-700 leading-relaxed mb-8">
@@ -580,9 +579,7 @@ export default function BlogPost() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">R</span>
-                </div>
+                <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <span className="font-extrabold text-2xl md:text-3xl tracking-tight">Ripotek Technologies Inc.</span>
               </div>
               <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>
