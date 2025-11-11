@@ -275,11 +275,11 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            <span className="block">Our </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 md:whitespace-nowrap">
+            <span>Our </span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Services</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto md:whitespace-nowrap">
             End-to-end consulting and managed services across the modern data and AI stack
           </p>
         </div>
@@ -494,9 +494,6 @@ export default function ServicesPage() {
     </div>
   );
 }
-
-
-
 
 
 

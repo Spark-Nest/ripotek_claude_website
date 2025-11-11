@@ -347,11 +347,11 @@ export default function PricingCalculator() {
           {/* Header */}
           <div className="text-center mb-12">
             <Calculator className="w-16 h-16 text-teal-400 mx-auto mb-4" />
-            <h1 className="text-4xl font-bold mb-4 text-white whitespace-nowrap">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white md:whitespace-nowrap">
               <span className="text-white">Investment </span>
               <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Calculator</span>
             </h1>
-            <p className="text-xl text-gray-200 mx-auto whitespace-nowrap">
+            <p className="text-base md:text-xl text-gray-200 mx-auto md:whitespace-nowrap">
               Get an instant estimate for your data transformation project or training program
             </p>
           </div>
@@ -778,7 +778,6 @@ export default function PricingCalculator() {
     </div>
   );
 }
-
 
 
 

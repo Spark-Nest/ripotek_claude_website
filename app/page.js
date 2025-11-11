@@ -604,7 +604,7 @@ export default function RipotekHomePage() {
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
             Ready to Transform Your
-            <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent mt-2 pb-1">
               Data Strategy?
             </span>
           </h2>
@@ -715,7 +715,3 @@ export default function RipotekHomePage() {
     </div>
   );
 }
-
-
-
-

@@ -467,9 +467,10 @@ export default function CaseStudiesPage() {
             <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Calendar className="w-5 h-5" /> Book Discovery Call
             </a>
-            <a href="/services" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Download className="w-5 h-5" /> Download Capabilities Deck
-            </a>
+            <span aria-disabled="true" title="Coming soon"
+              className="bg-white/10 text-white px-8 py-4 rounded-lg transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 opacity-60 cursor-not-allowed pointer-events-none">
+              <Download className="w-5 h-5" /> Capabilities Deck (Coming Soon)
+            </span>
           </div>
           
         </div>
