@@ -197,7 +197,7 @@ export default function BlogPage() {
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold text-white mb-6">
-            <span className="block">Blog & </span>
+            <span>Blog & </span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Insights</span>
           </h1>
           <p className="text-xl text-gray-300">
@@ -335,7 +335,7 @@ export default function BlogPage() {
                   <span className="text-white font-bold">R</span>
                 </div>
                 <div className="min-w-0">
-                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-none block text-left truncate">Ripotek Technologies Inc.</span>
+                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
                 </div>
               </div>
@@ -352,20 +352,20 @@ export default function BlogPage() {
             <div className="md:col-span-2">
               <h4 className="font-bold mb-6 text-lg">Services</h4>
               <ul className="space-y-3 text-base">
-                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
-                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
+                <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
+                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-2">
               <h4 className="font-bold mb-6 text-lg">Training</h4>
               <ul className="space-y-3 text-base">
-                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
-                <li><a href="/training" className="text-gray-300 hover:text-teal-400 transition">AI Engineer</a></li>
+                <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
+                <li><a href="/training#ai-engineer" className="text-gray-300 hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
 
@@ -415,11 +415,6 @@ export default function BlogPage() {
     </div>
   );
 }
-
-
-
-
-
 
 
 

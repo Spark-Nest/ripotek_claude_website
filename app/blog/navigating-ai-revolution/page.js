@@ -652,18 +652,18 @@ export default function BlogPost() {
             <div>
               <h4 className="font-bold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/services" className="hover:text-teal-400 transition">Data Architecture</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+                <li><a href="/services#strategy-&-governance" className="hover:text-teal-400 transition">Data Architecture</a></li>
+                <li><a href="/services#analytics-&-bi" className="hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-&-ai" className="hover:text-teal-400 transition">MLOps & AI</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold mb-4">Training</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/training" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training" className="hover:text-teal-400 transition">AI Engineer</a></li>
+                <li><a href="/training#power-bi-analyst" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training#azure-data-engineer" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training#ai-engineer" className="hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
 
