@@ -192,17 +192,30 @@ export default function BlogPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
+      {/* Hero Section - Content/Insights Theme */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" poster="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920&h=1080&fit=crop">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-writer-typing-on-laptop-4621-large.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)', backgroundSize: '60px 60px', animation: 'gridFlow 20s linear infinite'}}></div>
+          <div className="absolute inset-0 z-10">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-purple-500 rounded-full blur-3xl opacity-25 animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse" style={{animationDelay: '1s', animationDuration: '3s'}}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s', animationDuration: '4s'}}></div>
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-30">
+          <h1 className="text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span>Blog & </span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Insights</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-gray-300 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
             Expert perspectives on data engineering, AI, business intelligence, and career development in the modern data landscape.
           </p>
         </div>
+        <style jsx>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-fadeInUp{animation:fadeInUp 1s ease-out;animation-fill-mode:both}@keyframes gridFlow{0%{transform:translateY(0)}100%{transform:translateY(60px)}}`}</style>
       </section>
 
       {/* Search and Filter Section */}

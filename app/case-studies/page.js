@@ -217,23 +217,23 @@ export default function CaseStudiesPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo as Home Link */}
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+        <div className="w-full px-6 lg:px-8">
+          <div className="flex items-center h-20">
+            {/* Logo - Far Left */}
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
               </div>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation Links - Centered */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 py-2"
+                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 py-2 text-sm xl:text-base whitespace-nowrap"
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -255,10 +255,12 @@ export default function CaseStudiesPage() {
                   )}
                 </div>
               ))}
-              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl">
-                Let's Talk
-              </a>
             </div>
+
+            {/* Let's Talk Button - Far Right */}
+            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">
+              Let's Talk
+            </a>
 
             {/* Mobile menu button */}
             <button
@@ -293,22 +295,63 @@ export default function CaseStudiesPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-businesswoman-reading-her-documents-in-an-office-4611-large.mp4" type="video/mp4" />
+          </video>
+
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+              animation: 'gridFlow 20s linear infinite'
+            }}></div>
+          </div>
+
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+
+          {/* Floating themed icons */}
+          <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-teal-400/30 rounded-full animate-float hidden md:flex items-center justify-center">
+            <Award className="w-6 h-6 text-teal-400/40" />
+          </div>
+          <div className="absolute bottom-1/3 left-1/3 w-16 h-16 border-2 border-blue-400/30 rounded-lg animate-float hidden md:flex items-center justify-center" style={{animationDelay: '1s'}}>
+            <Star className="w-8 h-8 text-blue-400/40" />
+          </div>
+          <div className="absolute top-1/2 right-1/3 w-10 h-10 border-2 border-cyan-400/30 rounded-full animate-float hidden md:flex items-center justify-center" style={{animationDelay: '2s'}}>
+            <CheckCircle className="w-5 h-5 text-cyan-400/40" />
+          </div>
+
+          {/* Scanline effect */}
+          <div className="absolute inset-0 opacity-10" style={{
+            background: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 2px, transparent 4px)',
+            pointerEvents: 'none'
+          }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-30">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm animate-fadeIn">
               <Award className="w-4 h-4" />
               Proven Results Across Industries
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
               Case Studies
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fadeInUp" style={{animationDelay: '0.2s'}}>
               Real transformations that drive measurable business impact. From strategy to implementation, see how we help organizations unlock the full potential of their data and AI investments.
             </p>
           </div>
@@ -316,7 +359,7 @@ export default function CaseStudiesPage() {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center bg-white/10 backdrop-blur-lg rounded-xl p-6 hover-lift border border-white/20">
+              <div key={i} className="text-center bg-white/10 backdrop-blur-lg rounded-xl p-6 hover-lift border border-white/20 animate-fadeInUp" style={{animationDelay: `${0.3 + i * 0.1}s`}}>
                 <div className="text-3xl font-bold text-teal-400 mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-300">{stat.label}</div>
                 <div className="text-xs text-gray-500">{stat.sublabel}</div>
@@ -324,6 +367,60 @@ export default function CaseStudiesPage() {
             ))}
           </div>
         </div>
+
+        {/* CSS Animations */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0) rotate(0deg);
+            }
+            50% {
+              transform: translateY(-20px) rotate(5deg);
+            }
+          }
+
+          @keyframes gridFlow {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              transform: translateY(50px);
+            }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+          }
+
+          .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+          }
+
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* Case Studies Grid */}

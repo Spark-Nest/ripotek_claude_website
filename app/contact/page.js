@@ -244,17 +244,105 @@ export default function ContactPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
+      {/* Hero Section - Communication/Connection Theme */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Layered Background */}
+        <div className="absolute inset-0 z-0">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background - Connection/Communication themed */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-handshake-between-two-business-people-4623-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-professional-business-meeting-4629-large.mp4" type="video/mp4" />
+          </video>
+
+          {/* Animated connection pattern overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            animation: 'gridFlow 20s linear infinite'
+          }}></div>
+
+          {/* Floating gradient orbs - Warm connection colors */}
+          <div className="absolute inset-0 z-10">
+            <div className="absolute top-10 left-10 md:left-20 w-64 md:w-80 h-64 md:h-80 bg-cyan-500 rounded-full blur-3xl opacity-25 animate-pulse"></div>
+            <div className="absolute top-10 right-10 md:right-20 w-72 md:w-96 h-72 md:h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+
+            {/* Floating communication icons */}
+            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-cyan-400/30 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0s' }}>
+              <Mail className="w-6 h-6 text-cyan-400/40" />
+            </div>
+            <div className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-teal-400/40 rounded-lg animate-float flex items-center justify-center" style={{ animationDelay: '1.5s' }}>
+              <Phone className="w-6 h-6 text-teal-400/50" />
+            </div>
+            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-blue-400/20 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0.8s' }}>
+              <Send className="w-7 h-7 text-blue-400/30" />
+            </div>
+            <div className="hidden md:flex absolute top-1/5 right-1/3 w-10 h-10 border-2 border-purple-400/30 rounded-lg animate-float items-center justify-center" style={{ animationDelay: '2s' }}>
+              <MessageCircle className="w-5 h-5 text-purple-400/40" />
+            </div>
+          </div>
+
+          {/* Subtle scanline effect */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px)'
+          }}></div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto text-center relative z-30">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span className="block">Get In </span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Touch</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-gray-300 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             Let's discuss how we can help transform your data strategy or launch your data career. Our team is ready to connect.
           </p>
         </div>
+
+        {/* Custom animations */}
+        <style jsx>{`
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-8px) rotate(-5deg); }
+            75% { transform: translateY(-18px) rotate(3deg); }
+          }
+
+          @keyframes gridFlow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+          }
+
+          .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+          }
+
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* Contact Section */}

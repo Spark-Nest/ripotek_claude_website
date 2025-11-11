@@ -151,22 +151,69 @@ export default function CareersPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+      {/* Hero Section - Careers/Growth Theme */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Layered Background */}
+        <div className="absolute inset-0 z-0">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background - Growth/Success themed */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-team-discussing-ideas-in-an-office-4627-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-brainstorming-session-in-modern-office-4628-large.mp4" type="video/mp4" />
+          </video>
+
+          {/* Animated grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            animation: 'gridFlow 20s linear infinite'
+          }}></div>
+
+          {/* Floating gradient orbs - Opportunity colors */}
+          <div className="absolute inset-0 z-10">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+
+            {/* Floating career icons */}
+            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-teal-400/30 rounded-lg animate-float flex items-center justify-center" style={{ animationDelay: '0s' }}>
+              <Briefcase className="w-6 h-6 text-teal-400/40" />
+            </div>
+            <div className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-blue-400/40 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '1.5s' }}>
+              <Users className="w-6 h-6 text-blue-400/50" />
+            </div>
+            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-purple-400/20 rounded-lg animate-float flex items-center justify-center" style={{ animationDelay: '0.8s' }}>
+              <Award className="w-7 h-7 text-purple-400/30" />
+            </div>
+            <div className="hidden md:flex absolute top-1/5 right-1/3 w-10 h-10 border-2 border-cyan-400/30 rounded-full animate-float items-center justify-center" style={{ animationDelay: '2s' }}>
+              <Heart className="w-5 h-5 text-cyan-400/40" />
+            </div>
+          </div>
+
+          {/* Subtle scanline effect */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px)'
+          }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-30">
           <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
               Join Our Team
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Build the future of data and AI with us. Work on cutting-edge projects that transform how organizations leverage their data.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
               <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl hover:shadow-2xl flex items-center gap-2 text-lg font-semibold hover-lift">
                 <Briefcase className="w-5 h-5" /> View Open Positions
               </a>
@@ -176,6 +223,41 @@ export default function CareersPage() {
             </div>
           </div>
         </div>
+
+        {/* Custom animations */}
+        <style jsx>{`
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-8px) rotate(-5deg); }
+            75% { transform: translateY(-18px) rotate(3deg); }
+          }
+
+          @keyframes gridFlow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+          }
+
+          .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+          }
+
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* Why Work at Ripotek Section */}

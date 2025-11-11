@@ -108,12 +108,92 @@ export default function PricingCalculator() {
     const now = new Date();
     const ref = `RPK-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
     const timelineText = getTimelineEstimate();
-    const serviceSummary = serviceType === 'consulting'
-      ? `Consulting Service: ${selectedConsultingService} • Scope: ${projectScope} • Timeline: ${timeline}`
-      : `Training Program: ${selectedTrainingProgram}`;
-    const managedLine = serviceType === 'consulting' && managedServices
-      ? `<div class="row"><span>Managed Services</span><span>${formatCurrency(monthlyEstimate)}/mo</span></div>`
-      : '';
+
+    // Build detailed line items based on service type
+    let lineItems = '';
+    let subtotal = 0;
+
+    if (serviceType === 'consulting') {
+      // Base project cost
+      const scopePricing = {
+        small: 50000,
+        medium: 150000,
+        large: 250000,
+        enterprise: 400000
+      };
+      let basePrice = scopePricing[projectScope] || 150000;
+
+      // Timeline adjustment
+      let timelineMultiplier = 1;
+      let timelineLabel = '';
+      if (timeline === 'rush') {
+        timelineMultiplier = 1.25;
+        timelineLabel = ' (Rush +25%)';
+      } else if (timeline === 'extended') {
+        timelineMultiplier = 0.9;
+        timelineLabel = ' (Flexible -10%)';
+      }
+
+      const adjustedBase = basePrice * timelineMultiplier;
+      lineItems += `<div class="line-item">
+        <div class="line-desc">
+          <div class="line-name">${selectedConsultingService} - ${projectScope.charAt(0).toUpperCase() + projectScope.slice(1)} Scope${timelineLabel}</div>
+          <div class="line-detail">${timelineText} timeline • Discovery, implementation, testing & deployment</div>
+        </div>
+        <div class="line-amount">${formatCurrency(adjustedBase)}</div>
+      </div>`;
+      subtotal += adjustedBase;
+
+      // Additional consultants
+      if (teamSize > 1) {
+        const additionalCost = (teamSize - 1) * 40000;
+        lineItems += `<div class="line-item">
+          <div class="line-desc">
+            <div class="line-name">Additional Consultants (${teamSize - 1})</div>
+            <div class="line-detail">${formatCurrency(40000)} per consultant</div>
+          </div>
+          <div class="line-amount">${formatCurrency(additionalCost)}</div>
+        </div>`;
+        subtotal += additionalCost;
+      }
+
+      // Training add-on
+      if (training) {
+        lineItems += `<div class="line-item">
+          <div class="line-desc">
+            <div class="line-name">Team Training Workshops</div>
+            <div class="line-detail">Knowledge transfer and hands-on sessions</div>
+          </div>
+          <div class="line-amount">${formatCurrency(15000)}</div>
+        </div>`;
+        subtotal += 15000;
+      }
+
+      // Managed services (recurring)
+      if (managedServices) {
+        lineItems += `<div class="line-item recurring">
+          <div class="line-desc">
+            <div class="line-name">Managed Services (Ongoing)</div>
+            <div class="line-detail">24/7 monitoring, optimization & support</div>
+          </div>
+          <div class="line-amount">${formatCurrency(monthlyEstimate)}/month</div>
+        </div>`;
+      }
+
+    } else {
+      // Training program
+      const pricePerPerson = trainingProgramPrices[selectedTrainingProgram] || 1599;
+      const totalTraining = pricePerPerson * teamSize;
+
+      lineItems += `<div class="line-item">
+        <div class="line-desc">
+          <div class="line-name">${selectedTrainingProgram}</div>
+          <div class="line-detail">${trainingProgramTimelines[selectedTrainingProgram] || '12 weeks'} • ${teamSize} student${teamSize > 1 ? 's' : ''} × ${formatCurrency(pricePerPerson)}</div>
+        </div>
+        <div class="line-amount">${formatCurrency(totalTraining)}</div>
+      </div>`;
+      subtotal += totalTraining;
+    }
 
     const html = `<!doctype html>
     <html>
@@ -126,90 +206,168 @@ export default function PricingCalculator() {
           *{ box-sizing:border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           @page { size: Letter; margin: 20mm; }
           html, body{ height:100%; }
-          body{ margin:0; background:#fff; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; color:#0f172a; }
+          body{ margin:0; background:#fff; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; color:#0f172a; font-size:14px; line-height:1.5; }
           .page{ padding:0; }
-          .wrap{ padding:40px 48px; }
-          .letterhead{ display:flex; align-items:center; gap:12px; }
-          .logo{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; background:linear-gradient(135deg,#0f766e,#0b1220); box-shadow:0 8px 24px rgba(2,132,199,.25); }
-          .brand{ line-height:1; }
+          .wrap{ padding:40px 48px; max-width:800px; margin:0 auto; }
+          .letterhead{ display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+          .logo{ width:44px; height:44px; border-radius:12px; box-shadow:0 8px 24px rgba(2,132,199,.25); }
+          .brand{ line-height:1.2; }
           .brand .name{ font-size:18px; font-weight:800; letter-spacing:.2px; background:linear-gradient(90deg,#0b1220,#0f766e); -webkit-background-clip:text; background-clip:text; color:transparent; }
-          .brand .tag{ font-size:10px; color:#64748b; font-style:italic; }
-          .bar{ height:6px; background:linear-gradient(90deg,#0b1220,#0f766e,#22d3ee); border-radius:6px; margin:16px 0 28px; }
+          .brand .tag{ font-size:10px; color:#64748b; font-style:italic; margin-top:2px; }
+          .bar{ height:6px; background:linear-gradient(90deg,#0b1220,#0f766e,#22d3ee); border-radius:6px; margin:16px 0 24px; }
           .title{ font-size:28px; font-weight:800; color:#0b1220; margin:0 0 6px; }
-          .subtitle{ color:#475569; margin:0 0 24px; }
-          .meta{ display:flex; flex-wrap:wrap; gap:16px; margin:8px 0 24px; color:#334155; }
-          .meta div{ font-size:12px; }
-          .card{ border:1px solid #e2e8f0; border-radius:14px; padding:18px 20px; margin:14px 0; }
-          .row{ display:flex; justify-content:space-between; align-items:center; padding:6px 0; font-size:14px; }
-          .muted{ color:#64748b; }
-          .total{ font-size:20px; font-weight:800; color:#0f766e; }
-          .grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-          .section-title{ font-weight:700; font-size:14px; color:#0b1220; margin:18px 0 8px; }
-          .footer{ margin-top:28px; padding-top:16px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; color:#64748b; font-size:12px; }
-          .screen-tip{ font-size:12px; color:#64748b; margin-top:8px; }
-          @media print{ .btn, .screen-tip{ display:none } body{ background:#fff } .wrap{ padding:0 } .grid{ gap:12px } }
-          .btn{ margin-top:12px; padding:10px 14px; border:1px solid #e2e8f0; border-radius:10px; background:#0f766e; color:#fff; font-weight:600; }
+          .subtitle{ color:#475569; margin:0 0 20px; font-size:15px; }
+          .meta{ display:flex; flex-wrap:wrap; gap:20px; margin:0 0 28px; padding:16px 20px; background:#f8fafc; border-radius:12px; border:1px solid #e2e8f0; }
+          .meta div{ font-size:13px; color:#334155; }
+          .meta strong{ color:#0b1220; font-weight:600; }
+
+          .section-title{ font-weight:700; font-size:16px; color:#0b1220; margin:28px 0 14px; padding-bottom:8px; border-bottom:2px solid #0f766e; }
+
+          .line-items{ border:1px solid #e2e8f0; border-radius:12px; padding:0; margin:0 0 20px; overflow:hidden; }
+          .line-item{ display:flex; justify-content:space-between; align-items:flex-start; padding:16px 20px; border-bottom:1px solid #f1f5f9; }
+          .line-item:last-child{ border-bottom:none; }
+          .line-item.recurring{ background:#fef3c7; border-left:4px solid #f59e0b; }
+          .line-desc{ flex:1; }
+          .line-name{ font-weight:600; color:#0b1220; margin-bottom:4px; }
+          .line-detail{ font-size:12px; color:#64748b; }
+          .line-amount{ font-weight:700; color:#0f766e; white-space:nowrap; margin-left:20px; font-size:15px; }
+
+          .totals{ background:#f8fafc; border-radius:12px; padding:16px 20px; margin:20px 0; }
+          .total-row{ display:flex; justify-content:space-between; padding:8px 0; font-size:14px; }
+          .total-row.final{ border-top:2px solid #0f766e; padding-top:12px; margin-top:8px; font-size:20px; font-weight:800; color:#0f766e; }
+
+          .note{ background:#f0fdfa; border-left:4px solid #0f766e; padding:16px 20px; margin:24px 0; border-radius:8px; font-size:13px; color:#0f172a; }
+
+          .signature-block{ margin-top:40px; padding-top:28px; border-top:2px solid #e2e8f0; }
+          .signature-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:20px; }
+          .signature-box{ }
+          .signature-label{ font-size:12px; color:#64748b; margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+          .signature-line{ border-bottom:2px solid #cbd5e1; padding-bottom:8px; min-height:50px; margin-bottom:8px; }
+          .signature-info{ font-size:12px; color:#64748b; }
+
+          .footer{ margin-top:40px; padding-top:20px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; color:#64748b; font-size:11px; }
+          .footer a{ color:#0f766e; text-decoration:none; }
+
+          @media print{
+            body{ background:#fff; }
+            .wrap{ padding:20px; }
+            .signature-line{ min-height:60px; }
+          }
         </style>
       </head>
       <body>
         <div class="page">
           <div class="wrap">
-          <div class="letterhead">
-            <div class="logo">R</div>
-            <div class="brand">
-              <div class="name">Ripotek Technologies Inc.</div>
-              <div class="tag">Design. Engineer. Deliver.</div>
+            <div class="letterhead">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZmF2aWNvbi1ncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzE0YjhhNjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWUzYThhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImZhdmljb24tZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIiIHJlc3VsdD0iY29sb3JlZEJsdXIiLz4KICAgICAgPGZlTWVyZ2U+CiAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJjb2xvcmVkQmx1ciIvPgogICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPgogICAgICA8L2ZlTWVyZ2U+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIyMCIgZmlsbD0idXJsKCNmYXZpY29uLWdyYWQpIi8+CiAgPHBhdGggZD0iTSAyNSAyMCBMIDI1IDgwIE0gMjUgMjAgTCA1MCAyMCBRIDYyIDIwIDYyIDMyIFEgNjIgNDQgNTAgNDQgTCAyNSA0NCBNICA0MiBMIDYyIDgwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWx0ZXI9InVybCgjZmF2aWNvbi1nbG93KSIvPgogIDxjaXJjbGUgY3g9IjI1IiBjeT0iMjAiIHI9IjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjYyIiBjeT0iMzIiIHI9IjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDQiIHI9IjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjYyIiBjeT0iODAiIHI9IjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjI1IiBjeT0iODAiIHI9IjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPgogIDxsaW5lIHgxPSIyNSIgeTE9IjIwIiB4Mj0iNjIiIHkyPSIzMiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSI2MiIgeTE9IjMyIiB4Mj0iNTAiIHkyPSI0NCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSI1MCIgeTE9IjQ0IiB4Mj0iNjIiIHkyPSI4MCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIyNSIgeTE9IjgwIiB4Mj0iNjIiIHkyPSI4MCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNCIvPgo8L3N2Zz4=" alt="Ripotek" class="logo" />
+              <div class="brand">
+                <div class="name">Ripotek Technologies Inc.</div>
+                <div class="tag">Design. Engineer. Deliver.</div>
+              </div>
             </div>
-          </div>
-          <div class="bar"></div>
-          <h1 class="title">Project Estimate</h1>
-          <p class="subtitle">Modern, professional estimate tailored to your selection.</p>
-          <div class="meta">
-            <div><strong>Ref:</strong> ${ref}</div>
-            <div><strong>Date:</strong> ${now.toLocaleString()}</div>
-            <div><strong>Service:</strong> ${serviceType === 'consulting' ? 'Consulting' : 'Training'}</div>
-          </div>
+            <div class="bar"></div>
 
-          <div class="grid">
-            <div class="card">
-              <div class="section-title">Summary</div>
-              <div class="row"><span>${serviceSummary}</span><span></span></div>
-              <div class="row"><span>Team Size</span><span>${teamSize} ${serviceType === 'consulting' ? 'consultant(s)' : 'student(s)'}</span></div>
-              <div class="row"><span>Timeline</span><span>${timelineText}</span></div>
-              ${managedLine}
+            <h1 class="title">Project Estimate</h1>
+            <p class="subtitle">Professional estimate tailored to your requirements</p>
+
+            <div class="meta">
+              <div><strong>Reference:</strong> ${ref}</div>
+              <div><strong>Date:</strong> ${now.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+              <div><strong>Service Type:</strong> ${serviceType === 'consulting' ? 'Consulting Services' : 'Training Program'}</div>
+              <div><strong>Valid Until:</strong> ${new Date(now.getTime() + 30*24*60*60*1000).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
             </div>
-            <div class="card">
-              <div class="section-title">Investment</div>
-              ${serviceType === 'training' ? `<div class="row"><span>Program (${selectedTrainingProgram})</span><span>${formatCurrency(trainingProgramPrices[selectedTrainingProgram] || 0)} / person</span></div>` : ''}
-              <div class="row"><span class="muted">Subtotal</span><span class="muted">${formatCurrency(estimate)}</span></div>
-              <div class="row total"><span>Total</span><span>${formatCurrency(estimate)}</span></div>
+
+            <div class="section-title">Line Items</div>
+            <div class="line-items">
+              ${lineItems}
             </div>
-          </div>
 
-          <div class="card">
-            <div class="section-title">Message</div>
-            <p class="muted">Thank you for considering Ripotek. This estimate is a starting point — we tailor solutions to your goals, team, and timelines. Reply to this PDF or book a discovery call and we’ll finalize a detailed proposal.</p>
-          </div>
+            <div class="totals">
+              <div class="total-row">
+                <span>Subtotal</span>
+                <span>${formatCurrency(subtotal)}</span>
+              </div>
+              <div class="total-row final">
+                <span>Total Investment</span>
+                <span>${formatCurrency(estimate)}</span>
+              </div>
+            </div>
 
-          <div class="footer">
-            <div>Ripotek • Calgary, Alberta • info@ripotek.com • +1 306-999-3552</div>
-            <div>ripotek.com</div>
-          </div>
+            <div class="note">
+              <strong>Note:</strong> This estimate is valid for 30 days from the date above. Final pricing will be confirmed after a detailed discovery session. All prices are in Canadian Dollars (CAD) and exclude applicable taxes. Project scope and deliverables will be documented in a formal Statement of Work (SOW).
+            </div>
 
-          <button class="btn" onclick="window.print()">Print / Save as PDF</button>
-          <div class="screen-tip">Tip: For best results, enable “Background graphics” in your print dialog.</div>
+            <div class="section-title">What's Included</div>
+            <div class="note">
+              ${serviceType === 'consulting'
+                ? '✓ Discovery & assessment sessions<br>✓ Architecture design & documentation<br>✓ Platform implementation & configuration<br>✓ Testing & quality assurance<br>✓ Deployment & go-live support<br>✓ Post-implementation support (30 days)<br>✓ Knowledge transfer documentation'
+                : '✓ Live instructor-led training sessions<br>✓ Hands-on projects & labs<br>✓ One-on-one mentorship<br>✓ Career coaching & job placement assistance<br>✓ Course materials & resources<br>✓ Certification preparation<br>✓ Alumni network access'}
+            </div>
+
+            <div class="signature-block">
+              <div class="signature-grid">
+                <div class="signature-box">
+                  <div class="signature-label">Client Approval</div>
+                  <div class="signature-line"></div>
+                  <div class="signature-info">
+                    Name: _______________________<br>
+                    Title: _______________________<br>
+                    Date: _______________________
+                  </div>
+                </div>
+                <div class="signature-box">
+                  <div class="signature-label">Ripotek Representative</div>
+                  <div class="signature-line"></div>
+                  <div class="signature-info">
+                    Name: Ripotek Technologies Inc.<br>
+                    Title: Authorized Representative<br>
+                    Date: ${now.toLocaleDateString('en-CA')}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div>Ripotek Technologies Inc. • Calgary, Alberta, Canada</div>
+              <div>
+                <a href="mailto:info@ripotek.com">info@ripotek.com</a> •
+                <a href="tel:+13069993552">+1 306-999-3552</a> •
+                <a href="https://ripotek.com">ripotek.com</a>
+              </div>
+            </div>
           </div>
         </div>
+
+        <script>
+          // Auto-trigger print dialog
+          window.onload = function() {
+            window.print();
+          };
+        </script>
       </body>
     </html>`;
 
-    const w = window.open('', '_blank');
-    if (!w) return;
-    w.document.open();
-    w.document.write(html);
-    w.document.close();
-    w.focus();
-    try { setTimeout(() => w.print(), 300); } catch (e) {}
+    // Create a hidden iframe to print instead of opening new tab
+    const iframe = document.createElement('iframe');
+    iframe.style.position = 'fixed';
+    iframe.style.right = '0';
+    iframe.style.bottom = '0';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = '0';
+    document.body.appendChild(iframe);
+
+    const doc = iframe.contentWindow.document;
+    doc.open();
+    doc.write(html);
+    doc.close();
+
+    // Clean up after printing
+    iframe.contentWindow.onafterprint = function() {
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 100);
+    };
   };
 
   const formatCurrency = (amount) => {
@@ -284,19 +442,21 @@ export default function PricingCalculator() {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+        <div className="w-full px-6 lg:px-8">
+          <div className="flex items-center h-20">
+            {/* Logo - Far Left */}
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
                 <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
               </div>
             </a>
 
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation Links - Centered */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center">
               {navLinks.map((item, i) => (
                 <div key={i} className="relative group">
-                  <a href={item.href} className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center gap-1 py-2">
+                  <a href={item.href} className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center gap-1 py-2 text-sm xl:text-base whitespace-nowrap">
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
@@ -311,8 +471,10 @@ export default function PricingCalculator() {
                   )}
                 </div>
               ))}
-              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold">Let's Talk</a>
             </div>
+
+            {/* Let's Talk Button - Far Right */}
+            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">Let's Talk</a>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300">
               {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
@@ -341,20 +503,122 @@ export default function PricingCalculator() {
         )}
       </nav>
 
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-man-under-multicolored-lights-1237-large.mp4" type="video/mp4" />
+          </video>
+
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+              animation: 'gridFlow 20s linear infinite'
+            }}></div>
+          </div>
+
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+
+          {/* Floating themed icons */}
+          <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-teal-400/30 rounded-full animate-float hidden md:flex items-center justify-center">
+            <Calculator className="w-6 h-6 text-teal-400/40" />
+          </div>
+          <div className="absolute bottom-1/3 left-1/3 w-16 h-16 border-2 border-blue-400/30 rounded-lg animate-float hidden md:flex items-center justify-center" style={{animationDelay: '1s'}}>
+            <TrendingUp className="w-8 h-8 text-blue-400/40" />
+          </div>
+          <div className="absolute top-1/2 right-1/3 w-10 h-10 border-2 border-cyan-400/30 rounded-full animate-float hidden md:flex items-center justify-center" style={{animationDelay: '2s'}}>
+            <CheckCircle className="w-5 h-5 text-cyan-400/40" />
+          </div>
+
+          {/* Scanline effect */}
+          <div className="absolute inset-0 opacity-10" style={{
+            background: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 2px, transparent 4px)',
+            pointerEvents: 'none'
+          }}></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-30">
           {/* Header */}
           <div className="text-center mb-12">
-            <Calculator className="w-16 h-16 text-teal-400 mx-auto mb-4" />
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white md:whitespace-nowrap">
+            <div className="animate-fadeIn">
+              <Calculator className="w-16 h-16 text-teal-400 mx-auto mb-4" />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white md:whitespace-nowrap animate-fadeInUp">
               <span className="text-white">Investment </span>
               <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Calculator</span>
             </h1>
-            <p className="text-base md:text-xl text-gray-200 mx-auto md:whitespace-nowrap">
+            <p className="text-base md:text-xl text-gray-200 mx-auto md:whitespace-nowrap animate-fadeInUp" style={{animationDelay: '0.2s'}}>
               Get an instant estimate for your data transformation project or training program
             </p>
           </div>
         </div>
+
+        {/* CSS Animations */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0) rotate(0deg);
+            }
+            50% {
+              transform: translateY(-20px) rotate(5deg);
+            }
+          }
+
+          @keyframes gridFlow {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              transform: translateY(50px);
+            }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+          }
+
+          .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+          }
+
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       <section className="py-16 px-4 bg-gray-50">
