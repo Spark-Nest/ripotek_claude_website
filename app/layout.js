@@ -7,8 +7,13 @@ export const metadata = {
   title: 'Ripotek Technologies Inc. | Data & AI Consulting',
   description: 'Enterprise consulting, training, and managed services in Azure, Databricks, Fabric, and AI',
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', rel: 'shortcut icon' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({ children }) {
