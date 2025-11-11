@@ -81,13 +81,13 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="w-full px-6 lg:px-8">
+        <div className="w-full px-4 lg:px-8">
           <div className="flex items-center h-20">
             {/* Logo - Far Left */}
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition shrink-0">
-              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
+            <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
+              <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
             {/* Let's Talk Button - Far Right */}
             <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">Let's Talk</a>
 
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300 ml-auto">
               {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
             </button>
           </div>
