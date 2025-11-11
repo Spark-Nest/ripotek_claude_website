@@ -214,17 +214,19 @@ export default function TrainingPage() {
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="bg-white rounded-lg shadow-xl py-2">
-                        {item.dropdown.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
+                    <div className="absolute top-full left-0 -mt-px w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+                      <div className="pt-3">
+                        <div className="bg-white rounded-lg shadow-xl py-2">
+                          {item.dropdown.map((subItem) => (
+                            <a
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -252,26 +254,126 @@ export default function TrainingPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6">
-            Training-to-Hire Model | 85% Placement Rate
+      {/* Hero Section - Modern Banner with Video/Animation */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Layered Background */}
+        <div className="absolute inset-0 z-0">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+
+          {/* Video Background - Learning/Technology themed */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&h=1080&fit=crop"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-and-purple-light-particles-3151-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-foggy-city-50516-large.mp4" type="video/mp4" />
+          </video>
+
+          {/* Animated grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            animation: 'gridFlow 20s linear infinite'
+          }}></div>
+
+          {/* Floating gradient orbs - animated particles */}
+          <div className="absolute inset-0 z-10">
+            {/* Large orbs */}
+            <div className="absolute top-10 left-10 md:left-20 w-64 md:w-80 h-64 md:h-80 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <div className="absolute top-10 right-10 md:right-20 w-72 md:w-96 h-72 md:h-96 bg-cyan-400 rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+
+            {/* Floating geometric elements */}
+            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-teal-400/30 rounded-lg animate-float" style={{ animationDelay: '0s' }}></div>
+            <div className="absolute bottom-1/3 left-1/5 w-10 h-10 border-2 border-cyan-400/40 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-purple-400/20 rotate-45 animate-float" style={{ animationDelay: '0.8s' }}></div>
+
+            {/* Additional small particles - hidden on mobile for performance */}
+            <div className="hidden md:block absolute top-1/5 right-1/3 w-6 h-6 bg-teal-400/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="hidden md:block absolute bottom-1/4 left-1/4 w-5 h-5 bg-cyan-400/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
           </div>
-          <h1 className="text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-            <span className="block">Launch your data Career</span>
+
+          {/* Scanline effect - subtle tech aesthetic */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px)'
+          }}></div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto relative z-30 text-center">
+          {/* Badge with animation */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm border border-teal-400/30 animate-fadeIn">
+            <GraduationCap className="w-5 h-5" />
+            <span>Training-to-Hire Model | 85% Placement Rate</span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight animate-fadeInUp">
+            <span className="block">Launch Your Data Career</span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+
+          {/* Subheading */}
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             Career-accelerating training with real projects, 1:1 mentorship, and an <span className="text-teal-300 font-semibold">85% placement rate</span> - powered by our Training-to-Hire model.
           </p>
+
           {/* CTA scroller cue */}
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             <a href="#our-programs" className="animate-bounce text-teal-300/90 text-sm px-5 py-2 rounded-full border border-teal-400/40 bg-white/10 hover:bg-white/20 transition backdrop-blur-sm shadow-sm">
               Explore Programs
             </a>
           </div>
         </div>
+
+        {/* Custom animations */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-8px) rotate(-5deg); }
+            75% { transform: translateY(-18px) rotate(3deg); }
+          }
+
+          @keyframes gridFlow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-out;
+          }
+
+          .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+          }
+
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* Why Ripotek Training */}

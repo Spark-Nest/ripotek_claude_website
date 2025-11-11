@@ -214,17 +214,19 @@ export default function RipotekHomePage() {
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {item.dropdown && (
-                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="bg-white rounded-lg shadow-xl py-2">
-                        {item.dropdown.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
+                    <div className="absolute top-full left-0 -mt-px w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+                      <div className="pt-3">
+                        <div className="bg-white rounded-lg shadow-xl py-2">
+                          {item.dropdown.map((subItem) => (
+                            <a
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
