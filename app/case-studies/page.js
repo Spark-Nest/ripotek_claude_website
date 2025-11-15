@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Award, Calendar, CheckCircle, Download, Star } from 'lucide-react';
-import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function CaseStudiesPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -306,9 +306,11 @@ export default function CaseStudiesPage() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-businesswoman-reading-her-documents-in-an-office-4611-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-data-analysis-on-a-monitor-42760-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-people-working-in-an-office-4640-large.mp4" type="video/mp4" />
           </video>
 
           {/* Animated grid pattern */}
@@ -648,6 +650,9 @@ export default function CaseStudiesPage() {
               </a>
               <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+                <FaXTwitter className="w-6 h-6" />
               </a>
               <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
                 <FaYoutube className="w-6 h-6" />

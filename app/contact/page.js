@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, Linkedin, Facebook, Instagram, MessageCircle, Calendar, FileText, GraduationCap, Briefcase, Send } from 'lucide-react';
-import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calendar, FileText, GraduationCap, Briefcase, Send, MessageCircle } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function ContactPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,10 +85,12 @@ export default function ContactPage() {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, label: 'LinkedIn', href: '#', color: 'hover:text-blue-600' },
-    { icon: Facebook, label: 'Facebook', href: '#', color: 'hover:text-blue-500' },
-    { icon: Instagram, label: 'Instagram', href: '#', color: 'hover:text-pink-500' },
-    { icon: MessageCircle, label: 'WhatsApp', href: '#', color: 'hover:text-green-500' }
+    { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/ripotek', color: 'hover:text-blue-500' },
+    { icon: FaFacebook, label: 'Facebook', href: 'https://www.facebook.com/ripotek', color: 'hover:text-blue-600' },
+    { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/ripotek', color: 'hover:text-pink-500' },
+    { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://x.com/ripotek', color: 'hover:text-blue-400' },
+    { icon: FaYoutube, label: 'YouTube', href: 'https://www.youtube.com/@ripotek', color: 'hover:text-red-600' },
+    { icon: FaGithub, label: 'GitHub', href: 'https://github.com/ripotek', color: 'hover:text-gray-700' }
   ];
 
   const quickActions = [
@@ -565,6 +567,8 @@ export default function ContactPage() {
                   <a
                     key={idx}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover-lift transition-colors text-gray-600 ${social.color}`}
                     aria-label={social.label}
                   >
@@ -664,6 +668,9 @@ export default function ContactPage() {
               </a>
               <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+                <FaXTwitter className="w-6 h-6" />
               </a>
               <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
                 <FaYoutube className="w-6 h-6" />

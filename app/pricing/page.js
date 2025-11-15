@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calculator, TrendingUp, Users, Clock, CheckCircle, AlertCircle, Calendar, Download } from 'lucide-react';
-import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function PricingCalculator() {
   const [serviceType, setServiceType] = useState('consulting');
@@ -514,13 +514,15 @@ export default function PricingCalculator() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-man-under-multicolored-lights-1237-large.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-calculator-and-coins-on-desk-8791/1080p.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-financial-planning-with-documents-8792/1080p.mp4" type="video/mp4" />
           </video>
 
-          {/* Animated grid pattern */}
-          <div className="absolute inset-0 opacity-20">
+          {/* Animated grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: 'linear-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.1) 1px, transparent 1px)',
               backgroundSize: '50px 50px',
@@ -1025,6 +1027,9 @@ export default function PricingCalculator() {
               </a>
               <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+                <FaXTwitter className="w-6 h-6" />
               </a>
               <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
                 <FaYoutube className="w-6 h-6" />

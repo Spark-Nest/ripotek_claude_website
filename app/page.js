@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase, Play, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
-import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function RipotekHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -702,6 +702,9 @@ export default function RipotekHomePage() {
               </a>
               <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+                <FaXTwitter className="w-6 h-6" />
               </a>
               <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
                 <FaYoutube className="w-6 h-6" />
