@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Briefcase, MapPin, DollarSign, Clock, Users, CheckCircle, Target, Award, Heart, TrendingUp, Mail, Calendar, Plane, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, Briefcase, MapPin, DollarSign, Clock, Users, CheckCircle, Target, Award, Heart, TrendingUp, Mail, Calendar, Plane, Phone, ArrowLeft } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import ApplicationModal from '../../../components/ApplicationModal';
 
@@ -148,9 +148,6 @@ export default function AzureSolutionsConsultantPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-5xl mx-auto">
-          <a href="/careers" className="inline-flex items-center text-teal-300 hover:text-teal-200 mb-6 transition">
-            ← Back to Careers
-          </a>
           <h1 className="text-5xl font-bold text-white mb-4">Azure Solutions Consultant</h1>
           <p className="text-xl text-gray-300 mb-8">Consulting Department</p>
 
@@ -168,9 +165,16 @@ export default function AzureSolutionsConsultantPage() {
         </div>
       </section>
 
-      {/* Apply Now Button - Sticky */}
+      {/* Sticky Navigation Bar */}
       <div className="sticky top-20 z-40 bg-white border-b shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 py-4">
+        <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+          <a
+            href="/careers#positions"
+            className="inline-flex items-center gap-2 text-gray-700 hover:text-teal-600 font-medium transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back to Careers
+          </a>
           <button
             onClick={() => setModalOpen(true)}
             className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
