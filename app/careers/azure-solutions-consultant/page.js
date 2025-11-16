@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, Briefcase, MapPin, DollarSign, Clock, Users, CheckCircle, Target, Award, Heart, TrendingUp, Mail, Calendar, Plane } from 'lucide-react';
+import { Menu, X, ChevronDown, Briefcase, MapPin, DollarSign, Clock, Users, CheckCircle, Target, Award, Heart, TrendingUp, Mail, Calendar, Plane, Phone } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import ApplicationModal from '../../../components/ApplicationModal';
 
 export default function AzureSolutionsConsultantPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,39 +68,78 @@ export default function AzureSolutionsConsultantPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
+        <div className="w-full px-4 lg:px-8">
+          <div className="flex items-center h-20">
+            {/* Logo - Far Left */}
+            <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
+              <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
-                <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation Links - Centered */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
-                  {item.name}
-                </a>
+                <div key={item.name} className="relative group">
+                  <a
+                    href={item.href}
+                    className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1 py-2 text-sm xl:text-base whitespace-nowrap"
+                  >
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                  </a>
+                  {item.dropdown && (
+                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-white rounded-lg shadow-xl py-2">
+                        {item.dropdown.map((subItem) => (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let&apos;s Talk</button>
             </div>
 
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300">
+            {/* Let's Talk Button - Far Right */}
+            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">
+              Let's Talk
+            </a>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300 ml-auto"
+            >
               {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="block text-gray-700 hover:text-teal-600 font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block text-gray-700 hover:text-teal-600 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   {item.name}
                 </a>
               ))}
+              <a href="/contact" className="block w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition text-center">
+                Let's Talk
+              </a>
             </div>
           </div>
         )}
@@ -129,13 +171,13 @@ export default function AzureSolutionsConsultantPage() {
       {/* Apply Now Button - Sticky */}
       <div className="sticky top-20 z-40 bg-white border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-4">
-          <a
-            href="mailto:careers@ripotek.com?subject=Application: Azure Solutions Consultant"
+          <button
+            onClick={() => setModalOpen(true)}
             className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
           >
             <Mail className="w-5 h-5" />
             Apply Now
-          </a>
+          </button>
         </div>
       </div>
 
@@ -588,64 +630,111 @@ export default function AzureSolutionsConsultantPage() {
             <p className="text-xl text-gray-300 mb-8">
               Join our team and work on cutting-edge Azure solutions for enterprise clients.
             </p>
-            <a
-              href="mailto:careers@ripotek.com?subject=Application: Azure Solutions Consultant"
+            <button
+              onClick={() => setModalOpen(true)}
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold text-lg"
             >
               <Mail className="w-6 h-6" />
               Apply for This Position
-            </a>
+            </button>
           </div>
 
         </div>
       </section>
 
+      <ApplicationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        jobTitle="Azure Solutions Consultant"
+        portalId="342603298"
+        formId="73226891-65ae-4581-97e8-70f52f76a3be"
+        region="na3"
+      />
+
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
+          <div className="grid md:grid-cols-12 gap-12 mb-12">
+            <div className="md:col-span-6">
+              <div className="flex items-center gap-4 mb-4">
                 <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
-                <span className="font-extrabold text-2xl md:text-3xl tracking-tight">Ripotek Technologies Inc.</span>
+                <div className="min-w-0">
+                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
+                  <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
+                </div>
               </div>
-              <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>
+              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
+                Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
+              </p>
+              <div className="mt-6 space-y-3 text-gray-300 text-base">
+                <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
+                <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/services#strategy-&-governance" className="hover:text-teal-400 transition">Data Architecture</a></li>
-                <li><a href="/services#analytics-&-bi" className="hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services#mlops-&-ai" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Services</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
+                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-bold mb-4">Training</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/training#power-bi-analyst" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training#azure-data-engineer" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training#ai-engineer" className="hover:text-teal-400 transition">AI Engineer</a></li>
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Training</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
+                <li><a href="/training#ai-engineer" className="text-gray-300 hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="hover:text-teal-400 transition">Case Studies</a></li>
-                <li><a href="/careers" className="hover:text-teal-400 transition">Careers</a></li>
-                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
+                <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
-              <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+              <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-base text-gray-300">
+                <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 pt-6 border-t border-gray-800">
+              <a href="https://www.linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition" aria-label="LinkedIn">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a href="https://www.facebook.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition" aria-label="Facebook">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+                <FaXTwitter className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              <a href="https://github.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-200 transition" aria-label="GitHub">
+                <FaGithub className="w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>

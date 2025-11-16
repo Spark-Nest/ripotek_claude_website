@@ -514,11 +514,12 @@ export default function PricingCalculator() {
             loop
             muted
             playsInline
+            key="pricing-video-unique"
             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
-            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop"
+            poster="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1920&h=1080&fit=crop"
           >
-            <source src="https://cdn.coverr.co/videos/coverr-calculator-and-coins-on-desk-8791/1080p.mp4" type="video/mp4" />
-            <source src="https://cdn.coverr.co/videos/coverr-financial-planning-with-documents-8792/1080p.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-calculator-and-coins-on-desk-8791/1080p.mp4?v=2" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-financial-planning-with-documents-8792/1080p.mp4?v=2" type="video/mp4" />
           </video>
 
           {/* Animated grid pattern overlay */}

@@ -343,7 +343,10 @@ export default function CareersPage() {
                   <MapPin className="w-4 h-4" />
                   {job.location}
                 </p>
-                <a href={`/careers/${job.slug}`} className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2">
+                <a
+                  href={`/careers/${job.slug}`}
+                  className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition flex items-center justify-center gap-2 hover-lift"
+                >
                   View Details <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
