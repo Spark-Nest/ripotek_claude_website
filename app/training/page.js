@@ -4,12 +4,15 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ChevronUp, MapPin, Mail, Phone, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Target, ArrowRight, Download, DollarSign, FileText, Calendar, CheckCircle, Clock, Users, Award, GraduationCap } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import EnrollmentModal from '../../components/EnrollmentModal';
 
 export default function TrainingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState('all');
   const [expandedSection, setExpandedSection] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,11 @@ export default function TrainingPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleEnrollClick = (program) => {
+    setSelectedProgram(program);
+    setModalOpen(true);
+  };
 
   const navigation = [
     { name: 'About', href: '/about' },
@@ -471,7 +479,10 @@ export default function TrainingPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <button className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift">
+                  <button
+                    onClick={() => handleEnrollClick(program)}
+                    className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift"
+                  >
                     Enroll Now
                   </button>
                   <a
@@ -917,6 +928,21 @@ export default function TrainingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Enrollment Modal */}
+      {selectedProgram && (
+        <EnrollmentModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          programName={selectedProgram.title}
+          duration={selectedProgram.duration}
+          price={selectedProgram.investment}
+          nextStart={selectedProgram.nextStart}
+          portalId="342603298"
+          formId="7406ec42-22b5-4449-81f1-3a508db656d7"
+          region="na3"
+        />
+      )}
     </div>
   );
 }

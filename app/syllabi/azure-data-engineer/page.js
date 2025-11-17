@@ -1,36 +1,49 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Printer, ArrowLeft, Database, Clock, DollarSign, Calendar, Users, Award, CheckCircle, BookOpen, Target, Briefcase, Mail, Phone, Globe, Cloud } from 'lucide-react';
+import EnrollmentModal from '../../../components/EnrollmentModal';
 
 export default function AzureDataEngineerSyllabus() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const handlePrint = () => {
     window.print();
   };
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Print-hidden navigation buttons */}
-      <div className="print:hidden fixed top-4 left-4 right-4 md:left-auto md:right-4 z-50 flex flex-col md:flex-row gap-3">
-        <a
-          href="/training"
-          className="bg-white shadow-lg rounded-lg px-4 py-2 flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Training
-        </a>
-        <button
-          onClick={handlePrint}
-          className="bg-teal-600 text-white shadow-lg rounded-lg px-4 py-2 flex items-center justify-center gap-2 hover:bg-teal-700 transition"
-        >
-          <Printer className="w-4 h-4" />
-          Print to PDF
-        </button>
+      {/* Fixed Navigation Bar */}
+      <div className="print:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+          <a
+            href="/training#our-programs"
+            className="inline-flex items-center gap-2 text-gray-700 hover:text-teal-600 font-medium transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back to Programs
+          </a>
+          <div className="flex gap-3">
+            <button
+              onClick={handlePrint}
+              className="hidden md:inline-flex items-center gap-2 bg-white border-2 border-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-50 transition shadow"
+            >
+              <Printer className="w-4 h-4" />
+              Print to PDF
+            </button>
+            <button
+              onClick={() => setModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
+            >
+              Enroll Now
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto pt-32 md:pt-8 px-4 md:px-8 pb-8 print:p-12">
+      <div className="max-w-5xl mx-auto pt-24 px-4 md:px-8 pb-8 print:p-12">
         {/* Header */}
         <header className="mb-12 border-b-4 border-purple-600 pb-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-6">
@@ -836,6 +849,18 @@ export default function AzureDataEngineerSyllabus() {
         </footer>
       </div>
 
+      {/* Enrollment Modal */}
+      <EnrollmentModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        programName="Azure Data Engineer"
+        duration="24 Weeks"
+        price="$3,999"
+        nextStart="February 1, 2025"
+        portalId="342603298"
+        formId="7406ec42-22b5-4449-81f1-3a508db656d7"
+        region="na3"
+      />
     </div>
   );
 }
