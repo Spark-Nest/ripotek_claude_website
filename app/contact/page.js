@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calendar, FileText, GraduationCap, Briefcase, Send, MessageCircle } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
 export default function ContactPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('consulting');
+  const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -98,7 +100,7 @@ export default function ContactPage() {
       icon: Calendar,
       title: 'Book Discovery Call',
       description: 'Schedule a 30-minute consultation with our experts',
-      href: '#book-call',
+      action: () => setDiscoveryCallModalOpen(true),
       color: 'from-teal-600 to-cyan-500'
     },
     {
@@ -363,19 +365,26 @@ export default function ContactPage() {
             <p className="text-center text-gray-600 mb-8">Choose the option that best fits your needs</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {quickActions.map((action, idx) => (
-                <a
-                  key={idx}
-                  href={action.href}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
-                >
-                  <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <action.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{action.title}</h3>
-                  <p className="text-gray-600 text-sm">{action.description}</p>
-                </a>
-              ))}
+              {quickActions.map((action, idx) => {
+                const Element = action.action ? 'button' : 'a';
+                const props = action.action
+                  ? { onClick: action.action }
+                  : { href: action.href };
+
+                return (
+                  <Element
+                    key={idx}
+                    {...props}
+                    className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
+                  >
+                    <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <action.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{action.title}</h3>
+                    <p className="text-gray-600 text-sm">{action.description}</p>
+                  </Element>
+                );
+              })}
             </div>
           </div>
 
@@ -682,6 +691,15 @@ export default function ContactPage() {
           </div>
         </div>
       </footer>
+
+      {/* Discovery Call Modal */}
+      <DiscoveryCallModal
+        isOpen={discoveryCallModalOpen}
+        onClose={() => setDiscoveryCallModalOpen(false)}
+        portalId="342603298"
+        formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
+        region="na3"
+      />
     </div>
   );
 }

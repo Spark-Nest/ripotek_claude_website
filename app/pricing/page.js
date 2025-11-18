@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calculator, TrendingUp, Users, Clock, CheckCircle, AlertCircle, Calendar, Download } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
 export default function PricingCalculator() {
   const [serviceType, setServiceType] = useState('consulting');
@@ -16,6 +17,7 @@ export default function PricingCalculator() {
   const [monthlyEstimate, setMonthlyEstimate] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedConsultingService, setSelectedConsultingService] = useState('Strategy & Governance');
+  const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const consultingServices = [
     'Strategy & Governance',
     'Data Platform Build',
@@ -946,10 +948,13 @@ export default function PricingCalculator() {
           <div className="mt-12 bg-white rounded-2xl shadow-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Let's Talk</h3>
             <p className="text-gray-600 mb-6">Book a free 30-minute discovery call to discuss your specific needs and get a detailed proposal.</p>
-            <a href="/contact#book-call" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition inline-flex items-center gap-2">
+            <button
+              onClick={() => setDiscoveryCallModalOpen(true)}
+              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition inline-flex items-center gap-2"
+            >
               <Calendar className="w-5 h-5" />
               Book Discovery Call
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -1042,6 +1047,15 @@ export default function PricingCalculator() {
           </div>
         </div>
       </footer>
+
+      {/* Discovery Call Modal */}
+      <DiscoveryCallModal
+        isOpen={discoveryCallModalOpen}
+        onClose={() => setDiscoveryCallModalOpen(false)}
+        portalId="342603298"
+        formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
+        region="na3"
+      />
     </div>
   );
 }

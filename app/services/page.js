@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, CheckCircle, Shield, Database, BarChart3, Brain, Zap, GraduationCap, ArrowRight, Calendar, Download, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
 export default function ServicesPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -485,9 +487,9 @@ export default function ServicesPage() {
             Let's discuss your data challenges and design a solution that delivers real business value.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
+            <button onClick={() => setDiscoveryCallModalOpen(true)} className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Calendar className="w-5 h-5" /> Book Discovery Call
-            </a>
+            </button>
             <a href="/case-studies" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               View Case Studies <ArrowRight className="w-5 h-5" />
             </a>
@@ -583,6 +585,15 @@ export default function ServicesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Discovery Call Modal */}
+      <DiscoveryCallModal
+        isOpen={discoveryCallModalOpen}
+        onClose={() => setDiscoveryCallModalOpen(false)}
+        portalId="342603298"
+        formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
+        region="na3"
+      />
     </div>
   );
 }

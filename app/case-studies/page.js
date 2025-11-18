@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Award, Calendar, CheckCircle, Download, Star } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
 export default function CaseStudiesPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -564,9 +566,9 @@ export default function CaseStudiesPage() {
             Let's discuss how we can help you achieve similar transformative results with your data and AI initiatives.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
+            <button onClick={() => setDiscoveryCallModalOpen(true)} className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Calendar className="w-5 h-5" /> Book Discovery Call
-            </a>
+            </button>
             <span aria-disabled="true" title="Coming soon"
               className="bg-white/10 text-white px-8 py-4 rounded-lg transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 opacity-60 cursor-not-allowed pointer-events-none">
               <Download className="w-5 h-5" /> Capabilities Deck (Coming Soon)
@@ -664,6 +666,15 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Discovery Call Modal */}
+      <DiscoveryCallModal
+        isOpen={discoveryCallModalOpen}
+        onClose={() => setDiscoveryCallModalOpen(false)}
+        portalId="342603298"
+        formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
+        region="na3"
+      />
     </div>
   );
 }

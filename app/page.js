@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase, Play, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import DiscoveryCallModal from '../components/DiscoveryCallModal';
 
 export default function RipotekHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function RipotekHomePage() {
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [trainingDropdown, setTrainingDropdown] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
+  const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -329,11 +331,11 @@ export default function RipotekHomePage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-6 justify-center mb-16">
-              <a href="/contact#book-call" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+              <button onClick={() => setDiscoveryCallModalOpen(true)} className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
                 <Calendar className="w-6 h-6" />
                 <span>Book Discovery Call</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
               <a href="/services" className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
                 <Rocket className="w-6 h-6" />
                 <span>Explore Services</span>
@@ -615,11 +617,11 @@ export default function RipotekHomePage() {
             Let's discuss how we can help you unlock the full potential of your data and AI investments
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
-            <a href="/contact#book-call" className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
+            <button onClick={() => setDiscoveryCallModalOpen(true)} className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
               <Calendar className="w-6 h-6" />
               <span>Book Free Discovery Call</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
             <a href="/ripotek-capabilities-deck.pdf" download className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
               <Download className="w-6 h-6" />
               <span>Download Capabilities Deck</span>
@@ -716,6 +718,15 @@ export default function RipotekHomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Discovery Call Modal */}
+      <DiscoveryCallModal
+        isOpen={discoveryCallModalOpen}
+        onClose={() => setDiscoveryCallModalOpen(false)}
+        portalId="342603298"
+        formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
+        region="na3"
+      />
     </div>
   );
 }
