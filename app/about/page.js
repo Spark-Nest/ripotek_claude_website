@@ -8,6 +8,7 @@ import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } 
 export default function AboutPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [selectedMember, setSelectedMember] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +63,43 @@ export default function AboutPage() {
     { icon: Heart, title: 'Empowerment', description: 'Knowledge transfer is built into everything we do. We equip your teams for long-term success.' }
   ];
 
-  const team = [
-    { name: 'Sarah Chen', role: 'Lead Data Architect', bio: '15+ years designing enterprise data platforms for Fortune 500 clients.', creds: ['Azure Solutions Architect', 'Databricks Certified', 'TOGAF 9.2'], image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop' },
-    { name: 'Marcus Johnson', role: 'Principal BI Consultant', bio: 'Former Microsoft Power BI product team. Built BI for 40+ organizations.', creds: ['Power BI Specialist', 'MCSE Data Management', '12 years experience'], image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop' },
-    { name: 'Priya Sharma', role: 'AI/ML Lead', bio: 'PhD in Machine Learning. Led MLOps transformations for major banks.', creds: ['PhD Machine Learning', 'Azure AI Engineer', 'AWS ML Specialty'], image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop' },
-    { name: 'David Thompson', role: 'Senior Databricks Instructor', bio: '10 years in big data. Trained 2,000+ students in Spark and Delta Lake.', creds: ['Databricks Certified', 'Apache Spark Committer', 'Scala Expert'], image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop' },
-    { name: 'Elena Rodriguez', role: 'Cloud Solutions Architect', bio: 'Specialist in Azure and Fabric. Led 30+ zero-downtime migrations.', creds: ['Azure Solutions Architect', 'Microsoft Fabric Expert', '8 years experience'], image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop' }
+  const leadershipTeam = [
+    {
+      name: 'Tams Andrew',
+      role: 'Chief Executive Officer & Founder',
+      image: '/tams-andrew.png',
+      bio: 'When Tams Andrew arrived in Canada from Nigeria in 2010, he carried little more than determination and a belief that education could change the trajectory of a life. That belief guided him through a Master of Science in Applied Mathematics at the University of Regina and into a 12-year journey designing enterprise data systems across the energy, finance, and public sectors.\n\nIn 2023, he founded Ripotek Technologies with a simple but powerful vision: to make advanced data and AI skills accessible, practical, and transformative for both businesses and people. Since then, Ripotek has delivered more than $12M in measurable client value, while Tams has personally trained over 2,000 data professionals, helping achieve an 85% job placement rate.\n\nWhat sets Tams apart is his remarkable ability to take complex technical ideas and make them feel simple, clear, and achievable. It\'s a gift that has made Ripotek\'s training programs among the most sought-after in the industry—blending real-world expertise with an approachable, empowering teaching style.\n\nToday, Tams leads Ripotek with the same mindset he began with: that knowledge is a catalyst, opportunity is a responsibility, and the next generation of data leaders deserve both.'
+    },
+    {
+      name: 'Sarah Chen',
+      role: 'Chief Technology Officer',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop',
+      bio: 'Sarah Chen is a technical leader in enterprise data transformation with over 15 years of experience designing and implementing data platforms for Fortune 500 companies across Energy, Financial Services, and Public Sector industries. Before joining Ripotek as CTO, Sarah led data architecture initiatives at major consulting firms, specializing in Azure modernization and governed self-service BI.\n\nShe holds multiple certifications including Azure Solutions Architect Expert, TOGAF 9.2, and Databricks Certified Data Engineer. Sarah is passionate about empowering organizations to unlock the full potential of their data while building sustainable, scalable platforms that drive measurable business outcomes.\n\nAs CTO at Ripotek, Sarah leads all technical delivery, ensuring solutions follow industry best practices while meeting specific business requirements. She maintains Ripotek\'s commitment to technical excellence and knowledge transfer, developing the next generation of data professionals.'
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'VP of AI & Innovation',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=800&fit=crop',
+      bio: 'Dr. Priya Sharma holds a PhD in Machine Learning from the University of Toronto and has over 10 years of experience applying AI and ML to solve complex business problems. She has led MLOps transformations for major financial institutions, implementing production-grade ML systems that process billions of transactions.\n\nPriya specializes in Azure AI services, MLOps architecture, and responsible AI practices. She holds certifications as an Azure AI Engineer and AWS Machine Learning Specialty practitioner. Her research has been published in leading AI conferences and she is a frequent speaker at data science events.\n\nAt Ripotek, Priya drives innovation in AI/ML solutions, helping clients move from experimental models to production-grade systems. She also leads Ripotek\'s AI Engineer training program, preparing students for careers in this rapidly evolving field.'
+    },
+    {
+      name: 'David Thompson',
+      role: 'VP of Training & Education',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop',
+      bio: 'David Thompson is a passionate educator and big data expert with 10 years of experience in Apache Spark, Databricks, and distributed data processing. He has trained over 2,000 students in data engineering technologies and maintains an impressive 85% job placement rate for Ripotek Academy graduates.\n\nDavid is a Databricks Certified Data Engineer and has contributed to open-source projects in the Apache Spark ecosystem. His expertise includes Delta Lake, structured streaming, and performance optimization for large-scale data pipelines. He is also proficient in Scala, Python, and SQL.\n\nAt Ripotek, David oversees all training programs, ensuring curriculum remains current with industry demands. His teaching philosophy emphasizes hands-on learning, real-world scenarios, and continuous support for students as they transition into data careers.'
+    },
+    {
+      name: 'Elena Rodriguez',
+      role: 'VP of Cloud Solutions',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=800&fit=crop',
+      bio: 'Elena Rodriguez is a cloud architecture specialist with 8 years of experience designing and implementing Azure solutions. She has led over 30 zero-downtime cloud migrations and is recognized as an expert in Microsoft Fabric, the unified analytics platform that combines Power BI, Data Factory, and Synapse.\n\nElena holds Azure Solutions Architect Expert certification and was among the first cohort of Microsoft Fabric certified professionals. Her expertise spans cloud architecture, data engineering, and DevOps practices including CI/CD for data platforms.\n\nAt Ripotek, Elena leads cloud modernization initiatives, helping clients navigate complex migrations while optimizing for performance, security, and cost. She also contributes to Ripotek\'s Azure-focused training programs, sharing real-world insights from enterprise implementations.'
+    },
+    {
+      name: 'James Patterson',
+      role: 'Director of Operations',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop',
+      bio: 'James Patterson brings 12 years of operational excellence and project management expertise to Ripotek. With a background in both technology consulting and business operations, James ensures seamless delivery across all client engagements and internal initiatives.\n\nHe holds PMP (Project Management Professional) certification and has extensive experience managing complex, multi-stakeholder projects in regulated industries. James specializes in agile delivery methodologies, resource optimization, and building processes that scale.\n\nAt Ripotek, James oversees day-to-day operations, manages client relationships, and ensures quality standards are met across consulting and training services. He is instrumental in Ripotek\'s growth strategy and maintains the company\'s reputation for reliable, on-time delivery.'
+    }
   ];
 
   const industries = [
@@ -340,35 +372,130 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            <span className="text-gray-900">Meet Our </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <span className="text-gray-900">Leadership & </span>
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Executive</span>
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Industry veterans with deep expertise across data engineering, analytics, and AI
+          <p className="text-gray-600 mb-12 max-w-3xl">
+            Our leadership team brings decades of combined experience in data engineering, AI, and enterprise transformation across Energy, Financial Services, and Public Sector industries.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border border-gray-100">
-                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                  <Image src={member.image} alt={member.name} fill className="object-cover" sizes="128px" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {leadershipTeam.map((member, idx) => (
+              <div
+                key={idx}
+                className="group cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-2xl bg-gray-900 shadow-xl group-hover:shadow-2xl transition-all duration-300 ring-4 ring-gray-200 group-hover:ring-teal-500">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={idx < 3}
+                  />
+                  {/* Bold overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Name overlay on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-bold text-white text-xl mb-1">{member.name}</h3>
+                    <p className="text-teal-300 text-sm font-medium">{member.role}</p>
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-1 text-center">{member.name}</h4>
-                <p className="text-teal-600 font-semibold mb-4 text-center">{member.role}</p>
-                <p className="text-gray-700 text-sm mb-4">{member.bio}</p>
-                <div className="space-y-2">
-                  {member.creds.map((cred, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <Award className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                      {cred}
-                    </div>
-                  ))}
-                </div>
+                <h3 className="font-bold text-gray-900 mb-1 text-base md:text-lg group-hover:text-teal-600 transition-colors">{member.name}</h3>
+                {/* For CEO, show simplified title */}
+                {idx === 0 ? (
+                  <p className="text-teal-600 text-sm md:text-base font-semibold leading-snug">CEO & Founder</p>
+                ) : (
+                  <p className="text-gray-600 text-sm md:text-base leading-snug">{member.role}</p>
+                )}
               </div>
             ))}
           </div>
         </div>
+
+        {/* Bio Modal */}
+        {selectedMember && (
+          <div
+            className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn overflow-y-auto"
+            onClick={() => setSelectedMember(null)}
+          >
+            <div
+              className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl my-8 animate-scaleIn"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+                aria-label="Close"
+              >
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+
+              {/* Modal Content */}
+              <div className="grid md:grid-cols-5 gap-8 p-8">
+                {/* Left Column - Image */}
+                <div className="md:col-span-2">
+                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg sticky top-8">
+                    <Image
+                      src={selectedMember.image}
+                      alt={selectedMember.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  </div>
+                </div>
+
+                {/* Right Column - Bio */}
+                <div className="md:col-span-3">
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-teal-600 uppercase tracking-wide mb-2">
+                      {selectedMember.role}
+                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      {selectedMember.name}
+                    </h2>
+                  </div>
+
+                  <div className="prose prose-lg max-w-none">
+                    {selectedMember.bio.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} className="text-gray-700 mb-4 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes scaleIn {
+            from {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+          .animate-fadeIn {
+            animation: fadeIn 200ms ease-out;
+          }
+          .animate-scaleIn {
+            animation: scaleIn 300ms ease-out;
+          }
+        `}</style>
       </section>
 
       {/* CTA Section */}
