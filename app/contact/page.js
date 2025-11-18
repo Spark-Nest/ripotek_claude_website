@@ -114,7 +114,7 @@ export default function ContactPage() {
       icon: GraduationCap,
       title: 'Enroll in Course',
       description: 'Join our next training cohort',
-      href: '/training',
+      href: '/training#our-programs',
       color: 'from-purple-600 to-pink-500'
     },
     {

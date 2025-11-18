@@ -828,7 +828,7 @@ export default function TrainingPage() {
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-lg mb-6 text-blue-100">You&apos;re not alone - your cohort, instructors, and TAs are here to help!</p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="/contact" className="bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                <a href="/contact#book-call" className="bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
                   Contact Support
                 </a>
                 <a href="/resources" className="bg-teal-700 text-white px-6 py-3 rounded-lg hover:bg-teal-800 transition font-semibold border-2 border-white/20">

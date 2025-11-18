@@ -377,7 +377,7 @@ export default function CareersPage() {
             <a href="#positions" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Briefcase className="w-5 h-5" /> View All Positions
             </a>
-            <a href="/contact" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
+            <a href="/contact#book-call" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Calendar className="w-5 h-5" /> Schedule a Chat
             </a>
           </div>

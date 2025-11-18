@@ -541,7 +541,7 @@ export default function ResourcesPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <a href="/training" className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine group text-center">
+            <a href="/training#our-programs" className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine group text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
                 <BookOpen className="w-8 h-8 text-blue-600" />
               </div>
