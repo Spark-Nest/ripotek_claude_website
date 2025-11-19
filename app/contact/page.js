@@ -87,12 +87,12 @@ export default function ContactPage() {
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/ripotek', color: 'hover:text-blue-500' },
-    { icon: FaFacebook, label: 'Facebook', href: 'https://www.facebook.com/ripotek', color: 'hover:text-blue-600' },
-    { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/ripotek', color: 'hover:text-pink-500' },
-    { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://x.com/ripotek', color: 'hover:text-blue-400' },
-    { icon: FaYoutube, label: 'YouTube', href: 'https://www.youtube.com/@ripotek', color: 'hover:text-red-600' },
-    { icon: FaGithub, label: 'GitHub', href: 'https://github.com/ripotek', color: 'hover:text-gray-700' }
+    { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/ripotek', color: 'hover:text-teal-600' },
+    { icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com/me/', color: 'hover:text-teal-600' },
+    { icon: FaInstagram, label: 'Instagram', href: 'https://instagram.com/ripotekdata', color: 'hover:text-teal-600' },
+    { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://twitter.com/Ripotek', color: 'hover:text-teal-600' },
+    { icon: FaYoutube, label: 'YouTube', href: 'https://www.youtube.com/@ripotekacademy', color: 'hover:text-teal-600' },
+    { icon: FaGithub, label: 'GitHub', href: 'https://github.com/ripotek-technologies', color: 'hover:text-teal-600' }
   ];
 
   const quickActions = [
@@ -570,18 +570,19 @@ export default function ContactPage() {
 
             {/* Social Media Links */}
             <div className="border-t border-gray-200 pt-8">
-              <p className="text-center text-gray-700 font-semibold mb-4">Connect With Us</p>
-              <div className="flex justify-center gap-6">
+              <h3 className="text-center text-gray-900 font-bold text-xl mb-2">Connect With Us</h3>
+              <p className="text-center text-gray-600 mb-6">Connect with us on social media for updates, tips, and opportunities</p>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 max-w-md mx-auto">
                 {socialLinks.map((social, idx) => (
                   <a
                     key={idx}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover-lift transition-colors text-gray-600 ${social.color}`}
+                    className={`w-16 h-16 bg-gray-100 hover:bg-teal-100 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all text-gray-600 ${social.color}`}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-6 h-6" />
+                    <social.icon className="w-8 h-8" />
                   </a>
                 ))}
               </div>
@@ -669,22 +670,22 @@ export default function ContactPage() {
 
             {/* Social Media Links */}
             <div className="flex justify-center gap-6 pt-6 border-t border-gray-800">
-              <a href="https://www.linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition" aria-label="LinkedIn">
+              <a href="https://linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="LinkedIn">
                 <FaLinkedin className="w-6 h-6" />
               </a>
-              <a href="https://www.facebook.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition" aria-label="Facebook">
+              <a href="https://facebook.com/me/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Facebook">
                 <FaFacebook className="w-6 h-6" />
               </a>
-              <a href="https://www.instagram.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition" aria-label="Instagram">
+              <a href="https://instagram.com/ripotekdata" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
               </a>
-              <a href="https://x.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition" aria-label="X (Twitter)">
+              <a href="https://twitter.com/Ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="X (Twitter)">
                 <FaXTwitter className="w-6 h-6" />
               </a>
-              <a href="https://www.youtube.com/@ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition" aria-label="YouTube">
+              <a href="https://www.youtube.com/@ripotekacademy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="YouTube">
                 <FaYoutube className="w-6 h-6" />
               </a>
-              <a href="https://github.com/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-200 transition" aria-label="GitHub">
+              <a href="https://github.com/ripotek-technologies" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="GitHub">
                 <FaGithub className="w-6 h-6" />
               </a>
             </div>
