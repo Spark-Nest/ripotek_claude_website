@@ -73,32 +73,86 @@ export default function AboutPage() {
     {
       name: 'Sarah Chen',
       role: 'Chief Technology Officer',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=800&fit=crop&crop=faces',
       bio: 'Sarah Chen is a technical leader in enterprise data transformation with over 15 years of experience designing and implementing data platforms for Fortune 500 companies across Energy, Financial Services, and Public Sector industries. Before joining Ripotek as CTO, Sarah led data architecture initiatives at major consulting firms, specializing in Azure modernization and governed self-service BI.\n\nShe holds multiple certifications including Azure Solutions Architect Expert, TOGAF 9.2, and Databricks Certified Data Engineer. Sarah is passionate about empowering organizations to unlock the full potential of their data while building sustainable, scalable platforms that drive measurable business outcomes.\n\nAs CTO at Ripotek, Sarah leads all technical delivery, ensuring solutions follow industry best practices while meeting specific business requirements. She maintains Ripotek\'s commitment to technical excellence and knowledge transfer, developing the next generation of data professionals.'
     },
     {
       name: 'Priya Sharma',
       role: 'VP of AI & Innovation',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=800&fit=crop',
+      image: '/priya-sharma.png',
       bio: 'Dr. Priya Sharma holds a PhD in Machine Learning from the University of Toronto and has over 10 years of experience applying AI and ML to solve complex business problems. She has led MLOps transformations for major financial institutions, implementing production-grade ML systems that process billions of transactions.\n\nPriya specializes in Azure AI services, MLOps architecture, and responsible AI practices. She holds certifications as an Azure AI Engineer and AWS Machine Learning Specialty practitioner. Her research has been published in leading AI conferences and she is a frequent speaker at data science events.\n\nAt Ripotek, Priya drives innovation in AI/ML solutions, helping clients move from experimental models to production-grade systems. She also leads Ripotek\'s AI Engineer training program, preparing students for careers in this rapidly evolving field.'
     },
     {
       name: 'David Thompson',
       role: 'VP of Training & Education',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop&crop=faces',
       bio: 'David Thompson is a passionate educator and big data expert with 10 years of experience in Apache Spark, Databricks, and distributed data processing. He has trained over 2,000 students in data engineering technologies and maintains an impressive 85% job placement rate for Ripotek Academy graduates.\n\nDavid is a Databricks Certified Data Engineer and has contributed to open-source projects in the Apache Spark ecosystem. His expertise includes Delta Lake, structured streaming, and performance optimization for large-scale data pipelines. He is also proficient in Scala, Python, and SQL.\n\nAt Ripotek, David oversees all training programs, ensuring curriculum remains current with industry demands. His teaching philosophy emphasizes hands-on learning, real-world scenarios, and continuous support for students as they transition into data careers.'
     },
     {
       name: 'Elena Rodriguez',
       role: 'VP of Cloud Solutions',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&crop=faces',
       bio: 'Elena Rodriguez is a cloud architecture specialist with 8 years of experience designing and implementing Azure solutions. She has led over 30 zero-downtime cloud migrations and is recognized as an expert in Microsoft Fabric, the unified analytics platform that combines Power BI, Data Factory, and Synapse.\n\nElena holds Azure Solutions Architect Expert certification and was among the first cohort of Microsoft Fabric certified professionals. Her expertise spans cloud architecture, data engineering, and DevOps practices including CI/CD for data platforms.\n\nAt Ripotek, Elena leads cloud modernization initiatives, helping clients navigate complex migrations while optimizing for performance, security, and cost. She also contributes to Ripotek\'s Azure-focused training programs, sharing real-world insights from enterprise implementations.'
     },
     {
       name: 'James Patterson',
       role: 'Director of Operations',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop&crop=faces',
       bio: 'James Patterson brings 12 years of operational excellence and project management expertise to Ripotek. With a background in both technology consulting and business operations, James ensures seamless delivery across all client engagements and internal initiatives.\n\nHe holds PMP (Project Management Professional) certification and has extensive experience managing complex, multi-stakeholder projects in regulated industries. James specializes in agile delivery methodologies, resource optimization, and building processes that scale.\n\nAt Ripotek, James oversees day-to-day operations, manages client relationships, and ensures quality standards are met across consulting and training services. He is instrumental in Ripotek\'s growth strategy and maintains the company\'s reputation for reliable, on-time delivery.'
+    }
+  ];
+
+  const businessConsultants = [
+    {
+      name: 'Michael Rodriguez',
+      role: 'Business Intelligence Analyst',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Michael Rodriguez is a Business Intelligence Analyst with 8 years of experience transforming raw data into actionable insights for Fortune 500 companies. He specializes in Power BI, Tableau, and SQL Server, delivering enterprise BI solutions that drive strategic decision-making.\n\nMichael has designed and implemented over 50 dashboards and reporting solutions across retail, healthcare, and financial services industries. His expertise includes data modeling, DAX optimization, and creating self-service analytics platforms that empower business users.\n\nAt Ripotek, Michael leads BI consulting engagements, helping clients modernize their analytics infrastructure and establish data-driven cultures. He is known for his ability to translate complex business requirements into elegant, user-friendly visualizations.'
+    },
+    {
+      name: 'Sophia Kim',
+      role: 'Data Engineer',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Sophia Kim is a Data Engineer with deep expertise in building scalable data pipelines and modern data platforms. With 10 years of experience across Azure, AWS, and GCP, she has architected solutions processing billions of events daily for major enterprises.\n\nSophia specializes in Azure Data Factory, Databricks, and Apache Spark, with proven success in migrating legacy ETL systems to cloud-native architectures. She holds certifications as an Azure Data Engineer Associate and Databricks Certified Data Engineer Professional.\n\nAt Ripotek, Sophia leads data engineering projects, designing robust, performant pipelines that enable real-time analytics and machine learning initiatives. Her passion for automation and DevOps practices ensures solutions are maintainable and production-ready.'
+    },
+    {
+      name: 'Jordan Matthews',
+      role: 'Power BI Developer',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Jordan Matthews is a Power BI specialist with 7 years focused exclusively on Microsoft\'s analytics platform. He has built comprehensive BI solutions for over 30 organizations, from startups to multinational corporations, consistently delivering high-impact visualizations and data models.\n\nJordan is a Microsoft Certified: Power BI Data Analyst Associate and holds advanced certifications in DAX and data modeling. His expertise extends to Power Query, dataflows, and integrating Power BI with Azure services for enterprise-scale deployments.\n\nAt Ripotek, Jordan drives Power BI best practices, mentors junior developers, and ensures clients leverage the full capabilities of the platform—from embedded analytics to paginated reports and AI-powered insights.'
+    },
+    {
+      name: 'Aisha Patel',
+      role: 'AI/Machine Learning Engineer',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Dr. Aisha Patel is an AI/ML Engineer with a PhD in Computer Science from Stanford University and 9 years of experience deploying production machine learning systems. She has led AI initiatives for technology companies and research institutions, focusing on NLP, computer vision, and predictive analytics.\n\nAisha specializes in Azure Machine Learning, MLOps, and responsible AI practices. She has published research in leading conferences and holds patents in machine learning optimization techniques. Her work spans recommendation systems, fraud detection, and automated decision-making platforms.\n\nAt Ripotek, Aisha helps clients transition from experimental models to scalable AI solutions. She champions ethical AI development and ensures models are explainable, fair, and aligned with business objectives while maintaining technical excellence.'
+    }
+  ];
+
+  const instructors = [
+    {
+      name: 'Marcus Johnson',
+      role: 'Power BI Instructor',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Marcus Johnson is Ripotek Academy\'s lead Power BI instructor with 12 years of analytics experience and 6 years teaching data visualization. He has trained over 1,500 students, maintaining a 95% satisfaction rate and helping hundreds transition into BI analyst roles.\n\nMarcus holds Microsoft Certified Trainer (MCT) status and is a Power BI Data Analyst Associate. His teaching style combines real-world case studies with hands-on projects, ensuring students build portfolio-ready work while mastering DAX, Power Query, and data modeling.\n\nAt Ripotek Academy, Marcus designed the comprehensive Power BI curriculum that covers everything from fundamentals to advanced topics like row-level security, incremental refresh, and deployment pipelines. His students consistently praise his clarity, patience, and industry insights.'
+    },
+    {
+      name: 'Dr. Leila Rahman',
+      role: 'AI/Machine Learning Expert',
+      image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Dr. Leila Rahman brings 15 years of AI research and industry experience to Ripotek Academy. With a PhD in Machine Learning from MIT, she has published over 40 papers and worked with leading tech companies on cutting-edge AI initiatives before transitioning to education.\n\nLeila specializes in teaching deep learning, natural language processing, and MLOps using Python, TensorFlow, PyTorch, and Azure ML. She has trained data scientists at Google, Amazon, and Microsoft, and now brings that world-class expertise to Ripotek students.\n\nAt Ripotek Academy, Leila leads the AI Engineer program, guiding students through the complete ML lifecycle—from problem formulation to model deployment. Her approachable teaching demystifies complex algorithms and empowers students to build production-grade AI solutions.'
+    },
+    {
+      name: 'Carlos Mendoza',
+      role: 'Cloud Solutions Specialist',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Carlos Mendoza is a cloud architecture expert with 14 years of experience and a passion for teaching Azure technologies. As a Microsoft Certified Trainer and Azure Solutions Architect Expert, he has delivered training to over 2,000 professionals across North America.\n\nCarlos specializes in Azure data services including Synapse Analytics, Data Factory, Databricks, and Microsoft Fabric. His industry background spans financial services, healthcare, and energy sectors, providing students with relevant, real-world context for cloud solutions.\n\nAt Ripotek Academy, Carlos teaches cloud data engineering and Azure fundamentals, preparing students for industry certifications while building practical skills. His hands-on labs and migration scenarios give students confidence to architect enterprise-scale cloud solutions.'
+    },
+    {
+      name: 'Nina Kowalski',
+      role: 'Programming Instructor',
+      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=800&fit=crop&crop=faces',
+      bio: 'Nina Kowalski is a software engineer turned educator with 10 years of development experience and 5 years teaching programming fundamentals. She has worked at startups and Fortune 500 companies, writing production code in Python, SQL, R, and JavaScript.\n\nNina holds a Computer Science degree from the University of Waterloo and multiple programming certifications. Her teaching philosophy emphasizes clean code, debugging skills, and computational thinking—foundational skills that transcend any single language or framework.\n\nAt Ripotek Academy, Nina teaches Python for Data, SQL fundamentals, and programming best practices. Her structured curriculum takes complete beginners to job-ready programmers through a carefully scaffolded learning path with abundant practice exercises and code reviews.'
     }
   ];
 
@@ -372,6 +426,18 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
+          {/* Meet the Team Introduction */}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-gray-900">Meet the </span>
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              Behind every successful project and every trained professional is a team of dedicated experts who live and breathe data. From our leadership guiding strategic vision to our consultants solving complex challenges and our instructors empowering the next generation—each person brings unique expertise, passion, and a commitment to excellence.
+            </p>
+          </div>
+
+          {/* Leadership & Executive */}
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Leadership & </span>
             <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Executive</span>
@@ -392,7 +458,7 @@ export default function AboutPage() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105"
+                    className={`object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105 ${member.name === 'Priya Sharma' ? 'object-[center_20%]' : ''}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     priority={idx < 3}
                   />
@@ -474,6 +540,86 @@ export default function AboutPage() {
           </div>
         )}
 
+        {/* Business Consultants Section */}
+        <div className="max-w-7xl mx-auto mt-32">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <span className="text-gray-900">Business </span>
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Consultants</span>
+          </h2>
+          <p className="text-gray-600 mb-12 max-w-3xl">
+            Our consulting team delivers enterprise-grade solutions across data engineering, business intelligence, and AI—combining deep technical expertise with industry best practices.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {businessConsultants.map((member, idx) => (
+              <div
+                key={idx}
+                className="group cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-2xl bg-gray-900 shadow-xl group-hover:shadow-2xl transition-all duration-300 ring-4 ring-gray-200 group-hover:ring-teal-500">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  {/* Bold overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Name overlay on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
+                    <p className="text-teal-300 text-xs font-medium">{member.role}</p>
+                  </div>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base group-hover:text-teal-600 transition-colors">{member.name}</h3>
+                <p className="text-gray-600 text-xs md:text-sm leading-snug">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Instructors Section */}
+        <div className="max-w-7xl mx-auto mt-32">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <span className="text-gray-900">Academy </span>
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Instructors</span>
+          </h2>
+          <p className="text-gray-600 mb-12 max-w-3xl">
+            Learn from world-class instructors who combine years of industry experience with a passion for teaching—delivering hands-on, career-focused training that gets results.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {instructors.map((member, idx) => (
+              <div
+                key={idx}
+                className="group cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-2xl bg-gray-900 shadow-xl group-hover:shadow-2xl transition-all duration-300 ring-4 ring-gray-200 group-hover:ring-teal-500">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  {/* Bold overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Name overlay on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
+                    <p className="text-teal-300 text-xs font-medium">{member.role}</p>
+                  </div>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base group-hover:text-teal-600 transition-colors">{member.name}</h3>
+                <p className="text-gray-600 text-xs md:text-sm leading-snug">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <style jsx>{`
           @keyframes fadeIn {
             from { opacity: 0; }
@@ -534,7 +680,7 @@ export default function AboutPage() {
               <div className="mt-6 space-y-3 text-gray-300 text-base">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
-                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
               </div>
             </div>
 

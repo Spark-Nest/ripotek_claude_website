@@ -81,8 +81,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 306 999-3552',
-      link: 'tel:+13069993552'
+      value: '+1 587 259-0033',
+      link: 'tel:+15872590033'
     }
   ];
 
@@ -621,7 +621,7 @@ export default function ContactPage() {
               <div className="mt-6 space-y-3 text-gray-300 text-base">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
-                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
               </div>
             </div>
 

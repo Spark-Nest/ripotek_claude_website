@@ -333,7 +333,7 @@ export default function PricingCalculator() {
               <div>Ripotek Technologies Inc. • Calgary, Alberta, Canada</div>
               <div>
                 <a href="mailto:info@ripotek.com">info@ripotek.com</a> •
-                <a href="tel:+13069993552">+1 306-999-3552</a> •
+                <a href="tel:+15872590033">+1 587-259-0033</a> •
                 <a href="https://ripotek.com">ripotek.com</a>
               </div>
             </div>
@@ -977,7 +977,7 @@ export default function PricingCalculator() {
               <div className="mt-6 space-y-3 text-gray-300 text-base">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
-                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
               </div>
             </div>
 

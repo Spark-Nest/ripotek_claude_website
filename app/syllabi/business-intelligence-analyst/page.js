@@ -311,7 +311,7 @@ export default function BusinessIntelligenceAnalystSyllabus() {
                 <Phone className="w-5 h-5 text-green-600" />
                 Phone
               </h4>
-              <p className="text-gray-700 text-sm mb-2">+1 306 999-3552</p>
+              <p className="text-gray-700 text-sm mb-2">+1 587 259-0033</p>
             </div>
 
             <div>

@@ -322,7 +322,7 @@ export default function RefundPolicyPage() {
               <div className="bg-gray-50 p-6 rounded-lg space-y-2">
                 <p className="text-gray-700"><strong>Ripotek Technologies Inc.</strong></p>
                 <p className="text-gray-700">Email: info@ripotek.com</p>
-                <p className="text-gray-700">Phone: +1 306-999-3552</p>
+                <p className="text-gray-700">Phone: +1 587-259-0033</p>
                 <p className="text-gray-700">Address: Calgary, Alberta, Canada</p>
               </div>
               <p className="text-gray-700 leading-relaxed mt-4">
@@ -352,7 +352,7 @@ export default function RefundPolicyPage() {
               <div className="mt-6 space-y-3 text-gray-300 text-base">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
-                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 306-999-3552</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
               </div>
             </div>
 

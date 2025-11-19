@@ -687,7 +687,7 @@ export default function DatabricksEngineerSyllabus() {
                 <Phone className="w-5 h-5 text-orange-600" />
                 Phone
               </h4>
-              <p className="text-gray-700 text-sm mb-2">+1 306 999-3552</p>
+              <p className="text-gray-700 text-sm mb-2">+1 587 259-0033</p>
               <p className="text-gray-700 text-sm">Mon-Fri: 9am-5pm MT</p>
             </div>
 
