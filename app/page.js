@@ -326,7 +326,7 @@ export default function RipotekHomePage() {
 
             {/* Subheading */}
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Enterprise consulting, training, and managed services in <span className="text-teal-400 font-semibold">Azure</span>, <span className="text-teal-400 font-semibold">Databricks</span>, <span className="text-teal-400 font-semibold">Fabric</span>, and <span className="text-teal-400 font-semibold">AI</span>
+              Enterprise consulting, training, and managed services in <span className="text-teal-400 font-semibold">Cloud Technologies</span>, <span className="text-teal-400 font-semibold">Databricks</span>, <span className="text-teal-400 font-semibold">Fabric</span>, and <span className="text-teal-400 font-semibold">AI</span>
             </p>
 
             {/* CTA Buttons */}
