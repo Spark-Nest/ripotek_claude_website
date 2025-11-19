@@ -13,8 +13,20 @@ export default function RipotekHomePage() {
   const [trainingDropdown, setTrainingDropdown] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile devices
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -28,7 +40,10 @@ export default function RipotekHomePage() {
       }
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navigation = [
@@ -273,105 +288,178 @@ export default function RipotekHomePage() {
         )}
       </nav>
 
-      {/* Hero Section with Video Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with animated gradient */}
-        <div className="absolute inset-0 z-0">
-          {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
-
-          {/* Video Background - using different source */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
-            poster="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1920&h=1080&fit=crop"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
-            <source src="https://player.vimeo.com/external/370467553.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
-          </video>
-
-          {/* Animated grid pattern */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.3) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
-
-          {/* Animated particles effect - more visible */}
-          <div className="absolute inset-0 z-10">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-cyan-400 rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-            <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-purple-500 rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }}></div>
-          </div>
+      {/* Video Introduction Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 overflow-hidden">
+        {/* Ambient Background Effects */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 py-32">
-          <div className="text-center max-w-5xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-8 backdrop-blur-sm border border-teal-400/30">
-              <Sparkles className="w-5 h-5" />
+        {/* Main Content Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+          {/* Top Badge */}
+          <div className="text-center mb-8 animate-fadeIn">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500/10 rounded-full text-teal-300 text-sm font-medium backdrop-blur-md border border-teal-400/20 shadow-lg">
+              <Sparkles className="w-4 h-4" />
               <span>Canada's Premier Data & AI Consultancy</span>
             </div>
+          </div>
 
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-              Transform Data Into
-              <span className="block bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent mt-2">
-                Strategic Advantage
+          {/* Video Container - Montage Style */}
+          <div className="max-w-6xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black group">
+              {/* Video Element */}
+              <div className="relative aspect-video w-full">
+                <video
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  onPlay={() => setVideoPlaying(true)}
+                  onEnded={() => setVideoEnded(true)}
+                  className="w-full h-full object-cover"
+                  poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
+                  preload="auto"
+                >
+                  {/* Using reliable stock video - replace with your own video when ready */}
+                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                </video>
+
+                {/* Subtle gradient overlay for branding */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
+
+                {/* Optional: Video branding overlay */}
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between pointer-events-none">
+                  <div className="flex items-center gap-3 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <Image src="/favicon.svg" alt="Ripotek" width={28} height={28} className="w-7 h-7 rounded" />
+                    <span className="text-white font-semibold text-sm">Ripotek Technologies</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modern Progress Bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                <div className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 animate-progress" style={{
+                  animation: 'progress 30s linear forwards'
+                }}></div>
+              </div>
+            </div>
+
+            {/* Video Description / Tagline */}
+            <div className="text-center mt-6 px-4">
+              <p className="text-gray-300 text-lg font-light">
+                Watch how we transform data into competitive advantage
+              </p>
+            </div>
+          </div>
+
+          {/* Main Headline & CTA */}
+          <div className="text-center max-w-5xl mx-auto space-y-8 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+              Engineer Intelligence.
+              <span className="block mt-3 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Deliver Impact.
               </span>
             </h1>
 
-            {/* Subheading */}
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Enterprise consulting, training, and managed services in <span className="text-teal-400 font-semibold">Cloud Technologies</span>, <span className="text-teal-400 font-semibold">Databricks</span>, <span className="text-teal-400 font-semibold">Fabric</span>, and <span className="text-teal-400 font-semibold">AI</span>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+              Empowering enterprises with cutting-edge solutions in{' '}
+              <span className="font-semibold text-teal-300">Azure</span>,{' '}
+              <span className="font-semibold text-cyan-300">Databricks</span>,{' '}
+              <span className="font-semibold text-blue-300">Fabric</span>, and{' '}
+              <span className="font-semibold text-teal-300">AI</span>
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-6 justify-center mb-16">
-              <button onClick={() => setDiscoveryCallModalOpen(true)} className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
-                <Calendar className="w-6 h-6" />
-                <span>Book Discovery Call</span>
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <button
+                onClick={() => setDiscoveryCallModalOpen(true)}
+                className="group relative bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Calendar className="w-5 h-5 relative z-10" />
+                <span className="relative z-10">Book Discovery Call</span>
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               </button>
-              <a href="/services" className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
-                <Rocket className="w-6 h-6" />
+              <a
+                href="/services"
+                className="group bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg border-2 border-white/20 hover:border-teal-400/50 backdrop-blur-sm transition-all duration-300 flex items-center justify-center gap-3"
+              >
+                <Rocket className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>Explore Services</span>
               </a>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white/80 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-400" />
-                <span>50+ Enterprise Clients</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto">
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">50+</div>
+                <div className="text-sm text-gray-300">Enterprise Clients</div>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-400" />
-                <span>85% Job Placement</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">85%</div>
+                <div className="text-sm text-gray-300">Job Placement Rate</div>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-400" />
-                <span>$12M+ Client ROI</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">$12M+</div>
+                <div className="text-sm text-gray-300">Client ROI Delivered</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-teal-400 rounded-full"></div>
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+          <div className="flex flex-col items-center gap-2 text-white/60 hover:text-white/90 transition-colors cursor-pointer">
+            <span className="text-xs uppercase tracking-wider font-medium">Scroll to Explore</span>
+            <ChevronDown className="w-6 h-6" />
           </div>
         </div>
+
+        {/* Animations */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes progress {
+            from { width: 0%; }
+            to { width: 100%; }
+          }
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+          }
+        `}</style>
       </section>
+
+      {/* Smooth Transition Wave */}
+      <div className="relative h-24 bg-gradient-to-b from-gray-900 to-white">
+        <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path fill="#ffffff" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"></path>
+        </svg>
+      </div>
 
       {/* Animated Stats Section */}
       <section id="stats-section" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 opacity-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-sm font-bold tracking-widest text-teal-600 uppercase bg-teal-50 px-6 py-3 rounded-full shadow-md">
+                Our Impact
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              Delivering <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Measurable Results</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Real outcomes that drive business transformation
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
