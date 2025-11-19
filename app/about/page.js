@@ -91,13 +91,13 @@ export default function AboutPage() {
     {
       name: 'Elena Rodriguez',
       role: 'VP of Cloud Solutions',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&crop=faces',
+      image: '/elena-rodriguez.png',
       bio: 'Elena Rodriguez is a cloud architecture specialist with 8 years of experience designing and implementing Azure solutions. She has led over 30 zero-downtime cloud migrations and is recognized as an expert in Microsoft Fabric, the unified analytics platform that combines Power BI, Data Factory, and Synapse.\n\nElena holds Azure Solutions Architect Expert certification and was among the first cohort of Microsoft Fabric certified professionals. Her expertise spans cloud architecture, data engineering, and DevOps practices including CI/CD for data platforms.\n\nAt Ripotek, Elena leads cloud modernization initiatives, helping clients navigate complex migrations while optimizing for performance, security, and cost. She also contributes to Ripotek\'s Azure-focused training programs, sharing real-world insights from enterprise implementations.'
     },
     {
       name: 'James Patterson',
       role: 'Director of Operations',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop&crop=faces',
+      image: '/james-patterson.png',
       bio: 'James Patterson brings 12 years of operational excellence and project management expertise to Ripotek. With a background in both technology consulting and business operations, James ensures seamless delivery across all client engagements and internal initiatives.\n\nHe holds PMP (Project Management Professional) certification and has extensive experience managing complex, multi-stakeholder projects in regulated industries. James specializes in agile delivery methodologies, resource optimization, and building processes that scale.\n\nAt Ripotek, James oversees day-to-day operations, manages client relationships, and ensures quality standards are met across consulting and training services. He is instrumental in Ripotek\'s growth strategy and maintains the company\'s reputation for reliable, on-time delivery.'
     }
   ];
@@ -106,25 +106,30 @@ export default function AboutPage() {
     {
       name: 'Michael Rodriguez',
       role: 'Business Intelligence Analyst',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=faces',
+      image: '/michael-rodriguez.png',
+      imagePosition: 'object-[center_15%]',
       bio: 'Michael Rodriguez is a Business Intelligence Analyst with 8 years of experience transforming raw data into actionable insights for Fortune 500 companies. He specializes in Power BI, Tableau, and SQL Server, delivering enterprise BI solutions that drive strategic decision-making.\n\nMichael has designed and implemented over 50 dashboards and reporting solutions across retail, healthcare, and financial services industries. His expertise includes data modeling, DAX optimization, and creating self-service analytics platforms that empower business users.\n\nAt Ripotek, Michael leads BI consulting engagements, helping clients modernize their analytics infrastructure and establish data-driven cultures. He is known for his ability to translate complex business requirements into elegant, user-friendly visualizations.'
     },
     {
       name: 'Sophia Kim',
       role: 'Data Engineer',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=800&fit=crop&crop=faces',
+      image: '/sophia-kim.png',
+      imagePosition: 'object-[center_20%]',
       bio: 'Sophia Kim is a Data Engineer with deep expertise in building scalable data pipelines and modern data platforms. With 10 years of experience across Azure, AWS, and GCP, she has architected solutions processing billions of events daily for major enterprises.\n\nSophia specializes in Azure Data Factory, Databricks, and Apache Spark, with proven success in migrating legacy ETL systems to cloud-native architectures. She holds certifications as an Azure Data Engineer Associate and Databricks Certified Data Engineer Professional.\n\nAt Ripotek, Sophia leads data engineering projects, designing robust, performant pipelines that enable real-time analytics and machine learning initiatives. Her passion for automation and DevOps practices ensures solutions are maintainable and production-ready.'
     },
     {
       name: 'Jordan Matthews',
       role: 'Power BI Developer',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&crop=faces',
+      imagePosition: 'object-[center_20%]',
       bio: 'Jordan Matthews is a Power BI specialist with 7 years focused exclusively on Microsoft\'s analytics platform. He has built comprehensive BI solutions for over 30 organizations, from startups to multinational corporations, consistently delivering high-impact visualizations and data models.\n\nJordan is a Microsoft Certified: Power BI Data Analyst Associate and holds advanced certifications in DAX and data modeling. His expertise extends to Power Query, dataflows, and integrating Power BI with Azure services for enterprise-scale deployments.\n\nAt Ripotek, Jordan drives Power BI best practices, mentors junior developers, and ensures clients leverage the full capabilities of the platform—from embedded analytics to paginated reports and AI-powered insights.'
     },
     {
       name: 'Aisha Patel',
       role: 'AI/Machine Learning Engineer',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=800&fit=crop&crop=faces',
+      image: '/aisha-patel.png',
+      imagePosition: 'object-[center_5%]',
+      imageScale: 'scale-125',
       bio: 'Dr. Aisha Patel is an AI/ML Engineer with a PhD in Computer Science from Stanford University and 9 years of experience deploying production machine learning systems. She has led AI initiatives for technology companies and research institutions, focusing on NLP, computer vision, and predictive analytics.\n\nAisha specializes in Azure Machine Learning, MLOps, and responsible AI practices. She has published research in leading conferences and holds patents in machine learning optimization techniques. Her work spans recommendation systems, fraud detection, and automated decision-making platforms.\n\nAt Ripotek, Aisha helps clients transition from experimental models to scalable AI solutions. She champions ethical AI development and ensures models are explainable, fair, and aligned with business objectives while maintaining technical excellence.'
     }
   ];
@@ -562,7 +567,7 @@ export default function AboutPage() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105"
+                    className={`object-cover ${member.imagePosition || 'object-top'} ${member.imageScale || ''} transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   {/* Bold overlay on hover */}
