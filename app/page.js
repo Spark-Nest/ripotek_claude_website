@@ -323,7 +323,7 @@ export default function RipotekHomePage() {
                   preload="auto"
                 >
                   {/* Using reliable stock video - replace with your own video when ready */}
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                  <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
                 </video>
 
                 {/* Subtle gradient overlay for branding */}
