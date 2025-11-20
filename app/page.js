@@ -319,20 +319,13 @@ export default function RipotekHomePage() {
               {/* Subtle gradient overlay for branding */}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
 
-              {/* Optional: Video branding overlay */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between pointer-events-none">
-                <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg opacity-60">
-                  <Image src="/favicon.svg" alt="Ripotek" width={28} height={28} className="w-7 h-7 rounded opacity-80" />
-                  <span className="text-white font-semibold text-sm opacity-80">Ripotek Technologies</span>
+              {/* Video branding overlay - Bottom Left */}
+              <div className="absolute bottom-0 left-0 pointer-events-none">
+                <div className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-2 opacity-60">
+                  <Image src="/favicon.svg" alt="Ripotek" width={24} height={24} className="w-6 h-6 rounded opacity-80" />
+                  <span className="text-white font-semibold text-xs opacity-80">Ripotek Technologies</span>
                 </div>
               </div>
-            </div>
-
-            {/* Modern Progress Bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-              <div className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 animate-progress" style={{
-                animation: 'progress 30s linear forwards'
-              }}></div>
             </div>
           </div>
         </div>
@@ -340,7 +333,7 @@ export default function RipotekHomePage() {
         {/* Main Content Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Main Headline & CTA */}
-          <div className="text-center max-w-5xl mx-auto space-y-8 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+          <div className="text-center max-w-5xl mx-auto space-y-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
               Engineer Intelligence.
               <span className="block mt-3 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
