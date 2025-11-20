@@ -289,71 +289,56 @@ export default function RipotekHomePage() {
       </nav>
 
       {/* Video Introduction Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 overflow-hidden pt-20">
         {/* Ambient Background Effects */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
         </div>
 
-        {/* Main Content Container */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-          {/* Top Badge */}
-          <div className="text-center mb-8 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500/10 rounded-full text-teal-300 text-sm font-medium backdrop-blur-md border border-teal-400/20 shadow-lg">
-              <Sparkles className="w-4 h-4" />
-              <span>Canada's Premier Data & AI Consultancy</span>
-            </div>
-          </div>
+        {/* Video Container - Full Width Letterbox Style */}
+        <div className="w-full mb-8 animate-fadeIn relative z-10" style={{ animationDelay: '0.1s' }}>
+          <div className="relative overflow-hidden shadow-2xl bg-black group">
+            {/* Video Element - Fixed 1920x540 aspect ratio (3.56:1) */}
+            <div className="relative w-full" style={{ aspectRatio: '3.56', maxHeight: '540px' }}>
+              <video
+                autoPlay
+                muted
+                playsInline
+                loop
+                onPlay={() => setVideoPlaying(true)}
+                onEnded={() => setVideoEnded(true)}
+                className="w-full h-full object-cover"
+                poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
+                preload="auto"
+              >
+                {/* Using reliable stock video - replace with your own video when ready */}
+                <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
+              </video>
 
-          {/* Video Container - Montage Style */}
-          <div className="max-w-6xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black group">
-              {/* Video Element */}
-              <div className="relative aspect-video w-full">
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  onPlay={() => setVideoPlaying(true)}
-                  onEnded={() => setVideoEnded(true)}
-                  className="w-full h-full object-cover"
-                  poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
-                  preload="auto"
-                >
-                  {/* Using reliable stock video - replace with your own video when ready */}
-                  <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
-                </video>
+              {/* Subtle gradient overlay for branding */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
 
-                {/* Subtle gradient overlay for branding */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
-
-                {/* Optional: Video branding overlay */}
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between pointer-events-none">
-                  <div className="flex items-center gap-3 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <Image src="/favicon.svg" alt="Ripotek" width={28} height={28} className="w-7 h-7 rounded" />
-                    <span className="text-white font-semibold text-sm">Ripotek Technologies</span>
-                  </div>
+              {/* Optional: Video branding overlay */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between pointer-events-none">
+                <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg opacity-60">
+                  <Image src="/favicon.svg" alt="Ripotek" width={28} height={28} className="w-7 h-7 rounded opacity-80" />
+                  <span className="text-white font-semibold text-sm opacity-80">Ripotek Technologies</span>
                 </div>
               </div>
-
-              {/* Modern Progress Bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                <div className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 animate-progress" style={{
-                  animation: 'progress 30s linear forwards'
-                }}></div>
-              </div>
             </div>
 
-            {/* Video Description / Tagline */}
-            <div className="text-center mt-6 px-4">
-              <p className="text-gray-300 text-lg font-light">
-                Watch how we transform data into competitive advantage
-              </p>
+            {/* Modern Progress Bar */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+              <div className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 animate-progress" style={{
+                animation: 'progress 30s linear forwards'
+              }}></div>
             </div>
           </div>
+        </div>
 
+        {/* Main Content Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Main Headline & CTA */}
           <div className="text-center max-w-5xl mx-auto space-y-8 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
@@ -406,14 +391,6 @@ export default function RipotekHomePage() {
                 <div className="text-sm text-gray-300">Client ROI Delivered</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <div className="flex flex-col items-center gap-2 text-white/60 hover:text-white/90 transition-colors cursor-pointer">
-            <span className="text-xs uppercase tracking-wider font-medium">Scroll to Explore</span>
-            <ChevronDown className="w-6 h-6" />
           </div>
         </div>
 
