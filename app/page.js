@@ -321,9 +321,9 @@ export default function RipotekHomePage() {
 
               {/* Video branding overlay - Bottom Left */}
               <div className="absolute bottom-0 left-0 pointer-events-none">
-                <div className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-2 opacity-60">
-                  <Image src="/favicon.svg" alt="Ripotek" width={24} height={24} className="w-6 h-6 rounded opacity-80" />
-                  <span className="text-white font-semibold text-xs opacity-80">Ripotek Technologies</span>
+                <div className="flex items-center gap-1.5 md:gap-2 bg-black/20 backdrop-blur-sm px-2 py-1.5 md:px-3 md:py-2 opacity-60">
+                  <Image src="/favicon.svg" alt="Ripotek" width={24} height={24} className="w-4 h-4 md:w-6 md:h-6 rounded opacity-80" />
+                  <span className="text-white font-semibold text-[10px] md:text-xs opacity-80">Ripotek Technologies</span>
                 </div>
               </div>
             </div>
