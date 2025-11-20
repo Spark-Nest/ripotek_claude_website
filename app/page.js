@@ -289,11 +289,12 @@ export default function RipotekHomePage() {
       </nav>
 
       {/* Video Introduction Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 overflow-hidden pt-20">
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-20">
         {/* Ambient Background Effects */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
+          <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-blue-500 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
         </div>
 
         {/* Video Container - Full Width Letterbox Style */}
@@ -333,15 +334,15 @@ export default function RipotekHomePage() {
         {/* Main Content Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Main Headline & CTA */}
-          <div className="text-center max-w-5xl mx-auto space-y-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+          <div className="text-center max-w-5xl mx-auto space-y-4 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
               Engineer Intelligence.
-              <span className="block mt-3 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="block mt-3 bg-gradient-to-r from-teal-300 via-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
                 Deliver Impact.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
               Empowering enterprises with cutting-edge solutions in{' '}
               <span className="font-semibold text-teal-300">Azure</span>,{' '}
               <span className="font-semibold text-cyan-300">Databricks</span>,{' '}
@@ -371,17 +372,17 @@ export default function RipotekHomePage() {
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto">
-              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">50+</div>
-                <div className="text-sm text-gray-300">Enterprise Clients</div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-teal-400/30 hover:bg-white/15 hover:border-teal-400/50 transition-all shadow-lg hover:shadow-teal-500/20">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">50+</div>
+                <div className="text-sm text-gray-200 font-medium">Enterprise Clients</div>
               </div>
-              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">85%</div>
-                <div className="text-sm text-gray-300">Job Placement Rate</div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-cyan-400/30 hover:bg-white/15 hover:border-cyan-400/50 transition-all shadow-lg hover:shadow-cyan-500/20">
+                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">85%</div>
+                <div className="text-sm text-gray-200 font-medium">Job Placement Rate</div>
               </div>
-              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">$12M+</div>
-                <div className="text-sm text-gray-300">Client ROI Delivered</div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-blue-400/30 hover:bg-white/15 hover:border-blue-400/50 transition-all shadow-lg hover:shadow-blue-500/20">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">$12M+</div>
+                <div className="text-sm text-gray-200 font-medium">Client ROI Delivered</div>
               </div>
             </div>
           </div>
@@ -405,7 +406,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Smooth Transition Wave */}
-      <div className="relative h-24 bg-gradient-to-b from-gray-900 to-white">
+      <div className="relative h-24 bg-gradient-to-b from-slate-900 to-white">
         <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"></path>
         </svg>
