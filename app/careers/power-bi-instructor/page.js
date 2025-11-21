@@ -60,7 +60,6 @@ export default function PowerBIInstructorPage() {
   const jobHighlights = [
     { icon: MapPin, label: 'Location', value: 'Remote (Calgary-based preferred)' },
     { icon: Briefcase, label: 'Employment Type', value: 'Contract (Renewable)' },
-    { icon: DollarSign, label: 'Compensation', value: '$80-$120/hour CAD' },
     { icon: Clock, label: 'Commitment', value: '12-24 weeks per cohort, 2-3 cohorts/year' }
   ];
 

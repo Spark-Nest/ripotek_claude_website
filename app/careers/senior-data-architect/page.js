@@ -59,9 +59,7 @@ export default function SeniorDataArchitectPage() {
 
   const jobHighlights = [
     { icon: MapPin, label: 'Location', value: 'Calgary, AB (Hybrid - 2 days/week)' },
-    { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' },
-    { icon: DollarSign, label: 'Salary Range', value: '$130,000 - $165,000 CAD + bonus' },
-    { icon: Plane, label: 'Travel', value: '10-20% (Western Canada)' }
+    { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' }
   ];
 
   return (
@@ -476,40 +474,6 @@ export default function SeniorDataArchitectPage() {
             </div>
 
             <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Compensation & Benefits</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Competitive salary: $130K-$165K based on experience</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Annual performance bonus (10-20% of salary)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>RRSP matching (5% of salary)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Comprehensive health, dental, and vision insurance</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Professional development budget ($5,000/year)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Certification and training support</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal-600 mt-1">•</span>
-                    <span>Annual tech allowance ($1,500)</span>
-                  </li>
-                </ul>
-              </div>
-
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Work Environment</h3>
                 <ul className="space-y-2 text-gray-700">

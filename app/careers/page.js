@@ -56,11 +56,11 @@ export default function CareersPage() {
   ];
 
   const careers = [
-    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$130K - $165K + bonus', slug: 'senior-data-architect' },
-    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote', salary: '$80-$120/hour', slug: 'power-bi-instructor' },
-    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB', salary: '$95K - $130K + bonus', slug: 'azure-solutions-consultant' },
-    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$55K - $70K', slug: 'student-success-coordinator' },
-    { title: 'Junior Data Engineer', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', salary: '$65K - $80K', slug: 'junior-data-engineer' }
+    { title: 'Senior Data Architect', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', slug: 'senior-data-architect' },
+    { title: 'Power BI Instructor', dept: 'Training', type: 'Contract', location: 'Remote', slug: 'power-bi-instructor' },
+    { title: 'Azure Solutions Consultant', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB', slug: 'azure-solutions-consultant' },
+    { title: 'Student Success Coordinator', dept: 'Training', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', slug: 'student-success-coordinator' },
+    { title: 'Junior Data Engineer', dept: 'Consulting', type: 'Full-Time', location: 'Calgary, AB (Hybrid)', slug: 'junior-data-engineer' }
   ];
 
   const benefits = [
@@ -335,7 +335,6 @@ export default function CareersPage() {
                       <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">{job.dept}</span>
                       <span className="px-3 py-1 bg-teal-50 text-teal-700 text-sm rounded-full">{job.type}</span>
                     </div>
-                    <p className="text-gray-900 font-semibold text-lg">{job.salary}</p>
                   </div>
                   <MapPin className="w-5 h-5 text-gray-400" />
                 </div>

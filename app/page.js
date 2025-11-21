@@ -73,7 +73,7 @@ export default function RipotekHomePage() {
         { name: 'AI Engineer', href: '/training#ai-engineer' },
         { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
         { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
-        { name: 'Python for Data', href: '/training#python-for-data' },
+        { name: 'Python Bootcamp', href: '/training#python-bootcamp' },
         { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
       ]
     },
@@ -114,8 +114,18 @@ export default function RipotekHomePage() {
     },
     {
       name: 'Snowflake',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/2560px-Snowflake_Logo.svg.png',
       url: 'https://www.snowflake.com'
+    },
+    {
+      name: 'Amazon Web Services',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+      url: 'https://aws.amazon.com'
+    },
+    {
+      name: 'Google Cloud Platform',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+      url: 'https://cloud.google.com'
     }
   ];
 

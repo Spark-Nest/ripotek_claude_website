@@ -60,7 +60,6 @@ export default function JuniorDataEngineerPage() {
   const jobHighlights = [
     { icon: MapPin, label: 'Location', value: 'Calgary, AB (Hybrid - 2 days/week)' },
     { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' },
-    { icon: DollarSign, label: 'Salary Range', value: '$65,000 - $80,000 CAD' },
     { icon: Users, label: 'Reporting To', value: 'Senior Data Engineer or Architect' }
   ];
 

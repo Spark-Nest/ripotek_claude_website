@@ -60,7 +60,6 @@ export default function StudentSuccessCoordinatorPage() {
   const jobHighlights = [
     { icon: MapPin, label: 'Location', value: 'Calgary, AB (Hybrid - 3 days/week)' },
     { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' },
-    { icon: DollarSign, label: 'Salary Range', value: '$55,000 - $70,000 CAD' },
     { icon: Users, label: 'Reporting To', value: 'Director of Training Programs' }
   ];
 

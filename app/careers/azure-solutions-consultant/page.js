@@ -59,9 +59,7 @@ export default function AzureSolutionsConsultantPage() {
 
   const jobHighlights = [
     { icon: MapPin, label: 'Location', value: 'Calgary, AB (Hybrid - 2 days/week)' },
-    { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' },
-    { icon: DollarSign, label: 'Salary Range', value: '$95,000 - $130,000 CAD + bonus' },
-    { icon: Plane, label: 'Travel', value: '10-20% (Western Canada)' }
+    { icon: Briefcase, label: 'Employment Type', value: 'Full-Time' }
   ];
 
   return (

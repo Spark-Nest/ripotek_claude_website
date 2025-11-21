@@ -54,7 +54,7 @@ export default function TrainingPage() {
         { name: 'AI Engineer', href: '/training#ai-engineer' },
         { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
         { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
-        { name: 'Python for Data', href: '/training#python-for-data' },
+        { name: 'Python Bootcamp', href: '/training#python-bootcamp' },
         { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
       ]
     },
@@ -69,7 +69,7 @@ export default function TrainingPage() {
     {
       title: 'Power BI Analyst',
       duration: '12 Weeks',
-      investment: '$1,599',
+      investment: '$700',
       level: 'Beginner-Intermediate',
       icon: BarChart3,
       description: 'Master data visualization, DAX, and enterprise reporting with Power BI.',
@@ -77,13 +77,13 @@ export default function TrainingPage() {
       image: '📈',
       color: 'from-blue-500 to-cyan-500',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
-      nextStart: 'January 15, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/power-bi-analyst'
     },
     {
       title: 'Azure Data Engineer',
       duration: '24 Weeks',
-      investment: '$3,999',
+      investment: '$1,500',
       level: 'Intermediate-Advanced',
       icon: Database,
       description: 'Become proficient in Azure Data Factory, Synapse Analytics, and data lakehouse architectures.',
@@ -91,13 +91,13 @@ export default function TrainingPage() {
       image: '☁️',
       color: 'from-purple-500 to-blue-500',
       schedule: 'Tue/Thu/Sun 6-9pm MT',
-      nextStart: 'February 1, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/azure-data-engineer'
     },
     {
       title: 'Databricks Engineer',
       duration: '24 Weeks',
-      investment: '$3,999',
+      investment: '$1,500',
       level: 'Intermediate-Advanced',
       icon: Zap,
       description: 'Learn Spark, Delta Lake, and advanced orchestration on Databricks platform.',
@@ -105,13 +105,13 @@ export default function TrainingPage() {
       image: '⚡',
       color: 'from-orange-500 to-red-500',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
-      nextStart: 'January 22, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/databricks-engineer'
     },
     {
       title: 'Business Intelligence Analyst',
       duration: '12 Weeks',
-      investment: '$1,799',
+      investment: '$700',
       level: 'Beginner-Intermediate',
       icon: TrendingUp,
       description: 'End-to-end BI skills from requirements gathering to dashboard delivery.',
@@ -119,27 +119,27 @@ export default function TrainingPage() {
       image: '📊',
       color: 'from-green-500 to-teal-500',
       schedule: 'Tue/Thu 6-9pm MT',
-      nextStart: 'February 10, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/business-intelligence-analyst'
     },
     {
       title: 'AI Engineer',
       duration: '24 Weeks',
-      investment: '$3,999',
+      investment: '$1,800',
       level: 'Advanced',
       icon: Brain,
       description: 'Build production-ready AI solutions with Azure OpenAI and MLOps.',
       outcomes: ['Deploy GenAI apps', 'Build RAG systems', 'Implement MLOps', 'Fine-tune models', 'Prepare for AI-102 exam'],
-      image: '🤖',
+      image: '��',
       color: 'from-pink-500 to-purple-500',
       schedule: 'Wed/Fri/Sun 6-9pm MT',
-      nextStart: 'March 1, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/ai-engineer'
     },
     {
       title: 'Prompt Engineering',
       duration: '12 Weeks',
-      investment: '$1,599',
+      investment: '$700',
       level: 'Beginner-Intermediate',
       icon: Lightbulb,
       description: 'Master prompt design for large language models and generative AI.',
@@ -147,13 +147,13 @@ export default function TrainingPage() {
       image: '💡',
       color: 'from-yellow-500 to-orange-500',
       schedule: 'Mon/Wed 6-9pm MT',
-      nextStart: 'January 29, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/prompt-engineering'
     },
     {
-      title: 'Python for Data',
+      title: 'Python Bootcamp',
       duration: '12 Weeks',
-      investment: '$1,599',
+      investment: '$700',
       level: 'Beginner',
       icon: Code,
       description: 'Learn Python fundamentals, pandas, and data manipulation for analytics.',
@@ -161,13 +161,13 @@ export default function TrainingPage() {
       image: '🐍',
       color: 'from-green-600 to-emerald-600',
       schedule: 'Sat/Sun 10am-1pm MT',
-      nextStart: 'February 5, 2025',
-      syllabusFile: '/syllabi/python-for-data'
+      nextStart: 'April 12, 2026',
+      syllabusFile: '/syllabi/python-bootcamp'
     },
     {
       title: 'Azure Data Factory Masterclass',
       duration: '12 Weeks',
-      investment: '$1,799',
+      investment: '$1,000',
       level: 'Intermediate',
       icon: Database,
       description: 'Deep dive into ADF for building enterprise-grade data integration pipelines.',
@@ -175,7 +175,7 @@ export default function TrainingPage() {
       image: '🏭',
       color: 'from-indigo-500 to-blue-600',
       schedule: 'Tue/Thu 6-9pm MT',
-      nextStart: 'February 18, 2025',
+      nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/azure-data-factory-masterclass'
     }
   ];
