@@ -320,7 +320,7 @@ export default function RipotekHomePage() {
                 onPlay={() => setVideoPlaying(true)}
                 onEnded={() => setVideoEnded(true)}
                 className="w-full h-full object-cover"
-                poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
+                poster="/images/video-poster.png"
                 preload="auto"
               >
                 {/* Using reliable stock video - replace with your own video when ready */}
