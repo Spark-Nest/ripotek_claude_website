@@ -280,10 +280,8 @@ export default function TrainingPage() {
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
-            poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&h=1080&fit=crop"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-and-purple-light-particles-3151-large.mp4" type="video/mp4" />
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-foggy-city-50516-large.mp4" type="video/mp4" />
+            <source src="/training-banner.mp4" type="video/mp4" />
           </video>
 
           {/* Animated grid pattern overlay */}
