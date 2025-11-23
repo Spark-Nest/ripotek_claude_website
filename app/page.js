@@ -320,10 +320,10 @@ export default function RipotekHomePage() {
                 onPlay={() => setVideoPlaying(true)}
                 onEnded={() => setVideoEnded(true)}
                 className="w-full h-full object-cover"
-                poster="/images/video-poster.png"
-                preload="auto"
+                preload="metadata"
                 webkit-playsinline="true"
                 x5-playsinline="true"
+                disablePictureInPicture
                 style={{
                   WebkitTransform: 'translateZ(0)',
                   transform: 'translateZ(0)',
