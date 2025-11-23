@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, Users, Award, TrendingUp, Database, Brain, BarChart3, Calendar, Download, GraduationCap, Target, Sparkles, Building2, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { SiSnowflake } from 'react-icons/si';
 import DiscoveryCallModal from '../components/DiscoveryCallModal';
 
 export default function RipotekHomePage() {
@@ -110,7 +111,8 @@ export default function RipotekHomePage() {
     },
     {
       name: 'Snowflake',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/2560px-Snowflake_Logo.svg.png',
+      icon: SiSnowflake,
+      iconColor: '#29B5E8',
       url: 'https://www.snowflake.com'
     },
     {
@@ -120,7 +122,7 @@ export default function RipotekHomePage() {
     },
     {
       name: 'Google Cloud Platform',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+      logo: '/partners/google-cloud.png',
       url: 'https://cloud.google.com'
     }
   ];
@@ -601,7 +603,7 @@ export default function RipotekHomePage() {
               Building world-class solutions with cutting-edge platforms
             </p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20">
+          <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 px-2 md:px-0">
             {partners.map((p, i) => (
               <a
                 key={i}
@@ -613,15 +615,23 @@ export default function RipotekHomePage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-white rounded-xl p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 border-2 border-transparent group-hover:border-teal-500/20">
-                  <Image
-                    src={p.logo}
-                    alt={p.name}
-                    width={112}
-                    height={56}
-                    className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                    unoptimized={p.logo.startsWith('http')}
-                  />
+                  {p.icon ? (
+                    <p.icon
+                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-transform duration-300 group-hover:scale-110"
+                      color={p.iconColor}
+                      style={p.iconColor ? { color: p.iconColor } : undefined}
+                    />
+                  ) : (
+                    <Image
+                      src={p.logo}
+                      alt={p.name}
+                      width={112}
+                      height={56}
+                      className="h-10 sm:h-12 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                      unoptimized={p.logo.startsWith('http')}
+                    />
+                  )}
                 </div>
               </a>
             ))}
