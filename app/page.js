@@ -322,6 +322,16 @@ export default function RipotekHomePage() {
                 className="w-full h-full object-cover"
                 poster="/images/video-poster.png"
                 preload="auto"
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                style={{
+                  WebkitTransform: 'translateZ(0)',
+                  transform: 'translateZ(0)',
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  WebkitPerspective: 1000,
+                  perspective: 1000
+                }}
               >
                 {/* Using reliable stock video - replace with your own video when ready */}
                 <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
