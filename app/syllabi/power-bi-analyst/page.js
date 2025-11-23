@@ -94,7 +94,7 @@ export default function PowerBIAnalystSyllabus() {
                 <DollarSign className="w-5 h-5 text-teal-600" />
                 <span className="font-semibold text-gray-900">Investment</span>
               </div>
-              <p className="text-gray-700">CAD $1,599</p>
+              <p className="text-gray-700">CAD $700</p>
               <p className="text-sm text-gray-600">Flexible payment plans available</p>
             </div>
 

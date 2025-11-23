@@ -181,10 +181,8 @@ export default function ResourcesPage() {
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
-            poster="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&h=1080&fit=crop"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-student-studying-at-library-4625-large.mp4" type="video/mp4" />
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-books-on-library-shelves-4624-large.mp4" type="video/mp4" />
+            <source src="/resource-banner.mp4" type="video/mp4" />
           </video>
 
           {/* Animated grid pattern overlay */}

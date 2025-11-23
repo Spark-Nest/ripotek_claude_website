@@ -78,7 +78,7 @@ export default function AIEngineerSyllabus() {
             </div>
             <div className="border-l-4 border-pink-600 pl-4">
               <div className="flex items-center gap-2 mb-2"><DollarSign className="w-5 h-5 text-pink-600" /><span className="font-semibold text-gray-900">Investment</span></div>
-              <p className="text-gray-700">CAD $3,999</p>
+              <p className="text-gray-700">CAD $1,800</p>
               <p className="text-sm text-gray-600">Flexible payment plans available</p>
             </div>
             <div className="border-l-4 border-pink-600 pl-4">

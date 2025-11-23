@@ -78,7 +78,7 @@ export default function PromptEngineeringSyllabus() {
             </div>
             <div className="border-l-4 border-yellow-600 pl-4">
               <div className="flex items-center gap-2 mb-2"><DollarSign className="w-5 h-5 text-yellow-600" /><span className="font-semibold text-gray-900">Investment</span></div>
-              <p className="text-gray-700">CAD $1,599</p>
+              <p className="text-gray-700">CAD $700</p>
               <p className="text-sm text-gray-600">Flexible payment plans available</p>
             </div>
             <div className="border-l-4 border-yellow-600 pl-4">

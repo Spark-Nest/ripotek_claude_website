@@ -94,7 +94,7 @@ export default function AzureDataEngineerSyllabus() {
                 <DollarSign className="w-5 h-5 text-purple-600" />
                 <span className="font-semibold text-gray-900">Investment</span>
               </div>
-              <p className="text-gray-700">CAD $3,999</p>
+              <p className="text-gray-700">CAD $1,500</p>
               <p className="text-sm text-gray-600">Flexible payment plans available</p>
             </div>
 
