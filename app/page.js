@@ -2,19 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowRight, CheckCircle, Users, Award, TrendingUp, Database, Brain, BarChart3, Code, Zap, Clock, DollarSign, Calendar, Download, GraduationCap, Lightbulb, Target, Sparkles, Building2, Briefcase, Play, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Users, Award, TrendingUp, Database, Brain, BarChart3, Calendar, Download, GraduationCap, Target, Sparkles, Building2, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import DiscoveryCallModal from '../components/DiscoveryCallModal';
 
 export default function RipotekHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
-  const [trainingDropdown, setTrainingDropdown] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -317,13 +313,12 @@ export default function RipotekHomePage() {
                 muted
                 playsInline
                 loop
-                onPlay={() => setVideoPlaying(true)}
-                onEnded={() => setVideoEnded(true)}
                 className="w-full h-full object-cover"
-                preload="metadata"
+                preload={isMobile ? "none" : "metadata"}
                 webkit-playsinline="true"
                 x5-playsinline="true"
                 disablePictureInPicture
+                loading="lazy"
                 style={{
                   WebkitTransform: 'translateZ(0)',
                   transform: 'translateZ(0)',
@@ -612,14 +607,14 @@ export default function RipotekHomePage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-white rounded-xl p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 border-2 border-transparent group-hover:border-teal-500/20">
-                  <img
+                  <Image
                     src={p.logo}
                     alt={p.name}
+                    width={112}
+                    height={56}
                     className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = `<span class="text-gray-700 font-semibold text-lg">${p.name}</span>`;
-                    }}
+                    loading="lazy"
+                    unoptimized={p.logo.startsWith('http')}
                   />
                 </div>
               </a>
@@ -662,10 +657,14 @@ export default function RipotekHomePage() {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-4">
-                  <img
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.author}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover"
+                    loading="lazy"
+                    unoptimized
                   />
                   <div>
                     <div className="text-white font-semibold">{testimonial.author}</div>

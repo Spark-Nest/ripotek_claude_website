@@ -1,7 +1,11 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true
+})
 
 export const metadata = {
   title: 'Ripotek Technologies Inc. | Data & AI Consulting',
