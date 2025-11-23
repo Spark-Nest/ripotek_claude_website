@@ -310,9 +310,9 @@ export default function CaseStudiesPage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
             poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop"
+            preload="metadata"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-data-analysis-on-a-monitor-42760-large.mp4" type="video/mp4" />
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-people-working-in-an-office-4640-large.mp4" type="video/mp4" />
+            <source src="/casestudies-banner.mp4" type="video/mp4" />
           </video>
 
           {/* Animated grid pattern */}
@@ -678,7 +678,6 @@ export default function CaseStudiesPage() {
     </div>
   );
 }
-
 
 
 
