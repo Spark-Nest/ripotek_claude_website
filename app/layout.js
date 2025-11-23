@@ -21,6 +21,12 @@ export const metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: '#0d9488',
 }
 
 export default function RootLayout({ children }) {

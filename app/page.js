@@ -296,15 +296,17 @@ export default function RipotekHomePage() {
 
       {/* Video Introduction Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-20">
-        {/* Ambient Background Effects */}
-        <div className="absolute inset-0 opacity-25">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
-          <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-blue-500 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
-        </div>
+        {/* Ambient Background Effects - Desktop Only for Performance */}
+        {!isMobile && (
+          <div className="absolute inset-0 opacity-25">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
+            <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-blue-500 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+          </div>
+        )}
 
         {/* Video Container - Full Width Letterbox Style */}
-        <div className="w-full mb-8 animate-fadeIn relative z-10" style={{ animationDelay: '0.1s' }}>
+        <div className={`w-full mb-8 ${!isMobile ? 'animate-fadeIn' : ''} relative z-10`} style={!isMobile ? { animationDelay: '0.1s' } : {}}>
           <div className="relative overflow-hidden shadow-2xl bg-black group">
             {/* Video Element - Fixed 1920x540 aspect ratio (3.56:1) */}
             <div className="relative w-full" style={{ aspectRatio: '3.56', maxHeight: '540px' }}>
@@ -349,7 +351,7 @@ export default function RipotekHomePage() {
         {/* Main Content Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Main Headline & CTA */}
-          <div className="text-center max-w-5xl mx-auto space-y-4 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+          <div className={`text-center max-w-5xl mx-auto space-y-4 ${!isMobile ? 'animate-fadeIn' : ''}`} style={!isMobile ? { animationDelay: '0.2s' } : {}}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
               Engineer Intelligence.
               <span className="block mt-3 bg-gradient-to-r from-teal-300 via-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
@@ -465,10 +467,12 @@ export default function RipotekHomePage() {
 
       {/* Services Overview - Modern Cards */}
       <section className="py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          </div>
+        )}
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
@@ -574,10 +578,12 @@ export default function RipotekHomePage() {
 
       {/* Partners Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          </div>
+        )}
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-block mb-3">
@@ -625,10 +631,12 @@ export default function RipotekHomePage() {
 
       {/* Testimonials Section */}
       <section className="py-24 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          </div>
+        )}
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
