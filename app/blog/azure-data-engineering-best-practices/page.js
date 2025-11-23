@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowLeft, Calendar, Clock, User, Linkedin, Twitter, Mail, ChevronRight, CheckCircle, Code, Database, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowLeft, Calendar, Clock, User, Share2, Linkedin, Mail, ChevronRight, CheckCircle, Code, Database, Shield, MapPin, Phone } from 'lucide-react';
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function BlogPost() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,8 +68,8 @@ export default function BlogPost() {
   const postMeta = {
     title: '10 Azure Data Engineering Best Practices Every Team Should Know',
     author: 'Sarah Chen',
-    authorTitle: 'Senior AI Solutions Architect',
-    authorBio: 'Sarah Chen leads AI strategy and implementation at Ripotek, specializing in enterprise AI adoption and MLOps architecture. She has architected Azure data solutions for Fortune 500 companies across energy, finance, and healthcare sectors.',
+    authorTitle: 'Chief Technology Officer',
+    authorBio: 'Sarah Chen is a technical leader in enterprise data transformation with over 15 years of experience designing and implementing data platforms for Fortune 500 companies across Energy, Financial Services, and Public Sector industries. As CTO at Ripotek, Sarah leads all technical delivery, ensuring solutions follow industry best practices while meeting specific business requirements.',
     date: 'October 8, 2024',
     readTime: '10 min read',
     category: 'Azure',
@@ -167,13 +168,18 @@ export default function BlogPost() {
         )}
       </nav>
 
-      <div className="pt-24 pb-8 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Back to Blog - Sticky */}
+      <div className={`fixed top-20 left-0 right-0 z-30 transition-all ${scrolled ? 'bg-white shadow-md' : 'bg-white/95'}`}>
+        <div className="max-w-7xl mx-auto px-4 py-4">
           <a href="/blog" className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium transition">
-            <ArrowLeft className="w-4 h-4" />Back to Blog
+            <ArrowLeft className="w-4 h-4" />
+            Back to Blog
           </a>
         </div>
       </div>
+
+      {/* Spacer for sticky button */}
+      <div className="h-20"></div>
 
       <section className="pb-12 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -189,7 +195,7 @@ export default function BlogPost() {
           <div className="flex items-center gap-4 pb-8 border-b">
             <span className="text-gray-600 font-medium">Share:</span>
             <button onClick={() => handleShare('linkedin')} className="p-2 hover:bg-gray-100 rounded-lg transition"><Linkedin className="w-5 h-5 text-gray-600" /></button>
-            <button onClick={() => handleShare('twitter')} className="p-2 hover:bg-gray-100 rounded-lg transition"><Twitter className="w-5 h-5 text-gray-600" /></button>
+            <button onClick={() => handleShare('twitter')} className="p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Share on X (Twitter)"><FaXTwitter className="w-5 h-5 text-gray-600" /></button>
             <button onClick={() => handleShare('email')} className="p-2 hover:bg-gray-100 rounded-lg transition"><Mail className="w-5 h-5 text-gray-600" /></button>
           </div>
         </div>
@@ -431,38 +437,45 @@ stages:
               </div>
             </article>
 
-            <aside className="lg:col-span-4 space-y-8">
-              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Table of Contents</h3>
-                <nav className="space-y-2">
-                  {tableOfContents.map((item) => (
-                    <a key={item.id} href={`#${item.id}`} className={`block text-sm py-2 px-3 rounded-lg transition ${activeSection === item.id ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'}`}>
-                      {item.title}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">SC</div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">{postMeta.author}</h4>
-                    <p className="text-sm text-gray-600">{postMeta.authorTitle}</p>
-                  </div>
+            <aside className="lg:col-span-4">
+              <div className="sticky top-36 space-y-8">
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Table of Contents</h3>
+                  <nav className="space-y-2">
+                    {tableOfContents.map((item) => (
+                      <a key={item.id} href={`#${item.id}`} className={`block text-sm py-2 px-3 rounded-lg transition ${activeSection === item.id ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'}`}>
+                        {item.title}
+                      </a>
+                    ))}
+                  </nav>
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed">{postMeta.authorBio}</p>
-              </div>
 
-              <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl shadow-lg p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Learn Azure Engineering</h3>
-                <p className="text-gray-200 mb-4 text-sm">24-week program with hands-on Azure projects</p>
-                <a href="/training" className="block w-full text-center bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
-                  View Program
-                </a>
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">SC</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{postMeta.author}</h4>
+                      <p className="text-sm text-gray-600">{postMeta.authorTitle}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">{postMeta.authorBio}</p>
+                </div>
               </div>
             </aside>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Expert Guidance?</h2>
+          <p className="text-xl text-gray-200 mb-8">
+            Get expert guidance on your data and AI journey. Our team helps organizations unlock the full potential of their data.
+          </p>
+          <a href="/training" className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition shadow-xl text-lg font-semibold">
+            Explore Training Programs
+          </a>
         </div>
       </section>
 
@@ -485,43 +498,90 @@ stages:
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
+          <div className="grid md:grid-cols-12 gap-12 mb-12">
+            <div className="md:col-span-6">
+              <div className="flex items-center gap-4 mb-4">
                 <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
-                <span className="font-extrabold text-2xl md:text-3xl tracking-tight">Ripotek Technologies Inc.</span>
+                <div className="min-w-0">
+                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
+                  <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
+                </div>
               </div>
-              <p className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</p>
+              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
+                Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
+              </p>
+              <div className="mt-6 space-y-3 text-gray-300 text-base">
+                <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
+                <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
+                <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/services#strategy-&-governance" className="hover:text-teal-400 transition">Data Architecture</a></li>
-                <li><a href="/services#analytics-&-bi" className="hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services#mlops-&-ai" className="hover:text-teal-400 transition">MLOps & AI</a></li>
+
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Services</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
+                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-bold mb-4">Training</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/training#power-bi-analyst" className="hover:text-teal-400 transition">Power BI Analyst</a></li>
-                <li><a href="/training#azure-data-engineer" className="hover:text-teal-400 transition">Azure Data Engineer</a></li>
-                <li><a href="/training#ai-engineer" className="hover:text-teal-400 transition">AI Engineer</a></li>
+
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Training</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
+                <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
+                <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
+                <li><a href="/training#ai-engineer" className="text-gray-300 hover:text-teal-400 transition">AI Engineer</a></li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" className="hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/blog" className="hover:text-teal-400 transition">Blog</a></li>
-                <li><a href="/contact" className="hover:text-teal-400 transition">Contact</a></li>
+
+            <div className="md:col-span-2">
+              <h4 className="font-bold mb-6 text-lg">Company</h4>
+              <ul className="space-y-3 text-base">
+                <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
+                <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+              <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-base text-gray-300">
+                <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
+                <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 pt-6 border-t border-gray-800">
+              <a href="https://linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="LinkedIn">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a href="https://twitter.com/Ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Twitter">
+                <FaXTwitter className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@ripotekacademy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="YouTube">
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              <a href="https://facebook.com/me/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Facebook">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="https://instagram.com/ripotekdata" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Instagram">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="https://github.com/ripotek-technologies" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="GitHub">
+                <FaGithub className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

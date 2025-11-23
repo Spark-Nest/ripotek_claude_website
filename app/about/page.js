@@ -65,10 +65,10 @@ export default function AboutPage() {
 
   const leadershipTeam = [
     {
-      name: 'Tams Andrew',
+      name: 'Prince Andrew',
       role: 'Chief Executive Officer & Founder',
       image: '/tams-andrew.png',
-      bio: 'When Tams Andrew arrived in Canada from Nigeria in 2010, he carried little more than determination and a belief that education could change the trajectory of a life. That belief guided him through a Master of Science in Applied Mathematics at the University of Regina and into a 12-year journey designing enterprise data systems across the energy, finance, and public sectors.\n\nIn 2023, he founded Ripotek Technologies with a simple but powerful vision: to make advanced data and AI skills accessible, practical, and transformative for both businesses and people. Since then, Ripotek has delivered more than $12M in measurable client value, while Tams has personally trained over 2,000 data professionals, helping achieve an 85% job placement rate.\n\nWhat sets Tams apart is his remarkable ability to take complex technical ideas and make them feel simple, clear, and achievable. It\'s a gift that has made Ripotek\'s training programs among the most sought-after in the industry—blending real-world expertise with an approachable, empowering teaching style.\n\nToday, Tams leads Ripotek with the same mindset he began with: that knowledge is a catalyst, opportunity is a responsibility, and the next generation of data leaders deserve both.'
+      bio: 'When Prince Andrew arrived in Canada from Nigeria in 2010, he carried little more than determination and a belief that education could change the trajectory of a life. That belief guided him through a Master of Science in Applied Mathematics at the University of Regina and into a 12-year journey designing enterprise data systems across the energy, finance, and public sectors.\n\nIn 2023, he founded Ripotek Technologies with a simple but powerful vision: to make advanced data and AI skills accessible, practical, and transformative for both businesses and people. Since then, Ripotek has delivered more than $12M in measurable client value, while Prince has personally trained over 2,000 data professionals, helping achieve an 85% job placement rate.\n\nWhat sets Prince apart is his remarkable ability to take complex technical ideas and make them feel simple, clear, and achievable. It\'s a gift that has made Ripotek\'s training programs among the most sought-after in the industry—blending real-world expertise with an approachable, empowering teaching style.\n\nToday, Prince leads Ripotek with the same mindset he began with: that knowledge is a catalyst, opportunity is a responsibility, and the next generation of data leaders deserve both.'
     },
     {
       name: 'Sarah Chen',
@@ -120,7 +120,7 @@ export default function AboutPage() {
     {
       name: 'Jordan Matthews',
       role: 'Power BI Developer',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&crop=faces',
+      image: '/jordan-matthews.png',
       imagePosition: 'object-[center_20%]',
       bio: 'Jordan Matthews is a Power BI specialist with 7 years focused exclusively on Microsoft\'s analytics platform. He has built comprehensive BI solutions for over 30 organizations, from startups to multinational corporations, consistently delivering high-impact visualizations and data models.\n\nJordan is a Microsoft Certified: Power BI Data Analyst Associate and holds advanced certifications in DAX and data modeling. His expertise extends to Power Query, dataflows, and integrating Power BI with Azure services for enterprise-scale deployments.\n\nAt Ripotek, Jordan drives Power BI best practices, mentors junior developers, and ensures clients leverage the full capabilities of the platform—from embedded analytics to paginated reports and AI-powered insights.'
     },
@@ -150,7 +150,7 @@ export default function AboutPage() {
     {
       name: 'Carlos Mendoza',
       role: 'Cloud Solutions Specialist',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop&crop=faces',
+      image: '/carlos-mendoza.png',
       bio: 'Carlos Mendoza is a cloud architecture expert with 14 years of experience and a passion for teaching Azure technologies. As a Microsoft Certified Trainer and Azure Solutions Architect Expert, he has delivered training to over 2,000 professionals across North America.\n\nCarlos specializes in Azure data services including Synapse Analytics, Data Factory, Databricks, and Microsoft Fabric. His industry background spans financial services, healthcare, and energy sectors, providing students with relevant, real-world context for cloud solutions.\n\nAt Ripotek Academy, Carlos teaches cloud data engineering and Azure fundamentals, preparing students for industry certifications while building practical skills. His hands-on labs and migration scenarios give students confidence to architect enterprise-scale cloud solutions.'
     },
     {
