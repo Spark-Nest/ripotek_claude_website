@@ -353,11 +353,11 @@ export default function RipotekHomePage() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
-              Empowering enterprises with cutting-edge solutions in{' '}
-              <span className="font-semibold text-teal-300">Azure</span>,{' '}
+              Empowering enterprises with cutting-edge{' '}
+              <span className="font-semibold text-teal-300">cloud</span>,{' '}
               <span className="font-semibold text-cyan-300">Databricks</span>,{' '}
               <span className="font-semibold text-blue-300">Fabric</span>, and{' '}
-              <span className="font-semibold text-teal-300">AI</span>
+              <span className="font-semibold text-teal-300">AI</span> solutions
             </p>
 
             {/* CTA Buttons */}
