@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -33,7 +34,15 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        {/* HubSpot Tracking Code */}
+        <Script
+          id="hs-script-loader"
+          strategy="afterInteractive"
+          src="//js-na3.hs-scripts.com/342603298.js"
+        />
+      </body>
     </html>
   )
 }
