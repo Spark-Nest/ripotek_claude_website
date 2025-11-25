@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <Script
           id="hs-script-loader"
           strategy="afterInteractive"
-          src="//js-na3.hs-scripts.com/342603298.js"
+          src="https://js-na3.hs-scripts.com/342603298.js"
         />
       </body>
     </html>
