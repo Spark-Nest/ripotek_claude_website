@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, Award, Briefcase, Calendar, CheckCircle, Heart, Send, Users } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import ApplicationModal from '../../components/ApplicationModal';
 
 export default function CareersPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -357,10 +359,13 @@ export default function CareersPage() {
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
               We're always looking for talented individuals who are passionate about data and AI. Send us your resume and let's explore how you can contribute to our mission.
             </p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold hover-lift">
+            <button
+              onClick={() => setApplicationModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition font-semibold hover-lift"
+            >
               <Send className="w-5 h-5" />
               Send Us Your Resume
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -471,6 +476,16 @@ export default function CareersPage() {
           </div>
         </div>
       </footer>
+
+      {/* Application Modal */}
+      <ApplicationModal
+        isOpen={applicationModalOpen}
+        onClose={() => setApplicationModalOpen(false)}
+        jobTitle="Open Application"
+        portalId="342603298"
+        formId="fedd373f-24b8-4849-be94-6c6f6e873c70"
+        region="na3"
+      />
     </div>
   );
 }

@@ -5,19 +5,12 @@ import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calendar, FileText, GraduationCap, Briefcase, Send, MessageCircle } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import DiscoveryCallModal from '../../components/DiscoveryCallModal';
+import Script from 'next/script';
 
 export default function ContactPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('consulting');
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    inquiryType: '',
-    message: ''
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,65 +119,6 @@ export default function ContactPage() {
     }
   ];
 
-  const inquiryTabs = [
-    { id: 'consulting', label: 'Consulting Services', icon: Briefcase },
-    { id: 'training', label: 'Training Programs', icon: GraduationCap },
-    { id: 'careers', label: 'Careers', icon: Briefcase },
-    { id: 'general', label: 'General Inquiry', icon: MessageCircle }
-  ];
-
-  const inquiryTypes = {
-    consulting: [
-      'Data Strategy & Governance',
-      'Data Platform Build',
-      'Analytics & BI',
-      'MLOps & AI',
-      'Managed Services',
-      'Other'
-    ],
-    training: [
-      'Power BI Analyst Program',
-      'Azure Data Engineer Program',
-      'Databricks Engineer Program',
-      'AI Engineer Program',
-      'Custom Corporate Training',
-      'Other'
-    ],
-    careers: [
-      'Data Engineer Position',
-      'BI Consultant Position',
-      'AI/ML Engineer Position',
-      'Instructor Position',
-      'General Application',
-      'Other'
-    ],
-    general: [
-      'Partnership Inquiry',
-      'Media & Press',
-      'Speaking Engagement',
-      'General Question',
-      'Other'
-    ]
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', { ...formData, category: activeTab });
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      inquiryType: '',
-      message: ''
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -419,130 +353,10 @@ export default function ContactPage() {
                   <p className="text-gray-300">We'll get back to you within 24 hours</p>
                 </div>
 
-                {/* Tabs */}
-                <div className="border-b border-gray-200 bg-gray-50 flex-shrink-0">
-                  <div className="flex overflow-x-auto">
-                    {inquiryTabs.map((tab) => (
-                      <button
-                        key={tab.id}
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setFormData(prev => ({ ...prev, inquiryType: '' }));
-                        }}
-                        className={`flex items-center gap-2 px-6 py-4 font-semibold whitespace-nowrap transition-colors border-b-2 ${
-                          activeTab === tab.id
-                            ? 'border-teal-600 text-teal-600 bg-white'
-                            : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                        }`}
-                      >
-                        <tab.icon className="w-5 h-5" />
-                        {tab.label}
-                      </button>
-                    ))}
-                  </div>
+                {/* HubSpot Form */}
+                <div className="p-4 sm:p-8 flex-1 overflow-y-auto min-w-0">
+                  <div className="hs-form-frame" data-region="na3" data-form-id="6bb21db8-41fe-4ac2-be59-b54b4e761e11" data-portal-id="342603298"></div>
                 </div>
-
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="p-4 sm:p-8 flex-1 overflow-y-auto min-w-0">
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
-                        First Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                        placeholder="John"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Last Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                        placeholder="Doe"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                      placeholder="john.doe@example.com"
-                    />
-                  </div>
-
-                  <div className="mb-6">
-                    <label htmlFor="inquiryType" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Inquiry Type *
-                    </label>
-                    <select
-                      id="inquiryType"
-                      name="inquiryType"
-                      value={formData.inquiryType}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition appearance-none bg-white"
-                    >
-                      <option value="">Select an option...</option>
-                      {inquiryTypes[activeTab].map((type, idx) => (
-                        <option key={idx} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition resize-none"
-                      placeholder="Tell us about your project, goals, or questions..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-8 py-4 rounded-lg hover:from-teal-700 hover:to-cyan-600 transition shadow-lg hover:shadow-xl font-semibold text-lg flex items-center justify-center gap-2 hover-lift"
-                  >
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </button>
-
-                  <p className="text-center text-gray-600 text-sm mt-4">
-                    By submitting this form, you agree to our Privacy Policy and Terms of Service
-                  </p>
-                </form>
               </div>
             </div>
           </div>
@@ -700,6 +514,12 @@ export default function ContactPage() {
         portalId="342603298"
         formId="c4816a09-06d8-485e-baf9-8f7dfd14604e"
         region="na3"
+      />
+
+      {/* HubSpot Form Script */}
+      <Script
+        src="https://js-na3.hsforms.net/forms/embed/342603298.js"
+        strategy="lazyOnload"
       />
     </div>
   );
