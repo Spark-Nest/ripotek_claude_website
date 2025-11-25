@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, Search, Calendar, Clock, User, ArrowRight, Filter, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import SubscriptionModal from '../../components/SubscriptionModal';
 
 export default function BlogPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -325,21 +327,24 @@ export default function BlogPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Get the latest insights on data engineering, AI, and career development delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-            <button className="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold">
-              Subscribe
-            </button>
-          </div>
+          <p className="text-xl text-gray-600 mb-8">Get the latest insights on data engineering, AI, and career development delivered to your inbox</p>
+          <button
+            onClick={() => setModalOpen(true)}
+            className="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
+          >
+            Subscribe
+          </button>
         </div>
       </section>
+
+      {/* Subscription Modal */}
+      <SubscriptionModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        portalId="342603298"
+        formId="5770c0fe-6cc1-4891-b9b3-f1a45444371f"
+        region="na3"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
