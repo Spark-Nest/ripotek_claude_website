@@ -85,20 +85,8 @@ export default function AboutPage() {
     {
       name: 'David Thompson',
       role: 'VP of Training & Education',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop&crop=faces',
-      bio: 'David Thompson is a passionate educator and big data expert with 10 years of experience in Apache Spark, Databricks, and distributed data processing. He has trained over 2,000 students in data engineering technologies and maintains an impressive 85% job placement rate for Ripotek Academy graduates.\n\nDavid is a Databricks Certified Data Engineer and has contributed to open-source projects in the Apache Spark ecosystem. His expertise includes Delta Lake, structured streaming, and performance optimization for large-scale data pipelines. He is also proficient in Scala, Python, and SQL.\n\nAt Ripotek, David oversees all training programs, ensuring curriculum remains current with industry demands. His teaching philosophy emphasizes hands-on learning, real-world scenarios, and continuous support for students as they transition into data careers.'
-    },
-    {
-      name: 'Elena Rodriguez',
-      role: 'VP of Cloud Solutions',
-      image: '/elena-rodriguez.png',
-      bio: 'Elena Rodriguez is a cloud architecture specialist with 8 years of experience designing and implementing Azure solutions. She has led over 30 zero-downtime cloud migrations and is recognized as an expert in Microsoft Fabric, the unified analytics platform that combines Power BI, Data Factory, and Synapse.\n\nElena holds Azure Solutions Architect Expert certification and was among the first cohort of Microsoft Fabric certified professionals. Her expertise spans cloud architecture, data engineering, and DevOps practices including CI/CD for data platforms.\n\nAt Ripotek, Elena leads cloud modernization initiatives, helping clients navigate complex migrations while optimizing for performance, security, and cost. She also contributes to Ripotek\'s Azure-focused training programs, sharing real-world insights from enterprise implementations.'
-    },
-    {
-      name: 'James Patterson',
-      role: 'Director of Operations',
       image: '/james-patterson.png',
-      bio: 'James Patterson brings 12 years of operational excellence and project management expertise to Ripotek. With a background in both technology consulting and business operations, James ensures seamless delivery across all client engagements and internal initiatives.\n\nHe holds PMP (Project Management Professional) certification and has extensive experience managing complex, multi-stakeholder projects in regulated industries. James specializes in agile delivery methodologies, resource optimization, and building processes that scale.\n\nAt Ripotek, James oversees day-to-day operations, manages client relationships, and ensures quality standards are met across consulting and training services. He is instrumental in Ripotek\'s growth strategy and maintains the company\'s reputation for reliable, on-time delivery.'
+      bio: 'David Thompson is a passionate educator and big data expert with 10 years of experience in Apache Spark, Databricks, and distributed data processing. He has trained over 2,000 students in data engineering technologies and maintains an impressive 85% job placement rate for Ripotek Academy graduates.\n\nDavid is a Databricks Certified Data Engineer and has contributed to open-source projects in the Apache Spark ecosystem. His expertise includes Delta Lake, structured streaming, and performance optimization for large-scale data pipelines. He is also proficient in Scala, Python, and SQL.\n\nAt Ripotek, David oversees all training programs, ensuring curriculum remains current with industry demands. His teaching philosophy emphasizes hands-on learning, real-world scenarios, and continuous support for students as they transition into data careers.'
     }
   ];
 
@@ -451,7 +439,7 @@ export default function AboutPage() {
             Our leadership team brings decades of combined experience in data engineering, AI, and enterprise transformation across Energy, Financial Services, and Public Sector industries.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {leadershipTeam.map((member, idx) => (
               <div
                 key={idx}
@@ -464,23 +452,23 @@ export default function AboutPage() {
                     alt={member.name}
                     fill
                     className={`object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105 ${member.name === 'Priya Sharma' ? 'object-[center_20%]' : ''}`}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     priority={idx < 3}
                   />
                   {/* Bold overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Name overlay on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="font-bold text-white text-xl mb-1">{member.name}</h3>
-                    <p className="text-teal-300 text-sm font-medium">{member.role}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
+                    <p className="text-teal-300 text-xs font-medium">{member.role}</p>
                   </div>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1 text-base md:text-lg group-hover:text-teal-600 transition-colors">{member.name}</h3>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base group-hover:text-teal-600 transition-colors">{member.name}</h3>
                 {/* For CEO, show simplified title */}
                 {idx === 0 ? (
-                  <p className="text-teal-600 text-sm md:text-base font-semibold leading-snug">CEO & Founder</p>
+                  <p className="text-teal-600 text-xs md:text-sm font-semibold leading-snug">CEO & Founder</p>
                 ) : (
-                  <p className="text-gray-600 text-sm md:text-base leading-snug">{member.role}</p>
+                  <p className="text-gray-600 text-xs md:text-sm leading-snug">{member.role}</p>
                 )}
               </div>
             ))}

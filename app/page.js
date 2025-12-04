@@ -317,12 +317,12 @@ export default function RipotekHomePage() {
                 muted
                 playsInline
                 loop
+                poster="/images/video-poster.png"
                 className="w-full h-full object-cover"
                 preload={isMobile ? "none" : "metadata"}
                 webkit-playsinline="true"
                 x5-playsinline="true"
                 disablePictureInPicture
-                loading="lazy"
                 style={{
                   WebkitTransform: 'translateZ(0)',
                   transform: 'translateZ(0)',

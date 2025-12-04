@@ -34,12 +34,19 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://assets.mixkit.co" />
+        <link rel="dns-prefetch" href="https://js-na3.hs-scripts.com" />
+        <link rel="dns-prefetch" href="https://forms.hsforms.com" />
+      </head>
       <body className={inter.className}>
         {children}
-        {/* HubSpot Tracking Code */}
+        {/* HubSpot Tracking Code - Deferred for better performance */}
         <Script
           id="hs-script-loader"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://js-na3.hs-scripts.com/342603298.js"
         />
       </body>
