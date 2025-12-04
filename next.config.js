@@ -23,13 +23,8 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Performance optimizations
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
-  },
-  // Compiler optimizations
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
   },
 };
 
