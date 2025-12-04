@@ -36,12 +36,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         {children}
-        {/* HubSpot Tracking Code */}
-        <Script
+        {/* HubSpot Tracking Code - TEMPORARILY DISABLED FOR PERFORMANCE TESTING */}
+        {/* <Script
           id="hs-script-loader"
           strategy="afterInteractive"
           src="https://js-na3.hs-scripts.com/342603298.js"
-        />
+        /> */}
       </body>
     </html>
   )
