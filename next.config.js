@@ -23,9 +23,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'react-icons'],
-  },
 };
 
 module.exports = nextConfig;
