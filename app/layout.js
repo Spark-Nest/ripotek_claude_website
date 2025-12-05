@@ -36,10 +36,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         {children}
-        {/* Tawk.to Live Chat - Performance Optimized with lazyOnload */}
+        {/* Tawk.to Live Chat - Optimized Loading */}
         <Script
           id="tawk-to-chat"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
