@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Printer, ArrowLeft, Database, Clock, DollarSign, Calendar, Award, CheckCircle, BookOpen, Briefcase, Mail, Phone, Globe, Target } from 'lucide-react';
 import EnrollmentModal from '../../../components/EnrollmentModal';
+import StripeCheckoutButton from '../../../components/StripeCheckoutButton';
 
 export default function AzureDataFactoryMasterclassSyllabus() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,6 +31,14 @@ export default function AzureDataFactoryMasterclassSyllabus() {
               <Printer className="w-4 h-4" />
               Print to PDF
             </button>
+            <StripeCheckoutButton
+              programName="Azure Data Factory Masterclass"
+              price="$1,000"
+              duration="12 Weeks"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition shadow-lg font-semibold"
+            >
+              Pay $1,000 CAD
+            </StripeCheckoutButton>
             <button
               onClick={() => setModalOpen(true)}
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
@@ -237,7 +246,7 @@ export default function AzureDataFactoryMasterclassSyllabus() {
         onClose={() => setModalOpen(false)}
         programName="Azure Data Factory Masterclass"
         duration="6 Weeks"
-        price="$799"
+        price="$1,000"
         nextStart="February 5, 2025"
         portalId="342603298"
         formId="7406ec42-22b5-4449-81f1-3a508db656d7"

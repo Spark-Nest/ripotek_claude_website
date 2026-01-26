@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Menu, X, ChevronDown, ChevronUp, MapPin, Mail, Phone, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Target, ArrowRight, Download, DollarSign, FileText, Calendar, CheckCircle, Clock, Users, Award, GraduationCap } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import EnrollmentModal from '../../components/EnrollmentModal';
+import StripeCheckoutButton from '../../components/StripeCheckoutButton';
 
 export default function TrainingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -477,19 +478,24 @@ export default function TrainingPage() {
                 </div>
 
                 <div className="space-y-3">
+                  <a
+                    href={program.syllabusFile}
+                    className="w-full bg-gray-100 border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition font-semibold hover-lift flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-4 h-4" />
+                    View Syllabus
+                  </a>
                   <button
                     onClick={() => handleEnrollClick(program)}
                     className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift"
                   >
                     Enroll Now
                   </button>
-                  <a
-                    href={program.syllabusFile}
-                    className="w-full bg-white border-2 border-teal-600 text-teal-600 py-3 rounded-lg hover:bg-teal-50 transition font-semibold hover-lift flex items-center justify-center gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    View Syllabus
-                  </a>
+                  <StripeCheckoutButton
+                    programName={program.title}
+                    price={program.investment}
+                    duration={program.duration}
+                  />
                 </div>
               </div>
             ))}

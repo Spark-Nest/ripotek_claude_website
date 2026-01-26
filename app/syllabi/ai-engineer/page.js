@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Printer, ArrowLeft, Brain, Clock, DollarSign, Calendar, Award, CheckCircle, BookOpen, Target, Briefcase, Mail, Phone, Globe } from 'lucide-react';
 import EnrollmentModal from '../../../components/EnrollmentModal';
+import StripeCheckoutButton from '../../../components/StripeCheckoutButton';
 
 export default function AIEngineerSyllabus() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,6 +31,14 @@ export default function AIEngineerSyllabus() {
               <Printer className="w-4 h-4" />
               Print to PDF
             </button>
+            <StripeCheckoutButton
+              programName="AI Engineer"
+              price="$1,800"
+              duration="24 Weeks"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition shadow-lg font-semibold"
+            >
+              Pay $1,800 CAD
+            </StripeCheckoutButton>
             <button
               onClick={() => setModalOpen(true)}
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg font-semibold"
@@ -213,7 +222,7 @@ export default function AIEngineerSyllabus() {
         onClose={() => setModalOpen(false)}
         programName="AI Engineer"
         duration="24 Weeks"
-        price="$3,999"
+        price="$1,800"
         nextStart="February 15, 2025"
         portalId="342603298"
         formId="7406ec42-22b5-4449-81f1-3a508db656d7"
