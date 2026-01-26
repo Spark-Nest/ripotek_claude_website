@@ -34,11 +34,13 @@ export async function POST(request) {
               images: ['https://ripotek.com/favicon.svg'],
             },
             unit_amount: priceInCents,
+            tax_behavior: 'exclusive', // Tax is added on top of the price
           },
           quantity: 1,
         },
       ],
       mode: 'payment',
+      automatic_tax: { enabled: true }, // Enable automatic tax calculation
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}&program=${encodeURIComponent(programName)}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/cancelled?program=${encodeURIComponent(programName)}`,
       customer_email: customerEmail || undefined,
