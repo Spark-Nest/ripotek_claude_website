@@ -81,8 +81,8 @@ export default function ContactPage() {
 
   const socialLinks = [
     { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/ripotek', color: 'hover:text-teal-600' },
-    { icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com/me/', color: 'hover:text-teal-600' },
-    { icon: FaInstagram, label: 'Instagram', href: 'https://instagram.com/ripotekdata', color: 'hover:text-teal-600' },
+    { icon: FaFacebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61583595044786', color: 'hover:text-teal-600' },
+    { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/ripotekdata', color: 'hover:text-teal-600' },
     { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://twitter.com/Ripotek', color: 'hover:text-teal-600' },
     { icon: FaYoutube, label: 'YouTube', href: 'https://www.youtube.com/@ripotekacademy', color: 'hover:text-teal-600' },
     { icon: FaGithub, label: 'GitHub', href: 'https://github.com/ripotek-technologies', color: 'hover:text-teal-600' }
@@ -487,10 +487,10 @@ export default function ContactPage() {
               <a href="https://linkedin.com/company/ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="LinkedIn">
                 <FaLinkedin className="w-6 h-6" />
               </a>
-              <a href="https://facebook.com/me/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61583595044786" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Facebook">
                 <FaFacebook className="w-6 h-6" />
               </a>
-              <a href="https://instagram.com/ripotekdata" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Instagram">
+              <a href="https://www.instagram.com/ripotekdata" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="Instagram">
                 <FaInstagram className="w-6 h-6" />
               </a>
               <a href="https://twitter.com/Ripotek" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition" aria-label="X (Twitter)">
