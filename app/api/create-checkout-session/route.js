@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16',
-});
+// Initialize Stripe lazily inside the handler to avoid build-time errors
+let stripe;
+function getStripe() {
+  if (!stripe) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2023-10-16',
+    });
+  }
+  return stripe;
+}
 
 export async function POST(request) {
   try {
+    const stripeClient = getStripe();
     const body = await request.json();
     const { programName, price, duration, customerEmail } = body;
 
@@ -14,7 +22,7 @@ export async function POST(request) {
     const priceInCents = Math.round(parseFloat(price.replace(/[$,]/g, '')) * 100);
 
     // Create Stripe Checkout Session
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
         {
