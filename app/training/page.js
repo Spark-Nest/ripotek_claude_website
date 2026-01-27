@@ -443,6 +443,14 @@ export default function TrainingPage() {
                 id={program.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
                 className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine overflow-hidden relative scroll-mt-24"
               >
+                {/* NOT AVAILABLE Banner for Azure Data Factory Masterclass */}
+                {program.title === 'Azure Data Factory Masterclass' && (
+                  <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center overflow-hidden">
+                    <div className="w-[140%] py-1.5 bg-red-100/60 text-red-500/80 font-semibold text-base tracking-[0.3em] uppercase text-center transform -rotate-45 border-y border-red-200/60">
+                      Not Available
+                    </div>
+                  </div>
+                )}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${program.color} opacity-10 rounded-bl-full`}></div>
                 <div className="text-5xl mb-4">{program.image}</div>
                 <program.icon className="w-12 h-12 text-teal-600 mb-4" />
