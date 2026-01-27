@@ -163,7 +163,7 @@ export default function TrainingPage() {
       color: 'from-green-600 to-emerald-600',
       schedule: 'Sat/Sun 10am-1pm MT',
       nextStart: 'April 12, 2026',
-      syllabusFile: '/syllabi/python-bootcamp'
+      syllabusFile: '/syllabi/python-for-data'
     },
     {
       title: 'Azure Data Factory Masterclass',
