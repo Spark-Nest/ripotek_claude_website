@@ -468,21 +468,38 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Download Capabilities Deck */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <Download className="w-16 h-16 text-teal-400 mx-auto mb-6" />
-          <h2 className="text-4xl font-bold text-white mb-6">Download Our Capabilities Deck</h2>
-          <p className="text-base md:text-xl text-gray-300 mb-8 md:whitespace-nowrap">
-            Get a comprehensive overview of our services, case studies, and technology expertise in one convenient PDF.
+      {/* Capabilities Deck CTA */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-500 rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm border border-teal-400/30">
+            <FileText className="w-4 h-4" />
+            Interactive Presentation
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Explore Our Capabilities Deck</h2>
+          <p className="text-base md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Discover our services, training programs, technology expertise, and success stories in an immersive, interactive presentation.
           </p>
-          <span
-            aria-disabled="true"
-            title="Coming soon"
-            className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg transition shadow-xl text-lg font-semibold opacity-60 cursor-not-allowed pointer-events-none"
-          >
-            <Download className="w-5 h-5" /> Download Capabilities Deck (Coming Soon)
-          </span>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/resources/capabilities-deck"
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold hover-lift"
+            >
+              <ArrowRight className="w-5 h-5" /> View Capabilities Deck
+            </a>
+            <a
+              href="/ripotek-capabilities-deck.pdf"
+              download
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
+            >
+              <Download className="w-5 h-5" /> Download PDF
+            </a>
+          </div>
         </div>
       </section>
 
