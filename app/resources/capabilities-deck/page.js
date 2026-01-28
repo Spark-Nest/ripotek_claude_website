@@ -8,6 +8,7 @@ export default function CapabilitiesDeckPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [scale, setScale] = useState(1);
 
   const totalSlides = 29; // Will increase as more slides are added
 
@@ -35,7 +36,13 @@ export default function CapabilitiesDeckPage() {
   }, [nextSlide, prevSlide]);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      // Scale slides down on small viewports to prevent overflow/misalignment
+      const computedScale = Math.min(1, Math.max(0.7, width / 1280));
+      setScale(computedScale);
+    };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -85,12 +92,13 @@ export default function CapabilitiesDeckPage() {
               : 'w-full max-w-6xl aspect-[4/5] sm:aspect-[3/4] md:aspect-video min-h-[520px] sm:min-h-[560px]'
           }`}
         >
-          <div className="h-full w-full flex items-center justify-center overflow-hidden">
+          <div className="h-full w-full flex items-start justify-center overflow-hidden">
             <div
-              className="h-full w-full"
+              className="h-full w-full max-w-[1280px]"
               style={{
-                transform: `scale(${isFullscreen ? 1 : isMobile ? 0.9 : 1})`,
-                transformOrigin: 'top center'
+                transform: `scale(${isFullscreen ? 1 : scale})`,
+                transformOrigin: 'top center',
+                margin: '0 auto'
               }}
             >
               {/* Slide Content */}
