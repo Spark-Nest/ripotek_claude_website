@@ -39,8 +39,16 @@ export default function CapabilitiesDeckPage() {
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 768);
+
+      // Calculate available width for the deck container
+      // Container has p-4 (32px) on mobile, p-8 (64px) on desktop
+      // And max-w-6xl (1152px) constraint
+      const padding = width < 768 ? 32 : 64;
+      const containerMaxWidth = 1152;
+      const availableWidth = Math.min(width - padding, containerMaxWidth);
+
       // Scale slides down on small viewports to prevent overflow/misalignment
-      const computedScale = Math.min(1, Math.max(0.7, width / 1280));
+      const computedScale = Math.min(1, Math.max(0.2, availableWidth / 1280));
       setScale(computedScale);
     };
     handleResize();
@@ -89,14 +97,14 @@ export default function CapabilitiesDeckPage() {
           className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${
             isFullscreen
               ? 'w-screen h-screen rounded-none'
-              : 'w-full max-w-6xl aspect-[4/5] sm:aspect-[3/4] md:aspect-video min-h-[520px] sm:min-h-[560px]'
+              : 'w-full max-w-6xl aspect-video'
           }`}
         >
           <div className="h-full w-full flex items-start justify-center overflow-hidden">
             <div
-              className="h-full w-full max-w-[1280px]"
+              className={`${isFullscreen ? 'w-full h-full' : 'w-[1280px] aspect-video'}`}
               style={{
-                transform: `scale(${isFullscreen ? 1 : scale})`,
+                transform: isFullscreen ? 'none' : `scale(${scale})`,
                 transformOrigin: 'top center',
                 margin: '0 auto'
               }}
