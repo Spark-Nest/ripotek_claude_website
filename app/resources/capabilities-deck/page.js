@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight, Download, Maximize2, Minimize2, Globe, Mail,
 export default function CapabilitiesDeckPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const totalSlides = 29; // Will increase as more slides are added
 
@@ -32,6 +33,13 @@ export default function CapabilitiesDeckPage() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -74,39 +82,49 @@ export default function CapabilitiesDeckPage() {
           className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${
             isFullscreen
               ? 'w-screen h-screen rounded-none'
-              : 'w-full max-w-6xl aspect-video'
+              : 'w-full max-w-6xl aspect-[4/5] sm:aspect-[3/4] md:aspect-video min-h-[520px] sm:min-h-[560px]'
           }`}
         >
-          {/* Slide Content */}
-          {currentSlide === 0 && <Slide1 />}
-          {currentSlide === 1 && <Slide2 />}
-          {currentSlide === 2 && <Slide3 />}
-          {currentSlide === 3 && <Slide4 />}
-          {currentSlide === 4 && <Slide5 />}
-          {currentSlide === 5 && <Slide6 />}
-          {currentSlide === 6 && <Slide7 />}
-          {currentSlide === 7 && <Slide8 />}
-          {currentSlide === 8 && <Slide9 />}
-          {currentSlide === 9 && <Slide10 />}
-          {currentSlide === 10 && <Slide11 />}
-          {currentSlide === 11 && <Slide12 />}
-          {currentSlide === 12 && <Slide13 />}
-          {currentSlide === 13 && <Slide14 />}
-          {currentSlide === 14 && <Slide15 />}
-          {currentSlide === 15 && <Slide16 />}
-          {currentSlide === 16 && <Slide17 />}
-          {currentSlide === 17 && <Slide18 />}
-          {currentSlide === 18 && <Slide19 />}
-          {currentSlide === 19 && <Slide20 />}
-          {currentSlide === 20 && <Slide21 />}
-          {currentSlide === 21 && <Slide22 />}
-          {currentSlide === 22 && <Slide23 />}
-          {currentSlide === 23 && <Slide24 />}
-          {currentSlide === 24 && <Slide25 />}
-          {currentSlide === 25 && <Slide26 />}
-          {currentSlide === 26 && <Slide27 />}
-          {currentSlide === 27 && <Slide28 />}
-          {currentSlide === 28 && <Slide29 />}
+          <div className="h-full w-full flex items-center justify-center overflow-hidden">
+            <div
+              className="h-full w-full"
+              style={{
+                transform: `scale(${isFullscreen ? 1 : isMobile ? 0.9 : 1})`,
+                transformOrigin: 'top center'
+              }}
+            >
+              {/* Slide Content */}
+              {currentSlide === 0 && <Slide1 />}
+              {currentSlide === 1 && <Slide2 />}
+              {currentSlide === 2 && <Slide3 />}
+              {currentSlide === 3 && <Slide4 />}
+              {currentSlide === 4 && <Slide5 />}
+              {currentSlide === 5 && <Slide6 />}
+              {currentSlide === 6 && <Slide7 />}
+              {currentSlide === 7 && <Slide8 />}
+              {currentSlide === 8 && <Slide9 />}
+              {currentSlide === 9 && <Slide10 />}
+              {currentSlide === 10 && <Slide11 />}
+              {currentSlide === 11 && <Slide12 />}
+              {currentSlide === 12 && <Slide13 />}
+              {currentSlide === 13 && <Slide14 />}
+              {currentSlide === 14 && <Slide15 />}
+              {currentSlide === 15 && <Slide16 />}
+              {currentSlide === 16 && <Slide17 />}
+              {currentSlide === 17 && <Slide18 />}
+              {currentSlide === 18 && <Slide19 />}
+              {currentSlide === 19 && <Slide20 />}
+              {currentSlide === 20 && <Slide21 />}
+              {currentSlide === 21 && <Slide22 />}
+              {currentSlide === 22 && <Slide23 />}
+              {currentSlide === 23 && <Slide24 />}
+              {currentSlide === 24 && <Slide25 />}
+              {currentSlide === 25 && <Slide26 />}
+              {currentSlide === 26 && <Slide27 />}
+              {currentSlide === 27 && <Slide28 />}
+              {currentSlide === 28 && <Slide29 />}
+            </div>
+          </div>
 
           {/* Slide Navigation Overlay */}
           <div className="absolute inset-0 flex">
