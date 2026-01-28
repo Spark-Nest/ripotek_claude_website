@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Minimize2, Globe, Mail, Phone, Building2, GraduationCap, TrendingUp, CheckCircle, Calendar, MapPin, Target, Server, LayoutGrid, Clock, DollarSign, UserX, Lightbulb, Layers, Rocket, Compass, BarChart3, Brain, LifeBuoy, UsersRound, Factory, PieChart, UserCog, Check, User, Cloud, Briefcase, Award, Presentation, Boxes, Network, Diamond, ClipboardList, PackageOpen, Coins, Database, Workflow, CheckCheck, GitBranch, LineChart, Gauge, Shield, Trophy, Bot, Zap, Headset, Bell, ClipboardCheck, CalendarCheck, BookOpen, Tag, CloudUpload, Snowflake, Monitor, Search, PenTool, FileText, RefreshCw, Landmark, HeartPulse, AlertTriangle, XCircle, FileSpreadsheet, Radio, Timer, Banknote, Settings, CalendarX2, Percent, Eye, EyeOff, UserCheck, HandHeart, Table2, FileCode, Cog, Laptop, Handshake, Star, SlidersHorizontal, FileCheck2, Heart, FilePen, ZoomIn, ArrowRight, Linkedin, Facebook, Instagram, MessageCircle, Code, Shuffle } from 'lucide-react';
+import { SiSnowflake } from 'react-icons/si';
 
 export default function CapabilitiesDeckPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,7 +42,9 @@ export default function CapabilitiesDeckPage() {
       setIsMobile(width < 768);
 
       // Scale slides down on small viewports to prevent overflow/misalignment
-      const computedScale = Math.min(1, Math.max(0.7, width / 1280));
+      // Use container width (accounting for padding) to calculate scale
+      const containerWidth = Math.min(width - 32, 1152); // max-w-6xl = 1152px, minus padding
+      const computedScale = Math.min(1, containerWidth / 1280);
       setScale(computedScale);
     };
     handleResize();
@@ -90,16 +93,19 @@ export default function CapabilitiesDeckPage() {
           className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${
             isFullscreen
               ? 'w-screen h-screen rounded-none'
-                : 'w-full max-w-6xl aspect-[4/5] sm:aspect-[3/4] md:aspect-video min-h-[520px] sm:min-h-[560px]'
+              : 'w-full max-w-6xl'
           }`}
+          style={!isFullscreen ? {
+            aspectRatio: '16/9',
+            maxHeight: 'calc(100vh - 200px)',
+          } : undefined}
         >
-          <div className="h-full w-full flex items-start justify-center overflow-hidden">
+          <div className="h-full w-full flex items-start justify-center overflow-auto">
             <div
-                className="h-full w-full max-w-[1280px]"
+              className="w-[1280px] h-[720px] flex-shrink-0"
               style={{
-                  transform: `scale(${isFullscreen ? 1 : scale})`,
+                transform: `scale(${isFullscreen ? 1 : scale})`,
                 transformOrigin: 'top center',
-                margin: '0 auto'
               }}
             >
               {/* Slide Content */}
@@ -366,7 +372,10 @@ function Slide2() {
           </span>
           <h1 className="text-3xl font-bold" style={{ color: '#0f172a' }}>Who We Are</h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -491,7 +500,10 @@ function Slide3() {
             Real outcomes that drive business transformation
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -586,7 +598,10 @@ function Slide4() {
             Organizations Are Drowning in Data
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -760,7 +775,10 @@ function Slide5() {
             End-to-End Data Transformation
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -926,7 +944,10 @@ function Slide6() {
             We're Different. Here's How.
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1008,44 +1029,28 @@ function Slide6() {
 function Slide7() {
   const teamMembers = [
     {
-      icon: User,
+      image: '/tams-andrew.png',
+      name: 'Prince Andrew',
+      role: 'CEO & Founder',
+      desc: 'Founded Ripotek in 2023. 12+ years in enterprise data systems across energy, finance, and public sectors.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=800&fit=crop&crop=faces',
       name: 'Sarah Chen',
-      role: 'Lead Data Architect',
-      desc: '15+ years designing enterprise data warehouses and lakehouses for Fortune 500s.',
-      bgColor: '#eff6ff',
-      iconColor: '#3b82f6'
+      role: 'Chief Technology Officer',
+      desc: '15+ years leading data architecture for Fortune 500. Azure Solutions Architect Expert & TOGAF certified.'
     },
     {
-      icon: User,
-      name: 'Marcus Johnson',
-      role: 'Principal BI',
-      desc: 'Ex-Microsoft specialist in Power BI optimization and enterprise semantic models.',
-      bgColor: '#f0fdfa',
-      iconColor: '#14b8a6'
+      image: '/priya-sharma.png',
+      name: 'Dr. Priya Sharma',
+      role: 'VP of AI & Innovation',
+      desc: 'PhD in ML from U of T. 10+ years applying AI/ML to solve complex business problems in finance.'
     },
     {
-      icon: GraduationCap,
-      name: 'Priya Sharma, PhD',
-      role: 'AI/ML Lead',
-      desc: 'Expert in generative AI, MLOps, and predictive modeling for finance & energy.',
-      bgColor: '#fdf4ff',
-      iconColor: '#c026d3'
-    },
-    {
-      icon: Presentation,
+      image: '/james-patterson.png',
       name: 'David Thompson',
-      role: 'Sr. Databricks Instr.',
-      desc: 'Certified Databricks Champion with a track record of training 500+ engineers.',
-      bgColor: '#fff7ed',
-      iconColor: '#f97316'
-    },
-    {
-      icon: Cloud,
-      name: 'Elena Rodriguez',
-      role: 'Cloud Architect',
-      desc: 'Specializes in secure Azure infrastructure and zero-trust cloud environments.',
-      bgColor: '#ecfeff',
-      iconColor: '#0891b2'
+      role: 'VP of Training',
+      desc: 'Databricks Certified. 10+ years in big data. Trained 2,000+ students with 85% placement rate.'
     }
   ];
 
@@ -1067,41 +1072,48 @@ function Slide7() {
             World-Class Expertise
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col px-16 py-6 gap-6" style={{ backgroundColor: '#f8fafc' }}>
         {/* Team Grid */}
-        <div className="grid grid-cols-5 gap-5 flex-1">
+        <div className="grid grid-cols-4 gap-6 flex-1">
           {teamMembers.map((member, idx) => (
             <div
               key={idx}
               className="bg-white rounded-xl p-5 flex flex-col items-center text-center border transition-all hover:-translate-y-1 hover:shadow-lg relative overflow-hidden"
               style={{ borderColor: '#e2e8f0' }}
             >
-              {/* Hover accent */}
+              {/* Top accent bar */}
               <div
-                className="absolute top-0 left-0 w-full h-1 opacity-0 transition-opacity"
+                className="absolute top-0 left-0 w-full h-1"
                 style={{ backgroundColor: '#06b6d4' }}
               />
 
               {/* Avatar */}
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center mb-4 border-2 border-white shadow-md"
-                style={{ backgroundColor: member.bgColor }}
-              >
-                <member.icon className="w-8 h-8" style={{ color: member.iconColor }} />
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-3 border-white shadow-lg">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                  unoptimized={member.image.startsWith('http')}
+                />
               </div>
 
               {/* Name */}
-              <h3 className="text-base font-bold mb-1" style={{ color: '#1e293b' }}>
+              <h3 className="text-lg font-bold mb-1" style={{ color: '#1e293b' }}>
                 {member.name}
               </h3>
 
               {/* Role */}
               <div
-                className="text-xs font-semibold uppercase tracking-wide mb-3 h-8 flex items-center justify-center"
+                className="text-xs font-semibold uppercase tracking-wide mb-3"
                 style={{ color: '#06b6d4' }}
               >
                 {member.role}
@@ -1264,7 +1276,10 @@ function Slide9() {
             Strategy & Governance
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1407,7 +1422,10 @@ function Slide10() {
             Data Platform Build
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1549,7 +1567,10 @@ function Slide11() {
             Analytics & BI
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1691,7 +1712,10 @@ function Slide12() {
             MLOps & AI Solutions
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1832,7 +1856,10 @@ function Slide13() {
             Managed Services
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -1974,7 +2001,10 @@ function Slide14() {
             Enterprise Training
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2117,7 +2147,10 @@ function Slide15() {
             Cloud Migration & Modernization
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2233,12 +2266,13 @@ function Slide15() {
 // ============================================
 function Slide16() {
   const partners = [
-    { name: 'Microsoft Azure', icon: Monitor, color: '#0078d4', borderColor: '#0078d4' },
-    { name: 'Databricks', icon: Layers, color: '#ff3621', borderColor: '#ff3621' },
-    { name: 'Microsoft Fabric', icon: Network, color: '#502288', borderColor: '#605e5c' },
-    { name: 'Power BI', icon: BarChart3, color: '#dcb000', borderColor: '#f2c811' },
-    { name: 'Snowflake', icon: Snowflake, color: '#29b5e8', borderColor: '#29b5e8' },
-    { name: 'AWS', icon: Cloud, color: '#ff9900', borderColor: '#ff9900' }
+    { name: 'Microsoft Azure', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', borderColor: '#0078d4' },
+    { name: 'Databricks', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png', borderColor: '#ff3621' },
+    { name: 'Microsoft Fabric', logo: '/partners/microsoft-fabric.png', borderColor: '#502288' },
+    { name: 'Power BI', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg', borderColor: '#f2c811' },
+    { name: 'Snowflake', icon: SiSnowflake, iconColor: '#29B5E8', borderColor: '#29b5e8' },
+    { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', borderColor: '#ff9900' },
+    { name: 'Google Cloud', logo: '/partners/google-cloud.png', borderColor: '#4285f4' }
   ];
 
   const certifications = [
@@ -2259,7 +2293,10 @@ function Slide16() {
             Technology Partners
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2270,11 +2307,11 @@ function Slide16() {
         </p>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-3 gap-5 flex-1">
+        <div className="grid grid-cols-4 gap-4 flex-1">
           {partners.map((partner, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl border flex flex-col items-center justify-center relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg"
+              className="bg-white rounded-xl border flex flex-col items-center justify-center relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg py-4"
               style={{ borderColor: '#e2e8f0' }}
             >
               {/* Top accent bar */}
@@ -2282,8 +2319,19 @@ function Slide16() {
                 className="absolute top-0 left-0 w-full h-1"
                 style={{ backgroundColor: partner.borderColor }}
               />
-              <partner.icon className="w-12 h-12 mb-3" style={{ color: partner.color }} />
-              <span className="font-bold text-lg" style={{ color: '#334155' }}>{partner.name}</span>
+              {partner.icon ? (
+                <partner.icon className="w-12 h-12 mb-3" style={{ color: partner.iconColor }} />
+              ) : (
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={80}
+                  height={48}
+                  className="h-12 w-auto object-contain mb-3"
+                  unoptimized={partner.logo.startsWith('http')}
+                />
+              )}
+              <span className="font-bold text-sm" style={{ color: '#334155' }}>{partner.name}</span>
             </div>
           ))}
         </div>
@@ -2403,7 +2451,10 @@ function Slide17() {
             Our Delivery Methodology
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2560,7 +2611,10 @@ function Slide18() {
             Industries We Serve
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2669,7 +2723,10 @@ function Slide19() {
             Energy Sector Success
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2813,7 +2870,10 @@ function Slide20() {
             Financial Services Success
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -2957,7 +3017,10 @@ function Slide21() {
             Public Sector Success
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3071,14 +3134,14 @@ function Slide21() {
 // ============================================
 function Slide22() {
   const programs = [
-    { title: 'Power BI Analyst', icon: BarChart3, duration: '12 Weeks', price: '$1,599', type: 'analyst' },
-    { title: 'Python for Data', icon: FileCode, duration: '12 Weeks', price: '$1,599', type: 'analyst' },
-    { title: 'Prompt Engineering', icon: Bot, duration: '12 Weeks', price: '$1,599', type: 'special' },
-    { title: 'Azure Data Engineer', icon: Cloud, duration: '24 Weeks', price: '$3,999', type: 'engineer' },
-    { title: 'Databricks Engineer', icon: Layers, duration: '24 Weeks', price: '$3,999', type: 'engineer' },
-    { title: 'AI Engineer', icon: Brain, duration: '24 Weeks', price: '$3,999', type: 'special' },
-    { title: 'BI Analyst', icon: Table2, duration: '12 Weeks', price: '$1,799', type: 'analyst' },
-    { title: 'Azure Data Factory', icon: Cog, duration: '12 Weeks', price: '$1,799', type: 'engineer' }
+    { title: 'Power BI Analyst', icon: BarChart3, duration: '12 Weeks', price: '$700', type: 'analyst' },
+    { title: 'Python for Data', icon: FileCode, duration: '12 Weeks', price: '$700', type: 'analyst' },
+    { title: 'Prompt Engineering', icon: Bot, duration: '12 Weeks', price: '$700', type: 'special' },
+    { title: 'Azure Data Engineer', icon: Cloud, duration: '24 Weeks', price: '$1,500', type: 'engineer' },
+    { title: 'Databricks Engineer', icon: Layers, duration: '24 Weeks', price: '$1,500', type: 'engineer' },
+    { title: 'AI Engineer', icon: Brain, duration: '24 Weeks', price: '$1,800', type: 'special' },
+    { title: 'BI Analyst', icon: Table2, duration: '12 Weeks', price: '$700', type: 'analyst' },
+    { title: 'Azure Data Factory', icon: Cog, duration: '12 Weeks', price: '$1,000', type: 'engineer' }
   ];
 
   const stats = [
@@ -3112,7 +3175,10 @@ function Slide22() {
             Training Programs
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3239,7 +3305,10 @@ function Slide23() {
             Training-to-Hire Model
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3406,7 +3475,10 @@ function Slide24() {
             Client Testimonials
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3505,7 +3577,10 @@ function Slide25() {
             Pricing Transparency
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3686,7 +3761,10 @@ function Slide26() {
             Why Calgary Chooses Ripotek
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3814,7 +3892,10 @@ function Slide27() {
             Next Steps
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -3901,15 +3982,15 @@ function Slide27() {
 function Slide28() {
   const contactInfo = [
     { icon: MapPin, title: 'Headquarters', text: 'Calgary, Alberta\nCanada' },
-    { icon: Phone, title: 'Phone', text: '+1 (403) 555-DATO' },
-    { icon: Globe, title: 'Website', text: 'www.ripotek.ca' }
+    { icon: Phone, title: 'Phone', text: '+1 587-259-0033' },
+    { icon: Globe, title: 'Website', text: 'www.ripotek.com' }
   ];
 
   const emails = [
-    { icon: Mail, email: 'info@ripotek.ca', label: 'General' },
-    { icon: Briefcase, email: 'consulting@ripotek.ca', label: 'Consulting' },
-    { icon: GraduationCap, email: 'training@ripotek.ca', label: 'Training' },
-    { icon: UsersRound, email: 'careers@ripotek.ca', label: 'Careers' }
+    { icon: Mail, email: 'info@ripotek.com', label: 'General' },
+    { icon: Briefcase, email: 'consulting@ripotek.com', label: 'Consulting' },
+    { icon: GraduationCap, email: 'training@ripotek.com', label: 'Training' },
+    { icon: UsersRound, email: 'careers@ripotek.com', label: 'Careers' }
   ];
 
   const socials = [
@@ -3941,7 +4022,10 @@ function Slide28() {
             Contact Us
           </h1>
         </div>
-        <Image src="/logo-light.svg" alt="Ripotek" width={120} height={36} />
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
+        </div>
       </div>
 
       {/* Main Content */}
