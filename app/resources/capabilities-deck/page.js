@@ -39,12 +39,18 @@ export default function CapabilitiesDeckPage() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
+      const height = window.innerHeight;
       setIsMobile(width < 768);
 
-      // Scale slides down on small viewports to prevent overflow/misalignment
-      // Use container width (accounting for padding) to calculate scale
+      // Calculate scale based on both width and height constraints
+      // Slides are 1280x720 (16:9 aspect ratio)
       const containerWidth = Math.min(width - 32, 1152); // max-w-6xl = 1152px, minus padding
-      const computedScale = Math.min(1, containerWidth / 1280);
+      const containerHeight = height - 200; // Account for header and controls
+
+      // Scale to fit within container, respecting both dimensions
+      const scaleByWidth = containerWidth / 1280;
+      const scaleByHeight = containerHeight / 720;
+      const computedScale = Math.min(1, scaleByWidth, scaleByHeight);
       setScale(computedScale);
     };
     handleResize();
@@ -76,12 +82,12 @@ export default function CapabilitiesDeckPage() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="/ripotek-capabilities-deck.pdf"
+              href="/ripotek-capabilities-deck.pptx"
               download
               className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition text-sm font-medium"
             >
               <Download className="w-4 h-4" />
-              Download PDF
+              Download PowerPoint
             </a>
           </div>
         </div>
@@ -90,17 +96,17 @@ export default function CapabilitiesDeckPage() {
       {/* Slide Container */}
       <div className={`flex-1 flex items-center justify-center ${isFullscreen ? '' : 'mb-4'}`}>
         <div
-          className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${
+          className={`relative bg-black rounded-lg shadow-2xl ${
             isFullscreen
-              ? 'w-screen h-screen rounded-none'
-              : 'w-full max-w-6xl'
+              ? 'w-screen h-screen rounded-none overflow-hidden'
+              : 'w-full max-w-6xl overflow-hidden'
           }`}
           style={!isFullscreen ? {
-            aspectRatio: '16/9',
+            height: `${720 * scale}px`,
             maxHeight: 'calc(100vh - 200px)',
           } : undefined}
         >
-          <div className="h-full w-full flex items-start justify-center overflow-auto">
+          <div className="w-full h-full flex items-start justify-center">
             <div
               className="w-[1280px] h-[720px] flex-shrink-0"
               style={{
@@ -258,16 +264,14 @@ function Slide1() {
       {/* Header / Logo */}
       <div className="absolute top-0 left-0 w-full px-12 py-8 flex justify-between items-center z-20">
         <div className="flex items-center gap-3">
-          <div
-            className="w-11 h-11 rounded-lg flex items-center justify-center font-extrabold text-2xl shadow-lg"
-            style={{
-              backgroundColor: '#06b6d4',
-              color: '#0f172a',
-              boxShadow: '0 0 15px rgba(6, 182, 212, 0.5)'
-            }}
-          >
-            R
-          </div>
+          <Image
+            src="/favicon.svg"
+            alt="Ripotek"
+            width={44}
+            height={44}
+            className="rounded-lg shadow-lg"
+            style={{ boxShadow: '0 0 15px rgba(6, 182, 212, 0.5)' }}
+          />
           <span className="font-bold text-2xl text-white tracking-tight">Ripotek</span>
         </div>
         <div className="text-white/50 text-sm tracking-widest">
@@ -4178,19 +4182,9 @@ function Slide29() {
             Certifications & Tech Stack
           </h1>
         </div>
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-8 h-8 rounded-md flex items-center justify-center font-extrabold text-lg"
-            style={{ backgroundColor: '#06b6d4', color: '#0f172a', fontFamily: 'Montserrat, sans-serif' }}
-          >
-            R
-          </div>
-          <span
-            className="font-bold text-lg"
-            style={{ fontFamily: 'Montserrat, sans-serif', color: '#0f172a' }}
-          >
-            Ripotek
-          </span>
+        <div className="flex items-center gap-2">
+          <Image src="/favicon.svg" alt="Ripotek" width={32} height={32} className="rounded" />
+          <span className="font-bold text-xl" style={{ color: '#0f172a' }}>Ripotek</span>
         </div>
       </div>
 
