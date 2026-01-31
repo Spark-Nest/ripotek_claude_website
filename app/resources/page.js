@@ -493,9 +493,16 @@ export default function ResourcesPage() {
               <ArrowRight className="w-5 h-5" /> View Capabilities Deck
             </a>
             <a
+              href="/ripotek-capabilities-deck.pptx"
+              download
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-6 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
+            >
+              <Download className="w-5 h-5" /> Download PowerPoint
+            </a>
+            <a
               href="/ripotek-capabilities-deck.pdf"
               download
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-6 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
             >
               <Download className="w-5 h-5" /> Download PDF
             </a>

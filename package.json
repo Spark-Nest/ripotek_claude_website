@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:pptx": "node scripts/generate-pptx.js",
+    "generate:pdf": "node scripts/generate-pdf.js",
+    "generate:presentations": "node scripts/generate-pptx.js && node scripts/generate-pdf.js"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.6.4",
@@ -23,6 +26,8 @@
     "baseline-browser-mapping": "^2.9.0",
     "eslint": "^9",
     "eslint-config-next": "^16.0.7",
+    "pdfkit": "^0.17.2",
+    "pptxgenjs": "^4.0.1",
     "tailwindcss": "^4"
   }
 }
