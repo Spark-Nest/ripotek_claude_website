@@ -73,7 +73,7 @@ export default function JuniorDataEngineerPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -145,7 +145,7 @@ export default function JuniorDataEngineerPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="pt-32 pb-12 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-5xl font-bold text-white mb-4">Junior Data Engineer</h1>
           <p className="text-xl text-gray-300 mb-8">Consulting Department</p>
@@ -315,19 +315,19 @@ export default function JuniorDataEngineerPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Education & Experience</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Bachelor&apos;s degree in Computer Science, Information Systems, or related field<br />OR<br />Completion of Ripotek&apos;s Azure Data Engineer or Databricks Engineer training program<br />OR<br />Equivalent self-taught experience with demonstrable projects</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>0-2 years of professional experience in data engineering, analytics, or BI</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Internship or co-op experience in data/tech is a plus</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Personal projects or GitHub portfolio demonstrating data skills</span>
                   </li>
                 </ul>
@@ -393,31 +393,31 @@ export default function JuniorDataEngineerPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Soft Skills</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Eagerness to learn and grow</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Strong attention to detail</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Ability to follow instructions and ask clarifying questions</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Good time management and ability to meet deadlines</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Team player and collaborative mindset</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Receptive to feedback and coaching</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Good written and verbal communication</span>
                   </li>
                 </ul>
@@ -460,7 +460,7 @@ export default function JuniorDataEngineerPage() {
           </div>
 
           {/* What We Offer */}
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
+          <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
             <div className="flex items-center gap-3 mb-6">
               <Heart className="w-8 h-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">What We Offer</h2>
@@ -597,19 +597,19 @@ export default function JuniorDataEngineerPage() {
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-32 font-semibold text-gray-900">Months 1-3:</div>
+                <div className="shrink-0 w-32 font-semibold text-gray-900">Months 1-3:</div>
                 <p className="text-gray-700">Complete onboarding, shadow senior engineers, work on small pipeline tasks</p>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-32 font-semibold text-gray-900">Months 4-6:</div>
+                <div className="shrink-0 w-32 font-semibold text-gray-900">Months 4-6:</div>
                 <p className="text-gray-700">Independently build simple pipelines, participate in code reviews, earn DP-900 cert</p>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-32 font-semibold text-gray-900">Months 7-9:</div>
+                <div className="shrink-0 w-32 font-semibold text-gray-900">Months 7-9:</div>
                 <p className="text-gray-700">Lead small modules on projects, mentor newer juniors, start DP-203 prep</p>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-32 font-semibold text-gray-900">Months 10-12:</div>
+                <div className="shrink-0 w-32 font-semibold text-gray-900">Months 10-12:</div>
                 <p className="text-gray-700">Contribute to architecture discussions, earn DP-203 cert, take on more complex tasks</p>
               </div>
             </div>
@@ -623,35 +623,35 @@ export default function JuniorDataEngineerPage() {
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Phone Screen (30 min)</h4>
                   <p className="text-gray-700">HR and hiring manager</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Technical Assessment (take-home, 2-3 hours)</h4>
                   <p className="text-gray-700">Build a simple data pipeline</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Technical Interview (60 min)</h4>
                   <p className="text-gray-700">SQL queries, Python coding, Azure basics</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Behavioral Interview (30 min)</h4>
                   <p className="text-gray-700">Learning agility, teamwork, problem-solving</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Team Meet (30 min)</h4>
                   <p className="text-gray-700">Casual conversation with your potential teammates</p>
@@ -668,7 +668,7 @@ export default function JuniorDataEngineerPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
+          <div className="bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Start Your Data Engineering Career</h2>
             <p className="text-xl text-gray-300 mb-8">
               Join our team and learn from experienced engineers on real enterprise projects.

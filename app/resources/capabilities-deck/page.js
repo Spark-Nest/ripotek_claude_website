@@ -158,7 +158,7 @@ export default function CapabilitiesDeckPage() {
         >
           <div className="w-full h-full flex items-start justify-center">
             <div
-              className="w-[1280px] h-[720px] flex-shrink-0"
+              className="w-[1280px] h-[720px] shrink-0"
               style={{
                 transform: `scale(${scale})`,
                 transformOrigin: 'top center',
@@ -271,7 +271,7 @@ export default function CapabilitiesDeckPage() {
           {/* Fullscreen Slide Container */}
           <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
             <div
-              className="w-[1280px] h-[720px] flex-shrink-0"
+              className="w-[1280px] h-[720px] shrink-0"
               style={{
                 transform: `scale(${fullscreenScale})`,
                 transformOrigin: 'center center',
@@ -4334,7 +4334,7 @@ function Slide29() {
                 style={{ backgroundColor: 'white', borderColor: '#e2e8f0' }}
               >
                 <div
-                  className="w-8 h-8 flex-shrink-0 flex items-center justify-center"
+                  className="w-8 h-8 shrink-0 flex items-center justify-center"
                   style={{ fontSize: '20px', color: cert.color }}
                 >
                   {cert.color === '#ff3621' ? (

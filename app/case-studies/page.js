@@ -225,7 +225,7 @@ export default function CaseStudiesPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -300,7 +300,7 @@ export default function CaseStudiesPage() {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background */}
           <video
@@ -433,7 +433,7 @@ export default function CaseStudiesPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Success </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Stories</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Stories</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore how we have helped organizations across industries transform their data capabilities
@@ -453,7 +453,7 @@ export default function CaseStudiesPage() {
                       className="object-cover"
                       sizes="(min-width: 768px) 33vw, 100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 text-6xl">{study.emoji}</div>
                   </div>
 
@@ -482,7 +482,7 @@ export default function CaseStudiesPage() {
                       <div className="grid md:grid-cols-2 gap-4">
                         {study.results.map((result, i) => (
                           <div key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                             <div>
                               <span className="font-bold text-teal-600">{result.metric}</span>
                               <span className="text-gray-700"> {result.description}</span>
@@ -506,7 +506,7 @@ export default function CaseStudiesPage() {
 
                     {/* Testimonial */}
                     {study.testimonial && (
-                      <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border-l-4 border-teal-500">
+                      <div className="bg-linear-to-br from-gray-50 to-white p-6 rounded-xl border-l-4 border-teal-500">
                         <div className="flex gap-2 mb-3">
                           {[...Array(5)].map((_, i) => (
                             <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
@@ -533,14 +533,14 @@ export default function CaseStudiesPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Client </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Testimonials</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Testimonials</span>
             </h2>
             <p className="text-xl text-gray-600">What our partners say about working with us</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
+              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
@@ -559,7 +559,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Write Your Success Story?</h2>
           <p className="text-xl text-gray-300 mb-8">

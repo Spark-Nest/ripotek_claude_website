@@ -70,7 +70,7 @@ export default function BusinessIntelligenceAnalystSyllabus() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-green-600 to-teal-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-8 h-8" />
               <h2 className="text-3xl font-bold">Business Intelligence Analyst</h2>
@@ -140,50 +140,50 @@ export default function BusinessIntelligenceAnalystSyllabus() {
             Learning Outcomes
           </h3>
 
-          <div className="bg-gradient-to-br from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon completion, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Gather and document business requirements</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Design dimensional data models</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Write SQL queries for analysis</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Create KPI frameworks and metrics</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Build interactive dashboards</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Perform ad-hoc analysis</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Apply data storytelling techniques</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Present insights to stakeholders</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Document BI solutions</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Support data-driven decision making</span>
                 </div>
               </div>
@@ -215,14 +215,14 @@ export default function BusinessIntelligenceAnalystSyllabus() {
               { week: 12, title: "Capstone Project", topics: ["End-to-end BI solution", "Stakeholder presentation", "Portfolio development", "Career planning"] }
             ].map((item, idx) => (
               <div key={idx} className="border-2 border-gray-200 rounded-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-4">
+                <div className="bg-linear-to-r from-green-600 to-teal-600 text-white p-4">
                   <h4 className="text-xl font-bold">Week {item.week}: {item.title}</h4>
                 </div>
                 <div className="p-6">
                   <ul className="grid md:grid-cols-2 gap-3">
                     {item.topics.map((topic, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                         <span className="text-gray-700">{topic}</span>
                       </li>
                     ))}
@@ -239,25 +239,25 @@ export default function BusinessIntelligenceAnalystSyllabus() {
             Career Services
           </h3>
 
-          <div className="bg-gradient-to-br from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-gray-900 mb-3">Support Includes:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Resume optimization</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Interview preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Portfolio development</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Employer connections</span>
                   </li>
                 </ul>
@@ -267,19 +267,19 @@ export default function BusinessIntelligenceAnalystSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Typical Roles:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Business Intelligence Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Data Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Reporting Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Business Analyst</span>
                   </li>
                 </ul>

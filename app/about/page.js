@@ -166,7 +166,7 @@ export default function AboutPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -227,7 +227,7 @@ export default function AboutPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Team/Collaboration themed */}
           <video
@@ -280,7 +280,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center relative z-30">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
             <span className="block">About </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Ripotek Technologies</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Ripotek Technologies</span>
           </h1>
           <p className="text-xl text-gray-300 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             Founded in March 2023 in Calgary, Alberta, we're built on a vision to empower organizations through data-driven transformation and world-class training.
@@ -328,7 +328,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Our </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Story</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Story</span>
           </h2>
           <div className="prose prose-lg mx-auto text-gray-700">
             <p className="mb-6">
@@ -378,7 +378,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">
             <span className="text-gray-900">Our Core </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">The principles that guide everything we do</p>
 
@@ -401,7 +401,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Industries We </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Serve</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Serve</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -423,7 +423,7 @@ export default function AboutPage() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-gray-900">Meet the </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               Behind every successful project and every trained professional is a team of dedicated experts who live and breathe data. From our leadership guiding strategic vision to our consultants solving complex challenges and our instructors empowering the next generation—each person brings unique expertise, passion, and a commitment to excellence.
@@ -433,7 +433,7 @@ export default function AboutPage() {
           {/* Leadership & Executive */}
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Leadership & </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Executive</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Executive</span>
           </h2>
           <p className="text-gray-600 mb-12 max-w-3xl">
             Our leadership team brings decades of combined experience in data engineering, AI, and enterprise transformation across Energy, Financial Services, and Public Sector industries.
@@ -456,7 +456,7 @@ export default function AboutPage() {
                     priority={idx < 3}
                   />
                   {/* Bold overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Name overlay on hover */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
@@ -537,7 +537,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto mt-32">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Business </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Consultants</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Consultants</span>
           </h2>
           <p className="text-gray-600 mb-12 max-w-3xl">
             Our consulting team delivers enterprise-grade solutions across data engineering, business intelligence, and AI—combining deep technical expertise with industry best practices.
@@ -559,7 +559,7 @@ export default function AboutPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   {/* Bold overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Name overlay on hover */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
@@ -577,7 +577,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto mt-32">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Academy </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Instructors</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Instructors</span>
           </h2>
           <p className="text-gray-600 mb-12 max-w-3xl">
             Learn from world-class instructors who combine years of industry experience with a passion for teaching—delivering hands-on, career-focused training that gets results.
@@ -599,7 +599,7 @@ export default function AboutPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   {/* Bold overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Name overlay on hover */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
@@ -638,7 +638,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Join Our Journey</h2>
           <p className="text-xl text-gray-300 mb-8">

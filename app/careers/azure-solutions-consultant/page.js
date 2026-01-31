@@ -72,7 +72,7 @@ export default function AzureSolutionsConsultantPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -144,7 +144,7 @@ export default function AzureSolutionsConsultantPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="pt-32 pb-12 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-5xl font-bold text-white mb-4">Azure Solutions Consultant</h1>
           <p className="text-xl text-gray-300 mb-8">Consulting Department</p>
@@ -318,23 +318,23 @@ export default function AzureSolutionsConsultantPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Experience</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>4+ years in data engineering, cloud engineering, or BI development</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>2+ years hands-on experience with Azure data services</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Delivered 3+ end-to-end data platform implementations</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Experience with both on-premises and cloud data technologies</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Track record of working directly with clients or business stakeholders</span>
                   </li>
                 </ul>
@@ -382,27 +382,27 @@ export default function AzureSolutionsConsultantPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Soft Skills</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Strong communication skills (technical and non-technical audiences)</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Problem-solving mindset and troubleshooting abilities</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Self-directed and able to manage multiple priorities</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Comfortable with ambiguity and changing requirements</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Team player with collaborative approach</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Eagerness to learn and adapt to new technologies</span>
                   </li>
                 </ul>
@@ -453,7 +453,7 @@ export default function AzureSolutionsConsultantPage() {
           </div>
 
           {/* What We Offer */}
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
+          <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
             <div className="flex items-center gap-3 mb-6">
               <Heart className="w-8 h-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">What We Offer</h2>
@@ -582,35 +582,35 @@ export default function AzureSolutionsConsultantPage() {
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Phone Screen (30 min)</h4>
                   <p className="text-gray-700">HR and technical lead</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Technical Interview (90 min)</h4>
                   <p className="text-gray-700">Azure architecture and pipeline design questions</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Coding Challenge (take-home, 2-3 hours)</h4>
                   <p className="text-gray-700">Build a simple ELT pipeline</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Client Scenario (45 min)</h4>
                   <p className="text-gray-700">Present solution to mock client problem</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Team Fit (30 min)</h4>
                   <p className="text-gray-700">Meet with team members</p>
@@ -627,7 +627,7 @@ export default function AzureSolutionsConsultantPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
+          <div className="bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Build Modern Data Platforms?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Join our team and work on cutting-edge Azure solutions for enterprise clients.

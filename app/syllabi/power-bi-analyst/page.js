@@ -72,7 +72,7 @@ export default function PowerBIAnalystSyllabus() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-900 to-teal-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-blue-900 to-teal-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <BarChart3 className="w-8 h-8" />
               <h2 className="text-3xl font-bold">Power BI Analyst</h2>
@@ -149,19 +149,19 @@ export default function PowerBIAnalystSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Required</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Basic Excel proficiency (formulas, pivot tables)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Understanding of basic business concepts</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Computer with Windows 10/11 (8GB RAM minimum)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Stable internet connection</span>
                 </li>
               </ul>
@@ -171,15 +171,15 @@ export default function PowerBIAnalystSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Recommended</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Experience with data analysis or reporting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Familiarity with SQL (helpful but not required)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Business domain knowledge</span>
                 </li>
               </ul>
@@ -194,50 +194,50 @@ export default function PowerBIAnalystSyllabus() {
             Learning Outcomes
           </h3>
 
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 border-2 border-teal-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-teal-50 to-blue-50 border-2 border-teal-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon successful completion of this program, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Connect to and transform data from multiple sources</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Design and implement star schema data models</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Write advanced DAX measures and calculated columns</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Create interactive and visually compelling reports</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Implement row-level security and data governance</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Deploy and manage content in Power BI Service</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Optimize report performance and query efficiency</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Build paginated reports for operational reporting</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Integrate AI capabilities using Quick Insights and Q&A</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Pass the Microsoft PL-300 certification exam</span>
                 </div>
               </div>
@@ -257,7 +257,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 1 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 1: Introduction to Power BI and Data Fundamentals</h4>
             </div>
             <div className="p-6">
@@ -297,7 +297,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 2 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 2: Advanced Data Transformation with Power Query</h4>
             </div>
             <div className="p-6">
@@ -337,7 +337,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 3 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 3: Data Modeling Fundamentals</h4>
             </div>
             <div className="p-6">
@@ -377,7 +377,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 4 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 4: Introduction to DAX</h4>
             </div>
             <div className="p-6">
@@ -417,7 +417,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 5 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 5: Advanced DAX</h4>
             </div>
             <div className="p-6">
@@ -457,7 +457,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 6 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 6: Visualization Fundamentals</h4>
             </div>
             <div className="p-6">
@@ -499,7 +499,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 7 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 7: Report Design and Interactivity</h4>
             </div>
             <div className="p-6">
@@ -539,7 +539,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 8 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 8: Power BI Service and Collaboration</h4>
             </div>
             <div className="p-6">
@@ -579,7 +579,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 9 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 9: Security and Governance</h4>
             </div>
             <div className="p-6">
@@ -619,7 +619,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 10 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 10: Performance Optimization</h4>
             </div>
             <div className="p-6">
@@ -659,7 +659,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 11 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 11: Advanced Topics and Integration</h4>
             </div>
             <div className="p-6">
@@ -699,7 +699,7 @@ export default function PowerBIAnalystSyllabus() {
 
           {/* Week 12 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-teal-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Week 12: Capstone Project and Certification Prep</h4>
             </div>
             <div className="p-6">
@@ -750,7 +750,7 @@ export default function PowerBIAnalystSyllabus() {
           <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-gradient-to-r from-teal-600 to-blue-600 text-white">
+                <tr className="bg-linear-to-r from-teal-600 to-blue-600 text-white">
                   <th className="p-4 text-left font-semibold">Assessment Component</th>
                   <th className="p-4 text-left font-semibold">Weight</th>
                   <th className="p-4 text-left font-semibold">Description</th>
@@ -819,28 +819,28 @@ export default function PowerBIAnalystSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Required Software</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Power BI Desktop</div>
                     <div className="text-sm text-gray-600">Free download from Microsoft</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Power BI Service</div>
                     <div className="text-sm text-gray-600">Free or Pro license (provided)</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Microsoft Excel</div>
                     <div className="text-sm text-gray-600">Office 365 or 2019+</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">DAX Studio</div>
                     <div className="text-sm text-gray-600">Free community tool</div>
@@ -853,28 +853,28 @@ export default function PowerBIAnalystSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Provided Resources</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Course Materials</div>
                     <div className="text-sm text-gray-600">Slides, code samples, datasets</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Lab Environments</div>
                     <div className="text-sm text-gray-600">Azure sandbox subscriptions</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Exam Voucher</div>
                     <div className="text-sm text-gray-600">Microsoft PL-300 certification</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Practice Tests</div>
                     <div className="text-sm text-gray-600">MeasureUp practice exams</div>
@@ -892,7 +892,7 @@ export default function PowerBIAnalystSyllabus() {
             Career Services and Job Placement
           </h3>
 
-          <div className="bg-gradient-to-br from-blue-50 to-teal-50 border-2 border-teal-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-blue-50 to-teal-50 border-2 border-teal-200 rounded-lg p-6">
             <p className="text-gray-700 mb-6">
               Ripotek's Training-to-Hire program connects graduates with opportunities at partner companies across Energy, Financial Services, Healthcare, and Public Sectors.
             </p>
@@ -902,23 +902,23 @@ export default function PowerBIAnalystSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Career Support Includes:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">One-on-one career coaching</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Resume and LinkedIn optimization</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Interview preparation workshops</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Portfolio development guidance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Networking events with employers</span>
                   </li>
                 </ul>
@@ -928,23 +928,23 @@ export default function PowerBIAnalystSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Typical Job Titles:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Power BI Developer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Business Intelligence Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Data Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Reporting Analyst</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Analytics Consultant</span>
                   </li>
                 </ul>

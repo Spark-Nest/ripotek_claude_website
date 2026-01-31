@@ -130,7 +130,7 @@ export default function ContactPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Connection/Communication themed */}
           <video
@@ -244,7 +244,7 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto text-center relative z-30">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span className="block">Get In </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Touch</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             Let's discuss how we can help transform your data strategy or launch your data career. Our team is ready to connect.
@@ -294,7 +294,7 @@ export default function ContactPage() {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-4">
               <span className="text-gray-900">Quick </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Actions</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Actions</span>
             </h2>
             <p className="text-center text-gray-600 mb-8">Choose the option that best fits your needs</p>
 
@@ -311,7 +311,7 @@ export default function ContactPage() {
                     {...props}
                     className="bg-white rounded-2xl p-6 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group"
                   >
-                    <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <div className={`w-14 h-14 bg-linear-to-r ${action.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                       <action.icon className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{action.title}</h3>
@@ -327,7 +327,7 @@ export default function ContactPage() {
             {/* Schedule a Discovery Call - Calendly */}
             <div id="book-call" className="scroll-mt-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col w-full mx-auto">
-                <div className="bg-gradient-to-r from-teal-600 to-cyan-500 px-4 sm:px-8 py-6">
+                <div className="bg-linear-to-r from-teal-600 to-cyan-500 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Schedule a Discovery Call</h2>
                   <p className="text-gray-100">Book a free 30-minute consultation</p>
                 </div>
@@ -348,7 +348,7 @@ export default function ContactPage() {
             {/* Send Us a Message - Contact Form */}
             <div id="send-message" className="scroll-mt-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col w-full mx-auto">
-                <div className="bg-gradient-to-r from-blue-900 to-teal-900 px-4 sm:px-8 py-6">
+                <div className="bg-linear-to-r from-blue-900 to-teal-900 px-4 sm:px-8 py-6">
                   <h2 className="text-3xl font-bold text-white mb-2">Send Us a Message</h2>
                   <p className="text-gray-300">We'll get back to you within 24 hours</p>
                 </div>
@@ -362,7 +362,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Information Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 md:p-12 shadow-xl hover-lift card-shine">
+          <div className="bg-linear-to-br from-blue-50 to-teal-50 rounded-2xl p-8 md:p-12 shadow-xl hover-lift card-shine">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {contactInfo.map((info, idx) => (
                 <div key={idx} className="text-center">
@@ -408,7 +408,7 @@ export default function ContactPage() {
       {/* Map Section (Optional Placeholder) */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-96 flex items-center justify-center">
+          <div className="bg-linear-to-br from-gray-100 to-gray-200 rounded-2xl h-96 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="w-16 h-16 text-teal-600 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Calgary, Alberta</h3>

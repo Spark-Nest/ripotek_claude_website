@@ -67,7 +67,7 @@ export default function AIEngineerSyllabus() {
               <p>training@ripotek.com</p>
             </div>
           </div>
-          <div className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-pink-600 to-purple-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <Brain className="w-8 h-8" />
               <h2 className="text-3xl font-bold">AI Engineer</h2>
@@ -111,13 +111,13 @@ export default function AIEngineerSyllabus() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Award className="w-6 h-6 text-pink-600" />Learning Outcomes</h3>
-          <div className="bg-gradient-to-br from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon completion, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 {["Deploy Azure OpenAI solutions", "Build RAG systems with vector databases", "Implement computer vision applications", "Create NLP pipelines", "Fine-tune language models", "Design conversational AI"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -125,7 +125,7 @@ export default function AIEngineerSyllabus() {
               <div className="space-y-3">
                 {["Implement MLOps pipelines", "Monitor AI models in production", "Apply responsible AI principles", "Secure AI applications", "Optimize inference performance", "Pass Microsoft AI-102 exam"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -147,14 +147,14 @@ export default function AIEngineerSyllabus() {
               { phase: "MLOps & Production (Weeks 19-24)", topics: ["Azure ML pipelines", "Model deployment", "Monitoring and drift", "CI/CD for AI", "Responsible AI", "Capstone project and AI-102 prep"] }
             ].map((item, idx) => (
               <div key={idx} className="border-2 border-gray-200 rounded-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-4">
+                <div className="bg-linear-to-r from-pink-600 to-purple-600 text-white p-4">
                   <h4 className="text-xl font-bold">{item.phase}</h4>
                 </div>
                 <div className="p-6">
                   <ul className="grid md:grid-cols-2 gap-3">
                     {item.topics.map((topic, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                         <span className="text-gray-700">{topic}</span>
                       </li>
                     ))}
@@ -168,14 +168,14 @@ export default function AIEngineerSyllabus() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Briefcase className="w-6 h-6 text-pink-600" />Career Services</h3>
-          <div className="bg-gradient-to-br from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-gray-900 mb-3">Support:</h4>
                 <ul className="space-y-2">
                   {["Advanced career coaching", "Portfolio development", "Technical interview prep", "Employer introductions"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -186,7 +186,7 @@ export default function AIEngineerSyllabus() {
                 <ul className="space-y-2">
                   {["AI Engineer", "ML Engineer", "GenAI Developer", "AI Solutions Architect"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Award className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <Award className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}

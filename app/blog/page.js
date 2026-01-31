@@ -142,7 +142,7 @@ export default function BlogPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -201,7 +201,7 @@ export default function BlogPage() {
       {/* Hero Section - Content/Insights Theme */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" poster="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920&h=1080&fit=crop">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-writer-typing-on-laptop-4621-large.mp4" type="video/mp4" />
           </video>
@@ -215,7 +215,7 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto text-center relative z-30">
           <h1 className="text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span>Blog & </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Insights</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Insights</span>
           </h1>
           <p className="text-xl text-gray-300 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
             Expert perspectives on data engineering, AI, business intelligence, and career development in the modern data landscape.

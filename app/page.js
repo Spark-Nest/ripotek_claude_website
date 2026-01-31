@@ -223,7 +223,7 @@ export default function RipotekHomePage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -297,7 +297,7 @@ export default function RipotekHomePage() {
       </nav>
 
       {/* Video Introduction Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-20">
+      <section className="relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-20">
         {/* Ambient Background Effects - Desktop Only for Performance */}
         {!isMobile && (
           <div className="absolute inset-0 opacity-25">
@@ -337,7 +337,7 @@ export default function RipotekHomePage() {
               </video>
 
               {/* Subtle gradient overlay for branding */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
 
               {/* Video branding overlay - Bottom Left */}
               <div className="absolute bottom-0 left-0 pointer-events-none">
@@ -356,7 +356,7 @@ export default function RipotekHomePage() {
           <div className={`text-center max-w-5xl mx-auto space-y-4 ${!isMobile ? 'animate-fadeIn' : ''}`} style={!isMobile ? { animationDelay: '0.2s' } : {}}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
               Engineer Intelligence.
-              <span className="block mt-3 bg-gradient-to-r from-teal-300 via-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+              <span className="block mt-3 bg-linear-to-r from-teal-300 via-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
                 Deliver Impact.
               </span>
             </h1>
@@ -375,7 +375,7 @@ export default function RipotekHomePage() {
                 onClick={() => setDiscoveryCallModalOpen(true)}
                 className="group relative bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-teal-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <Calendar className="w-5 h-5 relative z-10" />
                 <span className="relative z-10">Book Discovery Call</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
@@ -392,15 +392,15 @@ export default function RipotekHomePage() {
             {/* Trust Indicators */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto">
               <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-teal-400/30 hover:bg-white/15 hover:border-teal-400/50 transition-all shadow-lg hover:shadow-teal-500/20">
-                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">50+</div>
+                <div className="text-3xl font-bold bg-linear-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">50+</div>
                 <div className="text-sm text-gray-200 font-medium">Enterprise Clients</div>
               </div>
               <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-cyan-400/30 hover:bg-white/15 hover:border-cyan-400/50 transition-all shadow-lg hover:shadow-cyan-500/20">
-                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">85%</div>
+                <div className="text-3xl font-bold bg-linear-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">85%</div>
                 <div className="text-sm text-gray-200 font-medium">Job Placement Rate</div>
               </div>
               <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-blue-400/30 hover:bg-white/15 hover:border-blue-400/50 transition-all shadow-lg hover:shadow-blue-500/20">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">$12M+</div>
+                <div className="text-3xl font-bold bg-linear-to-r from-blue-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">$12M+</div>
                 <div className="text-sm text-gray-200 font-medium">Client ROI Delivered</div>
               </div>
             </div>
@@ -425,7 +425,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Smooth Transition Wave */}
-      <div className="relative h-24 bg-gradient-to-b from-slate-900 to-white">
+      <div className="relative h-24 bg-linear-to-b from-slate-900 to-white">
         <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"></path>
         </svg>
@@ -433,7 +433,7 @@ export default function RipotekHomePage() {
 
       {/* Animated Stats Section */}
       <section id="stats-section" className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 opacity-50"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 to-blue-50 opacity-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -443,7 +443,7 @@ export default function RipotekHomePage() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Delivering <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Measurable Results</span>
+              Delivering <span className="bg-linear-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Measurable Results</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Real outcomes that drive business transformation
@@ -453,10 +453,10 @@ export default function RipotekHomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-linear-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl lg:text-5xl font-bold bg-linear-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent mb-2">
                   {stat.prefix}{statsVisible ? stat.value : 0}{stat.suffix}
                 </div>
                 <div className="text-gray-900 font-semibold mb-1">{stat.label}</div>
@@ -468,7 +468,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Services Overview - Modern Cards */}
-      <section className="py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+      <section className="py-24 px-4 bg-linear-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
         {!isMobile && (
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
@@ -485,7 +485,7 @@ export default function RipotekHomePage() {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               <span className="text-gray-900">Comprehensive </span>
-              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Data Solutions
               </span>
             </h2>
@@ -502,10 +502,10 @@ export default function RipotekHomePage() {
                 className="group relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-teal-500/20 overflow-hidden transform hover:-translate-y-2"
               >
                 {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
 
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className={`w-16 h-16 bg-linear-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
 
@@ -520,7 +520,7 @@ export default function RipotekHomePage() {
                   <div className="space-y-3 mb-6">
                     {service.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`}></div>
+                        <div className={`w-2 h-2 rounded-full bg-linear-to-r ${service.color}`}></div>
                         <span className="text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -536,7 +536,7 @@ export default function RipotekHomePage() {
           </div>
 
           <div className="text-center">
-            <a href="/services" className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-600 to-blue-600 text-white px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-semibold transform hover:scale-105 duration-300">
+            <a href="/services" className="inline-flex items-center gap-3 bg-linear-to-r from-teal-600 to-blue-600 text-white px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-semibold transform hover:scale-105 duration-300">
               <span>Explore All Services</span>
               <ChevronRight className="w-5 h-5" />
             </a>
@@ -554,7 +554,7 @@ export default function RipotekHomePage() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Built Different
               </span>
             </h2>
@@ -565,8 +565,8 @@ export default function RipotekHomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyRipotek.map((item, idx) => (
-              <div key={idx} className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div key={idx} className="group relative bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500/20 text-center transform hover:-translate-y-2">
+                <div className="w-16 h-16 bg-linear-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-3xl font-bold text-teal-600 mb-3">{item.stat}</div>
@@ -579,7 +579,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      <section className="py-20 bg-linear-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         {!isMobile && (
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
@@ -595,7 +595,7 @@ export default function RipotekHomePage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
               <span className="text-gray-900">Trusted </span>
-              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Technology Partners
               </span>
             </h2>
@@ -613,7 +613,7 @@ export default function RipotekHomePage() {
                 className="group relative flex items-center justify-center transition-all duration-300 hover:-translate-y-2"
                 title={p.name}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-teal-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-white rounded-xl p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 border-2 border-transparent group-hover:border-teal-500/20">
                   {p.icon ? (
                     <p.icon
@@ -640,7 +640,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
+      <section className="py-24 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
         {!isMobile && (
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-20 left-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl animate-pulse"></div>
@@ -697,7 +697,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900 relative overflow-hidden">
+      <section className="py-24 px-4 bg-linear-to-br from-gray-900 via-blue-900 to-teal-900 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920')] bg-cover bg-center opacity-10"></div>
         </div>
@@ -705,7 +705,7 @@ export default function RipotekHomePage() {
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
             Ready to Transform Your
-            <span className="block bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent mt-2 pb-1">
+            <span className="block bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent mt-2 pb-1">
               Data Strategy?
             </span>
           </h2>

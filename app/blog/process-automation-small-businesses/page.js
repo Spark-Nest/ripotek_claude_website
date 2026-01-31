@@ -127,7 +127,7 @@ export default function BlogPost() {
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
                 <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
@@ -258,17 +258,17 @@ export default function BlogPost() {
                   </p>
 
                   <div className="grid md:grid-cols-3 gap-6 my-8">
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <DollarSign className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">40%</div>
                       <p className="text-sm text-gray-700">Average cost reduction from basic automation</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <Zap className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">60%</div>
                       <p className="text-sm text-gray-700">Faster processing for routine tasks</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <TrendingUp className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">3x</div>
                       <p className="text-sm text-gray-700">ROI within first year for SMBs</p>
@@ -349,21 +349,21 @@ export default function BlogPost() {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Low-Code/No-Code Platforms:</h3>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Microsoft Power Automate:</span>
                           <p className="text-gray-700">Connect 500+ apps, build workflows with drag-and-drop. Starts at $15/user/month.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Zapier:</span>
                           <p className="text-gray-700">Easiest to learn. Perfect for simple integrations. Free tier available.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Airtable + Make.com:</span>
                           <p className="text-gray-700">Flexible database + automation. Great for custom workflows.</p>
@@ -411,35 +411,35 @@ export default function BlogPost() {
 
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <div>
                         <span className="font-semibold text-gray-900">Start Small:</span>
                         <p className="text-gray-700">Pick one process, automate it fully, measure results. Then scale.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <div>
                         <span className="font-semibold text-gray-900">Document Processes First:</span>
                         <p className="text-gray-700">Map out current workflows before automating. You'll spot inefficiencies.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <div>
                         <span className="font-semibold text-gray-900">Involve End Users:</span>
                         <p className="text-gray-700">The people doing the work know the pain points best.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <div>
                         <span className="font-semibold text-gray-900">Build in Error Handling:</span>
                         <p className="text-gray-700">Automation will fail. Design graceful fallbacks and alerts.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <div>
                         <span className="font-semibold text-gray-900">Monitor & Iterate:</span>
                         <p className="text-gray-700">Track metrics weekly. Optimize based on real usage.</p>
@@ -485,7 +485,7 @@ export default function BlogPost() {
                     The question isn't whether to automate, but how quickly you can start capturing these gains.
                   </p>
 
-                  <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
+                  <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Automate Your Business?</h3>
                     <p className="text-gray-700 mb-6">
                       Ripotek helps small and mid-sized businesses identify automation opportunities and implement solutions that deliver measurable ROI.
@@ -522,7 +522,7 @@ export default function BlogPost() {
 
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-16 h-16 bg-linear-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                       DT
                     </div>
                     <div>
@@ -541,7 +541,7 @@ export default function BlogPost() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+      <section className="py-16 px-4 bg-linear-to-br from-blue-900 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Expert Guidance?</h2>
           <p className="text-xl text-gray-200 mb-8">

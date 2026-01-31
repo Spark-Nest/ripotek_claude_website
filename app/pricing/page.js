@@ -450,7 +450,7 @@ export default function PricingCalculator() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -508,7 +508,7 @@ export default function PricingCalculator() {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background */}
           <video
@@ -563,7 +563,7 @@ export default function PricingCalculator() {
             </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white md:whitespace-nowrap animate-fadeInUp">
               <span className="text-white">Investment </span>
-              <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Calculator</span>
+              <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Calculator</span>
             </h1>
             <p className="text-base md:text-xl text-gray-200 mx-auto md:whitespace-nowrap animate-fadeInUp" style={{animationDelay: '0.2s'}}>
               Get an instant estimate for your data transformation project or training program
@@ -815,7 +815,7 @@ export default function PricingCalculator() {
 
             {/* Estimate Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl shadow-xl p-8 text-white sticky top-24">
+              <div className="bg-linear-to-br from-blue-900 to-teal-900 rounded-2xl shadow-xl p-8 text-white sticky top-24">
                 <h3 className="text-2xl font-bold mb-6">Your Estimate</h3>
 
                 {/* Total Investment */}
@@ -872,24 +872,24 @@ export default function PricingCalculator() {
                     {serviceType === 'consulting' ? (
                       <>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Discovery & assessment</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Platform implementation</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Testing & deployment</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Documentation</span>
                         </div>
                         {training && (
                           <div className="flex items-start gap-2 text-sm">
-                            <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                             <span>Team training workshops</span>
                           </div>
                         )}
@@ -897,23 +897,23 @@ export default function PricingCalculator() {
                     ) : (
                       <>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Live instructor-led sessions</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Hands-on projects</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>One-on-one mentorship</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Career coaching</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Job placement assistance</span>
                         </div>
                       </>
@@ -936,7 +936,7 @@ export default function PricingCalculator() {
                 {/* Disclaimer */}
                 <div className="mt-6 pt-6 border-t border-white/20">
                   <div className="flex items-start gap-2 text-xs text-gray-300">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                     <span>This is an estimate only. Final pricing will be provided after discovery call and detailed assessment.</span>
                   </div>
                 </div>

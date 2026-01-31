@@ -221,7 +221,7 @@ export default function ServicesPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -282,7 +282,7 @@ export default function ServicesPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Technology/Data themed */}
           <video
@@ -335,7 +335,7 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto text-center relative z-30">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 md:whitespace-nowrap animate-fadeInUp">
             <span>Our </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Services</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Services</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto md:whitespace-nowrap animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             End-to-end consulting and managed services across the modern data and AI stack
@@ -397,7 +397,7 @@ export default function ServicesPage() {
                       <ul className="space-y-2">
                         {service.outcomes.map((outcome, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                             <span className="text-gray-700">{outcome}</span>
                           </li>
                         ))}
@@ -406,12 +406,12 @@ export default function ServicesPage() {
                   </div>
 
                   <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border border-gray-200">
+                    <div className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border border-gray-200">
                       <h4 className="font-bold text-gray-900 mb-6">What's Included</h4>
                       <ul className="space-y-3">
                         {service.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                             <span className="text-gray-700">{feature}</span>
                           </li>
                         ))}
@@ -430,7 +430,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Industries We </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Serve</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Serve</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -451,12 +451,12 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Our </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Delivery Model</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Delivery Model</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {deliveryModel.map((phase, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-t-4 border-teal-600">
+              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-t-4 border-teal-600">
                 <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mb-4 text-teal-600 font-bold text-xl">
                   {idx + 1}
                 </div>
@@ -480,7 +480,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-gray-300 mb-8">

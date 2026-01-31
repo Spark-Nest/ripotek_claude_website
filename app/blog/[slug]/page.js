@@ -1356,7 +1356,7 @@ export default function BlogPostPage({ params }) {
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
+                <div className="text-xl font-bold bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">Ripotek</div>
                 <div className="text-xs text-gray-600 italic">Design. Engineer. Deliver.</div>
               </div>
             </a>
@@ -1412,7 +1412,7 @@ export default function BlogPostPage({ params }) {
       <div className="h-20"></div>
 
       {/* Hero Section */}
-      <section className="py-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-12 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto">
           <div className="mb-4">
             <span className="px-4 py-2 bg-teal-600 text-white text-sm font-semibold rounded-full">
@@ -1523,7 +1523,7 @@ export default function BlogPostPage({ params }) {
               </div>
 
               {/* CTA Section */}
-              <div className="mt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl p-8 text-center">
+              <div className="mt-16 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Data Strategy?</h3>
                 <p className="text-gray-300 mb-6">
                   Let's discuss how Ripotek can help you achieve your data and AI goals.
@@ -1543,7 +1543,7 @@ export default function BlogPostPage({ params }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+      <section className="py-16 px-4 bg-linear-to-br from-blue-900 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Expert Guidance?</h2>
           <p className="text-xl text-gray-200 mb-8">

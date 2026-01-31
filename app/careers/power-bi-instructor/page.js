@@ -73,7 +73,7 @@ export default function PowerBIInstructorPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -145,7 +145,7 @@ export default function PowerBIInstructorPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="pt-32 pb-12 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-5xl font-bold text-white mb-4">Power BI Instructor</h1>
           <p className="text-xl text-gray-300 mb-8">Training & Development Department</p>
@@ -345,31 +345,31 @@ export default function PowerBIInstructorPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Professional Experience</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>5+ years as a BI developer, analyst, or consultant with Power BI as primary tool</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Built 20+ production Power BI dashboards for enterprise clients</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Deep expertise in DAX (advanced calculated columns, measures, time intelligence)</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Strong data modeling skills (star schema, snowflake, dimensional modeling)</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Experience with Power Query M for data transformation</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Knowledge of Power BI Service, workspaces, deployment pipelines, RLS</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Understanding of BI best practices and data visualization principles</span>
                   </li>
                 </ul>
@@ -379,23 +379,23 @@ export default function PowerBIInstructorPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Teaching Experience</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>2+ years teaching, training, or mentoring (formal or informal)</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Experience explaining complex technical concepts to beginners</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Comfortable with live, virtual instruction (Zoom, Teams, etc.)</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Proven ability to adapt teaching style to student needs</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Patient, encouraging, and supportive teaching approach</span>
                   </li>
                 </ul>
@@ -439,27 +439,27 @@ export default function PowerBIInstructorPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Soft Skills</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Excellent verbal and written communication</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>High energy and enthusiasm for teaching</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Empathy for students from non-technical backgrounds</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Strong time management and organizational skills</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Ability to give constructive, actionable feedback</span>
                   </li>
                   <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 shrink-0" />
                     <span>Comfortable with public speaking and live presentations</span>
                   </li>
                 </ul>
@@ -506,7 +506,7 @@ export default function PowerBIInstructorPage() {
           </div>
 
           {/* What We Offer */}
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
+          <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg p-8">
             <div className="flex items-center gap-3 mb-6">
               <Heart className="w-8 h-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">What We Offer</h2>
@@ -623,28 +623,28 @@ export default function PowerBIInstructorPage() {
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <Clock className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
+                <Clock className="w-6 h-6 text-teal-600 mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900">Live Sessions:</p>
                   <p className="text-gray-700">Mon/Wed/Sat 6-9pm MT (36 sessions total)</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Clock className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
+                <Clock className="w-6 h-6 text-teal-600 mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900">Office Hours:</p>
                   <p className="text-gray-700">2-3 hours/week (student-scheduled)</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Clock className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
+                <Clock className="w-6 h-6 text-teal-600 mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900">Grading:</p>
                   <p className="text-gray-700">~3-5 hours/week</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Clock className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
+                <Clock className="w-6 h-6 text-teal-600 mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900">Total Time Commitment:</p>
                   <p className="text-gray-700">~15-18 hours/week</p>
@@ -661,35 +661,35 @@ export default function PowerBIInstructorPage() {
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Initial Screening (30 min)</h4>
                   <p className="text-gray-700">Teaching philosophy and experience</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Technical Assessment (60 min)</h4>
                   <p className="text-gray-700">Build a Power BI dashboard (take-home)</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Teaching Demo (45 min)</h4>
                   <p className="text-gray-700">Teach a 15-minute lesson on a DAX concept</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Student Empathy Interview (30 min)</h4>
                   <p className="text-gray-700">Discuss approach to diverse learners</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div className="shrink-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Reference Checks</h4>
                   <p className="text-gray-700">2 professional references</p>
@@ -699,7 +699,7 @@ export default function PowerBIInstructorPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
+          <div className="bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 rounded-2xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Make an Impact?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Help students transform their careers and become successful BI professionals.

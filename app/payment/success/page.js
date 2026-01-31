@@ -18,10 +18,10 @@ function SuccessContent() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-green-50 to-teal-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Success Header */}
-        <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-8 text-center">
+        <div className="bg-linear-to-r from-green-600 to-emerald-600 p-8 text-center">
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
@@ -46,7 +46,7 @@ function SuccessContent() {
             <h3 className="text-lg font-semibold text-gray-900">What happens next?</h3>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
                 <Mail className="w-5 h-5 text-teal-600" />
               </div>
               <div>
@@ -58,7 +58,7 @@ function SuccessContent() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
                 <Calendar className="w-5 h-5 text-teal-600" />
               </div>
               <div>
@@ -70,7 +70,7 @@ function SuccessContent() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
                 <ArrowRight className="w-5 h-5 text-teal-600" />
               </div>
               <div>
@@ -128,7 +128,7 @@ function SuccessContent() {
 export default function PaymentSuccessPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-green-50 to-teal-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-teal-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

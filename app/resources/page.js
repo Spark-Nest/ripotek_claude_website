@@ -109,7 +109,7 @@ export default function ResourcesPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -171,7 +171,7 @@ export default function ResourcesPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Learning/Knowledge themed */}
           <video
@@ -225,7 +225,7 @@ export default function ResourcesPage() {
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span className="block">Resource </span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Library</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Library</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             Explore our collection of whitepapers, demo videos, templates, and industry insights to accelerate your data and AI journey.
@@ -283,7 +283,7 @@ export default function ResourcesPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Explore Our </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Resources</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Resources</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Access expert insights and practical tools to power your data transformation
@@ -295,9 +295,9 @@ export default function ResourcesPage() {
               <a
                 key={idx}
                 href={type.title === 'Whitepapers' ? '#whitepapers' : '#demo-videos'}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group block"
+                className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group block"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${type.color} rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition`}>
+                <div className={`w-16 h-16 bg-linear-to-br ${type.color} rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition`}>
                   <type.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{type.title}</h3>
@@ -313,12 +313,12 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured Demo Videos */}
-      <section id="demo-videos" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50 scroll-mt-24">
+      <section id="demo-videos" className="py-20 px-4 bg-linear-to-br from-blue-50 to-teal-50 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Featured </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Demo Videos</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Demo Videos</span>
             </h2>
             <p className="text-xl text-gray-600">See our solutions in action with technical demonstrations</p>
           </div>
@@ -328,7 +328,7 @@ export default function ResourcesPage() {
               <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift card-shine group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <Image src={video.thumbnail} alt={video.title} fill className="object-cover group-hover:scale-110 transition duration-500" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-center justify-center">
                     <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition">
                       <Video className="w-8 h-8 text-teal-600 ml-1" />
                     </div>
@@ -365,16 +365,16 @@ export default function ResourcesPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Industry </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Whitepapers</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Whitepapers</span>
             </h2>
             <p className="text-xl text-gray-600">Deep-dive insights and architectural guidance from our experts</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {whitepapers.map((paper, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-l-4 border-teal-500 group flex flex-col h-full">
+              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-l-4 border-teal-500 group flex flex-col h-full">
                 <div className="flex items-start gap-4 flex-1">
-                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
+                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition">
                     <FileText className="w-6 h-6 text-teal-600" />
                   </div>
                   <div className="flex-1 flex flex-col h-full">
@@ -406,7 +406,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Blog & Insights */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm">
             <BookOpen className="w-4 h-4" />
@@ -430,7 +430,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Capabilities Deck CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
@@ -460,7 +460,7 @@ export default function ResourcesPage() {
       {/* Subscribe CTA Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-teal-600 to-blue-900 rounded-3xl p-12 shadow-2xl text-center hover-lift">
+          <div className="bg-linear-to-br from-teal-600 to-blue-900 rounded-3xl p-12 shadow-2xl text-center hover-lift">
             <Mail className="w-16 h-16 text-white mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-4">Subscribe for Updates</h2>
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
@@ -494,7 +494,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Need Something Specific?</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Need Something Specific?</span>
             </h2>
             <p className="text-lg text-gray-600">Explore more ways to learn and connect with us</p>
           </div>

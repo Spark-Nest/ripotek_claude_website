@@ -130,7 +130,7 @@ export default function BlogPost() {
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
                 <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
@@ -270,17 +270,17 @@ export default function BlogPost() {
                   </p>
 
                   <div className="grid md:grid-cols-3 gap-6 my-8">
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <TrendingUp className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">36%</div>
                       <p className="text-sm text-gray-700">Projected growth in data engineering jobs by 2028 (US Bureau of Labor)</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <Target className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">$125K</div>
                       <p className="text-sm text-gray-700">Average salary for data engineers in Canada (2024)</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <Award className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">85%</div>
                       <p className="text-sm text-gray-700">Of companies report difficulty finding data talent (LinkedIn, 2024)</p>
@@ -303,28 +303,28 @@ export default function BlogPost() {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Key Factors Driving the Gap:</h3>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Cloud Migration Explosion:</span>
                           <p className="text-gray-700">Companies are moving to Azure, AWS, and GCP, requiring engineers skilled in cloud-native data platforms.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">AI/ML Democratization:</span>
                           <p className="text-gray-700">Generative AI and AutoML are bringing ML to the masses, but someone needs to build the data pipelines feeding these models.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Real-Time Analytics Demand:</span>
                           <p className="text-gray-700">Organizations want insights in seconds, not days. This requires modern streaming architectures and skilled engineers.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <div>
                           <span className="font-semibold text-gray-900">Legacy System Complexity:</span>
                           <p className="text-gray-700">Bridging old and new systems requires both business domain knowledge and modern technical skills—a rare combination.</p>
@@ -405,22 +405,22 @@ export default function BlogPost() {
                     For Individuals:
                   </h3>
 
-                  <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl p-6 mb-8">
+                  <div className="bg-linear-to-br from-blue-50 to-teal-50 rounded-xl p-6 mb-8">
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Salary Increase:</span> Average 30-50% salary bump after transitioning into data roles</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Job Security:</span> Data roles are consistently ranked among the most recession-proof careers</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Flexibility:</span> Remote/hybrid work is the norm in data roles</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Career Growth:</span> Clear pathways from analyst to architect to leadership</span>
                       </li>
                     </ul>
@@ -430,22 +430,22 @@ export default function BlogPost() {
                     For Organizations:
                   </h3>
 
-                  <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl p-6 mb-8">
+                  <div className="bg-linear-to-br from-blue-50 to-teal-50 rounded-xl p-6 mb-8">
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Faster Hiring:</span> Training-to-hire programs reduce time-to-fill from 6+ months to 90 days</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Lower Costs:</span> Upskilling internal teams costs 50-70% less than external recruiting</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Retention:</span> Employees offered training are 2.5x more likely to stay long-term</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                         <span className="text-gray-700"><span className="font-semibold">Competitive Edge:</span> Data-savvy teams drive better decision-making and innovation</span>
                       </li>
                     </ul>
@@ -531,7 +531,7 @@ export default function BlogPost() {
                     The question isn't whether to upskill—it's how fast you can move.
                   </p>
 
-                  <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
+                  <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Transform Your Career?</h3>
                     <p className="text-gray-700 mb-6">
                       Explore Ripotek's training programs designed for busy professionals. Live instructor-led, hands-on projects, and 85% job placement rate.
@@ -570,7 +570,7 @@ export default function BlogPost() {
                 {/* Author Bio */}
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-16 h-16 bg-linear-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                       MJ
                     </div>
                     <div>
@@ -589,7 +589,7 @@ export default function BlogPost() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+      <section className="py-16 px-4 bg-linear-to-br from-blue-900 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Expert Guidance?</h2>
           <p className="text-xl text-gray-200 mb-8">

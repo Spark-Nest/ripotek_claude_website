@@ -128,7 +128,7 @@ export default function BlogPost() {
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
                 <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
@@ -229,17 +229,17 @@ export default function BlogPost() {
                   </h2>
 
                   <div className="grid md:grid-cols-3 gap-6 my-8">
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <BarChart3 className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">38%</div>
                       <p className="text-sm text-gray-700">Power BI market share (Gartner 2024)</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <TrendingUp className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">22%</div>
                       <p className="text-sm text-gray-700">Tableau market share (Gartner 2024)</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6 text-center">
                       <DollarSign className="w-12 h-12 text-teal-600 mx-auto mb-3" />
                       <div className="text-3xl font-bold text-gray-900 mb-2">60%</div>
                       <p className="text-sm text-gray-700">Of Canadian BI jobs require Power BI (LinkedIn 2024)</p>
@@ -474,53 +474,53 @@ RETURN
                   </h2>
 
                   <div className="space-y-6 mb-8">
-                    <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6">
+                    <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-4">Choose Power BI if you:</h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Are heavily invested in Microsoft 365 / Azure ecosystem</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Need to democratize BI across many business users</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Have budget constraints (Power BI is 75% cheaper)</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Want faster time-to-value (easier learning curve)</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Need strong data modeling capabilities (DAX)</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6">
+                    <div className="bg-linear-to-br from-blue-50 to-purple-50 rounded-xl p-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-4">Choose Tableau if you:</h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Require best-in-class visualization aesthetics</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Work with massive datasets (100M+ rows regularly)</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Need multi-cloud or cloud-agnostic architecture</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Have advanced analytical users (data scientists, statisticians)</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                           <span className="text-gray-700">Budget isn't the primary concern</span>
                         </li>
                       </ul>
@@ -556,11 +556,11 @@ RETURN
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700"><span className="font-semibold">Power BI for:</span> Operational dashboards, self-service BI, embedded analytics</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700"><span className="font-semibold">Tableau for:</span> Executive dashboards, advanced analytics, external-facing reports</span>
                     </li>
                   </ul>
@@ -569,7 +569,7 @@ RETURN
                     This maximizes ROI but adds complexity in governance, training, and support.
                   </p>
 
-                  <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
+                  <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Master Power BI with Ripotek</h3>
                     <p className="text-gray-700 mb-6">
                       Our 12-week Power BI Analyst program covers data modeling, DAX, advanced visualizations, and real-world projects. 85% of graduates land BI roles within 90 days.
@@ -597,7 +597,7 @@ RETURN
 
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">DT</div>
+                    <div className="w-16 h-16 bg-linear-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">DT</div>
                     <div>
                       <h4 className="font-bold text-gray-900">{postMeta.author}</h4>
                       <p className="text-sm text-gray-600">{postMeta.authorTitle}</p>
@@ -612,7 +612,7 @@ RETURN
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+      <section className="py-16 px-4 bg-linear-to-br from-blue-900 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Expert Guidance?</h2>
           <p className="text-xl text-gray-200 mb-8">

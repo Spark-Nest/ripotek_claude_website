@@ -72,7 +72,7 @@ export default function DatabricksEngineerSyllabus() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <Zap className="w-8 h-8" />
               <h2 className="text-3xl font-bold">Databricks Engineer</h2>
@@ -149,23 +149,23 @@ export default function DatabricksEngineerSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Required</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Strong Python programming skills</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">SQL proficiency (queries, joins, window functions)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Understanding of data engineering concepts</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Familiarity with cloud platforms (Azure/AWS/GCP)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Basic understanding of distributed systems</span>
                 </li>
               </ul>
@@ -175,19 +175,19 @@ export default function DatabricksEngineerSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Recommended</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Experience with ETL/ELT processes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Data warehouse or data lake experience</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Git and version control knowledge</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Apache Spark awareness (helpful but not required)</span>
                 </li>
               </ul>
@@ -202,58 +202,58 @@ export default function DatabricksEngineerSyllabus() {
             Learning Outcomes
           </h3>
 
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon successful completion of this program, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Write advanced PySpark code for data processing</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Build Delta Lake pipelines with medallion architecture</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Optimize Spark jobs for performance and cost</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Implement CDC and streaming workloads</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Design data quality and testing frameworks</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Orchestrate workflows with Databricks Jobs</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Manage Unity Catalog for data governance</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Implement CI/CD for Databricks projects</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Work with Delta Live Tables</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Monitor and troubleshoot production pipelines</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Integrate machine learning workflows</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Pass Databricks certification exams</span>
                 </div>
               </div>
@@ -274,33 +274,33 @@ export default function DatabricksEngineerSyllabus() {
           <div className="space-y-6">
             {/* Foundation */}
             <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-4">
+              <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-4">
                 <h4 className="text-xl font-bold">Phase 1: Spark Fundamentals (Weeks 1-6)</h4>
               </div>
               <div className="p-6">
                 <ul className="grid md:grid-cols-2 gap-4">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Spark architecture and execution model</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">RDDs, DataFrames, and Datasets</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Transformations and actions</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">PySpark DataFrame API mastery</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Reading/writing multiple formats</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">SQL on Spark and catalog integration</span>
                   </li>
                 </ul>
@@ -309,33 +309,33 @@ export default function DatabricksEngineerSyllabus() {
 
             {/* Delta Lake */}
             <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-4">
+              <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-4">
                 <h4 className="text-xl font-bold">Phase 2: Delta Lake Architecture (Weeks 7-12)</h4>
               </div>
               <div className="p-6">
                 <ul className="grid md:grid-cols-2 gap-4">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Delta Lake transaction log</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">ACID transactions and time travel</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Medallion architecture (Bronze/Silver/Gold)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">MERGE, UPDATE, DELETE operations</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Schema evolution and enforcement</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Optimization techniques (OPTIMIZE, Z-ORDER)</span>
                   </li>
                 </ul>
@@ -344,33 +344,33 @@ export default function DatabricksEngineerSyllabus() {
 
             {/* Performance */}
             <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-4">
+              <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-4">
                 <h4 className="text-xl font-bold">Phase 3: Performance and Optimization (Weeks 13-16)</h4>
               </div>
               <div className="p-6">
                 <ul className="grid md:grid-cols-2 gap-4">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Partitioning strategies</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Broadcast joins and shuffle optimization</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Caching and persistence strategies</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Spark UI and query plans</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Adaptive Query Execution (AQE)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Cluster sizing and autoscaling</span>
                   </li>
                 </ul>
@@ -379,33 +379,33 @@ export default function DatabricksEngineerSyllabus() {
 
             {/* Streaming */}
             <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-4">
+              <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-4">
                 <h4 className="text-xl font-bold">Phase 4: Streaming and Advanced Patterns (Weeks 17-20)</h4>
               </div>
               <div className="p-6">
                 <ul className="grid md:grid-cols-2 gap-4">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Structured Streaming fundamentals</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Windowing and watermarks</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Change Data Capture (CDC) patterns</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Delta Live Tables (DLT)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Data quality expectations</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Event-driven architectures</span>
                   </li>
                 </ul>
@@ -414,33 +414,33 @@ export default function DatabricksEngineerSyllabus() {
 
             {/* Production */}
             <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white p-4">
+              <div className="bg-linear-to-r from-orange-600 to-red-600 text-white p-4">
                 <h4 className="text-xl font-bold">Phase 5: Production Engineering (Weeks 21-24)</h4>
               </div>
               <div className="p-6">
                 <ul className="grid md:grid-cols-2 gap-4">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Unity Catalog and data governance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Workflow orchestration and jobs</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">CI/CD with Databricks Asset Bundles</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Monitoring and alerting</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Security best practices</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Capstone project and certification prep</span>
                   </li>
                 </ul>
@@ -459,7 +459,7 @@ export default function DatabricksEngineerSyllabus() {
           <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-gradient-to-r from-orange-600 to-red-600 text-white">
+                <tr className="bg-linear-to-r from-orange-600 to-red-600 text-white">
                   <th className="p-4 text-left font-semibold">Assessment Component</th>
                   <th className="p-4 text-left font-semibold">Weight</th>
                   <th className="p-4 text-left font-semibold">Description</th>
@@ -528,28 +528,28 @@ export default function DatabricksEngineerSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Required Tools</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Databricks Workspace</div>
                     <div className="text-sm text-gray-600">Community or trial edition</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Python 3.8+</div>
                     <div className="text-sm text-gray-600">Local development environment</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Visual Studio Code</div>
                     <div className="text-sm text-gray-600">With Python and Databricks extensions</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Git</div>
                     <div className="text-sm text-gray-600">Version control</div>
@@ -562,28 +562,28 @@ export default function DatabricksEngineerSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Provided Resources</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Course Materials</div>
                     <div className="text-sm text-gray-600">Notebooks, code samples, datasets</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Cloud Credits</div>
                     <div className="text-sm text-gray-600">For lab exercises</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Certification Voucher</div>
                     <div className="text-sm text-gray-600">Databricks certification exam</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Practice Exams</div>
                     <div className="text-sm text-gray-600">Certification preparation</div>
@@ -601,7 +601,7 @@ export default function DatabricksEngineerSyllabus() {
             Career Services and Job Placement
           </h3>
 
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-lg p-6">
             <p className="text-gray-700 mb-6">
               Databricks engineers are highly sought after in enterprise organizations undergoing cloud and data modernization initiatives. Our graduates secure senior-level positions with competitive compensation.
             </p>
@@ -611,23 +611,23 @@ export default function DatabricksEngineerSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Career Support Includes:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Advanced career coaching</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">GitHub portfolio development</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">System design interview prep</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Direct introductions to hiring companies</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Salary negotiation coaching</span>
                   </li>
                 </ul>
@@ -637,23 +637,23 @@ export default function DatabricksEngineerSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Typical Job Titles:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Databricks Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Spark Data Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Lakehouse Architect</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Big Data Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Senior Data Platform Engineer</span>
                   </li>
                 </ul>

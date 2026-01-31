@@ -15,10 +15,10 @@ function CancelledContent() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-blue-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Cancelled Header */}
-        <div className="bg-gradient-to-r from-gray-600 to-gray-700 p-8 text-center">
+        <div className="bg-linear-to-r from-gray-600 to-gray-700 p-8 text-center">
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
             <XCircle className="w-12 h-12 text-gray-500" />
           </div>
@@ -107,7 +107,7 @@ function CancelledContent() {
 export default function PaymentCancelledPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-gray-50 to-blue-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-gray-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

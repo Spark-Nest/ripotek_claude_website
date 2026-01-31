@@ -67,7 +67,7 @@ export default function PromptEngineeringSyllabus() {
               <p>training@ripotek.com</p>
             </div>
           </div>
-          <div className="bg-gradient-to-r from-yellow-600 to-orange-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-yellow-600 to-orange-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <Lightbulb className="w-8 h-8" />
               <h2 className="text-3xl font-bold">Prompt Engineering</h2>
@@ -111,13 +111,13 @@ export default function PromptEngineeringSyllabus() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Award className="w-6 h-6 text-yellow-600" />Learning Outcomes</h3>
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon completion, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 {["Design effective prompts for various tasks", "Chain prompts for complex workflows", "Evaluate and refine outputs", "Understand model capabilities and limits", "Implement zero-shot and few-shot learning", "Build AI-powered applications"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -125,7 +125,7 @@ export default function PromptEngineeringSyllabus() {
               <div className="space-y-3">
                 {["Apply advanced techniques (CoT, ReAct)", "Manage context windows effectively", "Implement safety guardrails", "Optimize for cost and performance", "Work with multiple LLM providers", "Create prompt libraries and templates"].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -155,14 +155,14 @@ export default function PromptEngineeringSyllabus() {
               { week: 12, title: "Capstone Project", topics: ["End-to-end application", "Presentation", "Portfolio development", "Career planning"] }
             ].map((item, idx) => (
               <div key={idx} className="border-2 border-gray-200 rounded-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-yellow-600 to-orange-600 text-white p-4">
+                <div className="bg-linear-to-r from-yellow-600 to-orange-600 text-white p-4">
                   <h4 className="text-xl font-bold">Week {item.week}: {item.title}</h4>
                 </div>
                 <div className="p-6">
                   <ul className="grid md:grid-cols-2 gap-3">
                     {item.topics.map((topic, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
                         <span className="text-gray-700">{topic}</span>
                       </li>
                     ))}
@@ -176,14 +176,14 @@ export default function PromptEngineeringSyllabus() {
         <section className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Briefcase className="w-6 h-6 text-yellow-600" />Career Services</h3>
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-gray-900 mb-3">Typical Roles:</h4>
                 <ul className="space-y-2">
                   {["Prompt Engineer", "AI Product Manager", "GenAI Specialist", "LLM Application Developer"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Award className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                      <Award className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}

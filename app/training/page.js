@@ -209,7 +209,7 @@ export default function TrainingPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -272,7 +272,7 @@ export default function TrainingPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Learning/Technology themed */}
           <video
@@ -326,7 +326,7 @@ export default function TrainingPage() {
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight animate-fadeInUp">
             <span className="block">Launch Your Data Career</span>
-            <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
           </h1>
 
           {/* Subheading */}
@@ -392,12 +392,12 @@ export default function TrainingPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Why </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek Training?</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek Training?</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyRipotekTraining.map((item, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
+              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
                 <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-8 h-8 text-teal-600" />
                 </div>
@@ -410,12 +410,12 @@ export default function TrainingPage() {
       </section>
 
       {/* Training Programs */}
-      <section id="our-programs" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50 scroll-mt-24">
+      <section id="our-programs" className="py-20 px-4 bg-linear-to-br from-blue-50 to-teal-50 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">
               <span className="text-gray-900">Our </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Programs</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Programs</span>
             </h2>
 
             {/* Filter Buttons */}
@@ -451,7 +451,7 @@ export default function TrainingPage() {
                     </div>
                   </div>
                 )}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${program.color} opacity-10 rounded-bl-full`}></div>
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-linear-to-br ${program.color} opacity-10 rounded-bl-full`}></div>
                 <div className="text-5xl mb-4">{program.image}</div>
                 <program.icon className="w-12 h-12 text-teal-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
@@ -474,7 +474,7 @@ export default function TrainingPage() {
                   <p className="font-semibold text-gray-900 mb-3">You will learn to:</p>
                   {program.outcomes.slice(0, 3).map((outcome, i) => (
                     <div key={i} className="flex items-start gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
                       {outcome}
                     </div>
                   ))}
@@ -516,12 +516,12 @@ export default function TrainingPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-gray-900">Flexible Learning </span>
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Formats</span>
+            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Formats</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {formats.map((format, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
+              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
                 <div className="text-6xl mb-4">{format.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{format.title}</h3>
                 <p className="text-gray-600">{format.description}</p>
@@ -532,7 +532,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Training-to-Hire */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <GraduationCap className="w-16 h-16 text-teal-400 mx-auto mb-6" />
           <h2 className="text-4xl font-bold text-white mb-6">Training-to-Hire Program</h2>
@@ -573,7 +573,7 @@ export default function TrainingPage() {
             <FileText className="w-16 h-16 text-teal-600 mx-auto mb-6" />
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Student Onboarding </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Checklist</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Checklist</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Everything you need to know to prepare for your first day and succeed in your program
@@ -694,27 +694,27 @@ export default function TrainingPage() {
                   <div className="mt-6 space-y-4">
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Log in 15 minutes early to test audio/video</span>
                       </li>
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Have notebook ready for notes (digital or physical)</span>
                       </li>
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Introduce yourself: name, background, career goals</span>
                       </li>
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Review program structure and attendance policy (80% required)</span>
                       </li>
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Learn about support resources (office hours, TA support)</span>
                       </li>
                       <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                         <span>Schedule 1-on-1 with instructor for Week 2-3</span>
                       </li>
                     </ul>
@@ -744,19 +744,19 @@ export default function TrainingPage() {
                       <h4 className="font-bold text-gray-900 mb-3">Academic</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Complete Week 1 labs (due Sunday 11:59 PM MT)</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Join or form a study group (3-4 students)</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Review recorded sessions for concepts you need to revisit</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Ask your first question in Slack or office hours</span>
                         </li>
                       </ul>
@@ -765,19 +765,19 @@ export default function TrainingPage() {
                       <h4 className="font-bold text-gray-900 mb-3">Career Prep</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Submit resume for career services review</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Update LinkedIn: Add &quot;Currently enrolled in [Program] at Ripotek&quot;</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Complete career goals form</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                           <span>Join alumni network on LinkedIn</span>
                         </li>
                       </ul>
@@ -788,7 +788,7 @@ export default function TrainingPage() {
             </div>
 
             {/* Success Tips */}
-            <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-8 border-2 border-teal-200">
+            <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-8 border-2 border-teal-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <Award className="w-6 h-6 text-teal-600" />
                 Quick Tips from Alumni
@@ -836,7 +836,7 @@ export default function TrainingPage() {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-r from-blue-900 to-teal-600 rounded-xl p-8 text-center text-white">
+            <div className="bg-linear-to-r from-blue-900 to-teal-600 rounded-xl p-8 text-center text-white">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-lg mb-6 text-blue-100">You&apos;re not alone - your cohort, instructors, and TAs are here to help!</p>
               <div className="flex flex-wrap gap-4 justify-center">

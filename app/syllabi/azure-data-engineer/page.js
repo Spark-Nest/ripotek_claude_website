@@ -72,7 +72,7 @@ export default function AzureDataEngineerSyllabus() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg print:rounded-none">
+          <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg print:rounded-none">
             <div className="flex items-center gap-3 mb-2">
               <Cloud className="w-8 h-8" />
               <h2 className="text-3xl font-bold">Azure Data Engineer</h2>
@@ -149,23 +149,23 @@ export default function AzureDataEngineerSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Required</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">SQL proficiency (queries, joins, aggregations)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Basic Python or another programming language</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Understanding of data concepts (databases, ETL)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Familiarity with cloud computing concepts</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Azure subscription (provided for labs)</span>
                 </li>
               </ul>
@@ -175,19 +175,19 @@ export default function AzureDataEngineerSyllabus() {
               <h4 className="font-semibold text-gray-900 mb-3">Recommended</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Experience with data warehousing or BI</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Azure Fundamentals (AZ-900) knowledge</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Git and version control familiarity</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">JSON and data formats knowledge</span>
                 </li>
               </ul>
@@ -202,58 +202,58 @@ export default function AzureDataEngineerSyllabus() {
             Learning Outcomes
           </h3>
 
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4 font-semibold">Upon successful completion of this program, you will be able to:</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Design and implement ELT pipelines in Azure Data Factory</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Build data lakehouse architectures on Azure</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Optimize queries in Azure Synapse Analytics</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Implement CI/CD for data pipelines</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Work with Delta Lake and medallion architecture</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Implement data security and compliance</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Monitor and troubleshoot data pipelines</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Design star and snowflake schemas</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Process streaming data with Event Hubs</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Automate deployments with Azure DevOps</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Optimize cost and performance</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <span className="text-gray-700">Pass the Microsoft DP-203 certification exam</span>
                 </div>
               </div>
@@ -273,7 +273,7 @@ export default function AzureDataEngineerSyllabus() {
 
           {/* Phase 1 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Phase 1: Foundations (Weeks 1-5)</h4>
               <p className="text-purple-100 text-sm">Azure fundamentals, SQL, and data storage</p>
             </div>
@@ -337,7 +337,7 @@ export default function AzureDataEngineerSyllabus() {
 
           {/* Phase 2 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Phase 2: Data Integration (Weeks 6-11)</h4>
               <p className="text-purple-100 text-sm">Azure Data Factory and pipeline engineering</p>
             </div>
@@ -413,7 +413,7 @@ export default function AzureDataEngineerSyllabus() {
 
           {/* Phase 3 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Phase 3: Analytics and Data Warehousing (Weeks 12-16)</h4>
               <p className="text-purple-100 text-sm">Azure Synapse Analytics and dimensional modeling</p>
             </div>
@@ -477,7 +477,7 @@ export default function AzureDataEngineerSyllabus() {
 
           {/* Phase 4 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Phase 4: Advanced Topics (Weeks 17-21)</h4>
               <p className="text-purple-100 text-sm">Streaming, security, and DevOps</p>
             </div>
@@ -541,7 +541,7 @@ export default function AzureDataEngineerSyllabus() {
 
           {/* Phase 5 */}
           <div className="mb-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
+            <div className="bg-linear-to-r from-purple-600 to-blue-600 text-white p-4">
               <h4 className="text-xl font-bold">Phase 5: Capstone and Certification (Weeks 22-24)</h4>
               <p className="text-purple-100 text-sm">Final project and DP-203 exam preparation</p>
             </div>
@@ -596,7 +596,7 @@ export default function AzureDataEngineerSyllabus() {
           <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                <tr className="bg-linear-to-r from-purple-600 to-blue-600 text-white">
                   <th className="p-4 text-left font-semibold">Assessment Component</th>
                   <th className="p-4 text-left font-semibold">Weight</th>
                   <th className="p-4 text-left font-semibold">Description</th>
@@ -665,28 +665,28 @@ export default function AzureDataEngineerSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Required Tools</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Azure Subscription</div>
                     <div className="text-sm text-gray-600">Provided for lab exercises</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Azure Data Studio</div>
                     <div className="text-sm text-gray-600">Free database tool</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Visual Studio Code</div>
                     <div className="text-sm text-gray-600">With Azure extensions</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Git</div>
                     <div className="text-sm text-gray-600">Version control system</div>
@@ -699,28 +699,28 @@ export default function AzureDataEngineerSyllabus() {
               <h4 className="font-bold text-gray-900 mb-4">Provided Resources</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Course Materials</div>
                     <div className="text-sm text-gray-600">Slides, code samples, datasets</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Azure Credits</div>
                     <div className="text-sm text-gray-600">$500 per student for labs</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Exam Voucher</div>
                     <div className="text-sm text-gray-600">Microsoft DP-203 certification</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-gray-900">Practice Tests</div>
                     <div className="text-sm text-gray-600">MeasureUp practice exams</div>
@@ -738,7 +738,7 @@ export default function AzureDataEngineerSyllabus() {
             Career Services and Job Placement
           </h3>
 
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-linear-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
             <p className="text-gray-700 mb-6">
               Azure Data Engineers are in high demand across Energy, Finance, Healthcare, and Technology sectors. Our graduates secure roles at leading organizations within 90 days on average.
             </p>
@@ -748,23 +748,23 @@ export default function AzureDataEngineerSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Career Support Includes:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Dedicated career coaching</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Resume and portfolio development</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Technical interview preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Direct introductions to hiring partners</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">LinkedIn optimization and networking</span>
                   </li>
                 </ul>
@@ -774,23 +774,23 @@ export default function AzureDataEngineerSyllabus() {
                 <h4 className="font-bold text-gray-900 mb-3">Typical Job Titles:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Azure Data Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Data Platform Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Cloud Data Engineer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">ETL/ELT Developer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Award className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span className="text-gray-700">Data Warehouse Architect</span>
                   </li>
                 </ul>

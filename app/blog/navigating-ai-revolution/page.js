@@ -131,7 +131,7 @@ export default function BlogPost() {
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
                 <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
               </div>
             </a>
@@ -299,15 +299,15 @@ export default function BlogPost() {
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">What business outcomes are we trying to improve? (Revenue, cost, customer satisfaction, risk reduction)</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Where are our current manual processes creating bottlenecks?</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">What decisions could we make faster or better with AI?</span>
                     </li>
                   </ul>
@@ -322,15 +322,15 @@ export default function BlogPost() {
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Do we have sufficient historical data?</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Is our data accessible, clean, and well-governed?</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Do we have the right data infrastructure (lakehouse, data warehouse, pipelines)?</span>
                     </li>
                   </ul>
@@ -345,15 +345,15 @@ export default function BlogPost() {
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Customer service chatbots powered by GPT-4</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Predictive maintenance for manufacturing equipment</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Automated document processing and classification</span>
                     </li>
                   </ul>
@@ -368,15 +368,15 @@ export default function BlogPost() {
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">MLOps pipelines for model versioning, monitoring, and retraining</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Governance frameworks for ethical AI and compliance</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-1" />
                       <span className="text-gray-700">Cross-functional teams (data scientists, engineers, domain experts)</span>
                     </li>
                   </ul>
@@ -543,7 +543,7 @@ export default function BlogPost() {
                     The AI revolution is here. The question for business leaders is simple: Will you lead the change, or react to it?
                   </p>
 
-                  <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
+                  <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-2xl p-8 mt-12">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Start Your AI Journey?</h3>
                     <p className="text-gray-700 mb-6">
                       Ripotek helps organizations design and implement production-ready AI solutions. From strategy to MLOps, we provide end-to-end support tailored to your industry and maturity level.
@@ -582,7 +582,7 @@ export default function BlogPost() {
                 {/* Author Bio */}
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-16 h-16 bg-linear-to-br from-teal-600 to-blue-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                       SC
                     </div>
                     <div>
@@ -601,7 +601,7 @@ export default function BlogPost() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-900 to-teal-900">
+      <section className="py-16 px-4 bg-linear-to-br from-blue-900 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need AI Expertise?</h2>
           <p className="text-xl text-gray-200 mb-8">

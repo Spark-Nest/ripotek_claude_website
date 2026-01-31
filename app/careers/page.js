@@ -84,7 +84,7 @@ export default function CareersPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -160,7 +160,7 @@ export default function CareersPage() {
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
 
           {/* Video Background - Growth/Success themed */}
           <video
@@ -270,7 +270,7 @@ export default function CareersPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Why Work at </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek?</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Join a team that's passionate about data, innovation, and making a real impact
@@ -283,14 +283,14 @@ export default function CareersPage() {
               <div className="space-y-4">
                 {benefits.map((benefit, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-teal-600 shrink-0" />
                     <span className="text-gray-700">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-900 to-teal-900 rounded-2xl p-8 shadow-lg text-white hover-lift card-shine">
+            <div className="bg-linear-to-br from-blue-900 to-teal-900 rounded-2xl p-8 shadow-lg text-white hover-lift card-shine">
               <h3 className="text-2xl font-bold mb-6">Our Commitment</h3>
               <p className="text-gray-200 leading-relaxed mb-6">
                 At Ripotek, we believe in empowering our team members to grow, innovate, and make meaningful contributions. We foster an inclusive environment where diverse perspectives drive better solutions.
@@ -320,7 +320,7 @@ export default function CareersPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-gray-900">Open </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Positions</span>
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Positions</span>
             </h2>
             <p className="text-xl text-gray-600">
               Explore opportunities to join our growing team
@@ -371,7 +371,7 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
+      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Make an Impact?</h2>
           <p className="text-xl text-gray-300 mb-8">
