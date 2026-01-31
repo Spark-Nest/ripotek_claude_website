@@ -624,6 +624,15 @@ export default function ResourcesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Subscription Modal */}
+      <SubscriptionModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        portalId="342603298"
+        formId="5770c0fe-6cc1-4891-b9b3-f1a45444371f"
+        region="na3"
+      />
     </div>
   );
 }
