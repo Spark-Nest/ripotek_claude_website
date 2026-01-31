@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, BookOpen, CheckCircle, Download, FileText, Video } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import SubscriptionModal from '../../components/SubscriptionModal';
 
 export default function ResourcesPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -464,21 +466,15 @@ export default function ResourcesPage() {
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
               Be the first to know when we publish new whitepapers and demo videos. Plus get early access to our blog and newsletter.
             </p>
-            <div className="max-w-md mx-auto">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                />
-                <button className="bg-white text-teal-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold shadow-lg hover-lift whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
-              <p className="text-teal-200 text-sm mt-4">
-                No spam. Unsubscribe anytime. We respect your privacy.
-              </p>
-            </div>
+            <button
+              onClick={() => setModalOpen(true)}
+              className="bg-white text-teal-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold shadow-lg hover-lift"
+            >
+              Subscribe
+            </button>
+            <p className="text-teal-200 text-sm mt-4">
+              No spam. Unsubscribe anytime. We respect your privacy.
+            </p>
             <div className="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-white/20 max-w-xs mx-auto">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">2</div>

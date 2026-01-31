@@ -80,16 +80,6 @@ export default function CapabilitiesDeckPage() {
             <span className="text-gray-600">|</span>
             <h1 className="text-white font-semibold">Capabilities Deck</h1>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="/ripotek-capabilities-deck.pptx"
-              download
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition text-sm font-medium"
-            >
-              <Download className="w-4 h-4" />
-              Download PowerPoint
-            </a>
-          </div>
         </div>
       )}
 
