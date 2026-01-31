@@ -223,7 +223,7 @@ export default function RipotekHomePage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -354,7 +354,7 @@ export default function RipotekHomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Main Headline & CTA */}
           <div className={`text-center max-w-5xl mx-auto space-y-4 ${!isMobile ? 'animate-fadeIn' : ''}`} style={!isMobile ? { animationDelay: '0.2s' } : {}}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
               Engineer Intelligence.
               <span className="block mt-3 bg-gradient-to-r from-teal-300 via-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
                 Deliver Impact.
@@ -442,7 +442,7 @@ export default function RipotekHomePage() {
                 Our Impact
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Delivering <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Measurable Results</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -483,7 +483,7 @@ export default function RipotekHomePage() {
                 What We Do
               </span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               <span className="text-gray-900">Comprehensive </span>
               <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Data Solutions
@@ -553,7 +553,7 @@ export default function RipotekHomePage() {
                 Why Choose Us
               </span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Built Different
               </span>
@@ -655,7 +655,7 @@ export default function RipotekHomePage() {
                 Client Success Stories
               </span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
               Don't Just Take Our Word
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -718,9 +718,9 @@ export default function RipotekHomePage() {
               <span>Book Free Discovery Call</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <a href="/ripotek-capabilities-deck.pdf" download className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
-              <Download className="w-6 h-6" />
-              <span>Download Capabilities Deck</span>
+            <a href="/resources/capabilities-deck" className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 flex items-center gap-3 text-lg font-semibold backdrop-blur-sm transform hover:scale-105 duration-300">
+              <ArrowRight className="w-6 h-6" />
+              <span>View Capabilities Deck</span>
             </a>
           </div>
         </div>
@@ -734,14 +734,14 @@ export default function RipotekHomePage() {
               <div className="flex items-center gap-4 mb-4">
                 <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <div className="min-w-0">
-                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
+                  <span className="font-semibold text-base md:text-lg tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
                 </div>
               </div>
-              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
+              <p className="text-gray-300 text-sm leading-relaxed max-w-xl">
                 Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
               </p>
-              <div className="mt-6 space-y-3 text-gray-300 text-base">
+              <div className="mt-6 space-y-3 text-gray-300 text-sm">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
                 <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
@@ -749,8 +749,8 @@ export default function RipotekHomePage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Services</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Services</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
@@ -759,8 +759,8 @@ export default function RipotekHomePage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Training</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Training</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
                 <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
                 <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
@@ -769,8 +769,8 @@ export default function RipotekHomePage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Company</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Company</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
                 <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
@@ -782,8 +782,8 @@ export default function RipotekHomePage() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
-              <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-              <div className="flex gap-6 text-base text-gray-300">
+              <p className="text-gray-300 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-300">
                 <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
                 <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
                 <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>

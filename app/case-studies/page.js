@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, Award, Calendar, CheckCircle, Download, Star } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, Award, Calendar, CheckCircle, Download, Star, ArrowRight } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
@@ -225,7 +225,7 @@ export default function CaseStudiesPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -352,7 +352,7 @@ export default function CaseStudiesPage() {
               <Award className="w-4 h-4" />
               Proven Results Across Industries
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
               Case Studies
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fadeInUp" style={{animationDelay: '0.2s'}}>
@@ -431,7 +431,7 @@ export default function CaseStudiesPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Success </span>
               <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Stories</span>
             </h2>
@@ -531,7 +531,7 @@ export default function CaseStudiesPage() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Client </span>
               <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Testimonials</span>
             </h2>
@@ -561,7 +561,7 @@ export default function CaseStudiesPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Write Your Success Story?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Write Your Success Story?</h2>
           <p className="text-xl text-gray-300 mb-8">
             Let's discuss how we can help you achieve similar transformative results with your data and AI initiatives.
           </p>
@@ -569,10 +569,10 @@ export default function CaseStudiesPage() {
             <button onClick={() => setDiscoveryCallModalOpen(true)} className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
               <Calendar className="w-5 h-5" /> Book Discovery Call
             </button>
-            <span aria-disabled="true" title="Coming soon"
-              className="bg-white/10 text-white px-8 py-4 rounded-lg transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 opacity-60 cursor-not-allowed pointer-events-none">
-              <Download className="w-5 h-5" /> Capabilities Deck (Coming Soon)
-            </span>
+            <a href="/resources/capabilities-deck"
+              className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
+              <ArrowRight className="w-5 h-5" /> View Capabilities Deck
+            </a>
           </div>
           
         </div>
@@ -586,14 +586,14 @@ export default function CaseStudiesPage() {
               <div className="flex items-center gap-4 mb-4">
                 <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <div className="min-w-0">
-                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
+                  <span className="font-semibold text-base md:text-lg tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
                 </div>
               </div>
-              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
+              <p className="text-gray-300 text-sm leading-relaxed max-w-xl">
                 Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
               </p>
-              <div className="mt-6 space-y-3 text-gray-300 text-base">
+              <div className="mt-6 space-y-3 text-gray-300 text-sm">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
                 <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
@@ -601,8 +601,8 @@ export default function CaseStudiesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Services</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Services</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
@@ -611,8 +611,8 @@ export default function CaseStudiesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Training</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Training</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
                 <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
                 <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
@@ -621,8 +621,8 @@ export default function CaseStudiesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Company</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Company</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
                 <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
@@ -634,8 +634,8 @@ export default function CaseStudiesPage() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
-              <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-              <div className="flex gap-6 text-base text-gray-300">
+              <p className="text-gray-300 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-300">
                 <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
                 <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
                 <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>

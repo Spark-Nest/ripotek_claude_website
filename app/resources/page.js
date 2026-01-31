@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, BookOpen, CheckCircle, Download, FileText, Video, Code } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, ArrowRight, BookOpen, CheckCircle, Download, FileText, Video } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function ResourcesPage() {
@@ -63,40 +63,37 @@ export default function ResourcesPage() {
   ];
 
   const whitepapers = [
-    { title: 'Modern Data Lakehouse Architecture', description: 'A comprehensive guide to building scalable lakehouse solutions on Azure and Databricks', pages: '24 pages', category: 'Architecture' },
-    { title: 'Power BI Governance Framework', description: 'Enterprise patterns for governed self-service analytics at scale', pages: '18 pages', category: 'Governance' },
-    { title: 'MLOps Best Practices', description: 'Production-grade machine learning operations on Azure ML and Databricks', pages: '32 pages', category: 'AI & ML' },
-    { title: 'Data Mesh Implementation Guide', description: 'Strategies for implementing domain-oriented data architecture', pages: '28 pages', category: 'Strategy' }
+    {
+      title: 'The Practical Guide to AI Implementation for Mid-Market Companies',
+      description: 'A step-by-step framework for organizations ready to move beyond AI exploration into actual implementation—based on real-world deployments across Canadian businesses.',
+      pages: '30 pages',
+      category: 'AI & ML',
+      pdfUrl: '/whitepapers/practical-guide-ai-implementation.pdf'
+    },
+    {
+      title: 'Building a Digitally-Ready Workforce',
+      description: 'A Strategic Framework for Canadian Employers. A comprehensive guide to workforce digital transformation—covering assessment, strategy, funding, and sustainable learning cultures.',
+      pages: '21 pages',
+      category: 'Workforce Transformation',
+      pdfUrl: '/whitepapers/building-digitally-ready-workforce.pdf'
+    }
   ];
 
-  const templates = [
-    { title: 'Azure Data Factory Starter Kit', description: 'Pre-built ADF pipelines for common ETL patterns', format: 'ARM Templates' },
-    { title: 'Power BI Semantic Model Template', description: 'Enterprise-ready data model with best practices', format: 'PBIX File' },
-    { title: 'Databricks Project Structure', description: 'Standardized notebook organization and CI/CD setup', format: 'GitHub Repo' },
-    { title: 'Data Quality Framework', description: 'Reusable data validation and monitoring scripts', format: 'Python Package' }
-  ];
 
   const resourceTypes = [
     {
       icon: FileText,
       title: 'Whitepapers',
       description: 'In-depth industry insights, architecture patterns, and best practices from our consulting experience',
-      count: '12+ Documents',
+      count: '2 Documents',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: Video,
       title: 'Demo Videos',
       description: 'Watch our solutions in action with real-world demonstrations and technical walkthroughs',
-      count: '15+ Videos',
+      count: '4 Videos',
       color: 'from-teal-500 to-teal-600'
-    },
-    {
-      icon: Code,
-      title: 'Templates',
-      description: 'Accelerate your projects with starter kits, frameworks, and reusable code samples',
-      count: '8+ Templates',
-      color: 'from-cyan-500 to-cyan-600'
     }
   ];
 
@@ -110,7 +107,7 @@ export default function ResourcesPage() {
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
               <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
               <div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -224,7 +221,7 @@ export default function ResourcesPage() {
             <BookOpen className="w-4 h-4" />
             Knowledge Hub
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 animate-fadeInUp">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fadeInUp">
             <span className="block">Resource </span>
             <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Library</span>
           </h1>
@@ -282,7 +279,7 @@ export default function ResourcesPage() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Explore Our </span>
               <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Resources</span>
             </h2>
@@ -291,29 +288,33 @@ export default function ResourcesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {resourceTypes.map((type, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group">
+              <a
+                key={idx}
+                href={type.title === 'Whitepapers' ? '#whitepapers' : '#demo-videos'}
+                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-2 border-transparent hover:border-teal-500 transition-all group block"
+              >
                 <div className={`w-16 h-16 bg-gradient-to-br ${type.color} rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition`}>
                   <type.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{type.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{type.description}</p>
+                <p className="text-gray-600 mb-4 leading-relaxed min-h-[72px]">{type.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-teal-600 font-semibold">{type.count}</span>
                   <ArrowRight className="w-5 h-5 text-teal-600 group-hover:translate-x-1 transition" />
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
       {/* Featured Demo Videos */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50">
+      <section id="demo-videos" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-teal-50 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Featured </span>
               <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Demo Videos</span>
             </h2>
@@ -357,10 +358,10 @@ export default function ResourcesPage() {
       </section>
 
       {/* Whitepapers Section */}
-      <section className="py-20 px-4 bg-white">
+      <section id="whitepapers" className="py-20 px-4 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="text-gray-900">Industry </span>
               <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Whitepapers</span>
             </h2>
@@ -369,12 +370,12 @@ export default function ResourcesPage() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {whitepapers.map((paper, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-l-4 border-teal-500 group">
-                <div className="flex items-start gap-4">
+              <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine border-l-4 border-teal-500 group flex flex-col h-full">
+                <div className="flex items-start gap-4 flex-1">
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
                     <FileText className="w-6 h-6 text-teal-600" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 flex flex-col h-full">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-semibold">
                         {paper.category}
@@ -382,65 +383,23 @@ export default function ResourcesPage() {
                       <span className="text-sm text-gray-500">{paper.pages}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{paper.title}</h3>
-                    <p className="text-gray-600 mb-4">{paper.description}</p>
-                    <button className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition group-hover:gap-3">
-                      <Download className="w-4 h-4" />
-                      Download PDF
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <button className="inline-flex items-center gap-2 text-gray-700 hover:text-teal-600 font-semibold transition">
-              View All Whitepapers <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Templates & Starter Kits */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Templates & </span>
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Starter Kits</span>
-            </h2>
-            <p className="text-xl text-gray-600">Accelerate your projects with production-ready code and frameworks</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {templates.map((template, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine group">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
-                    <Code className="w-6 h-6 text-cyan-600" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-900">{template.title}</h3>
-                      <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full font-semibold">
-                        {template.format}
-                      </span>
-                    </div>
-                    <p className="text-gray-600 mb-4">{template.description}</p>
-                    <div className="flex items-center gap-4">
-                      <button className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition font-semibold text-sm">
+                    <p className="text-gray-600 mb-4 flex-1">{paper.description}</p>
+                    <div className="mt-auto">
+                      <a
+                        href={paper.pdfUrl}
+                        download
+                        className="inline-flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition font-semibold text-sm"
+                      >
                         <Download className="w-4 h-4" />
-                        Download
-                      </button>
-                      <button className="inline-flex items-center gap-2 text-gray-600 hover:text-teal-600 font-semibold text-sm transition">
-                        View Docs <ArrowRight className="w-4 h-4" />
-                      </button>
+                        Download PDF
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -492,20 +451,6 @@ export default function ResourcesPage() {
             >
               <ArrowRight className="w-5 h-5" /> View Capabilities Deck
             </a>
-            <a
-              href="/ripotek-capabilities-deck.pptx"
-              download
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-6 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
-            >
-              <Download className="w-5 h-5" /> Download PowerPoint
-            </a>
-            <a
-              href="/ripotek-capabilities-deck.pdf"
-              download
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-6 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold"
-            >
-              <Download className="w-5 h-5" /> Download PDF
-            </a>
           </div>
         </div>
       </section>
@@ -515,9 +460,9 @@ export default function ResourcesPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-teal-600 to-blue-900 rounded-3xl p-12 shadow-2xl text-center hover-lift">
             <Mail className="w-16 h-16 text-white mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-white mb-4">Subscribe for Updates</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Subscribe for Updates</h2>
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
-              Be the first to know when we publish new whitepapers, demo videos, and templates. Plus get early access to our blog and newsletter.
+              Be the first to know when we publish new whitepapers and demo videos. Plus get early access to our blog and newsletter.
             </p>
             <div className="max-w-md mx-auto">
               <div className="flex gap-3">
@@ -534,18 +479,14 @@ export default function ResourcesPage() {
                 No spam. Unsubscribe anytime. We respect your privacy.
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
+            <div className="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-white/20 max-w-xs mx-auto">
               <div>
-                <div className="text-3xl font-bold text-white mb-1">12+</div>
+                <div className="text-3xl font-bold text-white mb-1">2</div>
                 <div className="text-teal-200 text-sm">Whitepapers</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-white mb-1">15+</div>
+                <div className="text-3xl font-bold text-white mb-1">4</div>
                 <div className="text-teal-200 text-sm">Demo Videos</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-1">8+</div>
-                <div className="text-teal-200 text-sm">Templates</div>
               </div>
             </div>
           </div>
@@ -607,14 +548,14 @@ export default function ResourcesPage() {
               <div className="flex items-center gap-4 mb-4">
                 <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 rounded-lg" />
                 <div className="min-w-0">
-                  <span className="font-extrabold text-xl md:text-2xl tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
+                  <span className="font-semibold text-base md:text-lg tracking-tight leading-tight block text-left truncate pb-px">Ripotek Technologies Inc.</span>
                   <span className="text-white text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 block text-left">Design. Engineer. Deliver.</span>
                 </div>
               </div>
-              <p className="text-gray-300 text-base leading-relaxed max-w-xl">
+              <p className="text-gray-300 text-sm leading-relaxed max-w-xl">
                 Enterprise data consulting and training services. Empowering organizations with governed self-service BI, Azure modernization, and industry-leading expertise.
               </p>
-              <div className="mt-6 space-y-3 text-gray-300 text-base">
+              <div className="mt-6 space-y-3 text-gray-300 text-sm">
                 <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-300" /> Calgary, Alberta, Canada</div>
                 <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-gray-300" /> info@ripotek.com</div>
                 <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-gray-300" /> +1 587-259-0033</div>
@@ -622,8 +563,8 @@ export default function ResourcesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Services</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Services</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
@@ -632,8 +573,8 @@ export default function ResourcesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Training</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Training</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/training#power-bi-analyst" className="text-gray-300 hover:text-teal-400 transition">Power BI Analyst</a></li>
                 <li><a href="/training#azure-data-engineer" className="text-gray-300 hover:text-teal-400 transition">Azure Data Engineer</a></li>
                 <li><a href="/training#databricks-engineer" className="text-gray-300 hover:text-teal-400 transition">Databricks Engineer</a></li>
@@ -642,8 +583,8 @@ export default function ResourcesPage() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="font-bold mb-6 text-lg">Company</h4>
-              <ul className="space-y-3 text-base">
+              <h4 className="font-bold mb-6 text-sm">Company</h4>
+              <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
                 <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
@@ -655,8 +596,8 @@ export default function ResourcesPage() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
-              <p className="text-gray-300 text-base">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
-              <div className="flex gap-6 text-base text-gray-300">
+              <p className="text-gray-300 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <div className="flex gap-6 text-sm text-gray-300">
                 <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
                 <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
                 <a href="/refund-policy" className="hover:text-teal-400 transition">Refund Policy</a>
