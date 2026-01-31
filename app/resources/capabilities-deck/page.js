@@ -10,6 +10,7 @@ export default function CapabilitiesDeckPage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [scale, setScale] = useState(1);
+  const [fullscreenScale, setFullscreenScale] = useState(1);
 
   const totalSlides = 29; // Will increase as more slides are added
 
@@ -21,6 +22,18 @@ export default function CapabilitiesDeckPage() {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
+  // Calculate fullscreen scale based on viewport
+  const calculateFullscreenScale = useCallback(() => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    // Slides are 1280x720 (16:9 aspect ratio)
+    // Add padding to prevent edge overflow on mobile
+    const padding = isMobile ? 16 : 0;
+    const scaleByWidth = (width - padding * 2) / 1280;
+    const scaleByHeight = (height - padding * 2) / 720;
+    return Math.min(scaleByWidth, scaleByHeight);
+  }, [isMobile]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -29,7 +42,7 @@ export default function CapabilitiesDeckPage() {
       } else if (e.key === 'ArrowLeft') {
         prevSlide();
       } else if (e.key === 'Escape') {
-        setIsFullscreen(false);
+        exitFullscreen();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -52,55 +65,102 @@ export default function CapabilitiesDeckPage() {
       const scaleByHeight = containerHeight / 720;
       const computedScale = Math.min(1, scaleByWidth, scaleByHeight);
       setScale(computedScale);
+
+      // Also update fullscreen scale if in fullscreen mode
+      if (isFullscreen) {
+        setFullscreenScale(calculateFullscreenScale());
+      }
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, [isFullscreen, calculateFullscreenScale]);
+
+  // Handle fullscreen change events (for when user exits via browser controls)
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        // Only exit if we were using native fullscreen
+        // CSS-based fullscreen won't trigger this
+      }
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+    };
   }, []);
 
+  const enterFullscreen = () => {
+    // Calculate scale for fullscreen before entering
+    setFullscreenScale(calculateFullscreenScale());
+    setIsFullscreen(true);
+
+    // Try native fullscreen API (works on Android, desktop browsers)
+    // iOS Safari doesn't support this, but our CSS-based fullscreen will work
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch(() => {
+        // Silently fail - CSS fullscreen will still work
+      });
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+
+    // Prevent body scroll when in fullscreen
+    document.body.style.overflow = 'hidden';
+  };
+
+  const exitFullscreen = () => {
+    setIsFullscreen(false);
+
+    // Exit native fullscreen if active
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    } else if (document.webkitFullscreenElement) {
+      document.webkitExitFullscreen();
+    }
+
+    // Restore body scroll
+    document.body.style.overflow = '';
+  };
+
   const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setIsFullscreen(true);
+    if (isFullscreen) {
+      exitFullscreen();
     } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
+      enterFullscreen();
     }
   };
 
   return (
-    <div className={`min-h-screen bg-gray-900 flex flex-col ${isFullscreen ? 'p-0' : 'p-4 md:p-8'}`}>
-      {/* Header - Hidden in fullscreen */}
-      {!isFullscreen && (
-        <div className="flex items-center justify-between mb-6 px-2">
-          <div className="flex items-center gap-4">
-            <a href="/resources" className="text-gray-400 hover:text-white transition text-sm">
-              ← Back to Resources
-            </a>
-            <span className="text-gray-600">|</span>
-            <h1 className="text-white font-semibold">Capabilities Deck</h1>
-          </div>
+    <div className={`min-h-screen bg-gray-900 flex flex-col p-4 md:p-8`}>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6 px-2">
+        <div className="flex items-center gap-4">
+          <a href="/resources" className="text-gray-400 hover:text-white transition text-sm">
+            ← Back to Resources
+          </a>
+          <span className="text-gray-600">|</span>
+          <h1 className="text-white font-semibold">Capabilities Deck</h1>
         </div>
-      )}
+      </div>
 
       {/* Slide Container */}
-      <div className={`flex-1 flex items-center justify-center ${isFullscreen ? '' : 'mb-4'}`}>
+      <div className="flex-1 flex items-center justify-center mb-4">
         <div
-          className={`relative bg-black rounded-lg shadow-2xl ${
-            isFullscreen
-              ? 'w-screen h-screen rounded-none overflow-hidden'
-              : 'w-full max-w-6xl overflow-hidden'
-          }`}
-          style={!isFullscreen ? {
+          className="relative bg-black rounded-lg shadow-2xl w-full max-w-6xl overflow-hidden"
+          style={{
             height: `${720 * scale}px`,
             maxHeight: 'calc(100vh - 200px)',
-          } : undefined}
+          }}
         >
           <div className="w-full h-full flex items-start justify-center">
             <div
               className="w-[1280px] h-[720px] flex-shrink-0"
               style={{
-                transform: `scale(${isFullscreen ? 1 : scale})`,
+                transform: `scale(${scale})`,
                 transformOrigin: 'top center',
               }}
             >
@@ -162,64 +222,131 @@ export default function CapabilitiesDeckPage() {
         </div>
       </div>
 
-      {/* Controls Bar - Hidden in fullscreen */}
-      {!isFullscreen && (
-        <div className="flex items-center justify-center gap-6 py-4">
-          <button
-            onClick={prevSlide}
-            disabled={currentSlide === 0}
-            className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+      {/* Controls Bar */}
+      <div className="flex items-center justify-center gap-6 py-4">
+        <button
+          onClick={prevSlide}
+          disabled={currentSlide === 0}
+          className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-          <div className="flex items-center gap-3 px-4 py-2 bg-gray-800 rounded-lg">
-            <span className="text-white font-medium">{currentSlide + 1}</span>
-            <span className="text-gray-500">/</span>
-            <span className="text-gray-400">{totalSlides}</span>
-          </div>
-
-          <button
-            onClick={nextSlide}
-            disabled={currentSlide === totalSlides - 1}
-            className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          <div className="w-px h-6 bg-gray-700 mx-2" />
-
-          <button
-            onClick={toggleFullscreen}
-            className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition"
-            title="Toggle fullscreen (F)"
-          >
-            {isFullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
-          </button>
+        <div className="flex items-center gap-3 px-4 py-2 bg-gray-800 rounded-lg">
+          <span className="text-white font-medium">{currentSlide + 1}</span>
+          <span className="text-gray-500">/</span>
+          <span className="text-gray-400">{totalSlides}</span>
         </div>
-      )}
 
-      {/* Fullscreen Controls */}
-      {isFullscreen && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 px-6 py-3 bg-black/80 backdrop-blur rounded-full opacity-0 hover:opacity-100 transition-opacity z-50">
-          <button onClick={prevSlide} className="p-2 text-white/70 hover:text-white transition">
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <span className="text-white font-medium">{currentSlide + 1} / {totalSlides}</span>
-          <button onClick={nextSlide} className="p-2 text-white/70 hover:text-white transition">
-            <ChevronRight className="w-5 h-5" />
-          </button>
-          <div className="w-px h-4 bg-white/30" />
-          <button onClick={toggleFullscreen} className="p-2 text-white/70 hover:text-white transition">
-            <Minimize2 className="w-5 h-5" />
-          </button>
-        </div>
-      )}
+        <button
+          onClick={nextSlide}
+          disabled={currentSlide === totalSlides - 1}
+          className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        <div className="w-px h-6 bg-gray-700 mx-2" />
+
+        <button
+          onClick={toggleFullscreen}
+          className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition"
+          title="Toggle fullscreen"
+        >
+          <Maximize2 className="w-5 h-5" />
+        </button>
+      </div>
 
       {/* Keyboard hints */}
-      {!isFullscreen && (
-        <div className="text-center text-gray-500 text-sm">
-          Use <kbd className="px-2 py-1 bg-gray-800 rounded text-gray-400 mx-1">←</kbd> <kbd className="px-2 py-1 bg-gray-800 rounded text-gray-400 mx-1">→</kbd> arrow keys to navigate
+      <div className="text-center text-gray-500 text-sm">
+        Use <kbd className="px-2 py-1 bg-gray-800 rounded text-gray-400 mx-1">←</kbd> <kbd className="px-2 py-1 bg-gray-800 rounded text-gray-400 mx-1">→</kbd> arrow keys to navigate
+      </div>
+
+      {/* CSS-based Fullscreen Overlay - Works on all platforms including iOS */}
+      {isFullscreen && (
+        <div
+          className="fixed inset-0 bg-black z-[9999] flex items-center justify-center"
+          style={{ touchAction: 'none' }}
+        >
+          {/* Fullscreen Slide Container */}
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <div
+              className="w-[1280px] h-[720px] flex-shrink-0"
+              style={{
+                transform: `scale(${fullscreenScale})`,
+                transformOrigin: 'center center',
+              }}
+            >
+              {/* Slide Content */}
+              {currentSlide === 0 && <Slide1 />}
+              {currentSlide === 1 && <Slide2 />}
+              {currentSlide === 2 && <Slide3 />}
+              {currentSlide === 3 && <Slide4 />}
+              {currentSlide === 4 && <Slide5 />}
+              {currentSlide === 5 && <Slide6 />}
+              {currentSlide === 6 && <Slide7 />}
+              {currentSlide === 7 && <Slide8 />}
+              {currentSlide === 8 && <Slide9 />}
+              {currentSlide === 9 && <Slide10 />}
+              {currentSlide === 10 && <Slide11 />}
+              {currentSlide === 11 && <Slide12 />}
+              {currentSlide === 12 && <Slide13 />}
+              {currentSlide === 13 && <Slide14 />}
+              {currentSlide === 14 && <Slide15 />}
+              {currentSlide === 15 && <Slide16 />}
+              {currentSlide === 16 && <Slide17 />}
+              {currentSlide === 17 && <Slide18 />}
+              {currentSlide === 18 && <Slide19 />}
+              {currentSlide === 19 && <Slide20 />}
+              {currentSlide === 20 && <Slide21 />}
+              {currentSlide === 21 && <Slide22 />}
+              {currentSlide === 22 && <Slide23 />}
+              {currentSlide === 23 && <Slide24 />}
+              {currentSlide === 24 && <Slide25 />}
+              {currentSlide === 25 && <Slide26 />}
+              {currentSlide === 26 && <Slide27 />}
+              {currentSlide === 27 && <Slide28 />}
+              {currentSlide === 28 && <Slide29 />}
+            </div>
+
+            {/* Fullscreen Navigation Overlay */}
+            <div className="absolute inset-0 flex pointer-events-none">
+              <button
+                onClick={prevSlide}
+                className="w-1/5 h-full pointer-events-auto opacity-0 hover:opacity-100 active:opacity-100 transition-opacity flex items-center justify-start pl-4"
+                aria-label="Previous slide"
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/70 transition">
+                  <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+              </button>
+              <div className="flex-1" />
+              <button
+                onClick={nextSlide}
+                className="w-1/5 h-full pointer-events-auto opacity-0 hover:opacity-100 active:opacity-100 transition-opacity flex items-center justify-end pr-4"
+                aria-label="Next slide"
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/70 transition">
+                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* Fullscreen Controls Bar */}
+          <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 md:gap-4 px-4 md:px-6 py-2 md:py-3 bg-black/80 backdrop-blur rounded-full">
+            <button onClick={prevSlide} className="p-1.5 md:p-2 text-white/70 hover:text-white active:text-white transition">
+              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+            <span className="text-white font-medium text-sm md:text-base">{currentSlide + 1} / {totalSlides}</span>
+            <button onClick={nextSlide} className="p-1.5 md:p-2 text-white/70 hover:text-white active:text-white transition">
+              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+            <div className="w-px h-4 bg-white/30" />
+            <button onClick={exitFullscreen} className="p-1.5 md:p-2 text-white/70 hover:text-white active:text-white transition">
+              <Minimize2 className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+          </div>
         </div>
       )}
     </div>

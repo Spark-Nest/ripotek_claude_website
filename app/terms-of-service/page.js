@@ -63,9 +63,9 @@ export default function TermsOfServicePage() {
           <div className="flex items-center h-20">
             {/* Logo - Far Left */}
             <a href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
-              <Image src="/favicon.svg" alt="Ripotek logo" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" />
+              <Image src="/favicon.svg" alt="Ripotek logo" width={36} height={36} className="w-8 h-8 md:w-9 md:h-9 rounded-lg shadow-lg" />
               <div>
-                <div className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
+                <div className="text-base md:text-lg font-semibold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">Ripotek</div>
               </div>
             </a>
 
@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
             </div>
 
             {/* Let's Talk Button - Far Right */}
-            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-sm xl:text-base shrink-0">
+            <a href="/contact" className="hidden lg:block bg-teal-600 text-white px-3 xl:px-4 py-1.5 rounded-lg hover:bg-teal-700 transition shadow-lg hover:shadow-xl whitespace-nowrap text-xs xl:text-sm shrink-0">
               Let's Talk
             </a>
 
@@ -111,7 +111,7 @@ export default function TermsOfServicePage() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden ml-auto p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300"
             >
-              {mobileMenuOpen ? <X className="w-7 h-7 text-gray-900 stroke-[2.5]" /> : <Menu className="w-7 h-7 text-gray-900 stroke-[2.5]" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-gray-900 stroke-[2.5]" /> : <Menu className="w-6 h-6 text-gray-900 stroke-[2.5]" />}
             </button>
           </div>
         </div>
