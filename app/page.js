@@ -13,6 +13,7 @@ export default function RipotekHomePage() {
   const [statsVisible, setStatsVisible] = useState(false);
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
 
   useEffect(() => {
     // Detect mobile devices
@@ -42,6 +43,10 @@ export default function RipotekHomePage() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const toggleMobileDropdown = (name) => {
+    setMobileDropdown(mobileDropdown === name ? null : name);
+  };
 
   const navigation = [
     { name: 'About', href: '/about' },
@@ -278,19 +283,46 @@ export default function RipotekHomePage() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t">
-            <div className="px-4 py-4 space-y-3">
+            <div className="px-4 py-4 space-y-1">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-gray-700 hover:text-teal-600 font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => toggleMobileDropdown(item.name)}
+                        className="flex items-center justify-between w-full text-gray-700 hover:text-teal-600 font-medium py-2"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
+                      {mobileDropdown === item.name && (
+                        <div className="pl-4 pb-2 space-y-1">
+                          {item.dropdown.map((subItem) => (
+                            <a
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block text-gray-600 hover:text-teal-600 py-1.5 text-sm"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block text-gray-700 hover:text-teal-600 font-medium py-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </div>
               ))}
-              <a href="/contact" className="block w-full bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition text-center">
-                Let's Talk
+              <a href="/contact" className="block w-full bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition text-center mt-2">
+                Let&apos;s Talk
               </a>
             </div>
           </div>

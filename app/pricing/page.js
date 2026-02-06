@@ -16,6 +16,7 @@ export default function PricingCalculator() {
   const [estimate, setEstimate] = useState(0);
   const [monthlyEstimate, setMonthlyEstimate] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
   const [selectedConsultingService, setSelectedConsultingService] = useState('Strategy & Governance');
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const consultingServices = [
@@ -604,14 +605,41 @@ export default function PricingCalculator() {
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.href}
-                  className="block text-gray-700 hover:text-teal-600 transition font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
+                <div key={i}>
+                  {link.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleMobileDropdown(link.name)}
+                        className="flex items-center justify-between w-full text-gray-700 hover:text-teal-600 transition font-medium py-2"
+                      >
+                        {link.name}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === link.name ? 'rotate-180' : ''}`} />
+                      </button>
+                      {mobileDropdown === link.name && (
+                        <div className="pl-4 space-y-2 mt-2">
+                          {link.dropdown.map((subItem, j) => (
+                            <a
+                              key={j}
+                              href={subItem.href}
+                              className="block text-gray-600 hover:text-teal-600 transition py-1"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="block text-gray-700 hover:text-teal-600 transition font-medium py-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </div>
               ))}
               <a href="/contact" className="block bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition font-semibold text-center">
                 Let's Talk

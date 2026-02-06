@@ -8,6 +8,7 @@ import ApplicationModal from '../../components/ApplicationModal';
 
 export default function CareersPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
@@ -139,14 +140,41 @@ export default function CareersPage() {
           <div className="lg:hidden bg-white border-t">
             <div className="px-4 py-4 space-y-3">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-gray-700 hover:text-teal-600 font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => toggleMobileDropdown(item.name)}
+                        className="w-full flex items-center justify-between text-gray-700 hover:text-teal-600 font-medium py-2"
+                      >
+                        {item.name}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
+                      {mobileDropdown === item.name && (
+                        <div className="pl-4 space-y-2 mt-2">
+                          {item.dropdown.map((subItem) => (
+                            <a
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block text-gray-600 hover:text-teal-600 py-1"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block text-gray-700 hover:text-teal-600 font-medium py-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </div>
               ))}
               <a href="/contact" className="block w-full bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition text-center">
                 Let's Talk
