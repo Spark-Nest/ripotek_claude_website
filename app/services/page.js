@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, CheckCircle, Shield, Database, BarChart3, Brain, Zap, GraduationCap, ArrowRight, Calendar, Download, MapPin, Mail, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, CheckCircle, Shield, Database, BarChart3, Brain, Zap, GraduationCap, ArrowRight, Calendar, Download, MapPin, Mail, Phone, Globe } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
@@ -31,7 +31,8 @@ export default function ServicesPage() {
         { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
         { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
         { name: 'Managed Services', href: '/services#managed-services' },
-        { name: 'Enterprise Training', href: '/services#enterprise-training' }
+        { name: 'Enterprise Training', href: '/services#enterprise-training' },
+        { name: 'Website Development', href: '/website-development' }
       ]
     },
     {
@@ -195,6 +196,30 @@ export default function ServicesPage() {
         'Improved employee retention'
       ],
       image: '🎓'
+    },
+    {
+      icon: Globe,
+      title: 'Website Development',
+      tagline: 'Professional websites built for growth',
+      description: 'Modern, fast, and conversion-optimized websites using React and Tailwind CSS. From concept to launch in weeks.',
+      features: [
+        'Custom website design & development',
+        'Mobile-responsive, SEO-optimized builds',
+        'E-commerce & booking system integration',
+        'CRM & marketing tool integrations',
+        'Content management setup',
+        'Performance optimization',
+        'Analytics & conversion tracking',
+        'Ongoing maintenance & support'
+      ],
+      outcomes: [
+        'Professional online presence in 2-8 weeks',
+        'Mobile-first, fast-loading websites',
+        'Data-driven insights from day one',
+        'Scalable, maintainable codebase'
+      ],
+      image: '🌐',
+      link: '/website-development'
     }
   ];
 

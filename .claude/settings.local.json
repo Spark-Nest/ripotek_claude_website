@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node scripts/generate-pptx.js:*)",
       "Bash(npm install:*)",
-      "Bash(node scripts/generate-pdf.js:*)"
+      "Bash(node scripts/generate-pdf.js:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

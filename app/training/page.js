@@ -40,7 +40,8 @@ export default function TrainingPage() {
         { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
         { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
         { name: 'Managed Services', href: '/services#managed-services' },
-        { name: 'Enterprise Training', href: '/services#enterprise-training' }
+        { name: 'Enterprise Training', href: '/services#enterprise-training' },
+        { name: 'Website Development', href: '/website-development' }
       ]
     },
     {

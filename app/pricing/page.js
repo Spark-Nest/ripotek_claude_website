@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calculator, TrendingUp, Users, Clock, CheckCircle, AlertCircle, Calendar, Download } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone, Calculator, TrendingUp, Users, Clock, CheckCircle, AlertCircle, Calendar, Download, Globe } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 
@@ -26,14 +26,14 @@ export default function PricingCalculator() {
     'Managed Services'
   ];
   const trainingProgramPrices = {
-    'Power BI Analyst': 1599,
-    'Azure Data Engineer': 3999,
-    'Databricks Engineer': 3999,
-    'Business Intelligence Analyst': 1799,
-    'AI Engineer': 3999,
-    'Prompt Engineering': 1599,
-    'Python for Data': 1599,
-    'Azure Data Factory Masterclass': 1799
+    'Power BI Analyst': 700,
+    'Azure Data Engineer': 1500,
+    'Databricks Engineer': 1500,
+    'Business Intelligence Analyst': 700,
+    'AI Engineer': 1800,
+    'Prompt Engineering': 700,
+    'Python for Data': 700,
+    'Azure Data Factory Masterclass': 1000
   };
   const trainingProgramTimelines = {
     'Power BI Analyst': '12 weeks',
@@ -48,6 +48,56 @@ export default function PricingCalculator() {
   const [selectedTrainingProgram, setSelectedTrainingProgram] = useState('Power BI Analyst');
   const [scrolled, setScrolled] = useState(false);
 
+  // Website Development state
+  const [websiteType, setWebsiteType] = useState('new');
+  const [websitePages, setWebsitePages] = useState('4-7');
+  const [websiteFeatures, setWebsiteFeatures] = useState([]);
+  const [websiteDesign, setWebsiteDesign] = useState('template-based');
+  const [websiteBranding, setWebsiteBranding] = useState('yes-basic');
+  const [websiteContent, setWebsiteContent] = useState('yes');
+  const [websiteIntegrations, setWebsiteIntegrations] = useState('none');
+  const [websiteTimeline, setWebsiteTimeline] = useState('standard');
+  const [websiteMaintenance, setWebsiteMaintenance] = useState('none');
+
+  const websitePagePricing = {
+    '1-3': 2500,
+    '4-7': 4000,
+    '8-15': 7000,
+    '16+': 12000
+  };
+
+  const websiteFeatureOptions = [
+    { id: 'blog', label: 'Blog/News Section', price: 500 },
+    { id: 'portfolio', label: 'Portfolio/Gallery', price: 400 },
+    { id: 'testimonials', label: 'Testimonials System', price: 300 },
+    { id: 'booking', label: 'Booking/Scheduling', price: 1200 },
+    { id: 'ecommerce', label: 'E-commerce (Basic)', price: 2500 },
+    { id: 'member-portal', label: 'Member Portal/Login', price: 2000 },
+    { id: 'live-chat', label: 'Live Chat Integration', price: 200 },
+    { id: 'newsletter', label: 'Newsletter Signup', price: 150 },
+    { id: 'multi-language', label: 'Multi-language Support', price: 1000 }
+  ];
+
+  const websiteDesignPrices = {
+    'template-based': 0,
+    'semi-custom': 1000,
+    'fully-custom': 2500
+  };
+
+  const websiteIntegrationPrices = {
+    'none': 0,
+    'basic': 500,
+    'standard': 1000,
+    'advanced': 2000
+  };
+
+  const websiteMaintenancePrices = {
+    'none': 0,
+    'basic': 150,
+    'standard': 350,
+    'premium': 650
+  };
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -56,11 +106,15 @@ export default function PricingCalculator() {
 
   useEffect(() => {
     calculateEstimate();
-  }, [serviceType, projectScope, timeline, teamSize, managedServices, training, selectedTrainingProgram]);
+  }, [serviceType, projectScope, timeline, teamSize, managedServices, training, selectedTrainingProgram, websiteType, websitePages, websiteFeatures, websiteDesign, websiteBranding, websiteContent, websiteIntegrations, websiteTimeline, websiteMaintenance]);
 
-  // When switching to Training, clear consulting add-ons
+  // When switching service types, clear irrelevant add-ons
   useEffect(() => {
     if (serviceType === 'training') {
+      setManagedServices(false);
+      setTraining(false);
+    }
+    if (serviceType === 'website') {
       setManagedServices(false);
       setTraining(false);
     }
@@ -91,6 +145,58 @@ export default function PricingCalculator() {
     } else if (serviceType === 'training') {
       const pricePerPerson = trainingProgramPrices[selectedTrainingProgram] || 1599;
       base = pricePerPerson * teamSize; // Price per person for selected program
+    } else if (serviceType === 'website') {
+      // Website pricing based on pages
+      base = websitePagePricing[websitePages] || 4000;
+
+      // Website type adjustment
+      if (websiteType === 'redesign') {
+        base *= 0.9; // 10% discount for redesign
+      } else if (websiteType === 'landing') {
+        base = 2000; // Fixed price for landing page
+      } else if (websiteType === 'ecommerce') {
+        base *= 1.5; // 50% premium for e-commerce
+      }
+
+      // Add feature prices
+      websiteFeatures.forEach(featureId => {
+        const feature = websiteFeatureOptions.find(f => f.id === featureId);
+        if (feature) base += feature.price;
+      });
+
+      // Add design price
+      base += websiteDesignPrices[websiteDesign] || 0;
+
+      // Add integration price
+      base += websiteIntegrationPrices[websiteIntegrations] || 0;
+
+      // Branding adjustment
+      if (websiteBranding === 'yes-complete') {
+        base -= 300; // Small discount for complete brand guidelines
+      } else if (websiteBranding === 'no') {
+        base += 800; // Add cost for basic branding work
+      }
+
+      // Content adjustment
+      if (websiteContent === 'no') {
+        base += 1500; // Add content creation cost
+      } else if (websiteContent === 'partial') {
+        base += 750; // Add partial content creation cost
+      }
+
+      // Timeline adjustment
+      if (websiteTimeline === 'rush') {
+        base *= 1.3; // 30% rush fee
+      } else if (websiteTimeline === 'fast') {
+        base *= 1.15; // 15% rush fee
+      } else if (websiteTimeline === 'flexible') {
+        base *= 0.95; // 5% discount
+      }
+
+      base = Math.round(base);
+
+      // Maintenance is monthly
+      monthly = websiteMaintenancePrices[websiteMaintenance] || 0;
     }
 
     // Add-ons (consulting only)
@@ -398,6 +504,15 @@ export default function PricingCalculator() {
       };
       return consultingTimelines[projectScope] || 'Contact us';
     }
+    if (serviceType === 'website') {
+      const baseTimelines = {
+        '1-3': { rush: '1-2 weeks', fast: '2-3 weeks', standard: '2-3 weeks', flexible: '3-4 weeks' },
+        '4-7': { rush: '2-3 weeks', fast: '2-3 weeks', standard: '3-4 weeks', flexible: '4-5 weeks' },
+        '8-15': { rush: '3-4 weeks', fast: '3-4 weeks', standard: '4-6 weeks', flexible: '6-8 weeks' },
+        '16+': { rush: '4-6 weeks', fast: '5-6 weeks', standard: '6-8 weeks', flexible: '8-10 weeks' }
+      };
+      return baseTimelines[websitePages]?.[websiteTimeline] || '3-4 weeks';
+    }
     // training: reflect selected program duration
     return trainingProgramTimelines[selectedTrainingProgram] || 'Custom timeline';
   };
@@ -414,7 +529,8 @@ export default function PricingCalculator() {
         { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
         { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
         { name: 'Managed Services', href: '/services#managed-services' },
-        { name: 'Enterprise Training', href: '/services#enterprise-training' }
+        { name: 'Enterprise Training', href: '/services#enterprise-training' },
+        { name: 'Website Development', href: '/website-development' }
       ]
     },
     {
@@ -566,7 +682,7 @@ export default function PricingCalculator() {
               <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Calculator</span>
             </h1>
             <p className="text-base md:text-xl text-gray-200 mx-auto md:whitespace-nowrap animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-              Get an instant estimate for your data transformation project or training program
+              Get an instant estimate for your data transformation project, training program, or website development
             </p>
           </div>
         </div>
@@ -634,7 +750,7 @@ export default function PricingCalculator() {
               {/* Service Type */}
               <div className="mb-8">
                 <label className="block text-lg font-bold text-gray-900 mb-4">What do you need?</label>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-3 gap-4">
                   <button
                     onClick={() => setServiceType('consulting')}
                     className={`p-6 rounded-xl border-2 transition ${
@@ -658,6 +774,18 @@ export default function PricingCalculator() {
                     <Users className="w-8 h-8 text-teal-600 mb-2" />
                     <div className="font-bold text-gray-900">Training Programs</div>
                     <div className="text-sm text-gray-600">Individual or Team upskilling</div>
+                  </button>
+                  <button
+                    onClick={() => setServiceType('website')}
+                    className={`p-6 rounded-xl border-2 transition ${
+                      serviceType === 'website'
+                        ? 'border-teal-600 bg-teal-50'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <Globe className="w-8 h-8 text-teal-600 mb-2" />
+                    <div className="font-bold text-gray-900">Website Development</div>
+                    <div className="text-sm text-gray-600">Professional websites</div>
                   </button>
                 </div>
                 {serviceType === 'consulting' && (
@@ -691,7 +819,211 @@ export default function PricingCalculator() {
                     <p className="text-sm text-gray-600 mt-2">Price is per person. Total updates with team size.</p>
                   </div>
                 )}
+                {serviceType === 'website' && (
+                  <div className="mt-4 space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">Website Type</label>
+                      <div className="grid md:grid-cols-4 gap-3">
+                        {[
+                          { value: 'new', label: 'Brand New', desc: 'Starting fresh' },
+                          { value: 'redesign', label: 'Redesign', desc: '10% discount' },
+                          { value: 'landing', label: 'Landing Page', desc: 'Single page' },
+                          { value: 'ecommerce', label: 'E-commerce', desc: 'Online store' }
+                        ].map((type) => (
+                          <button
+                            key={type.value}
+                            onClick={() => setWebsiteType(type.value)}
+                            className={`p-3 rounded-lg border-2 transition text-center ${
+                              websiteType === type.value
+                                ? 'border-teal-600 bg-teal-50'
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                          >
+                            <div className="font-bold text-gray-900 text-sm">{type.label}</div>
+                            <div className="text-xs text-gray-500">{type.desc}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">Number of Pages</label>
+                      <div className="grid grid-cols-4 gap-3">
+                        {['1-3', '4-7', '8-15', '16+'].map((range) => (
+                          <button
+                            key={range}
+                            onClick={() => setWebsitePages(range)}
+                            className={`p-3 rounded-lg border-2 transition text-center ${
+                              websitePages === range
+                                ? 'border-teal-600 bg-teal-50'
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                          >
+                            <div className="font-bold text-gray-900">{range}</div>
+                            <div className="text-xs text-gray-500">pages</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
+
+              {/* Website Features */}
+              {serviceType === 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">Add Features (Optional)</label>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {websiteFeatureOptions.map((feature) => (
+                      <label
+                        key={feature.id}
+                        className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition ${
+                          websiteFeatures.includes(feature.id)
+                            ? 'border-teal-600 bg-teal-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={websiteFeatures.includes(feature.id)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setWebsiteFeatures([...websiteFeatures, feature.id]);
+                            } else {
+                              setWebsiteFeatures(websiteFeatures.filter(f => f !== feature.id));
+                            }
+                          }}
+                          className="w-5 h-5 text-teal-600 rounded"
+                        />
+                        <div className="ml-3 flex-1">
+                          <div className="font-semibold text-gray-900">{feature.label}</div>
+                        </div>
+                        <div className="text-teal-600 font-bold">+{formatCurrency(feature.price)}</div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Website Design & Branding */}
+              {serviceType === 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">Design & Branding</label>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Custom Design Level</label>
+                      <select
+                        value={websiteDesign}
+                        onChange={(e) => setWebsiteDesign(e.target.value)}
+                        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      >
+                        <option value="template-based">Template-Based (Professional Customization)</option>
+                        <option value="semi-custom">Semi-Custom (+$1,000)</option>
+                        <option value="fully-custom">Fully Custom (+$2,500)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Do you have existing branding?</label>
+                      <select
+                        value={websiteBranding}
+                        onChange={(e) => setWebsiteBranding(e.target.value)}
+                        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      >
+                        <option value="yes-complete">Yes, complete brand guidelines (-$300)</option>
+                        <option value="yes-basic">Yes, basic (logo and colors)</option>
+                        <option value="no">No, need branding help (+$800)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Will you provide content (text & images)?</label>
+                      <select
+                        value={websiteContent}
+                        onChange={(e) => setWebsiteContent(e.target.value)}
+                        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      >
+                        <option value="yes">Yes, I'll provide all content</option>
+                        <option value="partial">Partial, need help with some (+$750)</option>
+                        <option value="no">No, need full content creation (+$1,500)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Website Integrations */}
+              {serviceType === 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">Third-Party Integrations</label>
+                  <select
+                    value={websiteIntegrations}
+                    onChange={(e) => setWebsiteIntegrations(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  >
+                    <option value="none">No integrations needed</option>
+                    <option value="basic">Basic (1-2 integrations) - +$500</option>
+                    <option value="standard">Standard (3-4 integrations) - +$1,000</option>
+                    <option value="advanced">Advanced (5+ or complex APIs) - +$2,000</option>
+                  </select>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Examples: CRM (Salesforce), Email Marketing (Mailchimp), Payment Processing (Stripe), Booking Systems
+                  </p>
+                </div>
+              )}
+
+              {/* Website Timeline */}
+              {serviceType === 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">Project Timeline</label>
+                  <div className="grid md:grid-cols-4 gap-3">
+                    {[
+                      { value: 'rush', label: 'Rush', desc: '+30% fee' },
+                      { value: 'fast', label: 'Fast', desc: '+15% fee' },
+                      { value: 'standard', label: 'Standard', desc: 'No extra fee' },
+                      { value: 'flexible', label: 'Flexible', desc: '5% discount' }
+                    ].map((option) => (
+                      <button
+                        key={option.value}
+                        onClick={() => setWebsiteTimeline(option.value)}
+                        className={`p-4 rounded-lg border-2 transition text-center ${
+                          websiteTimeline === option.value
+                            ? 'border-teal-600 bg-teal-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <div className="font-bold text-gray-900">{option.label}</div>
+                        <div className="text-sm text-gray-600">{option.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Website Maintenance */}
+              {serviceType === 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">Ongoing Maintenance</label>
+                  <div className="grid md:grid-cols-4 gap-3">
+                    {[
+                      { value: 'none', label: 'None', desc: 'Self-managed' },
+                      { value: 'basic', label: 'Basic', desc: '$150/mo' },
+                      { value: 'standard', label: 'Standard', desc: '$350/mo' },
+                      { value: 'premium', label: 'Premium', desc: '$650/mo' }
+                    ].map((plan) => (
+                      <button
+                        key={plan.value}
+                        onClick={() => setWebsiteMaintenance(plan.value)}
+                        className={`p-4 rounded-lg border-2 transition text-center ${
+                          websiteMaintenance === plan.value
+                            ? 'border-teal-600 bg-teal-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <div className="font-bold text-gray-900">{plan.label}</div>
+                        <div className="text-xs text-gray-600">{plan.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Project Scope (Consulting only) */}
               {serviceType === 'consulting' && (
@@ -749,32 +1081,34 @@ export default function PricingCalculator() {
                 </div>
               )}
 
-              {/* Team Size */}
-              <div className="mb-8">
-                <label className="block text-lg font-bold text-gray-900 mb-4">
-                  {serviceType === 'consulting' ? 'Consultant Team Size' : 'Number of Students'}
-                </label>
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={() => setTeamSize(Math.max(1, teamSize - 1))}
-                    className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-xl"
-                  >
-                    -
-                  </button>
-                  <div className="flex-1 text-center">
-                    <div className="text-4xl font-bold text-teal-600">{teamSize}</div>
-                    <div className="text-sm text-gray-600">
-                      {serviceType === 'consulting' ? 'Consultants' : 'Students'}
+              {/* Team Size (not shown for website) */}
+              {serviceType !== 'website' && (
+                <div className="mb-8">
+                  <label className="block text-lg font-bold text-gray-900 mb-4">
+                    {serviceType === 'consulting' ? 'Consultant Team Size' : 'Number of Students'}
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setTeamSize(Math.max(1, teamSize - 1))}
+                      className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-xl"
+                    >
+                      -
+                    </button>
+                    <div className="flex-1 text-center">
+                      <div className="text-4xl font-bold text-teal-600">{teamSize}</div>
+                      <div className="text-sm text-gray-600">
+                        {serviceType === 'consulting' ? 'Consultants' : 'Students'}
+                      </div>
                     </div>
+                    <button
+                      onClick={() => setTeamSize(teamSize + 1)}
+                      className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-xl"
+                    >
+                      +
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setTeamSize(teamSize + 1)}
-                    className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-xl"
-                  >
-                    +
-                  </button>
                 </div>
-              </div>
+              )}
 
               {/* Add-ons (Consulting only) */}
               {serviceType === 'consulting' && (
@@ -823,16 +1157,22 @@ export default function PricingCalculator() {
                   <div className="text-sm text-gray-300 mb-2">Total Investment</div>
                   <div className="text-4xl font-bold mb-2">{formatCurrency(estimate)}</div>
                   <div className="text-sm text-gray-300">
-                    {serviceType === 'consulting' ? 'One-time project cost' : `${teamSize} student${teamSize > 1 ? 's' : ''}`}
+                    {serviceType === 'consulting' && 'One-time project cost'}
+                    {serviceType === 'training' && `${teamSize} student${teamSize > 1 ? 's' : ''}`}
+                    {serviceType === 'website' && `${websitePages} pages • ${websiteType === 'new' ? 'New website' : websiteType === 'redesign' ? 'Redesign' : websiteType === 'landing' ? 'Landing page' : 'E-commerce'}`}
                   </div>
                 </div>
 
                 {/* Monthly (if applicable) */}
                 {monthlyEstimate > 0 && (
                   <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-6">
-                    <div className="text-sm text-gray-300 mb-2">Monthly (Managed Services)</div>
+                    <div className="text-sm text-gray-300 mb-2">
+                      {serviceType === 'website' ? 'Monthly Maintenance' : 'Monthly (Managed Services)'}
+                    </div>
                     <div className="text-3xl font-bold mb-2">{formatCurrency(monthlyEstimate)}</div>
-                    <div className="text-sm text-gray-300">Ongoing support & optimization</div>
+                    <div className="text-sm text-gray-300">
+                      {serviceType === 'website' ? 'Ongoing updates & support' : 'Ongoing support & optimization'}
+                    </div>
                   </div>
                 )}
 
@@ -856,20 +1196,22 @@ export default function PricingCalculator() {
                     </div>
                   )}
 
-                  <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-teal-400" />
-                    <div>
-                      <div className="text-sm text-gray-300">Team Size</div>
-                      <div className="font-semibold">{teamSize} {serviceType === 'consulting' ? 'consultants' : 'students'}</div>
+                  {serviceType !== 'website' && (
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5 text-teal-400" />
+                      <div>
+                        <div className="text-sm text-gray-300">Team Size</div>
+                        <div className="font-semibold">{teamSize} {serviceType === 'consulting' ? 'consultants' : 'students'}</div>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* What's Included */}
                 <div className="mb-6">
                   <div className="text-sm font-semibold text-gray-300 mb-3">What's Included:</div>
                   <div className="space-y-2">
-                    {serviceType === 'consulting' ? (
+                    {serviceType === 'consulting' && (
                       <>
                         <div className="flex items-start gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
@@ -894,7 +1236,8 @@ export default function PricingCalculator() {
                           </div>
                         )}
                       </>
-                    ) : (
+                    )}
+                    {serviceType === 'training' && (
                       <>
                         <div className="flex items-start gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
@@ -915,6 +1258,30 @@ export default function PricingCalculator() {
                         <div className="flex items-start gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                           <span>Job placement assistance</span>
+                        </div>
+                      </>
+                    )}
+                    {serviceType === 'website' && (
+                      <>
+                        <div className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span>Custom responsive design</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span>Mobile optimization</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span>SEO setup & analytics</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span>Post-launch support</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span>Training session</span>
                         </div>
                       </>
                     )}
