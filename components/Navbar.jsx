@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
+import { X, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 
 const navigation = [
   {
@@ -209,6 +209,9 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [sheetReady, setSheetReady] = useState(false);
+  const [dragY, setDragY] = useState(0);
+  const dragStartY = useRef(null);
+  const sheetRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -228,6 +231,7 @@ export default function Navbar() {
       document.body.style.overflow = '';
       setSheetReady(false);
       setMobileDetail(null);
+      setDragY(0);
     }
     return () => { document.body.style.overflow = ''; };
   }, [mobileMenuOpen]);
@@ -237,6 +241,27 @@ export default function Navbar() {
     setTimeout(() => setMobileMenuOpen(false), 300);
   }, []);
 
+  // Drag-to-dismiss handlers
+  const handleDragStart = useCallback((e) => {
+    dragStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleDragMove = useCallback((e) => {
+    if (dragStartY.current === null) return;
+    const delta = e.touches[0].clientY - dragStartY.current;
+    if (delta > 0) {
+      setDragY(delta);
+    }
+  }, []);
+
+  const handleDragEnd = useCallback(() => {
+    if (dragY > 100) {
+      closeMobile();
+    }
+    setDragY(0);
+    dragStartY.current = null;
+  }, [dragY, closeMobile]);
+
   const activeItem = activeDropdown
     ? navigation.find((n) => n.name === activeDropdown)
     : null;
@@ -244,6 +269,8 @@ export default function Navbar() {
   const mobileDetailItem = mobileDetail
     ? navigation.find((n) => n.name === mobileDetail)
     : null;
+
+  const extProps = (href) => href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 
   return (
     <>
@@ -259,7 +286,7 @@ export default function Navbar() {
         className={`fixed w-full z-50 transition-all duration-500 ${
           scrolled
             ? 'bg-[#1a2332]/95 backdrop-blur-lg shadow-lg shadow-black/10'
-            : 'bg-[#1a2332]/90 backdrop-blur-sm'
+            : 'bg-white/80 backdrop-blur-md shadow-sm'
         }`}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -275,7 +302,7 @@ export default function Navbar() {
                 height={40}
                 className="w-9 h-9 rounded-xl"
               />
-              <span className="text-lg font-bold tracking-tight text-white">
+              <span className={`text-lg font-bold tracking-tight transition-colors duration-500 ${scrolled ? 'text-white' : 'text-gray-900'}`}>
                 Ripotek
               </span>
             </Link>
@@ -292,8 +319,10 @@ export default function Navbar() {
                     href={item.href}
                     className={`px-3 xl:px-3.5 py-1.5 text-[13px] font-medium transition-colors flex items-center gap-0.5 ${
                       activeDropdown === item.name
-                        ? 'text-teal-400'
-                        : 'text-gray-300 hover:text-white'
+                        ? 'text-teal-500'
+                        : scrolled
+                          ? 'text-gray-300 hover:text-white'
+                          : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     {item.name}
@@ -309,20 +338,24 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[13px] text-gray-400 hover:text-white transition-colors"
+                  className={`text-[13px] transition-colors ${scrolled ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}
                 >
                   {link.name}
                 </Link>
               ))}
             </div>
 
-            {/* Mobile: Menu Button */}
+            {/* Mobile: Menu Button — Modern dot grid */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden ml-auto p-2.5 rounded-lg hover:bg-white/10 transition-colors"
+              className={`lg:hidden ml-auto p-2.5 rounded-xl transition-colors ${scrolled ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6 text-white" />
+              <div className="w-6 h-6 flex flex-col justify-center gap-[5px]">
+                <span className={`block h-[2.5px] w-6 rounded-full transition-colors duration-500 ${scrolled ? 'bg-white' : 'bg-gray-800'}`} />
+                <span className={`block h-[2.5px] w-4 rounded-full transition-colors duration-500 ${scrolled ? 'bg-white' : 'bg-gray-800'}`} />
+                <span className={`block h-[2.5px] w-5 rounded-full transition-colors duration-500 ${scrolled ? 'bg-white' : 'bg-gray-800'}`} />
+              </div>
             </button>
           </div>
         </div>
@@ -348,6 +381,7 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
+                      {...extProps(link.href)}
                       className="block text-[14px] font-semibold text-gray-900 hover:text-teal-600 transition-colors"
                       onClick={() => setActiveDropdown(null)}
                     >
@@ -368,6 +402,7 @@ export default function Navbar() {
                     <Link
                       key={card.name}
                       href={card.href}
+                      {...extProps(card.href)}
                       className={`group relative ${card.bg} ${card.text} rounded-2xl p-5 min-h-[130px] flex flex-col justify-between overflow-hidden transition-transform hover:scale-[1.02]`}
                       onClick={() => setActiveDropdown(null)}
                     >
@@ -399,6 +434,7 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
+                      {...extProps(link.href)}
                       className="block text-[14px] text-gray-700 hover:text-teal-600 transition-colors"
                       onClick={() => setActiveDropdown(null)}
                     >
@@ -425,32 +461,38 @@ export default function Navbar() {
 
           {/* Bottom Sheet */}
           <div
+            ref={sheetRef}
             className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out ${
               sheetReady ? 'translate-y-0' : 'translate-y-full'
             }`}
-            style={{ maxHeight: '85vh' }}
+            style={{ maxHeight: '85vh', transform: sheetReady && dragY > 0 ? `translateY(${dragY}px)` : undefined }}
           >
-            {/* Drag Handle */}
-            <div className="flex justify-center pt-3 pb-1 shrink-0">
-              <div className="w-10 h-1 bg-gray-300 rounded-full" />
+            {/* Drag Handle — touch to drag down to dismiss */}
+            <div
+              className="flex justify-center pt-3 pb-1 shrink-0 cursor-grab active:cursor-grabbing"
+              onTouchStart={handleDragStart}
+              onTouchMove={handleDragMove}
+              onTouchEnd={handleDragEnd}
+            >
+              <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
             </div>
 
             {/* Sheet Content - Stacked Views (no transforms for reliable mobile scroll) */}
-            <div className="relative" style={{ height: 'calc(85vh - 24px)' }}>
+            <div className="relative" style={{ height: 'calc(85vh - 28px)' }}>
               {/* Main View */}
               <div
                 className={`absolute inset-0 flex flex-col transition-opacity duration-200 ${
                   mobileDetail ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
               >
-                {/* Sticky close button */}
-                <div className="flex justify-end py-2 px-6 shrink-0 bg-white">
+                {/* Sticky floating close button */}
+                <div className="flex justify-end py-2 px-5 shrink-0 bg-white">
                   <button
                     onClick={closeMobile}
-                    className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
+                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center shadow-md transition-colors"
                     aria-label="Close menu"
                   >
-                    <X className="w-7 h-7 text-gray-800" strokeWidth={2.5} />
+                    <X className="w-5 h-5 text-gray-700" strokeWidth={2.5} />
                   </button>
                 </div>
 
@@ -497,21 +539,21 @@ export default function Navbar() {
                   mobileDetail ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
               >
-                {/* Sticky header: Back + Close */}
-                <div className="flex items-center justify-between py-2 px-6 shrink-0 bg-white">
+                {/* Sticky header: Floating circle buttons */}
+                <div className="flex items-center justify-between py-2 px-5 shrink-0 bg-white">
                   <button
                     onClick={() => setMobileDetail(null)}
-                    className="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors"
+                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center shadow-md transition-colors"
                     aria-label="Go back"
                   >
-                    <ArrowLeft className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
+                    <ArrowLeft className="w-5 h-5 text-gray-700" strokeWidth={2.5} />
                   </button>
                   <button
                     onClick={closeMobile}
-                    className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
+                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center shadow-md transition-colors"
                     aria-label="Close menu"
                   >
-                    <X className="w-7 h-7 text-gray-800" strokeWidth={2.5} />
+                    <X className="w-5 h-5 text-gray-700" strokeWidth={2.5} />
                   </button>
                 </div>
 
@@ -533,6 +575,7 @@ export default function Navbar() {
                         <Link
                           key={link.name}
                           href={link.href}
+                          {...extProps(link.href)}
                           className="block text-base font-semibold text-gray-900 hover:text-teal-600 transition-colors py-1"
                           onClick={closeMobile}
                         >
@@ -547,6 +590,7 @@ export default function Navbar() {
                         <Link
                           key={card.name}
                           href={card.href}
+                          {...extProps(card.href)}
                           className={`block ${card.bg} ${card.text} rounded-2xl p-5 relative overflow-hidden`}
                           onClick={closeMobile}
                         >
@@ -574,6 +618,7 @@ export default function Navbar() {
                             <Link
                               key={link.name}
                               href={link.href}
+                              {...extProps(link.href)}
                               className="block text-base text-gray-700 hover:text-teal-600 transition-colors py-1"
                               onClick={closeMobile}
                             >
