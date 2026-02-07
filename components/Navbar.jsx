@@ -439,13 +439,12 @@ export default function Navbar() {
             <div className="relative" style={{ height: 'calc(85vh - 24px)' }}>
               {/* Main View */}
               <div
-                className={`absolute inset-0 overflow-y-auto overscroll-contain px-6 pb-8 transition-opacity duration-200 ${
+                className={`absolute inset-0 flex flex-col transition-opacity duration-200 ${
                   mobileDetail ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
-                style={{ WebkitOverflowScrolling: 'touch' }}
               >
-                {/* Close button */}
-                <div className="flex justify-end py-2">
+                {/* Sticky close button */}
+                <div className="flex justify-end py-2 px-6 shrink-0 bg-white">
                   <button
                     onClick={closeMobile}
                     className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -455,6 +454,8 @@ export default function Navbar() {
                   </button>
                 </div>
 
+                {/* Scrollable content */}
+                <div className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8" style={{ WebkitOverflowScrolling: 'touch' }}>
                 {/* Primary nav items */}
                 <div className="space-y-1 mb-6">
                   {navigation.map((item) => (
@@ -487,17 +488,17 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </div>
+                </div>
               </div>
 
               {/* Detail View */}
               <div
-                className={`absolute inset-0 overflow-y-auto overscroll-contain px-6 pb-8 transition-opacity duration-200 ${
+                className={`absolute inset-0 flex flex-col transition-opacity duration-200 ${
                   mobileDetail ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
-                style={{ WebkitOverflowScrolling: 'touch' }}
               >
-                {/* Header: Back + Close */}
-                <div className="flex items-center justify-between py-2">
+                {/* Sticky header: Back + Close */}
+                <div className="flex items-center justify-between py-2 px-6 shrink-0 bg-white">
                   <button
                     onClick={() => setMobileDetail(null)}
                     className="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -514,6 +515,8 @@ export default function Navbar() {
                   </button>
                 </div>
 
+                {/* Scrollable content */}
+                <div className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8" style={{ WebkitOverflowScrolling: 'touch' }}>
                 {mobileDetailItem && (
                   <>
                     {/* Title & description */}
@@ -582,6 +585,7 @@ export default function Navbar() {
                     )}
                   </>
                 )}
+                </div>
               </div>
             </div>
           </div>
