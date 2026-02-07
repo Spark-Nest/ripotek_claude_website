@@ -393,7 +393,7 @@ export default function Navbar() {
 
               {/* Right column: MORE links */}
               <div className="w-40 shrink-0">
-                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">More</h4>
+                <h4 className="text-[11px] font-bold text-teal-600 uppercase tracking-widest mb-4 bg-teal-50 px-3 py-1.5 rounded-full inline-block">More</h4>
                 <div className="space-y-3">
                   {activeItem.moreLinks.map((link) => (
                     <Link
@@ -450,7 +450,7 @@ export default function Navbar() {
                     className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
                     aria-label="Close menu"
                   >
-                    <X className="w-6 h-6 text-gray-500" />
+                    <X className="w-7 h-7 text-gray-800" strokeWidth={2.5} />
                   </button>
                 </div>
 
@@ -504,14 +504,14 @@ export default function Navbar() {
                     className="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors"
                     aria-label="Go back"
                   >
-                    <ArrowLeft className="w-5 h-5 text-gray-500" />
+                    <ArrowLeft className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
                   </button>
                   <button
                     onClick={closeMobile}
                     className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
                     aria-label="Close menu"
                   >
-                    <X className="w-6 h-6 text-gray-500" />
+                    <X className="w-7 h-7 text-gray-800" strokeWidth={2.5} />
                   </button>
                 </div>
 

@@ -485,7 +485,7 @@ export default function RipotekHomePage() {
               Building world-class solutions with cutting-edge platforms
             </p>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 px-2 md:px-0">
+          <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 px-2 md:px-0">
             {partners.map((p, i) => (
               <a
                 key={i}
