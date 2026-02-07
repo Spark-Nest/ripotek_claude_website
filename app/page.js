@@ -179,7 +179,7 @@ export default function RipotekHomePage() {
       <Navbar />
 
       {/* Video Introduction Hero Section */}
-      <section className="relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-20">
+      <section className="relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden pt-[72px]">
         {/* Ambient Background Effects - Desktop Only for Performance */}
         {!isMobile && (
           <div className="absolute inset-0 opacity-25">

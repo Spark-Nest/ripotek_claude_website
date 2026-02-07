@@ -1,46 +1,52 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, ChevronRight, ArrowRight, Mail } from 'lucide-react';
+import { Menu, X, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 
 const navigation = [
   {
     name: 'Business Solutions',
     href: '/services',
     description: 'Transform your business with cutting-edge data and AI solutions tailored to your industry.',
-    featured: {
-      title: 'Explore All Services',
-      description: 'Discover how we can help you unlock the power of your data.',
-      href: '/services',
-      cta: 'View Services'
-    },
-    sections: [
+    leftLinks: [
+      { name: 'Industries', href: '/services#industries' },
+      { name: 'Case Studies', href: '/case-studies' }
+    ],
+    cards: [
       {
-        title: 'Industries',
-        items: [
-          { name: 'Energy & Utilities', description: 'Real-time operations and predictive maintenance', href: '/services#industries' },
-          { name: 'Financial Services', description: 'Risk analytics and fraud detection', href: '/services#industries' },
-          { name: 'Healthcare', description: 'Patient outcomes and operational efficiency', href: '/services#industries' },
-          { name: 'Public Sector', description: 'Citizen services and compliance', href: '/services#industries' },
-          { name: 'Manufacturing', description: 'Supply chain and IoT analytics', href: '/services#industries' }
-        ]
+        name: 'Data Engineering',
+        description: 'Build scalable data platforms with Azure, Databricks & Microsoft Fabric.',
+        href: '/services#data-platform-build',
+        bg: 'bg-amber-400',
+        text: 'text-gray-900'
       },
       {
-        title: 'Services',
-        items: [
-          { name: 'Strategy & Governance', description: 'Data architecture and compliance frameworks', href: '/services#strategy-&-governance' },
-          { name: 'Data Platform Build', description: 'Azure, Databricks, and Microsoft Fabric', href: '/services#data-platform-build' },
-          { name: 'Analytics & BI', description: 'Power BI and self-service analytics', href: '/services#analytics-&-bi' },
-          { name: 'MLOps & AI', description: 'Machine learning and GenAI solutions', href: '/services#mlops-&-ai' },
-          { name: 'Managed Services', description: 'Ongoing support and optimization', href: '/services#managed-services' },
-          { name: 'Website Development', description: 'Professional web solutions for modern businesses', href: '/website-development' }
-        ]
+        name: 'Analytics & BI',
+        description: 'Power BI dashboards and self-service analytics at enterprise scale.',
+        href: '/services#analytics-&-bi',
+        bg: 'bg-teal-600',
+        text: 'text-white'
+      },
+      {
+        name: 'MLOps & AI',
+        description: 'Deploy machine learning models and GenAI solutions at scale.',
+        href: '/services#mlops-&-ai',
+        bg: 'bg-sky-500',
+        text: 'text-white'
+      },
+      {
+        name: 'Website Development',
+        description: 'Professional web solutions for modern businesses.',
+        href: '/website-development',
+        bg: 'bg-rose-400',
+        text: 'text-white'
       }
     ],
-    quickLinks: [
-      { name: 'View Case Studies', href: '/case-studies' },
+    moreLinks: [
+      { name: 'Strategy & Governance', href: '/services#strategy-&-governance' },
+      { name: 'Managed Services', href: '/services#managed-services' },
       { name: 'Capabilities Deck', href: '/resources/capabilities-deck' }
     ]
   },
@@ -48,412 +54,530 @@ const navigation = [
     name: 'Ripotek Academy',
     href: '/training',
     description: 'Learn from industry experts and build job-ready skills in data engineering, analytics, and AI.',
-    featured: {
-      title: 'All Training Programs',
-      description: 'Explore our comprehensive curriculum designed for career success.',
-      href: '/training#our-programs',
-      cta: 'Browse Programs'
-    },
-    sections: [
+    leftLinks: [
+      { name: 'All Programs', href: '/training#our-programs' },
+      { name: 'Enterprise Training', href: '/services#enterprise-training' }
+    ],
+    cards: [
       {
-        title: 'Certification Programs',
-        items: [
-          { name: 'Power BI Analyst', description: '12 weeks • $700 • PL-300 prep', href: '/training#power-bi-analyst' },
-          { name: 'Azure Data Engineer', description: '24 weeks • $1,500 • DP-203 prep', href: '/training#azure-data-engineer' },
-          { name: 'Databricks Engineer', description: '24 weeks • $1,500 • Spark & Delta Lake', href: '/training#databricks-engineer' },
-          { name: 'AI Engineer', description: '24 weeks • $1,800 • AI-102 prep', href: '/training#ai-engineer' }
-        ]
+        name: 'Power BI Analyst',
+        description: '12 weeks \u2022 $700 \u2022 PL-300 certification prep.',
+        href: '/training#power-bi-analyst',
+        bg: 'bg-violet-500',
+        text: 'text-white'
       },
       {
-        title: 'Specialized Courses',
-        items: [
-          { name: 'Business Intelligence Analyst', description: '12 weeks • $700 • End-to-end BI', href: '/training#business-intelligence-analyst' },
-          { name: 'Prompt Engineering', description: '12 weeks • $700 • GenAI mastery', href: '/training#prompt-engineering' },
-          { name: 'Python Bootcamp', description: '12 weeks • $700 • Data manipulation', href: '/training#python-for-data' },
-          { name: 'ADF Masterclass', description: '12 weeks • $1,000 • Pipeline mastery', href: '/training#azure-data-factory-masterclass' }
-        ]
+        name: 'Azure Data Engineer',
+        description: '24 weeks \u2022 $1,500 \u2022 DP-203 certification prep.',
+        href: '/training#azure-data-engineer',
+        bg: 'bg-cyan-500',
+        text: 'text-white'
+      },
+      {
+        name: 'AI Engineer',
+        description: '24 weeks \u2022 $1,800 \u2022 AI-102 certification prep.',
+        href: '/training#ai-engineer',
+        bg: 'bg-amber-500',
+        text: 'text-gray-900'
+      },
+      {
+        name: 'Databricks Engineer',
+        description: '24 weeks \u2022 $1,500 \u2022 Spark & Delta Lake.',
+        href: '/training#databricks-engineer',
+        bg: 'bg-rose-500',
+        text: 'text-white'
       }
     ],
-    quickLinks: [
-      { name: 'Compare Programs', href: '/training#our-programs' },
-      { name: 'Enterprise Training', href: '/services#enterprise-training' }
+    moreLinks: [
+      { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
+      { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
+      { name: 'Python Bootcamp', href: '/training#python-bootcamp' },
+      { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
     ]
   },
   {
     name: 'Events & Resources',
     href: '/resources',
     description: 'Stay informed with insights, white papers, and expert content on data and AI.',
-    featured: {
-      title: 'Capabilities Deck',
-      description: 'View Our Capabilities Deck',
-      href: '/resources/capabilities-deck',
-      cta: 'View Deck'
-    },
-    sections: [
+    leftLinks: [
+      { name: 'Blog & Insights', href: '/blog' },
+      { name: 'Case Studies', href: '/case-studies' },
+      { name: 'White Papers', href: '/resources#whitepapers' },
+      { name: 'Demo Videos', href: '/resources#videos' }
+    ],
+    cards: [
       {
-        title: 'Content',
-        items: [
-          { name: 'Blog & Insights', description: 'Latest trends and best practices', href: '/blog' },
-          { name: 'White Papers', description: 'In-depth research and guides', href: '/resources#whitepapers' },
-          { name: 'Demo Videos', description: 'See our solutions in action', href: '/resources#videos' },
-          { name: 'Case Studies', description: 'Real client success stories', href: '/case-studies' }
-        ]
+        name: 'Capabilities Deck',
+        description: 'Download our comprehensive service and capabilities overview.',
+        href: '/resources/capabilities-deck',
+        bg: 'bg-teal-500',
+        text: 'text-white'
       },
       {
-        title: 'Tools',
-        items: [
-          { name: 'Capabilities Deck', description: 'Download our service overview', href: '/resources/capabilities-deck' },
-          { name: 'Syllabi', description: 'View all program syllabi', href: '/training#our-programs' },
-          { name: 'YouTube Channel', description: 'Tutorials and webinars', href: 'https://youtube.com/@ripotekacademy' },
-          { name: 'GitHub', description: 'Open source resources', href: 'https://github.com/ripotek-technologies' }
-        ]
+        name: 'YouTube Channel',
+        description: 'Tutorials, webinars, and expert walkthroughs.',
+        href: 'https://youtube.com/@ripotekacademy',
+        bg: 'bg-red-500',
+        text: 'text-white'
       }
     ],
-    quickLinks: [
-      { name: 'Subscribe for Updates', href: '/resources#subscribe' },
-      { name: 'Upcoming Events', href: '/resources#events' }
+    moreLinks: [
+      { name: 'Syllabi', href: '/training#our-programs' },
+      { name: 'GitHub', href: 'https://github.com/ripotek-technologies' },
+      { name: 'Subscribe for Updates', href: '/resources#subscribe' }
     ]
   },
   {
     name: 'Pricing',
     href: '/pricing',
     description: 'Transparent pricing for consulting services and training programs.',
-    featured: {
-      title: 'Get a Custom Quote',
-      description: 'Contact us for tailored solutions that fit your budget.',
-      href: '/contact',
-      cta: 'Contact Us'
-    },
-    sections: [
+    leftLinks: [
+      { name: 'Training Pricing', href: '/training' },
+      { name: 'Website Pricing', href: '/website-pricing' }
+    ],
+    cards: [
       {
-        title: 'Consulting',
-        items: [
-          { name: 'Discovery', description: '2-4 weeks • $15K-$30K', href: '/pricing#discovery' },
-          { name: 'Implementation', description: '3-6 months • $100K-$300K', href: '/pricing#implementation' },
-          { name: 'Managed Services', description: 'Ongoing • $8K-$25K/month', href: '/pricing#managed' },
-          { name: 'Enterprise', description: 'Custom pricing', href: '/contact' }
-        ]
+        name: 'Discovery',
+        description: '2\u20134 weeks \u2022 $15K\u2013$30K \u2022 Assessment & roadmap.',
+        href: '/pricing#discovery',
+        bg: 'bg-sky-500',
+        text: 'text-white'
       },
       {
-        title: 'Training',
-        items: [
-          { name: 'Individual Courses', description: '$700-$1,800 per program', href: '/training' },
-          { name: 'Corporate Training', description: 'Team discounts available', href: '/services#enterprise-training' },
-          { name: 'Payment Plans', description: 'Split your investment', href: '/pricing#payment' },
-          { name: 'Scholarships', description: 'Financial aid options', href: '/pricing#scholarships' }
-        ]
+        name: 'Implementation',
+        description: '3\u20136 months \u2022 $100K\u2013$300K \u2022 Full platform build.',
+        href: '/pricing#implementation',
+        bg: 'bg-amber-400',
+        text: 'text-gray-900'
+      },
+      {
+        name: 'Managed Services',
+        description: 'Ongoing \u2022 $8K\u2013$25K/month \u2022 Support & optimization.',
+        href: '/pricing#managed',
+        bg: 'bg-teal-600',
+        text: 'text-white'
       }
     ],
-    quickLinks: [
-      { name: 'Website Pricing', href: '/website-pricing' },
+    moreLinks: [
+      { name: 'Enterprise Custom', href: '/contact' },
+      { name: 'Payment Plans', href: '/pricing#payment' },
       { name: 'Book a Discovery Call', href: '/contact' }
     ]
   },
   {
     name: 'About Us',
     href: '/about',
-    description: 'Learn about our mission, meet the team, and explore career opportunities.',
-    featured: {
-      title: 'Join Our Team',
-      description: 'We are always looking for talented data professionals.',
-      href: '/careers',
-      cta: 'View Careers'
-    },
-    sections: [
+    description: 'Learn about our mission, meet the team, and explore career opportunities at Ripotek.',
+    leftLinks: [
+      { name: 'About Ripotek', href: '/about' },
+      { name: 'Meet the Team', href: '/about#team' },
+      { name: 'Partners', href: '/#partners' }
+    ],
+    cards: [
       {
-        title: 'Company',
-        items: [
-          { name: 'About Ripotek', description: 'Our story and mission', href: '/about' },
-          { name: 'Meet the Team', description: 'The people behind Ripotek', href: '/about#team' },
-          { name: 'Careers at Ripotek', description: 'Join our growing team', href: '/careers' },
-          { name: 'Partners', description: 'Microsoft, Databricks & more', href: '/#partners' }
-        ]
+        name: 'Careers at Ripotek',
+        description: 'Join our growing team of data and AI professionals.',
+        href: '/careers',
+        bg: 'bg-violet-500',
+        text: 'text-white'
       },
       {
-        title: 'Connect',
-        items: [
-          { name: 'Get in Touch', description: 'Contact us for inquiries', href: '/contact' },
-          { name: 'Subscribe for Updates', description: 'Newsletter and updates', href: '/resources#subscribe' },
-          { name: 'LinkedIn', description: 'Follow us for insights', href: 'https://linkedin.com/company/ripotek' },
-          { name: 'Support', description: 'Help center and FAQs', href: '/resources#support' }
-        ]
+        name: 'Get in Touch',
+        description: 'Contact us for inquiries, partnerships, or support.',
+        href: '/contact',
+        bg: 'bg-teal-500',
+        text: 'text-white'
       }
     ],
-    quickLinks: [
+    moreLinks: [
+      { name: 'LinkedIn', href: 'https://linkedin.com/company/ripotek' },
       { name: 'Case Studies', href: '/case-studies' },
-      { name: 'Client Testimonials', href: '/case-studies#testimonials' }
+      { name: 'Subscribe for Updates', href: '/resources#subscribe' }
     ]
   }
 ];
 
+const secondaryLinks = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Contact', href: '/contact' }
+];
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [mobileDetail, setMobileDetail] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [sheetReady, setSheetReady] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMobileDropdown = (name) => {
-    setMobileDropdown(mobileDropdown === name ? null : name);
-  };
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Small delay for the slide-up animation
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setSheetReady(true));
+      });
+    } else {
+      document.body.style.overflow = '';
+      setSheetReady(false);
+      setMobileDetail(null);
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
+
+  const closeMobile = useCallback(() => {
+    setSheetReady(false);
+    setTimeout(() => setMobileMenuOpen(false), 300);
+  }, []);
+
+  const activeItem = activeDropdown
+    ? navigation.find((n) => n.name === activeDropdown)
+    : null;
+
+  const mobileDetailItem = mobileDetail
+    ? navigation.find((n) => n.name === mobileDetail)
+    : null;
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg' 
-          : 'bg-white/80 backdrop-blur-sm'
-      }`}
-      onMouseLeave={() => setActiveDropdown(null)}
-    >
-      <div className="w-full px-4 lg:px-8">
-        <div className="flex items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition shrink-0">
-            <Image 
-              src="/favicon.svg" 
-              alt="Ripotek logo" 
-              width={40} 
-              height={40} 
-              className="w-9 h-9 md:w-10 md:h-10 rounded-lg shadow-lg" 
-            />
-            <div>
-              <div className="text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent leading-none">
+    <>
+      {/* Desktop: background overlay when mega-menu is open */}
+      {activeDropdown && (
+        <div
+          className="fixed inset-0 bg-black/10 z-40 hidden lg:block"
+          onClick={() => setActiveDropdown(null)}
+        />
+      )}
+
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled || activeDropdown
+            ? 'bg-white shadow-sm'
+            : 'bg-white/80 backdrop-blur-sm'
+        }`}
+        onMouseLeave={() => setActiveDropdown(null)}
+      >
+        {/* Main nav bar */}
+        <div className="w-full px-4 lg:px-8 xl:px-12">
+          <div className="flex items-center h-[72px]">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition shrink-0">
+              <Image
+                src="/favicon.svg"
+                alt="Ripotek logo"
+                width={40}
+                height={40}
+                className="w-9 h-9 rounded-xl"
+              />
+              <span className="text-lg font-bold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">
                 Ripotek
-              </div>
-              <div className="text-[10px] text-gray-500 tracking-wide">Design. Engineer. Deliver.</div>
+              </span>
+            </Link>
+
+            {/* Desktop: Primary Navigation */}
+            <div className="hidden lg:flex items-center gap-0 ml-8">
+              {navigation.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.name)}
+                >
+                  <Link
+                    href={item.href}
+                    className={`px-3 xl:px-3.5 py-1.5 text-[13px] font-medium transition-colors flex items-center gap-0.5 ${
+                      activeDropdown === item.name
+                        ? 'text-teal-600'
+                        : 'text-gray-700 hover:text-gray-900'
+                    }`}
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-3 h-3 opacity-40 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 opacity-60' : ''}`} />
+                  </Link>
+                </div>
+              ))}
             </div>
-          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-            {navigation.map((item) => (
-              <div 
-                key={item.name} 
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-              >
+            {/* Desktop: Secondary Navigation */}
+            <div className="hidden lg:flex items-center gap-5 ml-auto">
+              {secondaryLinks.map((link) => (
                 <Link
-                  href={item.href}
-                  className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-gray-100/80 flex items-center gap-1 ${
-                    activeDropdown === item.name ? 'text-teal-600 bg-gray-100/80' : 'text-gray-700'
-                  }`}
+                  key={link.name}
+                  href={link.href}
+                  className="text-[12px] text-gray-400 hover:text-gray-700 transition-colors font-normal"
                 >
-                  {item.name}
+                  {link.name}
                 </Link>
+              ))}
+            </div>
 
-                {/* Mega Menu Dropdown */}
-                {activeDropdown === item.name && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[900px]">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                      <div className="p-8">
-                        {/* Header */}
-                        <div className="mb-6">
-                          <h3 className="text-xl font-bold text-gray-900">{item.name}</h3>
-                          <p className="text-gray-600 text-sm mt-1">{item.description}</p>
-                        </div>
-
-                        <div className="flex gap-8">
-                          {/* Sections */}
-                          <div className="flex-1 grid grid-cols-2 gap-8">
-                            {item.sections.map((section) => (
-                              <div key={section.title}>
-                                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                                  {section.title}
-                                </h4>
-                                <ul className="space-y-3">
-                                  {section.items.map((subItem) => (
-                                    <li key={subItem.name}>
-                                      <Link
-                                        href={subItem.href}
-                                        className="group block"
-                                        onClick={() => setActiveDropdown(null)}
-                                      >
-                                        <div className="text-sm font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
-                                          {subItem.name}
-                                        </div>
-                                        <div className="text-xs text-gray-500 group-hover:text-gray-600">
-                                          {subItem.description}
-                                        </div>
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Featured Card */}
-                          <div className="w-56 shrink-0">
-                            <Link 
-                              href={item.featured.href}
-                              className="block group"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-xl p-5 text-white relative overflow-hidden">
-                                <div className="relative z-10">
-                                  <h4 className="font-bold text-lg mb-2">{item.featured.title}</h4>
-                                  <p className="text-sm text-white/90 mb-4">{item.featured.description}</p>
-                                  <div className="flex items-center gap-2 text-sm font-medium">
-                                    {item.featured.cta}
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                  </div>
-                                </div>
-                              </div>
-                            </Link>
-
-                            {/* Quick Links */}
-                            <div className="mt-4 pt-4 border-t border-gray-100">
-                              <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                                Quick Links
-                              </h4>
-                              <ul className="space-y-2">
-                                {item.quickLinks.map((link) => (
-                                  <li key={link.name}>
-                                    <Link
-                                      href={link.href}
-                                      className="text-sm text-gray-600 hover:text-teal-600 flex items-center gap-1 transition-colors"
-                                      onClick={() => setActiveDropdown(null)}
-                                    >
-                                      <ChevronRight className="w-3 h-3" />
-                                      {link.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+            {/* Mobile: Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden ml-auto p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="w-6 h-6 text-gray-700" />
+            </button>
           </div>
-
-          {/* CTA Button */}
-          <Link 
-            href="/contact" 
-            className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-teal-500/25 transition-all font-medium text-sm"
-          >
-            <Mail className="w-4 h-4" />
-            Let's Talk
-          </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden ml-auto p-2.5 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-200 transition-colors"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-900" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-900" />
-            )}
-          </button>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t shadow-xl max-h-[80vh] overflow-y-auto">
-          <div className="px-4 py-4 space-y-2">
-            {navigation.map((item) => (
-              <div key={item.name} className="border-b border-gray-100 last:border-0">
-                <button
-                  onClick={() => toggleMobileDropdown(item.name)}
-                  className="flex items-center justify-between w-full text-gray-900 font-semibold py-3"
-                >
-                  <span>{item.name}</span>
-                  <ChevronRight 
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
-                      mobileDropdown === item.name ? 'rotate-90' : ''
-                    }`} 
-                  />
-                </button>
-                
-                {mobileDropdown === item.name && (
-                  <div className="pb-4 space-y-4">
-                    {/* Description */}
-                    <p className="text-sm text-gray-600 px-2">{item.description}</p>
-                    
-                    {/* Sections */}
-                    {item.sections.map((section) => (
-                      <div key={section.title} className="px-2">
-                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                          {section.title}
-                        </h4>
-                        <ul className="space-y-2">
-                          {section.items.map((subItem) => (
-                            <li key={subItem.name}>
-                              <Link
-                                href={subItem.href}
-                                className="block py-2"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                <div className="text-sm font-medium text-gray-800">{subItem.name}</div>
-                                <div className="text-xs text-gray-500">{subItem.description}</div>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+        {/* Desktop: Mega Menu Panel */}
+        {activeItem && (
+          <div className="hidden lg:block border-t border-gray-100">
+            <div className="max-w-7xl mx-auto px-8 xl:px-12 py-10">
+              <div className="flex gap-10">
+
+                {/* Left column: Title, description, text links */}
+                <div className="w-64 shrink-0">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{activeItem.name}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-6">{activeItem.description}</p>
+                  <div className="space-y-3">
+                    {activeItem.leftLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block text-[15px] font-semibold text-gray-900 hover:text-teal-600 transition-colors"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {link.name}
+                      </Link>
                     ))}
+                  </div>
+                </div>
 
-                    {/* Featured Card */}
-                    <Link 
-                      href={item.featured.href}
-                      className="block mx-2"
-                      onClick={() => setMobileMenuOpen(false)}
+                {/* Center: Colored cards grid */}
+                <div className="flex-1">
+                  <div className={`grid gap-4 ${
+                    activeItem.cards.length <= 2 ? 'grid-cols-2' :
+                    activeItem.cards.length === 3 ? 'grid-cols-3' :
+                    'grid-cols-2'
+                  }`}>
+                    {activeItem.cards.map((card) => (
+                      <Link
+                        key={card.name}
+                        href={card.href}
+                        className={`group relative ${card.bg} ${card.text} rounded-2xl p-5 min-h-[140px] flex flex-col justify-between overflow-hidden transition-transform hover:scale-[1.02]`}
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <div>
+                          <h4 className="text-lg font-bold mb-1.5">{card.name}</h4>
+                          <p className={`text-sm leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
+                            {card.description}
+                          </p>
+                        </div>
+                        <div className="flex justify-end mt-3">
+                          <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1 ${
+                            card.text === 'text-white'
+                              ? 'bg-white/20'
+                              : 'bg-black/10'
+                          }`}>
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right column: MORE links */}
+                <div className="w-44 shrink-0">
+                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">More</h4>
+                  <div className="space-y-3">
+                    {activeItem.moreLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block text-[15px] text-gray-700 hover:text-teal-600 transition-colors"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Mobile: Bottom Sheet Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          {/* Backdrop */}
+          <div
+            className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+              sheetReady ? 'opacity-100' : 'opacity-0'
+            }`}
+            onClick={closeMobile}
+          />
+
+          {/* Bottom Sheet */}
+          <div
+            className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[85vh] flex flex-col transition-transform duration-300 ease-out ${
+              sheetReady ? 'translate-y-0' : 'translate-y-full'
+            }`}
+          >
+            {/* Drag Handle */}
+            <div className="flex justify-center pt-3 pb-1">
+              <div className="w-10 h-1 bg-gray-300 rounded-full" />
+            </div>
+
+            {/* Sheet Content - Sliding Views */}
+            <div className="flex-1 overflow-hidden">
+              <div
+                className={`flex transition-transform duration-300 ease-out h-full ${
+                  mobileDetail ? '-translate-x-full' : 'translate-x-0'
+                }`}
+              >
+                {/* Main View */}
+                <div className="min-w-full overflow-y-auto px-6 pb-8">
+                  {/* Close button */}
+                  <div className="flex justify-end py-2">
+                    <button
+                      onClick={closeMobile}
+                      className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
+                      aria-label="Close menu"
                     >
-                      <div className="bg-gradient-to-r from-teal-500 to-blue-600 rounded-lg p-4 text-white">
-                        <h4 className="font-bold mb-1">{item.featured.title}</h4>
-                        <p className="text-sm text-white/90">{item.featured.description}</p>
-                      </div>
-                    </Link>
+                      <X className="w-6 h-6 text-gray-500" />
+                    </button>
+                  </div>
 
-                    {/* Quick Links */}
-                    <div className="px-2 pt-2">
-                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                        Quick Links
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.quickLinks.map((link) => (
+                  {/* Primary nav items */}
+                  <div className="space-y-1 mb-6">
+                    {navigation.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => setMobileDetail(item.name)}
+                        className="flex items-center justify-between w-full py-3.5 group"
+                      >
+                        <span className="text-xl font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
+                          {item.name}
+                        </span>
+                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-teal-600 transition-colors" />
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-100 mb-4" />
+
+                  {/* Secondary links */}
+                  <div className="space-y-1 mb-6">
+                    {secondaryLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block py-2.5 text-base text-gray-500 hover:text-gray-900 transition-colors"
+                        onClick={closeMobile}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+
+                </div>
+
+                {/* Detail View */}
+                <div className="min-w-full overflow-y-auto px-6 pb-8">
+                  {/* Header: Back + Close */}
+                  <div className="flex items-center justify-between py-2">
+                    <button
+                      onClick={() => setMobileDetail(null)}
+                      className="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors"
+                      aria-label="Go back"
+                    >
+                      <ArrowLeft className="w-5 h-5 text-gray-500" />
+                    </button>
+                    <button
+                      onClick={closeMobile}
+                      className="p-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <X className="w-6 h-6 text-gray-500" />
+                    </button>
+                  </div>
+
+                  {mobileDetailItem && (
+                    <>
+                      {/* Title & description */}
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 mt-2">
+                        {mobileDetailItem.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                        {mobileDetailItem.description}
+                      </p>
+
+                      {/* Text links */}
+                      <div className="space-y-2 mb-5">
+                        {mobileDetailItem.leftLinks.map((link) => (
                           <Link
                             key={link.name}
                             href={link.href}
-                            className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-full transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-base font-semibold text-gray-900 hover:text-teal-600 transition-colors py-1"
+                            onClick={closeMobile}
                           >
                             {link.name}
                           </Link>
                         ))}
+                      </div>
+
+                      {/* Colored cards */}
+                      <div className="space-y-3 mb-5">
+                        {mobileDetailItem.cards.map((card) => (
+                          <Link
+                            key={card.name}
+                            href={card.href}
+                            className={`block ${card.bg} ${card.text} rounded-2xl p-5 relative overflow-hidden`}
+                            onClick={closeMobile}
+                          >
+                            <h4 className="text-lg font-bold mb-1">{card.name}</h4>
+                            <p className={`text-sm leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
+                              {card.description}
+                            </p>
+                            <div className="flex justify-end mt-2">
+                              <div className={`w-9 h-9 rounded-full flex items-center justify-center ${
+                                card.text === 'text-white' ? 'bg-white/20' : 'bg-black/10'
+                              }`}>
+                                <ArrowRight className="w-4 h-4" />
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+
+                      {/* More links */}
+                      {mobileDetailItem.moreLinks.length > 0 && (
+                        <div className="mb-5">
+                          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">More</h4>
+                          <div className="space-y-2">
+                            {mobileDetailItem.moreLinks.map((link) => (
+                              <Link
+                                key={link.name}
+                                href={link.href}
+                                className="block text-base text-gray-700 hover:text-teal-600 transition-colors py-1"
+                                onClick={closeMobile}
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-                
-                <Link
-                  href="/contact"
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-lg font-semibold mt-4"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Mail className="w-5 h-5" />
-                  Let's Talk
-                </Link>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
             </div>
-          )}
-        </nav>
-      );
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
