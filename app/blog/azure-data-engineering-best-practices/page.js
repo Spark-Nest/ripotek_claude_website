@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowLeft, Calendar, Clock, User, Share2, Linkedin, Mail, ChevronRight, CheckCircle, Code, Database, Shield, MapPin, Phone } from 'lucide-react';
+import Navbar from '../../../components/Navbar';
+import { ArrowLeft, Calendar, Clock, User, Share2, Linkedin, Mail, ChevronRight, CheckCircle, Code, Database, Shield, MapPin, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function BlogPost() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
@@ -27,44 +26,6 @@ export default function BlogPost() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navigation = [
-    { name: 'About', href: '/about' },
-    {
-      name: 'Services',
-      href: '/services',
-      dropdown: [
-        { name: 'What we do', href: '/services' },
-        { name: 'Strategy & Governance', href: '/services#strategy-&-governance' },
-        { name: 'Data Platform Build', href: '/services#data-platform-build' },
-        { name: 'Analytics & BI', href: '/services#analytics-&-bi' },
-        { name: 'MLOps & AI', href: '/services#mlops-&-ai' },
-        { name: 'Managed Services', href: '/services#managed-services' },
-        { name: 'Enterprise Training', href: '/services#enterprise-training' }
-      ]
-    },
-    {
-      name: 'Training',
-      href: '/training',
-      dropdown: [
-        { name: 'Ripotek Academy', href: '/training' },
-        { name: 'All Programs', href: '/training#our-programs' },
-        { name: 'Power BI Analyst', href: '/training#power-bi-analyst' },
-        { name: 'Azure Data Engineer', href: '/training#azure-data-engineer' },
-        { name: 'Databricks Engineer', href: '/training#databricks-engineer' },
-        { name: 'AI Engineer', href: '/training#ai-engineer' },
-        { name: 'BI Analyst', href: '/training#business-intelligence-analyst' },
-        { name: 'Prompt Engineering', href: '/training#prompt-engineering' },
-        { name: 'Python for Data', href: '/training#python-for-data' },
-        { name: 'ADF Masterclass', href: '/training#azure-data-factory-masterclass' }
-      ]
-    },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Careers', href: '/careers' }
-  ];
 
   const postMeta = {
     title: '10 Azure Data Engineering Best Practices Every Team Should Know',
@@ -123,89 +84,9 @@ export default function BlogPost() {
     window.open(urls[platform], '_blank');
   };
 
-  const toggleMobileDropdown = (name) => {
-    setMobileDropdown(mobileDropdown === name ? null : name);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <Image src="/favicon.svg" alt="Ripotek logo" width={48} height={48} className="w-12 h-12 rounded-lg shadow-lg" />
-              <div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent text-center leading-none">Ripotek</div>
-                <div className="text-gray-600 text-[8px] md:text-[10px] italic font-normal leading-none mt-0.5 text-center">Design. Engineer. Deliver.</div>
-              </div>
-            </a>
-            <div className="hidden lg:flex items-center gap-8">
-              {navigation.map((item) => (
-                <div key={item.name} className="relative group">
-                  <a href={item.href} className="text-gray-700 hover:text-teal-600 font-medium transition-colors flex items-center gap-1">
-                    {item.name}
-                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  </a>
-                  {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-out py-2">
-                      {item.dropdown.map((subItem) => (
-                        <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors">{subItem.name}</a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <a href="/contact" className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow-lg">Let's Talk</a>
-            </div>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100 bg-gray-50 border border-gray-300">
-              {mobileMenuOpen ? <X className="w-6 h-6 text-gray-900 stroke-[2.5]" /> : <Menu className="w-6 h-6 text-gray-900 stroke-[2.5]" />}
-            </button>
-          </div>
-        </div>
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t">
-            <div className="px-4 py-4 space-y-3">
-              {navigation.map((item) => (
-                <div key={item.name}>
-                  {item.dropdown ? (
-                    <div>
-                      <button
-                        onClick={() => toggleMobileDropdown(item.name)}
-                        className="flex items-center justify-between w-full text-gray-700 hover:text-teal-600 font-medium py-2"
-                      >
-                        {item.name}
-                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === item.name ? 'rotate-180' : ''}`} />
-                      </button>
-                      {mobileDropdown === item.name && (
-                        <div className="pl-4 space-y-2 mt-2">
-                          {item.dropdown.map((subItem) => (
-                            <a
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block text-gray-600 hover:text-teal-600 py-1"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className="block text-gray-700 hover:text-teal-600 font-medium py-2"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* Back to Blog - Sticky */}
       <div className={`fixed top-20 left-0 right-0 z-30 transition-all ${scrolled ? 'bg-white shadow-md' : 'bg-white/95'}`}>
