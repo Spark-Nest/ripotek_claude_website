@@ -132,7 +132,7 @@ const navigation = [
     href: '/pricing',
     description: 'Transparent pricing for consulting services and training programs.',
     leftLinks: [
-      { name: 'Training Pricing', href: '/training' },
+      { name: 'Training Pricing', href: '/pricing#training-pricing' },
       { name: 'Website Pricing', href: '/website-pricing' }
     ],
     cards: [

@@ -644,7 +644,7 @@ export default function PricingCalculator() {
         `}</style>
       </section>
 
-      <section className="py-16 px-4 bg-gray-50">
+      <section id="training-pricing" className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Calculator Form */}
