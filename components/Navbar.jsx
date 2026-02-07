@@ -256,10 +256,10 @@ export default function Navbar() {
       )}
 
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled || activeDropdown
-            ? 'bg-white shadow-sm'
-            : 'bg-white/80 backdrop-blur-sm'
+        className={`fixed w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? 'bg-slate-900/95 backdrop-blur-lg shadow-lg shadow-black/10'
+            : 'bg-slate-900/90 backdrop-blur-sm'
         }`}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -275,7 +275,7 @@ export default function Navbar() {
                 height={40}
                 className="w-9 h-9 rounded-xl"
               />
-              <span className="text-lg font-bold tracking-tight bg-linear-to-r from-blue-900 to-teal-600 bg-clip-text text-transparent">
+              <span className="text-lg font-bold tracking-tight text-white">
                 Ripotek
               </span>
             </Link>
@@ -292,12 +292,12 @@ export default function Navbar() {
                     href={item.href}
                     className={`px-3 xl:px-3.5 py-1.5 text-[13px] font-medium transition-colors flex items-center gap-0.5 ${
                       activeDropdown === item.name
-                        ? 'text-teal-600'
-                        : 'text-gray-700 hover:text-gray-900'
+                        ? 'text-teal-400'
+                        : 'text-gray-300 hover:text-white'
                     }`}
                   >
                     {item.name}
-                    <ChevronDown className={`w-3 h-3 opacity-40 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 opacity-60' : ''}`} />
+                    <ChevronDown className={`w-3 h-3 opacity-40 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 opacity-70' : ''}`} />
                   </Link>
                 </div>
               ))}
@@ -309,7 +309,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[12px] text-gray-400 hover:text-gray-700 transition-colors font-normal"
+                  className="text-[13px] text-gray-400 hover:text-white transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -319,93 +319,98 @@ export default function Navbar() {
             {/* Mobile: Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden ml-auto p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+              className="lg:hidden ml-auto p-2.5 rounded-lg hover:bg-white/10 transition-colors"
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>
 
-        {/* Desktop: Mega Menu Panel */}
-        {activeItem && (
-          <div className="hidden lg:block border-t border-gray-100">
-            <div className="max-w-7xl mx-auto px-8 xl:px-12 py-10">
-              <div className="flex gap-10">
+      </nav>
 
-                {/* Left column: Title, description, text links */}
-                <div className="w-64 shrink-0">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{activeItem.name}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6">{activeItem.description}</p>
-                  <div className="space-y-3">
-                    {activeItem.leftLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className="block text-[15px] font-semibold text-gray-900 hover:text-teal-600 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                  </div>
+      {/* Desktop: Mega Menu Panel - Floating outside nav */}
+      {activeItem && (
+        <div
+          className="fixed top-[52px] left-0 right-0 z-51 hidden lg:block px-6 xl:px-10"
+          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          onMouseLeave={() => setActiveDropdown(null)}
+        >
+          <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 xl:p-10">
+            <div className="flex gap-10">
+
+              {/* Left column: Title, description, text links */}
+              <div className="w-60 shrink-0">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{activeItem.name}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">{activeItem.description}</p>
+                <div className="space-y-3">
+                  {activeItem.leftLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="block text-[14px] font-semibold text-gray-900 hover:text-teal-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
                 </div>
+              </div>
 
-                {/* Center: Colored cards grid */}
-                <div className="flex-1">
-                  <div className={`grid gap-4 ${
-                    activeItem.cards.length <= 2 ? 'grid-cols-2' :
-                    activeItem.cards.length === 3 ? 'grid-cols-3' :
-                    'grid-cols-2'
-                  }`}>
-                    {activeItem.cards.map((card) => (
-                      <Link
-                        key={card.name}
-                        href={card.href}
-                        className={`group relative ${card.bg} ${card.text} rounded-2xl p-5 min-h-[140px] flex flex-col justify-between overflow-hidden transition-transform hover:scale-[1.02]`}
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <div>
-                          <h4 className="text-lg font-bold mb-1.5">{card.name}</h4>
-                          <p className={`text-sm leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
-                            {card.description}
-                          </p>
+              {/* Center: Colored cards grid */}
+              <div className="flex-1">
+                <div className={`grid gap-3 ${
+                  activeItem.cards.length <= 2 ? 'grid-cols-2' :
+                  activeItem.cards.length === 3 ? 'grid-cols-3' :
+                  'grid-cols-2'
+                }`}>
+                  {activeItem.cards.map((card) => (
+                    <Link
+                      key={card.name}
+                      href={card.href}
+                      className={`group relative ${card.bg} ${card.text} rounded-2xl p-5 min-h-[130px] flex flex-col justify-between overflow-hidden transition-transform hover:scale-[1.02]`}
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <div>
+                        <h4 className="text-base font-bold mb-1">{card.name}</h4>
+                        <p className={`text-[13px] leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
+                          {card.description}
+                        </p>
+                      </div>
+                      <div className="flex justify-end mt-2">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1 ${
+                          card.text === 'text-white'
+                            ? 'bg-white/20'
+                            : 'bg-black/10'
+                        }`}>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </div>
-                        <div className="flex justify-end mt-3">
-                          <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1 ${
-                            card.text === 'text-white'
-                              ? 'bg-white/20'
-                              : 'bg-black/10'
-                          }`}>
-                            <ArrowRight className="w-4 h-4" />
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
+              </div>
 
-                {/* Right column: MORE links */}
-                <div className="w-44 shrink-0">
-                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">More</h4>
-                  <div className="space-y-3">
-                    {activeItem.moreLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className="block text-[15px] text-gray-700 hover:text-teal-600 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                  </div>
+              {/* Right column: MORE links */}
+              <div className="w-40 shrink-0">
+                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">More</h4>
+                <div className="space-y-3">
+                  {activeItem.moreLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="block text-[14px] text-gray-700 hover:text-teal-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
 
       {/* Mobile: Bottom Sheet Overlay */}
       {mobileMenuOpen && (
