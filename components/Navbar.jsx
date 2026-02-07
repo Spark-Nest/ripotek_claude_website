@@ -258,8 +258,8 @@ export default function Navbar() {
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-slate-900/95 backdrop-blur-lg shadow-lg shadow-black/10'
-            : 'bg-slate-900/90 backdrop-blur-sm'
+            ? 'bg-[#1a2332]/95 backdrop-blur-lg shadow-lg shadow-black/10'
+            : 'bg-[#1a2332]/90 backdrop-blur-sm'
         }`}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -435,14 +435,14 @@ export default function Navbar() {
             </div>
 
             {/* Sheet Content - Sliding Views */}
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 min-h-0 overflow-hidden">
               <div
                 className={`flex transition-transform duration-300 ease-out h-full ${
                   mobileDetail ? '-translate-x-full' : 'translate-x-0'
                 }`}
               >
                 {/* Main View */}
-                <div className="min-w-full overflow-y-auto px-6 pb-8">
+                <div className="min-w-full h-full overflow-y-auto overscroll-contain px-6 pb-8">
                   {/* Close button */}
                   <div className="flex justify-end py-2">
                     <button
@@ -490,7 +490,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Detail View */}
-                <div className="min-w-full overflow-y-auto px-6 pb-8">
+                <div className="min-w-full h-full overflow-y-auto overscroll-contain px-6 pb-8">
                   {/* Header: Back + Close */}
                   <div className="flex items-center justify-between py-2">
                     <button
