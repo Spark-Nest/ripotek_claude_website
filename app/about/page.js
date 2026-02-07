@@ -308,7 +308,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 bg-white">
+      <section id="team" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Meet the Team Introduction */}
           <div className="text-center mb-20">

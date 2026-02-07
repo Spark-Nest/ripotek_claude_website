@@ -461,7 +461,7 @@ export default function RipotekHomePage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-linear-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      <section id="partners" className="py-20 bg-linear-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         {!isMobile && (
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, ChevronRight, ArrowRight, Building2, Briefcase, GraduationCap, BookOpen, Video, FileText, Newspaper, Users, Mail, Phone, MapPin } from 'lucide-react';
+import { Menu, X, ChevronRight, ArrowRight, Mail } from 'lucide-react';
 
 const navigation = [
   {
@@ -14,17 +14,17 @@ const navigation = [
       title: 'Explore All Services',
       description: 'Discover how we can help you unlock the power of your data.',
       href: '/services',
-      image: '/images/business-solutions.jpg'
+      cta: 'View Services'
     },
     sections: [
       {
         title: 'Industries',
         items: [
-          { name: 'Energy & Utilities', description: 'Real-time operations and predictive maintenance', href: '/services#energy' },
-          { name: 'Financial Services', description: 'Risk analytics and fraud detection', href: '/services#financial' },
-          { name: 'Healthcare', description: 'Patient outcomes and operational efficiency', href: '/services#healthcare' },
-          { name: 'Public Sector', description: 'Citizen services and compliance', href: '/services#public' },
-          { name: 'Manufacturing', description: 'Supply chain and IoT analytics', href: '/services#manufacturing' }
+          { name: 'Energy & Utilities', description: 'Real-time operations and predictive maintenance', href: '/services#industries' },
+          { name: 'Financial Services', description: 'Risk analytics and fraud detection', href: '/services#industries' },
+          { name: 'Healthcare', description: 'Patient outcomes and operational efficiency', href: '/services#industries' },
+          { name: 'Public Sector', description: 'Citizen services and compliance', href: '/services#industries' },
+          { name: 'Manufacturing', description: 'Supply chain and IoT analytics', href: '/services#industries' }
         ]
       },
       {
@@ -34,7 +34,8 @@ const navigation = [
           { name: 'Data Platform Build', description: 'Azure, Databricks, and Microsoft Fabric', href: '/services#data-platform-build' },
           { name: 'Analytics & BI', description: 'Power BI and self-service analytics', href: '/services#analytics-&-bi' },
           { name: 'MLOps & AI', description: 'Machine learning and GenAI solutions', href: '/services#mlops-&-ai' },
-          { name: 'Managed Services', description: 'Ongoing support and optimization', href: '/services#managed-services' }
+          { name: 'Managed Services', description: 'Ongoing support and optimization', href: '/services#managed-services' },
+          { name: 'Website Development', description: 'Professional web solutions for modern businesses', href: '/website-development' }
         ]
       }
     ],
@@ -50,8 +51,8 @@ const navigation = [
     featured: {
       title: 'All Training Programs',
       description: 'Explore our comprehensive curriculum designed for career success.',
-      href: '/training',
-      image: '/images/academy.jpg'
+      href: '/training#our-programs',
+      cta: 'Browse Programs'
     },
     sections: [
       {
@@ -74,7 +75,7 @@ const navigation = [
       }
     ],
     quickLinks: [
-      { name: 'Compare Programs', href: '/training#compare' },
+      { name: 'Compare Programs', href: '/training#our-programs' },
       { name: 'Enterprise Training', href: '/services#enterprise-training' }
     ]
   },
@@ -84,9 +85,9 @@ const navigation = [
     description: 'Stay informed with insights, white papers, and expert content on data and AI.',
     featured: {
       title: 'Capabilities Deck',
-      description: 'Download our comprehensive service overview and case studies.',
+      description: 'View Our Capabilities Deck',
       href: '/resources/capabilities-deck',
-      image: '/images/resources.jpg'
+      cta: 'View Deck'
     },
     sections: [
       {
@@ -102,14 +103,14 @@ const navigation = [
         title: 'Tools',
         items: [
           { name: 'Capabilities Deck', description: 'Download our service overview', href: '/resources/capabilities-deck' },
-          { name: 'Syllabi', description: 'Detailed course outlines', href: '/training#syllabi' },
+          { name: 'Syllabi', description: 'View all program syllabi', href: '/training#our-programs' },
           { name: 'YouTube Channel', description: 'Tutorials and webinars', href: 'https://youtube.com/@ripotekacademy' },
           { name: 'GitHub', description: 'Open source resources', href: 'https://github.com/ripotek-technologies' }
         ]
       }
     ],
     quickLinks: [
-      { name: 'Subscribe to Newsletter', href: '/resources#subscribe' },
+      { name: 'Subscribe for Updates', href: '/resources#subscribe' },
       { name: 'Upcoming Events', href: '/resources#events' }
     ]
   },
@@ -121,7 +122,7 @@ const navigation = [
       title: 'Get a Custom Quote',
       description: 'Contact us for tailored solutions that fit your budget.',
       href: '/contact',
-      image: '/images/pricing.jpg'
+      cta: 'Contact Us'
     },
     sections: [
       {
@@ -156,7 +157,7 @@ const navigation = [
       title: 'Join Our Team',
       description: 'We are always looking for talented data professionals.',
       href: '/careers',
-      image: '/images/careers.jpg'
+      cta: 'View Careers'
     },
     sections: [
       {
@@ -165,14 +166,14 @@ const navigation = [
           { name: 'About Ripotek', description: 'Our story and mission', href: '/about' },
           { name: 'Meet the Team', description: 'The people behind Ripotek', href: '/about#team' },
           { name: 'Careers at Ripotek', description: 'Join our growing team', href: '/careers' },
-          { name: 'Partners', description: 'Microsoft, Databricks & more', href: '/about#partners' }
+          { name: 'Partners', description: 'Microsoft, Databricks & more', href: '/#partners' }
         ]
       },
       {
         title: 'Connect',
         items: [
           { name: 'Get in Touch', description: 'Contact us for inquiries', href: '/contact' },
-          { name: 'Subscribe', description: 'Newsletter and updates', href: '/resources#subscribe' },
+          { name: 'Subscribe for Updates', description: 'Newsletter and updates', href: '/resources#subscribe' },
           { name: 'LinkedIn', description: 'Follow us for insights', href: 'https://linkedin.com/company/ripotek' },
           { name: 'Support', description: 'Help center and FAQs', href: '/resources#support' }
         ]
@@ -290,22 +291,21 @@ export default function Navbar() {
                           </div>
 
                           {/* Featured Card */}
-                          <div className="w-64 shrink-0">
+                          <div className="w-56 shrink-0">
                             <Link 
                               href={item.featured.href}
                               className="block group"
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-xl p-6 text-white h-full relative overflow-hidden">
+                              <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-xl p-5 text-white relative overflow-hidden">
                                 <div className="relative z-10">
                                   <h4 className="font-bold text-lg mb-2">{item.featured.title}</h4>
                                   <p className="text-sm text-white/90 mb-4">{item.featured.description}</p>
                                   <div className="flex items-center gap-2 text-sm font-medium">
-                                    Learn more
+                                    {item.featured.cta}
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                   </div>
                                 </div>
-                                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mb-10"></div>
                               </div>
                             </Link>
 
@@ -368,104 +368,92 @@ export default function Navbar() {
           <div className="px-4 py-4 space-y-2">
             {navigation.map((item) => (
               <div key={item.name} className="border-b border-gray-100 last:border-0">
-                {item.sections ? (
-                  <>
-                    <button
-                      onClick={() => toggleMobileDropdown(item.name)}
-                      className="flex items-center justify-between w-full text-gray-900 font-semibold py-3"
-                    >
-                      <span>{item.name}</span>
-                      <ChevronRight 
-                        className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
-                          mobileDropdown === item.name ? 'rotate-90' : ''
-                        }`} 
-                      />
-                    </button>
+                <button
+                  onClick={() => toggleMobileDropdown(item.name)}
+                  className="flex items-center justify-between w-full text-gray-900 font-semibold py-3"
+                >
+                  <span>{item.name}</span>
+                  <ChevronRight 
+                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                      mobileDropdown === item.name ? 'rotate-90' : ''
+                    }`} 
+                  />
+                </button>
+                
+                {mobileDropdown === item.name && (
+                  <div className="pb-4 space-y-4">
+                    {/* Description */}
+                    <p className="text-sm text-gray-600 px-2">{item.description}</p>
                     
-                    {mobileDropdown === item.name && (
-                      <div className="pb-4 space-y-4">
-                        {/* Description */}
-                        <p className="text-sm text-gray-600 px-2">{item.description}</p>
-                        
-                        {/* Sections */}
-                        {item.sections.map((section) => (
-                          <div key={section.title} className="px-2">
-                            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                              {section.title}
-                            </h4>
-                            <ul className="space-y-2">
-                              {section.items.map((subItem) => (
-                                <li key={subItem.name}>
-                                  <Link
-                                    href={subItem.href}
-                                    className="block py-2"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                  >
-                                    <div className="text-sm font-medium text-gray-800">{subItem.name}</div>
-                                    <div className="text-xs text-gray-500">{subItem.description}</div>
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-
-                        {/* Featured Card */}
-                        <Link 
-                          href={item.featured.href}
-                          className="block mx-2"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <div className="bg-gradient-to-r from-teal-500 to-blue-600 rounded-lg p-4 text-white">
-                            <h4 className="font-bold mb-1">{item.featured.title}</h4>
-                            <p className="text-sm text-white/90">{item.featured.description}</p>
-                          </div>
-                        </Link>
-
-                        {/* Quick Links */}
-                        <div className="px-2 pt-2">
-                          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                            Quick Links
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {item.quickLinks.map((link) => (
+                    {/* Sections */}
+                    {item.sections.map((section) => (
+                      <div key={section.title} className="px-2">
+                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                          {section.title}
+                        </h4>
+                        <ul className="space-y-2">
+                          {section.items.map((subItem) => (
+                            <li key={subItem.name}>
                               <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-full transition-colors"
+                                href={subItem.href}
+                                className="block py-2"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
-                                {link.name}
+                                <div className="text-sm font-medium text-gray-800">{subItem.name}</div>
+                                <div className="text-xs text-gray-500">{subItem.description}</div>
                               </Link>
-                            ))}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+
+                    {/* Featured Card */}
+                    <Link 
+                      href={item.featured.href}
+                      className="block mx-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <div className="bg-gradient-to-r from-teal-500 to-blue-600 rounded-lg p-4 text-white">
+                        <h4 className="font-bold mb-1">{item.featured.title}</h4>
+                        <p className="text-sm text-white/90">{item.featured.description}</p>
+                      </div>
+                    </Link>
+
+                    {/* Quick Links */}
+                    <div className="px-2 pt-2">
+                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                        Quick Links
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {item.quickLinks.map((link) => (
+                          <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-full transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                        ))}
                           </div>
                         </div>
                       </div>
                     )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="block text-gray-900 font-semibold py-3"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )}
+                  </div>
+                ))}
+                
+                <Link
+                  href="/contact"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-lg font-semibold mt-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Mail className="w-5 h-5" />
+                  Let's Talk
+                </Link>
               </div>
-            ))}
-            
-            <Link
-              href="/contact"
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-lg font-semibold mt-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <Mail className="w-5 h-5" />
-              Let's Talk
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
+            </div>
+          )}
+        </nav>
+      );
 }

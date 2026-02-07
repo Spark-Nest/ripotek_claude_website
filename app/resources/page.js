@@ -349,7 +349,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Subscribe CTA Section */}
-      <section className="py-20 px-4 bg-white">
+      <section id="subscribe" className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-linear-to-br from-teal-600 to-blue-900 rounded-3xl p-12 shadow-2xl text-center hover-lift">
             <Mail className="w-16 h-16 text-white mx-auto mb-6" />
