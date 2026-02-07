@@ -108,7 +108,7 @@ const navigation = [
     cards: [
       {
         name: 'Capabilities Deck',
-        description: 'Download our comprehensive service and capabilities overview.',
+        description: 'View our Capabilities Deck.',
         href: '/resources/capabilities-deck',
         bg: 'bg-teal-500',
         text: 'text-white'
