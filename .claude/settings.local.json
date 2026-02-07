@@ -6,7 +6,10 @@
       "Bash(node scripts/generate-pdf.js:*)",
       "Bash(npm run build:*)",
       "Bash(findstr:*)",
-      "Bash(npx next build:*)"
+      "Bash(npx next build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nchore: test deployment after disabling protection\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)"
     ]
   }
 }
