@@ -124,8 +124,8 @@ export default function BlogPost() {
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12">
-            <article className="lg:col-span-8">
-              <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+            <article className="lg:col-span-8 min-w-0">
+              <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-8 lg:p-12">
                 <Image src={postMeta.image} alt={postMeta.title} width={1200} height={600} className="w-full h-64 lg:h-96 object-cover rounded-xl mb-12" />
 
                 <div className="prose prose-lg max-w-none">
