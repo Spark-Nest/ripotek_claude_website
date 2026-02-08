@@ -85,7 +85,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar />
 
       {/* Back to Blog - Sticky */}
@@ -98,8 +98,8 @@ export default function BlogPost() {
         </div>
       </div>
 
-      {/* Spacer for sticky button */}
-      <div className="h-20"></div>
+      {/* Spacer for navbar + sticky back bar */}
+      <div className="h-36"></div>
 
       <section className="pb-12 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

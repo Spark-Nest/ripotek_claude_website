@@ -1315,7 +1315,7 @@ export default function BlogPostPage({ params }) {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar />
 
       {/* Back to Blog - Sticky */}
@@ -1328,8 +1328,8 @@ export default function BlogPostPage({ params }) {
         </div>
       </div>
 
-      {/* Spacer for sticky button */}
-      <div className="h-20"></div>
+      {/* Spacer for navbar + sticky back bar */}
+      <div className="h-36"></div>
 
       {/* Hero Section */}
       <section className="py-12 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
