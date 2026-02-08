@@ -11,8 +11,8 @@ const navigation = [
     href: '/services',
     description: 'Transform your business with cutting-edge data and AI solutions tailored to your industry.',
     leftLinks: [
-      { name: 'Who We Serve', href: '/services#industries' },
-      { name: 'Client Impact', href: '/case-studies' }
+      { name: 'Who We Serve', href: '/services#industries', desc: 'Industries and organizations we support with data-driven solutions.' },
+      { name: 'Client Impact', href: '/case-studies', desc: 'Measurable outcomes delivered for real clients.' }
     ],
     cards: [
       {
@@ -59,9 +59,9 @@ const navigation = [
     href: '/training',
     description: 'Learn from industry experts and build job-ready skills in data engineering, analytics, and AI.',
     leftLinks: [
-      { name: 'Explore Ripotek Academy', href: '/training' },
-      { name: 'All Programs', href: '/training#our-programs' },
-      { name: 'Enterprise Training', href: '/services#enterprise-training' }
+      { name: 'Explore Ripotek Academy', href: '/training', desc: 'Learn how our programs are structured and delivered.' },
+      { name: 'All Programs', href: '/training#our-programs', desc: 'Browse our full catalog of role-based training.' },
+      { name: 'Enterprise Training', href: '/services#enterprise-training', desc: 'Custom enablement programs for teams and organizations.' }
     ],
     cards: [
       {
@@ -109,9 +109,9 @@ const navigation = [
     href: '/resources',
     description: 'Stay informed with insights, white papers, and expert content on data and AI.',
     leftLinks: [
-      { name: 'Blog & Insights', href: '/blog' },
-      { name: 'White Papers', href: '/resources#whitepapers' },
-      { name: 'Demo Videos', href: '/resources#demo-videos' }
+      { name: 'Blog & Insights', href: '/blog', desc: 'Articles and perspectives from Ripotek practitioners.' },
+      { name: 'White Papers', href: '/resources#whitepapers', desc: 'In-depth research and strategic guidance.' },
+      { name: 'Demo Videos', href: '/resources#demo-videos', desc: 'Walkthroughs of platforms, dashboards, and solutions.' }
     ],
     cards: [
       {
@@ -142,9 +142,9 @@ const navigation = [
     href: '/about',
     description: 'Learn about our mission, meet the team, and explore career opportunities at Ripotek.',
     leftLinks: [
-      { name: 'About Ripotek', href: '/about' },
-      { name: 'Meet the Team', href: '/about#team' },
-      { name: 'Partners', href: '/#partners' }
+      { name: 'About Ripotek', href: '/about', desc: 'Our mission, values, and approach to delivery.' },
+      { name: 'Meet the Team', href: '/about#team', desc: 'The people behind Ripotek\'s expertise.' },
+      { name: 'Partners', href: '/#partners', desc: 'Technology and delivery partners we trust.' }
     ],
     cards: [
       {
@@ -174,8 +174,8 @@ const navigation = [
     href: '/pricing',
     description: 'Transparent pricing for consulting services and training programs.',
     leftLinks: [
-      { name: 'Training Pricing', href: '/pricing#training-pricing' },
-      { name: 'Website Pricing', href: '/website-pricing' }
+      { name: 'Training Pricing', href: '/pricing#training-pricing', desc: 'Flexible pricing for individual and team learning.' },
+      { name: 'Website Pricing', href: '/website-pricing', desc: 'Clear packages for digital platform delivery.' }
     ],
     cards: [
       {
@@ -390,16 +390,17 @@ export default function Navbar() {
               <div className="w-60 shrink-0">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{activeItem.name}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed mb-6">{activeItem.description}</p>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {activeItem.leftLinks.map((link) => (
                     <Link
                       key={link.name}
                       href={link.href}
                       {...extProps(link.href)}
-                      className="block text-[14px] font-semibold text-gray-900 hover:text-teal-600 transition-colors"
+                      className="group/link block transition-colors"
                       onClick={() => setActiveDropdown(null)}
                     >
-                      {link.name}
+                      <span className="block text-[14px] font-semibold text-gray-900 group-hover/link:text-teal-600 transition-colors">{link.name}</span>
+                      {link.desc && <span className="block text-[11.5px] text-gray-400 font-normal leading-snug mt-0.5">{link.desc}</span>}
                     </Link>
                   ))}
                 </div>
@@ -589,16 +590,17 @@ export default function Navbar() {
                     </p>
 
                     {/* Text links */}
-                    <div className="space-y-2 mb-5">
+                    <div className="space-y-3 mb-5">
                       {mobileDetailItem.leftLinks.map((link) => (
                         <Link
                           key={link.name}
                           href={link.href}
                           {...extProps(link.href)}
-                          className="block text-base font-semibold text-gray-900 hover:text-teal-600 transition-colors py-1"
+                          className="block py-1"
                           onClick={closeMobile}
                         >
-                          {link.name}
+                          <span className="block text-base font-semibold text-gray-900">{link.name}</span>
+                          {link.desc && <span className="block text-[12px] text-gray-400 font-normal leading-snug mt-0.5">{link.desc}</span>}
                         </Link>
                       ))}
                     </div>
