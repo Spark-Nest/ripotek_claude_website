@@ -7,12 +7,12 @@ import { X, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 
 const navigation = [
   {
-    name: 'Business Solutions',
+    name: 'Our Expertise',
     href: '/services',
     description: 'Transform your business with cutting-edge data and AI solutions tailored to your industry.',
     leftLinks: [
-      { name: 'Industries', href: '/services#industries' },
-      { name: 'Case Studies', href: '/case-studies' }
+      { name: 'Who We Serve', href: '/services#industries' },
+      { name: 'Client Impact', href: '/case-studies' }
     ],
     cards: [
       {
@@ -55,6 +55,7 @@ const navigation = [
     href: '/training',
     description: 'Learn from industry experts and build job-ready skills in data engineering, analytics, and AI.',
     leftLinks: [
+      { name: 'Explore Ripotek Academy', href: '/training' },
       { name: 'All Programs', href: '/training#our-programs' },
       { name: 'Enterprise Training', href: '/services#enterprise-training' }
     ],
@@ -96,14 +97,14 @@ const navigation = [
     ]
   },
   {
-    name: 'Events & Resources',
+    name: 'Insights & Knowledge',
     href: '/resources',
     description: 'Stay informed with insights, white papers, and expert content on data and AI.',
     leftLinks: [
       { name: 'Blog & Insights', href: '/blog' },
       { name: 'Case Studies', href: '/case-studies' },
       { name: 'White Papers', href: '/resources#whitepapers' },
-      { name: 'Demo Videos', href: '/resources#videos' }
+      { name: 'Demo Videos', href: '/resources#demo-videos' }
     ],
     cards: [
       {
@@ -612,7 +613,7 @@ export default function Navbar() {
                     {/* More links */}
                     {mobileDetailItem.moreLinks.length > 0 && (
                       <div className="mb-5">
-                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">More</h4>
+                        <h4 className="text-[11px] font-bold text-teal-600 uppercase tracking-widest mb-3 bg-teal-50 px-3 py-1.5 rounded-full inline-block">More</h4>
                         <div className="space-y-2">
                           {mobileDetailItem.moreLinks.map((link) => (
                             <Link
