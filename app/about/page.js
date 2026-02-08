@@ -389,7 +389,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-5 gap-8 p-8">
                 {/* Left Column - Image */}
                 <div className="md:col-span-2">
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg sticky top-8">
+                  <div className="aspect-3/4 rounded-xl overflow-hidden shadow-lg sticky top-8">
                     <Image
                       src={selectedMember.image}
                       alt={selectedMember.name}
