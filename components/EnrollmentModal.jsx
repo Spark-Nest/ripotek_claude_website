@@ -122,14 +122,14 @@ export default function EnrollmentModal({
         tabIndex={-1}
       >
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-blue-900 to-teal-600 p-6">
+        <div className="bg-linear-to-r from-blue-900 to-teal-600 p-6">
           <div className="flex items-start justify-between mb-3">
             <h2 id="modal-title" className="text-2xl font-bold text-white pr-4">
               Enroll in {programName}
             </h2>
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white flex-shrink-0"
+              className="p-2 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white shrink-0"
               aria-label="Close enrollment form"
             >
               <X className="w-6 h-6 text-white" />

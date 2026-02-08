@@ -187,7 +187,7 @@ const WebsitePricingCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 py-12 px-4">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -448,7 +448,7 @@ const WebsitePricingCalculator = () => {
           {/* Right Column - Pricing Summary (Sticky) */}
           <div className="lg:col-span-1">
             <div className="sticky top-4">
-              <div className="bg-gradient-to-br from-teal-600 to-cyan-600 text-white rounded-xl shadow-2xl p-8">
+              <div className="bg-linear-to-br from-teal-600 to-cyan-600 text-white rounded-xl shadow-2xl p-8">
                 <div className="flex items-center space-x-2 mb-6">
                   <DollarSign className="w-6 h-6" />
                   <h2 className="text-2xl font-bold">Your Estimate</h2>
@@ -534,7 +534,7 @@ const WebsitePricingCalculator = () => {
 
                 <div className="mt-6 text-center text-teal-100 text-sm">
                   <div className="flex items-start space-x-2 justify-center">
-                    <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                    <Info className="w-4 h-4 mt-0.5 shrink-0" />
                     <p className="text-left">
                       This is an estimate. Final pricing may vary based on detailed requirements.
                       Contact us for a custom quote.
@@ -548,27 +548,27 @@ const WebsitePricingCalculator = () => {
                 <h3 className="text-lg font-bold text-slate-800 mb-4">What's Included</h3>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Mobile-responsive design</span>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Google Analytics setup</span>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Basic SEO optimization</span>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Revision rounds</span>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Post-launch support</span>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                     <span>Training & documentation</span>
                   </div>
                 </div>

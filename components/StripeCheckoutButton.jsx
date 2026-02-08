@@ -76,7 +76,7 @@ export default function StripeCheckoutButton({
     }
   };
 
-  const defaultClassName = 'w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg hover:from-green-700 hover:to-emerald-700 transition font-semibold hover-lift flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const defaultClassName = 'w-full bg-linear-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg hover:from-green-700 hover:to-emerald-700 transition font-semibold hover-lift flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
   return (
     <div>

@@ -117,7 +117,7 @@ export default function SubscriptionModal({
         tabIndex={-1}
       >
         {/* Modal Header */}
-        <div className="bg-gradient-to-br from-teal-600 via-blue-600 to-blue-700 p-6 relative overflow-hidden">
+        <div className="bg-linear-to-br from-teal-600 via-blue-600 to-blue-700 p-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.4) 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
           <div className="flex items-start justify-between mb-3 relative z-10">
             <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export default function SubscriptionModal({
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white flex-shrink-0"
+              className="p-2 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white shrink-0"
               aria-label="Close subscription form"
             >
               <X className="w-6 h-6 text-white" />

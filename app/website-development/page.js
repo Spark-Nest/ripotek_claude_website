@@ -262,7 +262,7 @@ export default function WebsiteDevelopmentPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100">
       <Navbar />
 
       {/* Hero Section */}
@@ -319,7 +319,7 @@ export default function WebsiteDevelopmentPage() {
               const Icon = reason.icon;
               return (
                 <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-linear-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
@@ -357,7 +357,7 @@ export default function WebsiteDevelopmentPage() {
                 key={pkg.id}
                 className={`relative rounded-2xl p-8 transition-all duration-200 ${
                   pkg.popular
-                    ? 'bg-gradient-to-br from-teal-600 to-cyan-600 text-white shadow-2xl scale-105 transform'
+                    ? 'bg-linear-to-br from-teal-600 to-cyan-600 text-white shadow-2xl scale-105 transform'
                     : 'bg-slate-50 text-slate-800 shadow-lg hover:shadow-xl'
                 }`}
               >
@@ -393,7 +393,7 @@ export default function WebsiteDevelopmentPage() {
                 <div className="space-y-3 mb-8">
                   {pkg.features.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${pkg.popular ? 'text-teal-200' : 'text-teal-600'}`} />
+                      <CheckCircle className={`w-5 h-5 shrink-0 mt-0.5 ${pkg.popular ? 'text-teal-200' : 'text-teal-600'}`} />
                       <span className={`text-sm ${pkg.popular ? 'text-white' : 'text-slate-700'}`}>
                         {feature}
                       </span>
@@ -426,7 +426,7 @@ export default function WebsiteDevelopmentPage() {
                   className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
                     pkg.popular
                       ? 'bg-white text-teal-600 hover:bg-teal-50'
-                      : 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white hover:from-teal-700 hover:to-cyan-700'
+                      : 'bg-linear-to-r from-teal-600 to-cyan-600 text-white hover:from-teal-700 hover:to-cyan-700'
                   }`}
                 >
                   Get Started
@@ -457,13 +457,13 @@ export default function WebsiteDevelopmentPage() {
                 )}
 
                 <div className="flex gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  <div className="shrink-0">
+                    <div className="w-16 h-16 bg-linear-to-br from-teal-600 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                       {phase.step}
                     </div>
                   </div>
 
-                  <div className="flex-grow bg-white rounded-xl shadow-lg p-8">
+                  <div className="grow bg-white rounded-xl shadow-lg p-8">
                     <div className="flex justify-between items-start mb-4">
                       <h3 className="text-2xl font-bold text-slate-800">{phase.title}</h3>
                       <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-semibold">
@@ -534,7 +534,7 @@ export default function WebsiteDevelopmentPage() {
                 key={index}
                 className={`rounded-2xl p-8 transition-all duration-200 ${
                   plan.popular
-                    ? 'bg-gradient-to-br from-teal-600 to-cyan-600 text-white shadow-2xl scale-105'
+                    ? 'bg-linear-to-br from-teal-600 to-cyan-600 text-white shadow-2xl scale-105'
                     : 'bg-slate-50 text-slate-800 shadow-lg hover:shadow-xl'
                 }`}
               >
@@ -559,7 +559,7 @@ export default function WebsiteDevelopmentPage() {
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <div key={i} className="flex items-start space-x-3">
-                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-teal-200' : 'text-teal-600'}`} />
+                      <CheckCircle className={`w-5 h-5 shrink-0 mt-0.5 ${plan.popular ? 'text-teal-200' : 'text-teal-600'}`} />
                       <span className={`text-sm ${plan.popular ? 'text-white' : 'text-slate-700'}`}>
                         {feature}
                       </span>
@@ -572,7 +572,7 @@ export default function WebsiteDevelopmentPage() {
                   className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
                     plan.popular
                       ? 'bg-white text-teal-600 hover:bg-teal-50'
-                      : 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white hover:from-teal-700 hover:to-cyan-700'
+                      : 'bg-linear-to-r from-teal-600 to-cyan-600 text-white hover:from-teal-700 hover:to-cyan-700'
                   }`}
                 >
                   Choose Plan
@@ -607,7 +607,7 @@ export default function WebsiteDevelopmentPage() {
       </section>
 
       {/* CTA Section */}
-      <section id="discovery-form" className="py-20 bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-600 text-white">
+      <section id="discovery-form" className="py-20 bg-linear-to-br from-teal-600 via-cyan-600 to-blue-600 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Build Your Website?

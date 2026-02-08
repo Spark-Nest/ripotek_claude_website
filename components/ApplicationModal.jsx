@@ -116,7 +116,7 @@ export default function ApplicationModal({
         tabIndex={-1}
       >
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-teal-600 to-blue-900 p-6 flex items-center justify-between">
+        <div className="bg-linear-to-r from-teal-600 to-blue-900 p-6 flex items-center justify-between">
           <h2 id="modal-title" className="text-2xl font-bold text-white">
             Apply for {jobTitle}
           </h2>
