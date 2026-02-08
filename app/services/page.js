@@ -13,7 +13,7 @@ export default function ServicesPage() {
   const services = [
     {
       icon: Shield,
-      title: 'Strategy & Governance',
+      title: 'Data Strategy & Governance',
       tagline: 'Build the foundation for data-driven success',
       description: 'Data architecture reviews, governance frameworks, and compliance roadmaps tailored to your industry.',
       features: [
@@ -105,7 +105,7 @@ export default function ServicesPage() {
     },
     {
       icon: Zap,
-      title: 'Managed Services',
+      title: 'Managed Data Services',
       tagline: 'Ongoing platform excellence',
       description: 'Ongoing platform administration, monitoring, performance optimization, and cost control.',
       features: [
@@ -151,7 +151,7 @@ export default function ServicesPage() {
     },
     {
       icon: Globe,
-      title: 'Website Development',
+      title: 'Digital Platforms',
       tagline: 'Professional websites built for growth',
       description: 'Modern, fast, and conversion-optimized websites using React and Tailwind CSS. From concept to launch in weeks.',
       features: [
@@ -183,9 +183,9 @@ export default function ServicesPage() {
   ];
 
   const deliveryModel = [
-    { title: 'Discovery (2-4 weeks)', description: 'Current state assessment, requirements gathering, solution design', investment: '$15K-$30K' },
-    { title: 'Implementation (3-6 months)', description: 'Platform build, pipeline development, dashboard creation, knowledge transfer', investment: '$100K-$300K' },
-    { title: 'Managed Services (Ongoing)', description: 'Administration, monitoring, optimization, support', investment: '$8K-$25K/month' }
+    { title: 'Advisory & Discovery (2-4 weeks)', description: 'Current state assessment, requirements gathering, solution design', investment: '$15K-$30K' },
+    { title: 'Solution Delivery (3-6 months)', description: 'Platform build, pipeline development, dashboard creation, knowledge transfer', investment: '$100K-$300K' },
+    { title: 'Managed Data Services (Ongoing)', description: 'Administration, monitoring, optimization, support', investment: '$8K-$25K/month' }
   ];
 
   return (
@@ -403,10 +403,10 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button onClick={() => setDiscoveryCallModalOpen(true)} className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Calendar className="w-5 h-5" /> Book Discovery Call
+              <Calendar className="w-5 h-5" /> Book Advisory Call
             </button>
             <a href="/case-studies" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              View Case Studies <ArrowRight className="w-5 h-5" />
+              View Client Impact <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -458,7 +458,7 @@ export default function ServicesPage() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>

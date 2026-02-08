@@ -16,15 +16,15 @@ export default function PricingCalculator() {
   const [training, setTraining] = useState(false);
   const [estimate, setEstimate] = useState(0);
   const [monthlyEstimate, setMonthlyEstimate] = useState(0);
-  const [selectedConsultingService, setSelectedConsultingService] = useState('Strategy & Governance');
+  const [selectedConsultingService, setSelectedConsultingService] = useState('Data Strategy & Governance');
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const consultingServices = [
-    'Strategy & Governance',
+    'Data Strategy & Governance',
     'Data Platform Build',
     'Analytics & BI',
     'MLOps & AI',
-    'Managed Services'
+    'Managed Data Services'
   ];
   const trainingProgramPrices = {
     'Power BI Analyst': 700,
@@ -247,7 +247,7 @@ export default function PricingCalculator() {
       lineItems += `<div class="line-item">
         <div class="line-desc">
           <div class="line-name">${selectedConsultingService} - ${projectScope.charAt(0).toUpperCase() + projectScope.slice(1)} Scope${timelineLabel}</div>
-          <div class="line-detail">${timelineText} timeline • Discovery, implementation, testing & deployment</div>
+          <div class="line-detail">${timelineText} timeline • Advisory & Discovery, Solution Delivery, testing & deployment</div>
         </div>
         <div class="line-amount">${formatCurrency(adjustedBase)}</div>
       </div>`;
@@ -282,7 +282,7 @@ export default function PricingCalculator() {
       if (managedServices) {
         lineItems += `<div class="line-item recurring">
           <div class="line-desc">
-            <div class="line-name">Managed Services (Ongoing)</div>
+            <div class="line-name">Managed Data Services (Ongoing)</div>
             <div class="line-detail">24/7 monitoring, optimization & support</div>
           </div>
           <div class="line-amount">${formatCurrency(monthlyEstimate)}/month</div>
@@ -409,7 +409,7 @@ export default function PricingCalculator() {
             <div class="section-title">What's Included</div>
             <div class="note">
               ${serviceType === 'consulting'
-                ? '✓ Discovery & assessment sessions<br>✓ Architecture design & documentation<br>✓ Platform implementation & configuration<br>✓ Testing & quality assurance<br>✓ Deployment & go-live support<br>✓ Post-implementation support (30 days)<br>✓ Knowledge transfer documentation'
+                ? '✓ Advisory & Discovery & assessment sessions<br>✓ Architecture design & documentation<br>✓ Platform implementation & configuration<br>✓ Testing & quality assurance<br>✓ Deployment & go-live support<br>✓ Post-implementation support (30 days)<br>✓ Knowledge transfer documentation'
                 : '✓ Live instructor-led training sessions<br>✓ Hands-on projects & labs<br>✓ One-on-one mentorship<br>✓ Career coaching & job placement assistance<br>✓ Course materials & resources<br>✓ Certification preparation<br>✓ Alumni network access'}
             </div>
 
@@ -686,7 +686,7 @@ export default function PricingCalculator() {
                     }`}
                   >
                     <Globe className="w-8 h-8 text-teal-600 mb-2" />
-                    <div className="font-bold text-gray-900">Website Development</div>
+                    <div className="font-bold text-gray-900">Digital Platforms</div>
                     <div className="text-sm text-gray-600">Professional websites</div>
                   </button>
                 </div>
@@ -933,7 +933,7 @@ export default function PricingCalculator() {
                   <label className="block text-lg font-bold text-gray-900 mb-4">Project Scope</label>
                   <div className="grid md:grid-cols-4 gap-3">
                     {[
-                      { value: 'small', label: 'Discovery', desc: '2-4 weeks' },
+                      { value: 'small', label: 'Advisory & Discovery', desc: '2-4 weeks' },
                       { value: 'medium', label: 'Standard', desc: '3-6 months' },
                       { value: 'large', label: 'Advanced', desc: '6-9 months' },
                       { value: 'enterprise', label: 'Enterprise', desc: '9-12 months' }
@@ -1025,7 +1025,7 @@ export default function PricingCalculator() {
                         className="w-5 h-5 text-teal-600 rounded"
                       />
                       <div className="ml-4 flex-1">
-                        <div className="font-bold text-gray-900">Managed Services</div>
+                        <div className="font-bold text-gray-900">Managed Data Services</div>
                         <div className="text-sm text-gray-600">24/7 monitoring, optimization, support</div>
                       </div>
                       <div className="text-teal-600 font-bold">+CAD $8K-$25K/mo</div>
@@ -1069,7 +1069,7 @@ export default function PricingCalculator() {
                 {monthlyEstimate > 0 && (
                   <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-6">
                     <div className="text-sm text-gray-300 mb-2">
-                      {serviceType === 'website' ? 'Monthly Maintenance' : 'Monthly (Managed Services)'}
+                      {serviceType === 'website' ? 'Monthly Maintenance' : 'Monthly (Managed Data Services)'}
                     </div>
                     <div className="text-3xl font-bold mb-2">{formatCurrency(monthlyEstimate)}</div>
                     <div className="text-sm text-gray-300">
@@ -1117,7 +1117,7 @@ export default function PricingCalculator() {
                       <>
                         <div className="flex items-start gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                          <span>Discovery & assessment</span>
+                          <span>Advisory & Discovery & assessment</span>
                         </div>
                         <div className="flex items-start gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
@@ -1222,7 +1222,7 @@ export default function PricingCalculator() {
               className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition inline-flex items-center gap-2"
             >
               <Calendar className="w-5 h-5" />
-              Book Discovery Call
+              Book Advisory Call
             </button>
           </div>
         </div>
@@ -1256,7 +1256,7 @@ export default function PricingCalculator() {
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
               </ul>
             </div>
 
@@ -1274,7 +1274,7 @@ export default function PricingCalculator() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>

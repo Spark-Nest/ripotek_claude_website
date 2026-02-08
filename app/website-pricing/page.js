@@ -46,8 +46,8 @@ export default function WebsitePricingPage() {
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
-                <li><a href="/website-development" className="text-gray-300 hover:text-teal-400 transition">Website Development</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
+                <li><a href="/website-development" className="text-gray-300 hover:text-teal-400 transition">Digital Platforms</a></li>
               </ul>
             </div>
 
@@ -65,7 +65,7 @@ export default function WebsitePricingPage() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>

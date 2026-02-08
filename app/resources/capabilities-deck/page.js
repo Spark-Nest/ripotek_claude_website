@@ -864,11 +864,11 @@ function Slide4() {
 // ============================================
 function Slide5() {
   const methodologySteps = [
-    { icon: Compass, title: 'Strategy & Governance', desc: 'Roadmaps, policies & compliance frameworks', color: '#3b82f6', bgColor: '#eff6ff' },
+    { icon: Compass, title: 'Data Strategy & Governance', desc: 'Roadmaps, policies & compliance frameworks', color: '#3b82f6', bgColor: '#eff6ff' },
     { icon: Layers, title: 'Platform Build', desc: 'Cloud data platforms & modern architecture', color: '#14b8a6', bgColor: '#f0fdfa' },
     { icon: BarChart3, title: 'Analytics & BI', desc: 'Dashboards, reports & self-service analytics', color: '#f97316', bgColor: '#fff7ed' },
     { icon: Brain, title: 'AI & MLOps', desc: 'ML models, GenAI & production pipelines', color: '#8b5cf6', bgColor: '#f5f3ff' },
-    { icon: LifeBuoy, title: 'Managed Services', desc: '24/7 support & continuous optimization', color: '#06b6d4', bgColor: '#ecfeff' },
+    { icon: LifeBuoy, title: 'Managed Data Services', desc: '24/7 support & continuous optimization', color: '#06b6d4', bgColor: '#ecfeff' },
     { icon: UsersRound, title: 'Team Training', desc: 'Upskilling programs & certification paths', color: '#22c55e', bgColor: '#f0fdf4' }
   ];
 
@@ -1367,7 +1367,7 @@ function Slide8() {
 }
 
 // ============================================
-// SLIDE 9: Strategy & Governance
+// SLIDE 9: Data Strategy & Governance
 // ============================================
 function Slide9() {
   const whatWeDo = [
@@ -1394,7 +1394,7 @@ function Slide9() {
             Service Detail
           </span>
           <h1 className="text-3xl font-bold" style={{ color: '#0f172a' }}>
-            Strategy & Governance
+            Data Strategy & Governance
           </h1>
         </div>
         <div className="flex items-center gap-2">
@@ -1948,7 +1948,7 @@ function Slide12() {
 }
 
 // ============================================
-// SLIDE 13: Managed Services
+// SLIDE 13: Managed Data Services
 // ============================================
 function Slide13() {
   const whatWeOffer = [
@@ -1974,7 +1974,7 @@ function Slide13() {
             Service Detail
           </span>
           <h1 className="text-3xl font-bold" style={{ color: '#0f172a' }}>
-            Managed Services
+            Managed Data Services
           </h1>
         </div>
         <div className="flex items-center gap-2">
@@ -2515,7 +2515,7 @@ function Slide17() {
   const phases = [
     {
       number: 1,
-      title: 'Discovery',
+      title: 'Advisory & Discovery',
       duration: '2 - 4 Weeks',
       color: '#1e3a8a',
       bgColor: '#eff6ff',
@@ -2530,7 +2530,7 @@ function Slide17() {
     },
     {
       number: 2,
-      title: 'Implementation',
+      title: 'Solution Delivery',
       duration: '3 - 6 Months',
       color: '#0891b2',
       bgColor: '#f0fdfa',
@@ -3678,11 +3678,11 @@ function Slide24() {
 // ============================================
 function Slide25() {
   const services = [
-    { name: 'Discovery & Strategy', icon: Search, timeline: '2 - 4 Weeks', timeIcon: Clock, investment: '$15K - $30K' },
+    { name: 'Advisory & Discovery', icon: Search, timeline: '2 - 4 Weeks', timeIcon: Clock, investment: '$15K - $30K' },
     { name: 'Data Platform Build', icon: Layers, timeline: '3 - 6 Months', timeIcon: Clock, investment: '$100K - $300K' },
     { name: 'Analytics & BI', icon: PieChart, timeline: '2 - 4 Months', timeIcon: Clock, investment: '$50K - $150K' },
     { name: 'MLOps & AI Solutions', icon: Brain, timeline: '2 - 6 Months', timeIcon: Clock, investment: '$75K - $250K' },
-    { name: 'Managed Services', icon: LifeBuoy, timeline: 'Ongoing', timeIcon: RefreshCw, investment: '$8K - $25K', period: '/ month' },
+    { name: 'Managed Data Services', icon: LifeBuoy, timeline: 'Ongoing', timeIcon: RefreshCw, investment: '$8K - $25K', period: '/ month' },
     { name: 'Enterprise Training', icon: GraduationCap, timeline: 'Custom', timeIcon: CalendarCheck, investment: '$5K - $50K' }
   ];
 
@@ -3978,7 +3978,7 @@ function Slide27() {
     {
       number: 1,
       icon: Headset,
-      title: 'Discovery Call',
+      title: 'Advisory Call',
       subtitle: '30 Minutes',
       description: "We discuss your challenges, goals, and current infrastructure to determine if we're the right fit for your needs.",
       color: '#1e3a8a'
@@ -4076,7 +4076,7 @@ function Slide27() {
             className="flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg text-white transition-all hover:-translate-y-1 hover:shadow-xl"
             style={{ backgroundColor: '#1e3a8a', boxShadow: '0 4px 6px rgba(30, 58, 138, 0.3)' }}
           >
-            Book Your Discovery Call Today
+            Book Your Advisory Call Today
             <ArrowRight className="w-5 h-5" />
           </button>
           <span className="text-sm" style={{ color: '#64748b' }}>

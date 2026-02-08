@@ -17,6 +17,7 @@ const navigation = [
     cards: [
       {
         name: 'Data Engineering',
+        tagline: 'Scalable cloud data platforms',
         description: 'Build scalable data platforms with Azure, Databricks & Microsoft Fabric.',
         href: '/services#data-platform-build',
         bg: 'bg-amber-400',
@@ -24,6 +25,7 @@ const navigation = [
       },
       {
         name: 'Analytics & BI',
+        tagline: 'Insights that drive decisions',
         description: 'Power BI dashboards and self-service analytics at enterprise scale.',
         href: '/services#analytics-&-bi',
         bg: 'bg-teal-600',
@@ -31,13 +33,15 @@ const navigation = [
       },
       {
         name: 'MLOps & AI',
+        tagline: 'Production-ready AI solutions',
         description: 'Deploy machine learning models and GenAI solutions at scale.',
         href: '/services#mlops-&-ai',
         bg: 'bg-sky-500',
         text: 'text-white'
       },
       {
-        name: 'Website Development',
+        name: 'Digital Platforms',
+        tagline: 'Modern web experiences',
         description: 'Professional web solutions for modern businesses.',
         href: '/website-development',
         bg: 'bg-rose-400',
@@ -45,8 +49,8 @@ const navigation = [
       }
     ],
     moreLinks: [
-      { name: 'Strategy & Governance', href: '/services#strategy-&-governance' },
-      { name: 'Managed Services', href: '/services#managed-services' },
+      { name: 'Data Strategy & Governance', href: '/services#strategy-&-governance' },
+      { name: 'Managed Data Services', href: '/services#managed-services' },
       { name: 'Capabilities Deck', href: '/resources/capabilities-deck' }
     ]
   },
@@ -62,28 +66,32 @@ const navigation = [
     cards: [
       {
         name: 'Power BI Analyst',
-        description: '12 weeks \u2022 $700 \u2022 PL-300 certification prep.',
+        tagline: 'Business-ready analytics & reporting',
+        description: '12 weeks • $700 • PL-300 certification prep.',
         href: '/training#power-bi-analyst',
         bg: 'bg-violet-500',
         text: 'text-white'
       },
       {
         name: 'Azure Data Engineer',
-        description: '24 weeks \u2022 $1,500 \u2022 DP-203 certification prep.',
+        tagline: 'Enterprise-scale data platforms on Azure',
+        description: '24 weeks • $1,500 • DP-203 certification prep.',
         href: '/training#azure-data-engineer',
         bg: 'bg-cyan-500',
         text: 'text-white'
       },
       {
         name: 'AI Engineer',
-        description: '24 weeks \u2022 $1,800 \u2022 AI-102 certification prep.',
+        tagline: 'Build & deploy intelligent systems',
+        description: '24 weeks • $1,800 • AI-102 certification prep.',
         href: '/training#ai-engineer',
         bg: 'bg-amber-500',
         text: 'text-gray-900'
       },
       {
         name: 'Databricks Engineer',
-        description: '24 weeks \u2022 $1,500 \u2022 Spark & Delta Lake.',
+        tagline: 'Lakehouse architecture mastery',
+        description: '24 weeks • $1,500 • Spark & Delta Lake.',
         href: '/training#databricks-engineer',
         bg: 'bg-rose-500',
         text: 'text-white'
@@ -102,13 +110,13 @@ const navigation = [
     description: 'Stay informed with insights, white papers, and expert content on data and AI.',
     leftLinks: [
       { name: 'Blog & Insights', href: '/blog' },
-      { name: 'Case Studies', href: '/case-studies' },
       { name: 'White Papers', href: '/resources#whitepapers' },
       { name: 'Demo Videos', href: '/resources#demo-videos' }
     ],
     cards: [
       {
         name: 'Capabilities Deck',
+        tagline: 'Explore our service offerings',
         description: 'View our Capabilities Deck.',
         href: '/resources/capabilities-deck',
         bg: 'bg-teal-500',
@@ -116,6 +124,7 @@ const navigation = [
       },
       {
         name: 'YouTube Channel',
+        tagline: 'Tutorials & expert walkthroughs',
         description: 'Tutorials, webinars, and expert walkthroughs.',
         href: 'https://youtube.com/@ripotekacademy',
         bg: 'bg-red-500',
@@ -126,43 +135,6 @@ const navigation = [
       { name: 'Syllabi', href: '/training#our-programs' },
       { name: 'GitHub', href: 'https://github.com/ripotek-technologies' },
       { name: 'Subscribe for Updates', href: '/resources#subscribe' }
-    ]
-  },
-  {
-    name: 'Pricing',
-    href: '/pricing',
-    description: 'Transparent pricing for consulting services and training programs.',
-    leftLinks: [
-      { name: 'Training Pricing', href: '/pricing#training-pricing' },
-      { name: 'Website Pricing', href: '/website-pricing' }
-    ],
-    cards: [
-      {
-        name: 'Discovery',
-        description: '2\u20134 weeks \u2022 $15K\u2013$30K \u2022 Assessment & roadmap.',
-        href: '/pricing#discovery',
-        bg: 'bg-sky-500',
-        text: 'text-white'
-      },
-      {
-        name: 'Implementation',
-        description: '3\u20136 months \u2022 $100K\u2013$300K \u2022 Full platform build.',
-        href: '/pricing#implementation',
-        bg: 'bg-amber-400',
-        text: 'text-gray-900'
-      },
-      {
-        name: 'Managed Services',
-        description: 'Ongoing \u2022 $8K\u2013$25K/month \u2022 Support & optimization.',
-        href: '/pricing#managed',
-        bg: 'bg-teal-600',
-        text: 'text-white'
-      }
-    ],
-    moreLinks: [
-      { name: 'Enterprise Custom', href: '/contact' },
-      { name: 'Payment Plans', href: '/pricing#payment' },
-      { name: 'Book a Discovery Call', href: '/contact' }
     ]
   },
   {
@@ -177,6 +149,7 @@ const navigation = [
     cards: [
       {
         name: 'Careers at Ripotek',
+        tagline: 'Join our growing team',
         description: 'Join our growing team of data and AI professionals.',
         href: '/careers',
         bg: 'bg-violet-500',
@@ -184,6 +157,7 @@ const navigation = [
       },
       {
         name: 'Get in Touch',
+        tagline: 'Start a conversation',
         description: 'Contact us for inquiries, partnerships, or support.',
         href: '/contact',
         bg: 'bg-teal-500',
@@ -192,8 +166,47 @@ const navigation = [
     ],
     moreLinks: [
       { name: 'LinkedIn', href: 'https://linkedin.com/company/ripotek' },
-      { name: 'Case Studies', href: '/case-studies' },
       { name: 'Subscribe for Updates', href: '/resources#subscribe' }
+    ]
+  },
+  {
+    name: 'Pricing',
+    href: '/pricing',
+    description: 'Transparent pricing for consulting services and training programs.',
+    leftLinks: [
+      { name: 'Training Pricing', href: '/pricing#training-pricing' },
+      { name: 'Website Pricing', href: '/website-pricing' }
+    ],
+    cards: [
+      {
+        name: 'Advisory & Discovery',
+        tagline: 'Strategy & assessment',
+        description: '2–4 weeks • $15K–$30K • Assessment & roadmap.',
+        href: '/pricing#discovery',
+        bg: 'bg-sky-500',
+        text: 'text-white'
+      },
+      {
+        name: 'Solution Delivery',
+        tagline: 'End-to-end implementation',
+        description: '3–6 months • $100K–$300K • Full platform build.',
+        href: '/pricing#implementation',
+        bg: 'bg-amber-400',
+        text: 'text-gray-900'
+      },
+      {
+        name: 'Managed Data Services',
+        tagline: 'Ongoing support & optimization',
+        description: 'Ongoing • $8K–$25K/month • Support & optimization.',
+        href: '/pricing#managed',
+        bg: 'bg-teal-600',
+        text: 'text-white'
+      }
+    ],
+    moreLinks: [
+      { name: 'Enterprise Custom', href: '/contact' },
+      { name: 'Payment Plans', href: '/pricing#payment' },
+      { name: 'Book a Discovery Call', href: '/contact' }
     ]
   }
 ];
@@ -324,7 +337,7 @@ export default function Navbar() {
                         : scrolled
                           ? 'text-gray-300 hover:text-white'
                           : 'text-gray-600 hover:text-gray-900'
-                    }`}
+                    } ${item.name === 'Pricing' ? 'opacity-60 hover:opacity-100' : ''}`}
                   >
                     {item.name}
                     <ChevronDown className={`w-3 h-3 opacity-40 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 opacity-70' : ''}`} />
@@ -409,6 +422,11 @@ export default function Navbar() {
                     >
                       <div>
                         <h4 className="text-base font-bold mb-1">{card.name}</h4>
+                        {card.tagline && (
+                          <p className={`text-[11px] uppercase tracking-wider font-semibold mb-1 ${card.text === 'text-white' ? 'text-white/70' : 'text-gray-700/70'}`}>
+                            {card.tagline}
+                          </p>
+                        )}
                         <p className={`text-[13px] leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
                           {card.description}
                         </p>
@@ -596,6 +614,11 @@ export default function Navbar() {
                           onClick={closeMobile}
                         >
                           <h4 className="text-lg font-bold mb-1">{card.name}</h4>
+                          {card.tagline && (
+                            <p className={`text-[11px] uppercase tracking-wider font-semibold mb-1 ${card.text === 'text-white' ? 'text-white/70' : 'text-gray-700/70'}`}>
+                              {card.tagline}
+                            </p>
+                          )}
                           <p className={`text-sm leading-relaxed ${card.text === 'text-white' ? 'opacity-90' : 'opacity-70'}`}>
                             {card.description}
                           </p>

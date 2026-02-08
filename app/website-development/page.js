@@ -275,7 +275,7 @@ export default function WebsiteDevelopmentPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <Globe className="w-5 h-5" />
-              <span className="text-sm font-semibold">Website Development</span>
+              <span className="text-sm font-semibold">Digital Platforms</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Professional Websites Built for Growth
@@ -662,8 +662,8 @@ export default function WebsiteDevelopmentPage() {
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
-                <li><a href="/website-development" className="text-gray-300 hover:text-teal-400 transition">Website Development</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
+                <li><a href="/website-development" className="text-gray-300 hover:text-teal-400 transition">Digital Platforms</a></li>
               </ul>
             </div>
 
@@ -681,7 +681,7 @@ export default function WebsiteDevelopmentPage() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>

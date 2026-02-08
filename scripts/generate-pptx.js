@@ -85,11 +85,11 @@ slide5.background = { color: colors.white };
 slide5.addText('Our Services', { x: 0.5, y: 0.3, fontSize: 12, color: colors.teal, bold: true });
 slide5.addText('Six Pillars of Excellence', { x: 0.5, y: 0.6, fontSize: 28, bold: true, color: colors.darkGray });
 const services = [
-  { title: 'Strategy & Governance', desc: 'Data strategy, governance frameworks, COE setup' },
+  { title: 'Data Strategy & Governance', desc: 'Data strategy, governance frameworks, COE setup' },
   { title: 'Data Platform Build', desc: 'Azure, Databricks, Fabric implementations' },
   { title: 'Analytics & BI', desc: 'Power BI, semantic models, self-service analytics' },
   { title: 'MLOps & AI', desc: 'Production AI, GenAI integration, ML pipelines' },
-  { title: 'Managed Services', desc: '24/7 support, optimization, health monitoring' },
+  { title: 'Managed Data Services', desc: '24/7 support, optimization, health monitoring' },
   { title: 'Enterprise Training', desc: 'Bootcamps, certifications, knowledge transfer' },
 ];
 services.forEach((s, i) => {
@@ -144,11 +144,11 @@ slide8.addText('Our Services', { x: 0.5, y: 2.5, fontSize: 52, bold: true, color
 
 // Slide 9-15: Individual Services (abbreviated for space)
 const serviceDetails = [
-  { title: 'Strategy & Governance', subtitle: 'Foundation for Data Excellence', items: ['Data Strategy Development', 'Governance Framework Design', 'Center of Excellence Setup', 'Data Quality Programs'] },
+  { title: 'Data Strategy & Governance', subtitle: 'Foundation for Data Excellence', items: ['Data Strategy Development', 'Governance Framework Design', 'Center of Excellence Setup', 'Data Quality Programs'] },
   { title: 'Data Platform Build', subtitle: 'Modern Data Infrastructure', items: ['Azure Data Platform', 'Databricks Lakehouse', 'Microsoft Fabric', 'Data Migration'] },
   { title: 'Analytics & BI', subtitle: 'Insights That Drive Action', items: ['Power BI Implementation', 'Semantic Models', 'Self-Service Analytics', 'Embedded Analytics'] },
   { title: 'MLOps & AI', subtitle: 'Production-Grade AI', items: ['GenAI Integration', 'ML Pipeline Development', 'Model Monitoring', 'Azure OpenAI Solutions'] },
-  { title: 'Managed Services', subtitle: '24/7 Expert Support', items: ['Platform Monitoring', 'Performance Optimization', 'Incident Response', 'Continuous Improvement'] },
+  { title: 'Managed Data Services', subtitle: '24/7 Expert Support', items: ['Platform Monitoring', 'Performance Optimization', 'Incident Response', 'Continuous Improvement'] },
   { title: 'Enterprise Training', subtitle: 'Build Internal Capability', items: ['Custom Bootcamps', 'Certification Prep', 'Knowledge Transfer', 'Team Upskilling'] },
 ];
 
@@ -187,8 +187,8 @@ slide17.background = { color: colors.white };
 slide17.addText('How We Work', { x: 0.5, y: 0.3, fontSize: 12, color: colors.teal, bold: true });
 slide17.addText('Our Delivery Methodology', { x: 0.5, y: 0.6, fontSize: 28, bold: true, color: colors.darkGray });
 const phases = [
-  { num: '1', title: 'Discovery', duration: '2-4 Weeks' },
-  { num: '2', title: 'Implementation', duration: '3-6 Months' },
+  { num: '1', title: 'Advisory & Discovery', duration: '2-4 Weeks' },
+  { num: '2', title: 'Solution Delivery', duration: '3-6 Months' },
   { num: '3', title: 'Support', duration: 'Ongoing' },
 ];
 phases.forEach((p, i) => {
@@ -199,11 +199,11 @@ phases.forEach((p, i) => {
   slide17.addText(p.duration, { x, y: 3.5, w: 2.4, fontSize: 12, color: colors.teal, align: 'center' });
 });
 
-// Slide 18-20: Case Studies Section
+// Slide 18-20: Client Impact Section
 let slide18 = pptx.addSlide();
 slide18.background = { color: colors.darkBlue };
 slide18.addText('Success Stories', { x: 0.5, y: 2, fontSize: 14, color: colors.cyan, bold: true, align: 'center', w: 9 });
-slide18.addText('Case Studies', { x: 0.5, y: 2.5, fontSize: 52, bold: true, color: colors.white, align: 'center', w: 9 });
+slide18.addText('Client Impact', { x: 0.5, y: 2.5, fontSize: 52, bold: true, color: colors.white, align: 'center', w: 9 });
 
 // Example case studies
 const caseStudies = [
@@ -307,7 +307,7 @@ slide26.addText('Engagement Models', { x: 0.5, y: 0.6, fontSize: 28, bold: true,
 const models = [
   { title: 'Project-Based', desc: 'Fixed scope, timeline, and budget for defined deliverables' },
   { title: 'Staff Augmentation', desc: 'Skilled consultants embedded in your team' },
-  { title: 'Managed Services', desc: 'Ongoing support and optimization' },
+  { title: 'Managed Data Services', desc: 'Ongoing support and optimization' },
   { title: 'Training Programs', desc: 'Upskill your workforce with our academy' },
 ];
 models.forEach((model, i) => {

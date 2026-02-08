@@ -406,7 +406,7 @@ export default function ResourcesPage() {
               <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
                 <CheckCircle className="w-8 h-8 text-teal-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Case Studies</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Client Impact</h3>
               <p className="text-gray-600 mb-4">Real transformations with measurable ROI</p>
               <span className="text-teal-600 font-semibold inline-flex items-center gap-2">
                 View Success Stories <ArrowRight className="w-4 h-4" />
@@ -455,7 +455,7 @@ export default function ResourcesPage() {
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
               </ul>
             </div>
 
@@ -473,7 +473,7 @@ export default function ResourcesPage() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>

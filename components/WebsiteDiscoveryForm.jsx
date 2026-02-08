@@ -54,7 +54,7 @@ const WebsiteDiscoveryForm = () => {
     'Member Portal',
     'Gallery/Portfolio',
     'Testimonials',
-    'Case Studies',
+    'Client Impact',
     'Newsletter Signup',
     'Live Chat',
     'Social Media Integration',

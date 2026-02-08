@@ -98,11 +98,11 @@ addSlide(colors.white);
 doc.fontSize(10).fillColor(colors.teal).text('Our Services', 50, 30);
 doc.fontSize(26).fillColor(colors.darkGray).text('Six Pillars of Excellence', 50, 50);
 const services = [
-  { title: 'Strategy & Governance', desc: 'Data strategy, governance frameworks, COE setup' },
+  { title: 'Data Strategy & Governance', desc: 'Data strategy, governance frameworks, COE setup' },
   { title: 'Data Platform Build', desc: 'Azure, Databricks, Fabric implementations' },
   { title: 'Analytics & BI', desc: 'Power BI, semantic models, self-service analytics' },
   { title: 'MLOps & AI', desc: 'Production AI, GenAI integration, ML pipelines' },
-  { title: 'Managed Services', desc: '24/7 support, optimization, health monitoring' },
+  { title: 'Managed Data Services', desc: '24/7 support, optimization, health monitoring' },
   { title: 'Enterprise Training', desc: 'Bootcamps, certifications, knowledge transfer' },
 ];
 services.forEach((s, i) => {
@@ -156,11 +156,11 @@ doc.fontSize(44).fillColor(colors.white).text('Our Services', 50, 230, { width: 
 
 // Slides 9-14: Individual Services
 const serviceDetails = [
-  { title: 'Strategy & Governance', items: ['Data Strategy Development', 'Governance Framework Design', 'Center of Excellence Setup', 'Data Quality Programs'] },
+  { title: 'Data Strategy & Governance', items: ['Data Strategy Development', 'Governance Framework Design', 'Center of Excellence Setup', 'Data Quality Programs'] },
   { title: 'Data Platform Build', items: ['Azure Data Platform', 'Databricks Lakehouse', 'Microsoft Fabric', 'Data Migration'] },
   { title: 'Analytics & BI', items: ['Power BI Implementation', 'Semantic Models', 'Self-Service Analytics', 'Embedded Analytics'] },
   { title: 'MLOps & AI', items: ['GenAI Integration', 'ML Pipeline Development', 'Model Monitoring', 'Azure OpenAI Solutions'] },
-  { title: 'Managed Services', items: ['Platform Monitoring', 'Performance Optimization', 'Incident Response', 'Continuous Improvement'] },
+  { title: 'Managed Data Services', items: ['Platform Monitoring', 'Performance Optimization', 'Incident Response', 'Continuous Improvement'] },
   { title: 'Enterprise Training', items: ['Custom Bootcamps', 'Certification Prep', 'Knowledge Transfer', 'Team Upskilling'] },
 ];
 serviceDetails.forEach((svc, idx) => {
@@ -197,8 +197,8 @@ addSlide(colors.white);
 doc.fontSize(10).fillColor(colors.teal).text('How We Work', 50, 30);
 doc.fontSize(26).fillColor(colors.darkGray).text('Our Delivery Methodology', 50, 50);
 const phases = [
-  { num: '1', title: 'Discovery', duration: '2-4 Weeks' },
-  { num: '2', title: 'Implementation', duration: '3-6 Months' },
+  { num: '1', title: 'Advisory & Discovery', duration: '2-4 Weeks' },
+  { num: '2', title: 'Solution Delivery', duration: '3-6 Months' },
   { num: '3', title: 'Support', duration: 'Ongoing' },
 ];
 phases.forEach((p, i) => {
@@ -210,12 +210,12 @@ phases.forEach((p, i) => {
 });
 addFooter(17);
 
-// Slide 18: Case Studies Divider
+// Slide 18: Client Impact Divider
 addSlide(colors.darkBlue);
 doc.fontSize(12).fillColor(colors.cyan).text('Success Stories', 50, 200, { width: 860, align: 'center' });
-doc.fontSize(44).fillColor(colors.white).text('Case Studies', 50, 230, { width: 860, align: 'center' });
+doc.fontSize(44).fillColor(colors.white).text('Client Impact', 50, 230, { width: 860, align: 'center' });
 
-// Slide 19-20: Case Studies
+// Slide 19-20: Client Impact
 const caseStudies = [
   { client: 'Major Energy Company', challenge: 'Legacy data warehouse modernization', solution: 'Azure Databricks lakehouse', result: '60% cost reduction, 10x faster queries' },
   { client: 'Financial Services Firm', challenge: 'Real-time fraud detection', solution: 'Azure ML + Databricks streaming', result: '85% fraud detection improvement' },
@@ -316,7 +316,7 @@ doc.fontSize(26).fillColor(colors.darkGray).text('Engagement Models', 50, 50);
 const models = [
   { title: 'Project-Based', desc: 'Fixed scope, timeline, and budget for defined deliverables' },
   { title: 'Staff Augmentation', desc: 'Skilled consultants embedded in your team' },
-  { title: 'Managed Services', desc: 'Ongoing support and optimization' },
+  { title: 'Managed Data Services', desc: 'Ongoing support and optimization' },
   { title: 'Training Programs', desc: 'Upskill your workforce with our academy' },
 ];
 models.forEach((model, i) => {

@@ -229,7 +229,7 @@ export default function CaseStudiesPage() {
               Proven Results Across Industries
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
-              Case Studies
+              Client Impact
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fadeInUp" style={{animationDelay: '0.2s'}}>
               Real transformations that drive measurable business impact. From strategy to implementation, see how we help organizations unlock the full potential of their data and AI investments.
@@ -303,7 +303,7 @@ export default function CaseStudiesPage() {
         `}</style>
       </section>
 
-      {/* Case Studies Grid */}
+      {/* Client Impact Grid */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -482,7 +482,7 @@ export default function CaseStudiesPage() {
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
                 <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
                 <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
-                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
+                <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
               </ul>
             </div>
 
@@ -500,7 +500,7 @@ export default function CaseStudiesPage() {
               <h4 className="font-bold mb-6 text-sm">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="text-gray-300 hover:text-teal-400 transition">About Us</a></li>
-                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Case Studies</a></li>
+                <li><a href="/case-studies" className="text-gray-300 hover:text-teal-400 transition">Client Impact</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-teal-400 transition">Blog</a></li>
                 <li><a href="/careers" className="text-gray-300 hover:text-teal-400 transition">Careers</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-teal-400 transition">Contact</a></li>
