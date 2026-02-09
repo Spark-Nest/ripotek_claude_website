@@ -266,12 +266,24 @@ export default function WebsiteDevelopmentPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white pt-32 pb-24">
-        <div className="absolute inset-0 opacity-25">
+      <section className="relative overflow-hidden text-white pt-32 pb-24">
+        {/* Background image with blue overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&h=1080&fit=crop&q=80"
+            alt="Developer workspace with code on screen"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900/85 via-blue-800/80 to-teal-900/85"></div>
+        </div>
+        {/* Floating ambient elements */}
+        <div className="absolute inset-0 opacity-25 z-10 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <Globe className="w-5 h-5" />
