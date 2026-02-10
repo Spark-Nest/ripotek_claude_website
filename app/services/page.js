@@ -124,7 +124,7 @@ export default function ServicesPage() {
         '< 4 hour incident response time',
         'Proactive issue prevention'
       ],
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop'
+      image: '/managed_data_services.jpg'
     },
     {
       icon: GraduationCap,
@@ -175,14 +175,14 @@ export default function ServicesPage() {
   ];
 
   const industries = [
-    { name: 'Energy & Utilities', icon: Zap, clients: '15+ clients', example: 'Real-time operations dashboards, predictive maintenance', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop' },
-    { name: 'Financial Services', icon: BarChart3, clients: '20+ clients', example: 'Risk analytics, fraud detection, regulatory reporting', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&h=400&fit=crop' },
+    { name: 'Energy & Utilities', icon: Zap, clients: '15+ clients', example: 'Real-time operations dashboards, predictive maintenance', image: '/energy_utilities.jpg' },
+    { name: 'Financial Services', icon: BarChart3, clients: '20+ clients', example: 'Risk analytics, fraud detection, regulatory reporting', image: '/financial_services.jpg' },
     { name: 'Public Sector', icon: Shield, clients: '10+ clients', example: 'Citizen services analytics, cross-agency data sharing', image: '/public_sector.jpg' },
     { name: 'Healthcare', icon: CheckCircle, clients: '5+ clients', example: 'Patient outcomes analysis, operational efficiency', image: '/healthcare.jpg' }
   ];
 
   const deliveryModel = [
-    { title: 'Advisory & Discovery', timeline: '2-4 weeks', description: 'Current state assessment, requirements gathering, solution design', investment: '$15K-$30K', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop' },
+    { title: 'Advisory & Discovery', timeline: '2-4 weeks', description: 'Current state assessment, requirements gathering, solution design', investment: '$15K-$30K', image: '/advisory_discovery.jpg' },
     { title: 'Solution Delivery', timeline: '3-6 months', description: 'Platform build, pipeline development, dashboard creation, knowledge transfer', investment: '$100K-$300K', image: 'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600&h=400&fit=crop' },
     { title: 'Managed Services', timeline: 'Ongoing', description: 'Administration, monitoring, optimization, support', investment: '$8K-$25K/month', image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop' }
   ];
@@ -238,15 +238,19 @@ export default function ServicesPage() {
           {/* Service quick-links */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
             {[
-              { icon: Shield, label: 'Strategy' },
-              { icon: Database, label: 'Platforms' },
-              { icon: BarChart3, label: 'Analytics' },
-              { icon: Brain, label: 'AI & ML' }
+              { icon: Shield, label: 'Strategy', href: '#data-strategy-&-governance' },
+              { icon: Database, label: 'Platforms', href: '#data-platform-build' },
+              { icon: BarChart3, label: 'Analytics', href: '#analytics-&-bi' },
+              { icon: Brain, label: 'AI & ML', href: '#mlops-&-ai' }
             ].map((item, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 flex items-center gap-3 hover:bg-white/10 transition-colors cursor-default">
-                <item.icon className="w-5 h-5 text-teal-400" />
+              <a 
+                key={i} 
+                href={item.href}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 flex items-center gap-3 hover:bg-white/10 hover:border-teal-400/30 transition-all cursor-pointer group"
+              >
+                <item.icon className="w-5 h-5 text-teal-400 group-hover:scale-110 transition-transform" />
                 <span className="text-white font-medium text-sm">{item.label}</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -414,7 +418,7 @@ export default function ServicesPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-white via-white/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent"></div>
                   <div className="absolute top-4 left-4">
                     <div className="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                       {idx + 1}
@@ -426,10 +430,10 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 bg-white border border-gray-100 border-t-0 rounded-b-2xl">
+                <div className="p-6 bg-white border border-gray-100 border-t-0 rounded-b-2xl flex flex-col h-[280px]">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{phase.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{phase.description}</p>
-                  <div className="pt-4 border-t border-gray-100">
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{phase.description}</p>
+                  <div className="pt-4 border-t border-gray-100 mt-auto">
                     <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Investment</p>
                     <p className="text-2xl font-bold text-teal-600">{phase.investment}</p>
                   </div>
