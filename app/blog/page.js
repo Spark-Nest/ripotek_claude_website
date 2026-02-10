@@ -53,7 +53,7 @@ export default function BlogPage() {
       author: 'Sarah Chen',
       date: 'October 8, 2024',
       readTime: '10 min read',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop'
+      image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=500&fit=crop'
     },
     {
       slug: 'transition-data-career-without-cs-degree',
@@ -63,7 +63,7 @@ export default function BlogPage() {
       author: 'Marcus Johnson',
       date: 'October 1, 2024',
       readTime: '9 min read',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop'
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=500&fit=crop'
     },
     {
       slug: 'power-bi-vs-tableau-2025',
@@ -73,7 +73,7 @@ export default function BlogPage() {
       author: 'David Thompson',
       date: 'September 24, 2024',
       readTime: '11 min read',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop'
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop'
     }
   ];
 

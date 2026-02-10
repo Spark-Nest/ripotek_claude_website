@@ -496,7 +496,7 @@ const blogData = {
     },
     date: 'October 8, 2024',
     readTime: '10 min read',
-    featuredImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&h=600&fit=crop',
     content: `
       <h2>Introduction</h2>
       <p>Azure has become the go-to cloud platform for enterprise data engineering, offering a comprehensive suite of services from Azure Data Lake Storage to Synapse Analytics, Databricks, and Microsoft Fabric. But with great power comes great responsibility—building scalable, secure, and cost-efficient data platforms requires following proven best practices.</p>
@@ -705,7 +705,7 @@ const blogData = {
     },
     date: 'October 1, 2024',
     readTime: '9 min read',
-    featuredImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=600&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=600&fit=crop',
     content: `
       <h2>You Don't Need a CS Degree to Break Into Data</h2>
       <p>One of the most common questions we hear at Ripotek is: "Can I become a data professional without a computer science degree?" The answer is a resounding yes.</p>
@@ -970,7 +970,7 @@ const blogData = {
     },
     date: 'September 24, 2024',
     readTime: '11 min read',
-    featuredImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
     content: `
       <h2>The Eternal BI Debate</h2>
       <p>The Power BI vs. Tableau debate has dominated business intelligence discussions for years. Both tools have passionate advocates, impressive feature sets, and proven track records at enterprise scale. But which one should you choose in 2025?</p>

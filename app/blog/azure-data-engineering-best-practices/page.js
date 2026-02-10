@@ -35,7 +35,7 @@ export default function BlogPost() {
     date: 'October 8, 2024',
     readTime: '10 min read',
     category: 'Azure',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop'
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&h=600&fit=crop'
   };
 
   const tableOfContents = [

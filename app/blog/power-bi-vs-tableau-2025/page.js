@@ -35,7 +35,7 @@ export default function BlogPost() {
     date: 'September 24, 2024',
     readTime: '11 min read',
     category: 'Business Intelligence',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop'
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop'
   };
 
   const tableOfContents = [

@@ -32,7 +32,7 @@ export default function ServicesPage() {
         'Stakeholder buy-in and organizational readiness',
         'ROI-justified technology investments'
       ],
-      image: '/data_strategy.jpg'
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop'
     },
     {
       icon: Database,
@@ -55,7 +55,7 @@ export default function ServicesPage() {
         '40-60% lower infrastructure costs vs. legacy systems',
         'Self-service data access with governance'
       ],
-      image: '/data_platform.jpg'
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop'
     },
     {
       icon: BarChart3,
@@ -78,7 +78,7 @@ export default function ServicesPage() {
         'Faster decision-making (weeks to hours)',
         '90%+ user adoption rates'
       ],
-      image: '/analytics_bi.jpg'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
     },
     {
       icon: Brain,
@@ -101,7 +101,7 @@ export default function ServicesPage() {
         'Automated model retraining and monitoring',
         'Governed, explainable AI systems'
       ],
-      image: '/mlops_ai.jpg'
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop'
     },
     {
       icon: Zap,
@@ -135,6 +135,7 @@ export default function ServicesPage() {
         'Custom curriculum design for your tech stack',
         'Hands-on lab environments',
         'Corporate bootcamps (1-3 weeks intensive)',
+        'Microsoft certification prep (DP-203, PL-300, etc.)',
         'Train-the-trainer programs',
         'On-site or virtual delivery',
         'Post-training support (30 days)',
@@ -177,8 +178,8 @@ export default function ServicesPage() {
   const industries = [
     { name: 'Energy & Utilities', icon: Zap, clients: '15+ clients', example: 'Real-time operations dashboards, predictive maintenance', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop' },
     { name: 'Financial Services', icon: BarChart3, clients: '20+ clients', example: 'Risk analytics, fraud detection, regulatory reporting', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&h=400&fit=crop' },
-    { name: 'Public Sector', icon: Shield, clients: '10+ clients', example: 'Citizen services analytics, cross-agency data sharing', image: '/public_sector.jpg' },
-    { name: 'Healthcare', icon: CheckCircle, clients: '5+ clients', example: 'Patient outcomes analysis, operational efficiency', image: '/healthcare.jpg' }
+    { name: 'Public Sector', icon: Shield, clients: '10+ clients', example: 'Citizen services analytics, cross-agency data sharing', image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&h=400&fit=crop' },
+    { name: 'Healthcare', icon: CheckCircle, clients: '5+ clients', example: 'Patient outcomes analysis, operational efficiency', image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop' }
   ];
 
   const deliveryModel = [
@@ -195,8 +196,8 @@ export default function ServicesPage() {
       <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/our_services.jpg"
-            alt="Ripotek services"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
+            alt="Data technology and global connectivity"
             fill
             className="object-cover"
             priority

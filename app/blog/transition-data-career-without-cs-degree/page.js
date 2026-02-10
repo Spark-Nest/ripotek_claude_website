@@ -35,7 +35,7 @@ export default function BlogPost() {
     date: 'October 1, 2024',
     readTime: '9 min read',
     category: 'Career',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=600&fit=crop'
+    image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=600&fit=crop'
   };
 
   const tableOfContents = [
