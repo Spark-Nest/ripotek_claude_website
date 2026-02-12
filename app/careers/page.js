@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { MapPin, Mail, Phone, ArrowRight, Award, Briefcase, Calendar, CheckCircle, Heart, Send, Users, Sparkles, TrendingUp, Globe, Code, GraduationCap, Lightbulb } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import Navbar from '../../components/Navbar';
-import ApplicationModal from '../../components/ApplicationModal';
+
+const ApplicationModal = dynamic(() => import('../../components/ApplicationModal'), { ssr: false });
 
 export default function CareersPage() {
   const [applicationModalOpen, setApplicationModalOpen] = useState(false);

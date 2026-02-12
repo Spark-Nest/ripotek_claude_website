@@ -2,11 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { MapPin, Mail, Phone, Calendar, FileText, GraduationCap, Briefcase, Send, MessageCircle } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
-import DiscoveryCallModal from '../../components/DiscoveryCallModal';
 import Navbar from '../../components/Navbar';
 import Script from 'next/script';
+
+const DiscoveryCallModal = dynamic(() => import('../../components/DiscoveryCallModal'), { ssr: false });
 
 export default function ContactPage() {
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);

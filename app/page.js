@@ -1,42 +1,51 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { ArrowRight, Users, Award, TrendingUp, Database, Brain, BarChart3, Calendar, Download, GraduationCap, Target, Sparkles, Building2, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import { SiSnowflake } from 'react-icons/si';
-import DiscoveryCallModal from '../components/DiscoveryCallModal';
 import Navbar from '../components/Navbar';
+
+// Lazy load modal - only loaded when user clicks "Book Discovery Call"
+const DiscoveryCallModal = dynamic(() => import('../components/DiscoveryCallModal'), {
+  ssr: false,
+});
 
 export default function RipotekHomePage() {
   const [statsVisible, setStatsVisible] = useState(false);
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  const statsRef = useRef(null);
+
   useEffect(() => {
     // Detect mobile devices
-    setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const handleResize = () => checkMobile();
+    window.addEventListener('resize', handleResize, { passive: true });
 
-    window.addEventListener('resize', handleResize);
-
-    const handleScroll = () => {
-      // Trigger stats animation when section comes into view
-      const statsSection = document.getElementById('stats-section');
-      if (statsSection) {
-        const rect = statsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
+    // Use IntersectionObserver instead of scroll events (much better performance)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
           setStatsVisible(true);
+          observer.disconnect(); // Stop observing once triggered
         }
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
     };
   }, []);
 
@@ -194,29 +203,40 @@ export default function RipotekHomePage() {
           <div className="relative overflow-hidden shadow-2xl bg-black group">
             {/* Video Element - Fixed 1920x540 aspect ratio (3.56:1) */}
             <div className="relative w-full" style={{ aspectRatio: '3.56', maxHeight: '540px' }}>
-              <video
-                autoPlay
-                muted
-                playsInline
-                loop
-                className="w-full h-full object-cover"
-                preload={isMobile ? "none" : "metadata"}
-                webkit-playsinline="true"
-                x5-playsinline="true"
-                disablePictureInPicture
-                loading="lazy"
-                style={{
-                  WebkitTransform: 'translateZ(0)',
-                  transform: 'translateZ(0)',
-                  WebkitBackfaceVisibility: 'hidden',
-                  backfaceVisibility: 'hidden',
-                  WebkitPerspective: 1000,
-                  perspective: 1000
-                }}
-              >
-                {/* Using reliable stock video - replace with your own video when ready */}
-                <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
-              </video>
+              {isMobile ? (
+                /* On mobile: show poster image instead of video to save ~4.8MB bandwidth */
+                <Image
+                  src="/images/video-poster.png"
+                  alt="Ripotek Technologies - Engineer Intelligence. Deliver Impact."
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="100vw"
+                />
+              ) : (
+                <video
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                  poster="/images/video-poster.png"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  disablePictureInPicture
+                  style={{
+                    WebkitTransform: 'translateZ(0)',
+                    transform: 'translateZ(0)',
+                    WebkitBackfaceVisibility: 'hidden',
+                    backfaceVisibility: 'hidden',
+                    WebkitPerspective: 1000,
+                    perspective: 1000
+                  }}
+                >
+                  <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
+                </video>
+              )}
 
               {/* Subtle gradient overlay for branding */}
               <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
@@ -314,7 +334,7 @@ export default function RipotekHomePage() {
       </div>
 
       {/* Animated Stats Section */}
-      <section id="stats-section" className="py-20 bg-white relative overflow-hidden">
+      <section ref={statsRef} id="stats-section" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-gray-50 to-blue-50 opacity-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}

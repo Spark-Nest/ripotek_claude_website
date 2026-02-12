@@ -10,7 +10,33 @@ const inter = Inter({
 
 export const metadata = {
   title: 'Ripotek Technologies Inc. | Data & AI Consulting',
-  description: 'Enterprise consulting, training, and managed services in Azure, Databricks, Fabric, and AI',
+  description: 'Canada\'s premier data and AI consulting firm. Enterprise consulting, training, and managed services in Azure, Databricks, Fabric, and AI. 85% graduate placement rate.',
+  keywords: ['data consulting', 'AI consulting', 'Azure', 'Databricks', 'Microsoft Fabric', 'Power BI', 'data engineering', 'MLOps', 'Canada', 'Calgary', 'enterprise data'],
+  authors: [{ name: 'Ripotek Technologies Inc.' }],
+  openGraph: {
+    title: 'Ripotek Technologies Inc. | Data & AI Consulting',
+    description: 'Empowering enterprises with cutting-edge cloud, Databricks, Fabric, and AI solutions. 50+ enterprise clients across Canada.',
+    url: 'https://www.ripotek.com',
+    siteName: 'Ripotek Technologies',
+    locale: 'en_CA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ripotek Technologies Inc. | Data & AI Consulting',
+    description: 'Empowering enterprises with cutting-edge cloud, Databricks, Fabric, and AI solutions.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
@@ -34,12 +60,21 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://embed.tawk.to" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://embed.tawk.to" />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://upload.wikimedia.org" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+      </head>
       <body className={inter.className}>
         {children}
-        {/* Tawk.to Live Chat - Optimized Loading */}
+        {/* Tawk.to Live Chat - Deferred to lazyOnload for better initial page performance */}
         <Script
           id="tawk-to-chat"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

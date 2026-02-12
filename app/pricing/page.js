@@ -4,8 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { MapPin, Mail, Phone, Calculator, TrendingUp, Users, Clock, CheckCircle, AlertCircle, Calendar, Download, Globe } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
-import DiscoveryCallModal from '../../components/DiscoveryCallModal';
+import dynamic from 'next/dynamic';
 import Navbar from '../../components/Navbar';
+
+const DiscoveryCallModal = dynamic(() => import('../../components/DiscoveryCallModal'), {
+  ssr: false,
+});
 
 export default function PricingCalculator() {
   const [serviceType, setServiceType] = useState('consulting');

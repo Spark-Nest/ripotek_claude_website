@@ -4,8 +4,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { CheckCircle, Shield, Database, BarChart3, Brain, Zap, GraduationCap, ArrowRight, Calendar, MapPin, Mail, Phone, Globe, Sparkles } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
-import DiscoveryCallModal from '../../components/DiscoveryCallModal';
+import dynamic from 'next/dynamic';
 import Navbar from '../../components/Navbar';
+
+const DiscoveryCallModal = dynamic(() => import('../../components/DiscoveryCallModal'), {
+  ssr: false,
+});
 
 export default function ServicesPage() {
   const [discoveryCallModalOpen, setDiscoveryCallModalOpen] = useState(false);

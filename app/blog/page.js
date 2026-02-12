@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Search, Calendar, Clock, User, ArrowRight, Filter, MapPin, Mail, Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import Navbar from '../../components/Navbar';
-import SubscriptionModal from '../../components/SubscriptionModal';
+
+const SubscriptionModal = dynamic(() => import('../../components/SubscriptionModal'), { ssr: false });
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');

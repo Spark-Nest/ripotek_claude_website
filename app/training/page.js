@@ -1,12 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { ChevronDown, MapPin, Mail, Phone, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Target, ArrowRight, Download, DollarSign, Calendar, CheckCircle, Clock, Users, Award, GraduationCap, Play, Star, Briefcase, BookOpen, Monitor, Building2, Repeat, Factory } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import Navbar from '../../components/Navbar';
-import EnrollmentModal from '../../components/EnrollmentModal';
-import StripeCheckoutButton from '../../components/StripeCheckoutButton';
+
+const EnrollmentModal = dynamic(() => import('../../components/EnrollmentModal'), {
+  ssr: false,
+});
+const StripeCheckoutButton = dynamic(() => import('../../components/StripeCheckoutButton'), {
+  ssr: false,
+});
 
 export default function TrainingPage() {
   const [selectedLevel, setSelectedLevel] = useState('all');
