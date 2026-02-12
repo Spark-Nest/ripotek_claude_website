@@ -187,12 +187,12 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image Side */}
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/3">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/3 group">
                 <Image
                   src="/how_it_started.jpg"
                   alt="How it all started"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
