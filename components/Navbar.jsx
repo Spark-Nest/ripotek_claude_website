@@ -228,8 +228,17 @@ export default function Navbar() {
   const sheetRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -255,7 +264,8 @@ export default function Navbar() {
     setTimeout(() => setMobileMenuOpen(false), 300);
   }, []);
 
-  // Drag-to-dismiss handlers
+  // Drag-to-dismiss handlers using refs for passive touch events
+  const dragYRef = useRef(0);
   const handleDragStart = useCallback((e) => {
     dragStartY.current = e.touches[0].clientY;
   }, []);
@@ -264,17 +274,35 @@ export default function Navbar() {
     if (dragStartY.current === null) return;
     const delta = e.touches[0].clientY - dragStartY.current;
     if (delta > 0) {
+      dragYRef.current = delta;
       setDragY(delta);
     }
   }, []);
 
   const handleDragEnd = useCallback(() => {
-    if (dragY > 100) {
+    if (dragYRef.current > 100) {
       closeMobile();
     }
+    dragYRef.current = 0;
     setDragY(0);
     dragStartY.current = null;
-  }, [dragY, closeMobile]);
+  }, [closeMobile]);
+
+  // Attach passive touch listeners to drag handle
+  const dragHandleRef = useRef(null);
+  useEffect(() => {
+    const el = dragHandleRef.current;
+    if (!el) return;
+    const opts = { passive: true };
+    el.addEventListener('touchstart', handleDragStart, opts);
+    el.addEventListener('touchmove', handleDragMove, opts);
+    el.addEventListener('touchend', handleDragEnd, opts);
+    return () => {
+      el.removeEventListener('touchstart', handleDragStart);
+      el.removeEventListener('touchmove', handleDragMove);
+      el.removeEventListener('touchend', handleDragEnd);
+    };
+  }, [handleDragStart, handleDragMove, handleDragEnd]);
 
   const activeItem = activeDropdown
     ? navigation.find((n) => n.name === activeDropdown)
@@ -297,10 +325,10 @@ export default function Navbar() {
       )}
 
       <nav
-        className={`fixed w-full z-50 transition-all duration-500 ${
+        className={`fixed w-full z-50 transition-[background-color,box-shadow] duration-300 ${
           scrolled
-            ? 'bg-[#1a2332]/95 backdrop-blur-lg shadow-lg shadow-black/10'
-            : 'bg-white/80 backdrop-blur-md shadow-sm'
+            ? 'bg-[#1a2332] shadow-lg shadow-black/10'
+            : 'bg-white shadow-sm'
         }`}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -489,10 +517,8 @@ export default function Navbar() {
           >
             {/* Drag Handle — touch to drag down to dismiss */}
             <div
+              ref={dragHandleRef}
               className="flex justify-center pt-3 pb-1 shrink-0 cursor-grab active:cursor-grabbing"
-              onTouchStart={handleDragStart}
-              onTouchMove={handleDragMove}
-              onTouchEnd={handleDragEnd}
             >
               <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
             </div>
