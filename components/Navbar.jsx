@@ -264,8 +264,7 @@ export default function Navbar() {
     setTimeout(() => setMobileMenuOpen(false), 300);
   }, []);
 
-  // Drag-to-dismiss handlers using refs for passive touch events
-  const dragYRef = useRef(0);
+  // Drag-to-dismiss handlers
   const handleDragStart = useCallback((e) => {
     dragStartY.current = e.touches[0].clientY;
   }, []);
@@ -274,35 +273,17 @@ export default function Navbar() {
     if (dragStartY.current === null) return;
     const delta = e.touches[0].clientY - dragStartY.current;
     if (delta > 0) {
-      dragYRef.current = delta;
       setDragY(delta);
     }
   }, []);
 
   const handleDragEnd = useCallback(() => {
-    if (dragYRef.current > 100) {
+    if (dragY > 100) {
       closeMobile();
     }
-    dragYRef.current = 0;
     setDragY(0);
     dragStartY.current = null;
-  }, [closeMobile]);
-
-  // Attach passive touch listeners to drag handle
-  const dragHandleRef = useRef(null);
-  useEffect(() => {
-    const el = dragHandleRef.current;
-    if (!el) return;
-    const opts = { passive: true };
-    el.addEventListener('touchstart', handleDragStart, opts);
-    el.addEventListener('touchmove', handleDragMove, opts);
-    el.addEventListener('touchend', handleDragEnd, opts);
-    return () => {
-      el.removeEventListener('touchstart', handleDragStart);
-      el.removeEventListener('touchmove', handleDragMove);
-      el.removeEventListener('touchend', handleDragEnd);
-    };
-  }, [handleDragStart, handleDragMove, handleDragEnd]);
+  }, [dragY, closeMobile]);
 
   const activeItem = activeDropdown
     ? navigation.find((n) => n.name === activeDropdown)
@@ -517,8 +498,10 @@ export default function Navbar() {
           >
             {/* Drag Handle — touch to drag down to dismiss */}
             <div
-              ref={dragHandleRef}
               className="flex justify-center pt-3 pb-1 shrink-0 cursor-grab active:cursor-grabbing"
+              onTouchStart={handleDragStart}
+              onTouchMove={handleDragMove}
+              onTouchEnd={handleDragEnd}
             >
               <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
             </div>

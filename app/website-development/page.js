@@ -280,8 +280,8 @@ export default function WebsiteDevelopmentPage() {
         </div>
         {/* Floating ambient elements */}
         <div className="absolute inset-0 opacity-25 z-10 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '4s', animationDuration: '8s' }}></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-400 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-[120px]"></div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
