@@ -35,25 +35,25 @@ export default function CareersPage() {
       span: 'md:col-span-2 md:row-span-2'
     },
     {
-      src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop',
+      src: '/learning.jpg',
       alt: 'Team workshop session',
       label: 'Learning',
       span: ''
     },
     {
-      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop',
+      src: '/innovation.jpg',
       alt: 'Modern tech workspace',
       label: 'Innovation',
       span: ''
     },
     {
-      src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop',
+      src: '/growth.jpg',
       alt: 'Team celebrating success',
       label: 'Growth',
       span: ''
     },
     {
-      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop',
+      src: '/mentorship.jpg',
       alt: 'Professional mentoring',
       label: 'Mentorship',
       span: 'col-span-2 md:col-span-1'
@@ -71,13 +71,13 @@ export default function CareersPage() {
       icon: Users,
       title: 'People Matter',
       desc: 'Our team is our greatest asset. We invest in growth, wellness, and a culture of belonging.',
-      image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop'
+      image: '/people_matter.jpg'
     },
     {
       icon: TrendingUp,
       title: 'Real Impact',
       desc: 'Every project we take on drives measurable transformation for our clients and communities.',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop'
+      image: '/real_impact.jpg'
     }
   ];
 
@@ -108,7 +108,7 @@ export default function CareersPage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-20 px-4 pt-32 pb-20">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8 animate-fadeInUp">
               <Sparkles className="w-4 h-4 text-teal-400" />
               <span className="text-sm text-gray-200 font-medium">We're hiring across multiple roles</span>
@@ -119,11 +119,11 @@ export default function CareersPage() {
               <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">of Data & AI</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Join a team that's transforming how organizations leverage their data. Work on cutting-edge projects that matter.
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+            <div className="flex flex-wrap gap-4 justify-center animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
               <a href="#positions" className="group bg-teal-600 text-white px-8 py-4 rounded-xl hover:bg-teal-500 transition-all shadow-xl hover:shadow-teal-500/25 flex items-center gap-3 text-lg font-semibold">
                 <Briefcase className="w-5 h-5" /> View Open Positions
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -204,8 +204,8 @@ export default function CareersPage() {
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/3">
                 <Image
-                  src="https://images.unsplash.com/photo-1552581234-26160f608093?w=800&h=600&fit=crop"
-                  alt="Team brainstorming at a whiteboard"
+                  src="/a_place_to_thrive.jpg"
+                  alt="A place where you can thrive"
                   fill
                   className="object-cover"
                 />

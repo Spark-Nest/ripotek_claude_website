@@ -102,205 +102,198 @@ export default function AboutPage() {
     }
   ];
 
-  const industries = [
-    { name: 'Energy & Utilities', icon: '⚡', description: 'Real-time operations, predictive maintenance, regulatory compliance' },
-    { name: 'Financial Services', icon: '💰', description: 'Risk analytics, fraud detection, regulatory reporting' },
-    { name: 'Public Sector', icon: '🏛️', description: 'Citizen services, policy analytics, cross-agency data sharing' },
-    { name: 'Healthcare', icon: '🏥', description: 'Patient outcomes, operational efficiency, research analytics' }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Hero Section - Company/Team Theme */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        {/* Layered Background */}
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          {/* Base gradient */}
-          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+          <Image
+            src="/about_us.jpg"
+            alt="Ripotek team"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900/85 via-blue-800/80 to-teal-900/85"></div>
+        </div>
 
-          {/* Video Background - Team/Collaboration themed */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
-            poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-people-working-in-an-office-4933-large.mp4" type="video/mp4" />
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-working-together-45482-large.mp4" type="video/mp4" />
-          </video>
-
-          {/* Animated grid pattern overlay */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-            animation: 'gridFlow 20s linear infinite'
-          }}></div>
-
-          {/* Floating gradient orbs - Company colors */}
-          <div className="absolute inset-0 z-10">
-            <div className="absolute top-10 left-10 md:left-20 w-64 md:w-80 h-64 md:h-80 bg-blue-500 rounded-full blur-3xl opacity-25 animate-pulse"></div>
-            <div className="absolute top-10 right-10 md:right-20 w-72 md:w-96 h-72 md:h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-cyan-400 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-
-            {/* Floating icons representing company values */}
-            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-blue-400/30 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0s' }}>
-              <Users className="w-6 h-6 text-blue-400/40" />
-            </div>
-            <div className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-teal-400/40 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '1.5s' }}>
-              <Target className="w-6 h-6 text-teal-400/50" />
-            </div>
-            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-cyan-400/20 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0.8s' }}>
-              <Heart className="w-7 h-7 text-cyan-400/30" />
-            </div>
-            <div className="hidden md:flex absolute top-1/5 right-1/3 w-10 h-10 border-2 border-purple-400/30 rounded-full animate-float items-center justify-center" style={{ animationDelay: '2s' }}>
-              <Award className="w-5 h-5 text-purple-400/40" />
-            </div>
-          </div>
-
-          {/* Subtle scanline effect */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
-            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px)'
-          }}></div>
+        {/* Ambient blobs */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="absolute top-1/4 left-[10%] w-72 h-72 bg-teal-500/20 rounded-full blur-[100px] animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-[10%] w-96 h-96 bg-blue-500/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto text-center relative z-30">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
-            <span className="block">About </span>
-            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Ripotek Technologies</span>
-          </h1>
-          <p className="text-xl text-gray-300 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            Founded in March 2023 in Calgary, Alberta, we're built on a vision to empower organizations through data-driven transformation and world-class training.
-          </p>
+        <div className="max-w-7xl mx-auto relative z-20 px-4 pt-32 pb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8 animate-fadeInUp">
+              <Award className="w-4 h-4 text-teal-400" />
+              <span className="text-sm text-gray-200 font-medium">Calgary-born. Enterprise-proven.</span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+              About <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Ripotek</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+              Founded in March 2023 in Calgary, Alberta, we're built on a vision to empower organizations through data-driven transformation and world-class training.
+            </p>
+
+            <div className="flex flex-wrap gap-4 justify-center animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+              <a href="/contact" className="group bg-teal-600 text-white px-8 py-4 rounded-xl hover:bg-teal-500 transition-all shadow-xl hover:shadow-teal-500/25 flex items-center gap-3 text-lg font-semibold">
+                Get In Touch
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#team" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl hover:bg-white/20 transition-all border border-white/20 flex items-center gap-3 text-lg font-semibold">
+                Meet the Team
+              </a>
+            </div>
+          </div>
+
+          {/* Impact stats bar */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
+            {[
+              { value: '$12M+', label: 'Client Value Delivered' },
+              { value: '2,000+', label: 'Professionals Trained' },
+              { value: '85%', label: 'Job Placement Rate' },
+              { value: '2023', label: 'Founded in Calgary' }
+            ].map((stat, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-center hover:bg-white/10 hover:border-teal-400/30 transition-all">
+                <p className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</p>
+                <p className="text-xs md:text-sm text-gray-400 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Custom animations */}
         <style jsx>{`
           @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
           }
-
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(5deg); }
-            50% { transform: translateY(-8px) rotate(-5deg); }
-            75% { transform: translateY(-18px) rotate(3deg); }
-          }
-
-          @keyframes gridFlow {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(60px); }
-          }
-
           .animate-fadeInUp {
-            animation: fadeInUp 1s ease-out;
-            animation-fill-mode: both;
-          }
-
-          .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: fadeInUp 0.8s ease-out both;
           }
         `}</style>
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="text-gray-900">Our </span>
-            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Story</span>
-          </h2>
-          <div className="prose prose-lg mx-auto text-gray-700">
-            <p className="mb-6">
-              Ripotek Technologies Inc. emerged from a passion for solving complex data challenges and a commitment to bridging the skills gap in the rapidly evolving fields of data engineering, business intelligence, and artificial intelligence.
-            </p>
-            <p className="mb-6">
-              With decades of combined experience across Energy, Financial Services, and Public Sector industries, our founding team recognized the need for a consulting firm that could not only deliver technical excellence but also transfer knowledge effectively.
-            </p>
-            <p>
-              Today, we serve enterprise clients across North America, providing end-to-end consulting services from strategy to implementation, while simultaneously running comprehensive training programs that prepare the next generation of data professionals.
-            </p>
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Image Side */}
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/3">
+                <Image
+                  src="/how_it_started.jpg"
+                  alt="How it all started"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="absolute -z-10 -bottom-4 -left-4 w-full h-full rounded-3xl bg-teal-100/60"></div>
+            </div>
+
+            {/* Content Side */}
+            <div>
+              <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Our Story</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                How It All <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Started</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                Ripotek Technologies Inc. emerged from a passion for solving complex data challenges and a commitment to bridging the skills gap in the rapidly evolving fields of data engineering, business intelligence, and artificial intelligence.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                With decades of combined experience across Energy, Financial Services, and Public Sector industries, our founding team recognized the need for a consulting firm that could not only deliver technical excellence but also transfer knowledge effectively.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Today, we serve enterprise clients across North America, providing end-to-end consulting services from strategy to implementation, while simultaneously running comprehensive training programs that prepare the next generation of data professionals.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-              <Eye className="w-12 h-12 text-teal-600 mb-4" />
-              <h3 className="text-2xl font-bold mb-4">
-                <span className="text-gray-900">Our </span>
-                <span className="text-teal-600">Vision</span>
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                To be the leading data consulting and training organization in Western Canada, recognized for transforming how enterprises leverage data and for developing world-class data professionals who shape the industry's future.
-              </p>
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">What We Stand For</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+              Vision & <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Mission</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Vision Card */}
+            <div className="group relative rounded-2xl overflow-hidden h-80 md:h-[420px] shadow-lg hover:shadow-2xl transition-shadow duration-500">
+              <Image
+                src="/vision.jpg"
+                alt="Vision"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="w-12 h-12 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-xl flex items-center justify-center mb-4">
+                  <Eye className="w-6 h-6 text-teal-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Our Vision</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  To be the leading data consulting and training organization in Western Canada, recognized for transforming how enterprises leverage data and for developing world-class data professionals who shape the industry's future.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine">
-              <Target className="w-12 h-12 text-teal-600 mb-4" />
-              <h3 className="text-2xl font-bold mb-4">
-                <span className="text-gray-900">Our </span>
-                <span className="text-teal-600">Mission</span>
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                To empower organizations and individuals with cutting-edge data solutions and training that drive measurable business value. We are committed to delivering excellence through innovation, expertise, and a client-first approach.
-              </p>
+            {/* Mission Card */}
+            <div className="group relative rounded-2xl overflow-hidden h-80 md:h-[420px] shadow-lg hover:shadow-2xl transition-shadow duration-500">
+              <Image
+                src="/mission.jpg"
+                alt="Mission"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="w-12 h-12 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-xl flex items-center justify-center mb-4">
+                  <Target className="w-6 h-6 text-teal-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Our Mission</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  To empower organizations and individuals with cutting-edge data solutions and training that drive measurable business value. We are committed to delivering excellence through innovation, expertise, and a client-first approach.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-24 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            <span className="text-gray-900">Our Core </span>
-            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">The principles that guide everything we do</p>
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Our Principles</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+              Our Core <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">The principles that guide everything we do</p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, idx) => (
-              <div key={idx} className="text-center hover-lift card-shine bg-gray-50 rounded-2xl p-8">
-                <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-8 h-8 text-teal-600" />
+              <div key={idx} className="text-center bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200">
+                <div className="w-14 h-14 bg-linear-to-br from-teal-50 to-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                  <value.icon className="w-7 h-7 text-teal-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="text-gray-900">Industries We </span>
-            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Serve</span>
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {industries.map((industry, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
-                <div className="text-6xl mb-4">{industry.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{industry.name}</h3>
-                <p className="text-gray-600">{industry.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -308,10 +301,11 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-20 px-4 bg-white">
+      <section id="team" className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Meet the Team Introduction */}
           <div className="text-center mb-20">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Our People</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-gray-900">Meet the </span>
               <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Team</span>
@@ -322,6 +316,7 @@ export default function AboutPage() {
           </div>
 
           {/* Leadership & Executive */}
+          <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Leadership</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Leadership & </span>
             <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Executive</span>
@@ -426,6 +421,7 @@ export default function AboutPage() {
 
         {/* Business Consultants Section */}
         <div className="max-w-7xl mx-auto mt-32">
+          <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Consulting</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Business </span>
             <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Consultants</span>
@@ -466,6 +462,7 @@ export default function AboutPage() {
 
         {/* Instructors Section */}
         <div className="max-w-7xl mx-auto mt-32">
+          <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Education</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             <span className="text-gray-900">Academy </span>
             <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Instructors</span>
@@ -529,18 +526,30 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Join Our Journey</h2>
-          <p className="text-xl text-gray-300 mb-8">
+      <section className="relative py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&q=80"
+            alt="Modern office workspace"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900/85 via-blue-800/80 to-teal-900/85"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Join Our Journey</h2>
+          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
             Whether you're looking for consulting expertise or want to launch your data career, we'd love to connect.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold hover-lift">
+            <a href="/contact" className="group bg-teal-600 text-white px-8 py-4 rounded-xl hover:bg-teal-500 transition-all shadow-xl hover:shadow-teal-500/25 text-lg font-semibold inline-flex items-center gap-3">
               Get In Touch
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="/careers" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold hover-lift">
-              View Careers
+            <a href="/careers" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl hover:bg-white/20 transition-all border border-white/20 text-lg font-semibold inline-flex items-center gap-3">
+              View Careers <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>

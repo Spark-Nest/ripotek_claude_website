@@ -414,7 +414,7 @@ export default function ServicesPage() {
             {deliveryModel.map((phase, idx) => (
               <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500">
                 {/* Image background */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 sm:h-64 overflow-hidden">
                   <Image
                     src={phase.image}
                     alt={phase.title}

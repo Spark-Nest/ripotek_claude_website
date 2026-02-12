@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ChevronDown, ChevronUp, MapPin, Mail, Phone, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Target, ArrowRight, Download, DollarSign, FileText, Calendar, CheckCircle, Clock, Users, Award, GraduationCap } from 'lucide-react';
+import { ChevronDown, MapPin, Mail, Phone, BarChart3, Database, Zap, TrendingUp, Brain, Lightbulb, Code, Target, ArrowRight, Download, DollarSign, Calendar, CheckCircle, Clock, Users, Award, GraduationCap, Play, Star, Briefcase, BookOpen, Monitor, Building2, Repeat, Factory } from 'lucide-react';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import Navbar from '../../components/Navbar';
 import EnrollmentModal from '../../components/EnrollmentModal';
@@ -13,14 +13,31 @@ export default function TrainingPage() {
   const [expandedSection, setExpandedSection] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState(null);
+  const [visibleSections, setVisibleSections] = useState(new Set());
 
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set([...prev, entry.target.id]));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const sections = document.querySelectorAll('[data-animate]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
 
   const handleEnrollClick = (program) => {
     setSelectedProgram(program);
     setModalOpen(true);
   };
-
-
 
   const trainingPrograms = [
     {
@@ -33,6 +50,7 @@ export default function TrainingPage() {
       outcomes: ['Build interactive dashboards', 'Write complex DAX formulas', 'Design semantic models', 'Deploy to Power BI Service', 'Prepare for PL-300 exam'],
       image: '📈',
       color: 'from-blue-500 to-cyan-500',
+      colorAccent: 'blue',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/power-bi-analyst'
@@ -47,6 +65,7 @@ export default function TrainingPage() {
       outcomes: ['Design ELT pipelines', 'Build data lakehouses', 'Optimize query performance', 'Implement CI/CD', 'Prepare for DP-203 exam'],
       image: '☁️',
       color: 'from-purple-500 to-blue-500',
+      colorAccent: 'purple',
       schedule: 'Tue/Thu/Sun 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/azure-data-engineer'
@@ -61,6 +80,7 @@ export default function TrainingPage() {
       outcomes: ['Master PySpark', 'Build Delta pipelines', 'Optimize Spark jobs', 'Implement medallion architecture', 'Databricks certification prep'],
       image: '⚡',
       color: 'from-orange-500 to-red-500',
+      colorAccent: 'orange',
       schedule: 'Mon/Wed/Sat 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/databricks-engineer'
@@ -75,6 +95,7 @@ export default function TrainingPage() {
       outcomes: ['Gather requirements', 'Model dimensional data', 'Create KPI frameworks', 'Present insights', 'Business analysis fundamentals'],
       image: '📊',
       color: 'from-green-500 to-teal-500',
+      colorAccent: 'green',
       schedule: 'Tue/Thu 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/business-intelligence-analyst'
@@ -89,6 +110,7 @@ export default function TrainingPage() {
       outcomes: ['Deploy GenAI apps', 'Build RAG systems', 'Implement MLOps', 'Fine-tune models', 'Prepare for AI-102 exam'],
       image: '🧠',
       color: 'from-pink-500 to-purple-500',
+      colorAccent: 'pink',
       schedule: 'Wed/Fri/Sun 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/ai-engineer'
@@ -103,6 +125,7 @@ export default function TrainingPage() {
       outcomes: ['Design effective prompts', 'Chain reasoning tasks', 'Evaluate outputs', 'Build AI workflows', 'Understand model limitations'],
       image: '💡',
       color: 'from-yellow-500 to-orange-500',
+      colorAccent: 'yellow',
       schedule: 'Mon/Wed 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/prompt-engineering'
@@ -117,6 +140,7 @@ export default function TrainingPage() {
       outcomes: ['Write clean Python code', 'Manipulate data with pandas', 'Create visualizations', 'Automate workflows', 'Connect to APIs'],
       image: '🐍',
       color: 'from-green-600 to-emerald-600',
+      colorAccent: 'emerald',
       schedule: 'Sat/Sun 10am-1pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/python-for-data'
@@ -131,6 +155,7 @@ export default function TrainingPage() {
       outcomes: ['Design complex pipelines', 'Implement error handling', 'Optimize performance', 'Deploy with DevOps', 'Monitor production issues'],
       image: '🏭',
       color: 'from-indigo-500 to-blue-600',
+      colorAccent: 'indigo',
       schedule: 'Tue/Thu 6-9pm MT',
       nextStart: 'April 12, 2026',
       syllabusFile: '/syllabi/azure-data-factory-masterclass'
@@ -138,177 +163,169 @@ export default function TrainingPage() {
   ];
 
   const whyRipotekTraining = [
-    { icon: Users, title: 'Renowned Instructors', description: 'Learn from seasoned professionals with years of real-world industry experience' },
-    { icon: Target, title: 'Hands-On Projects', description: 'Work on real-world scenarios and build a portfolio that showcases your skills' },
-    { icon: Award, title: 'One-on-One Coaching', description: 'Personalized mentorship to ensure you master every concept' },
-    { icon: GraduationCap, title: 'Job Placement Support', description: 'Career coaching, resume workshops, and connections to our hiring network' }
+    { icon: Users, title: 'Renowned Instructors', description: 'Learn from seasoned professionals with years of real-world industry experience', stat: '10+', statLabel: 'Avg. Years Experience' },
+    { icon: Target, title: 'Hands-On Projects', description: 'Work on real-world scenarios and build a portfolio that showcases your skills', stat: '20+', statLabel: 'Portfolio Projects' },
+    { icon: Award, title: 'One-on-One Coaching', description: 'Personalized mentorship to ensure you master every concept', stat: '1:8', statLabel: 'Mentor Ratio' },
+    { icon: GraduationCap, title: 'Job Placement Support', description: 'Career coaching, resume workshops, and connections to our hiring network', stat: '85%', statLabel: 'Placement Rate' }
   ];
 
   const formats = [
-    { title: 'Live Online', description: 'Join from anywhere with live instructor-led sessions', icon: '💻' },
-    { title: 'In-Person Calgary', description: 'Hands-on learning at our downtown Calgary location', icon: '🏢' },
-    { title: 'Hybrid', description: 'Combine online flexibility with in-person workshops', icon: '🔄' },
-    { title: 'Corporate On-Site', description: 'Custom training delivered at your office (5+ participants)', icon: '🏭' }
+    { title: 'Live Online', description: 'Join from anywhere with live instructor-led sessions via Zoom/Teams', icon: Monitor, accent: 'teal' },
+    { title: 'In-Person Calgary', description: 'Hands-on learning at our downtown Calgary location with peer collaboration', icon: Building2, accent: 'blue' },
+    { title: 'Hybrid', description: 'Combine online flexibility with in-person workshops for the best of both worlds', icon: Repeat, accent: 'purple' },
+    { title: 'Corporate On-Site', description: 'Custom training delivered at your office for teams of 5+ participants', icon: Factory, accent: 'orange' }
   ];
 
   const filteredPrograms = selectedLevel === 'all'
     ? trainingPrograms
     : trainingPrograms.filter(p => p.level.toLowerCase().includes(selectedLevel));
 
+  const isVisible = (id) => visibleSections.has(id);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Hero Section - Modern Banner with Video/Animation */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        {/* Layered Background */}
+      {/* ═══════════════════════════════════════════════════════════════
+          HERO SECTION — Immersive full-height with video background
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          {/* Base gradient */}
-          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
-
-          {/* Video Background - Learning/Technology themed */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+            className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/training-banner.mp4" type="video/mp4" />
           </video>
-
-          {/* Animated grid pattern overlay */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-            animation: 'gridFlow 20s linear infinite'
-          }}></div>
-
-          {/* Floating gradient orbs - animated particles */}
-          <div className="absolute inset-0 z-10">
-            {/* Large orbs */}
-            <div className="absolute top-10 left-10 md:left-20 w-64 md:w-80 h-64 md:h-80 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <div className="absolute top-10 right-10 md:right-20 w-72 md:w-96 h-72 md:h-96 bg-cyan-400 rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-
-            {/* Floating geometric elements */}
-            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-teal-400/30 rounded-lg animate-float" style={{ animationDelay: '0s' }}></div>
-            <div className="absolute bottom-1/3 left-1/5 w-10 h-10 border-2 border-cyan-400/40 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
-            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-purple-400/20 rotate-45 animate-float" style={{ animationDelay: '0.8s' }}></div>
-
-            {/* Additional small particles - hidden on mobile for performance */}
-            <div className="hidden md:block absolute top-1/5 right-1/3 w-6 h-6 bg-teal-400/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-            <div className="hidden md:block absolute bottom-1/4 left-1/4 w-5 h-5 bg-cyan-400/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-          </div>
-
-          {/* Scanline effect - subtle tech aesthetic */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
-            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px)'
-          }}></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900/90 via-blue-800/85 to-teal-900/90"></div>
         </div>
 
-        {/* Content */}
-        <div className="max-w-4xl mx-auto relative z-30 text-center">
-          {/* Badge with animation */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-semibold mb-6 backdrop-blur-sm border border-teal-400/30 animate-fadeIn">
-            <GraduationCap className="w-5 h-5" />
-            <span>Training-to-Hire Model | 85% Placement Rate</span>
+        {/* Ambient Light Effects */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="absolute top-1/4 left-[10%] w-72 h-72 bg-teal-500/20 rounded-full blur-[100px] animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-[10%] w-96 h-96 bg-blue-500/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto relative z-20 px-4 pt-32 pb-20">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-8 animate-fadeInUp">
+            <GraduationCap className="w-4 h-4 text-teal-300" />
+            <span className="text-sm font-semibold text-white/90">Training-to-Hire Model&nbsp;&nbsp;|&nbsp;&nbsp;85% Placement Rate</span>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight animate-fadeInUp">
-            <span className="block">Launch Your Data Career</span>
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            Launch Your Data Career
+            <br />
             <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">@ Ripotek Academy</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            Career-accelerating training with real projects, 1:1 mentorship, and an <span className="text-teal-300 font-semibold">85% placement rate</span> - powered by our Training-to-Hire model.
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            Career-accelerating training with real projects, 1:1 mentorship, and an{' '}
+            <span className="text-teal-300 font-semibold">85% placement rate</span> — powered by our Training-to-Hire model.
           </p>
 
-          {/* CTA scroller cue */}
-          <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-            <a href="#our-programs" className="animate-bounce text-teal-300/90 text-sm px-5 py-2 rounded-full border border-teal-400/40 bg-white/10 hover:bg-white/20 transition backdrop-blur-sm shadow-sm">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+            <a href="#our-programs" className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg shadow-teal-600/25 hover:shadow-teal-500/40 hover:-translate-y-0.5">
               Explore Programs
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <a href="/contact" className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 border border-white/20 hover:border-white/40">
+              <Calendar className="w-5 h-5" />
+              Book Info Session
             </a>
           </div>
+
+        </div>
         </div>
 
-        {/* Custom animations */}
+        {/* Animations */}
         <style jsx>{`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-
           @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
           }
-
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(5deg); }
-            50% { transform: translateY(-8px) rotate(-5deg); }
-            75% { transform: translateY(-18px) rotate(3deg); }
-          }
-
-          @keyframes gridFlow {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(60px); }
-          }
-
-          .animate-fadeIn {
-            animation: fadeIn 1s ease-out;
-          }
-
           .animate-fadeInUp {
-            animation: fadeInUp 1s ease-out;
-            animation-fill-mode: both;
-          }
-
-          .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: fadeInUp 0.8s ease-out both;
           }
         `}</style>
       </section>
 
-      {/* Why Ripotek Training */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="text-gray-900">Why </span>
-            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek Training?</span>
-          </h2>
+      {/* ═══════════════════════════════════════════════════════════════
+          WHY RIPOTEK TRAINING — Elevated feature cards
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 px-4 bg-white">
+        <div
+          id="why-section"
+          data-animate
+          className={`max-w-7xl mx-auto transition-all duration-700 ${isVisible('why-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="text-center mb-12">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Why Choose Us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Why{' '}
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Ripotek Training?</span>
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {whyRipotekTraining.map((item, idx) => (
-              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
-                <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-teal-600" />
+              <div
+                key={idx}
+                className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              >
+                {/* Gradient accent on hover */}
+                <div className="absolute inset-0 bg-linear-to-br from-teal-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-linear-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  {/* Stat */}
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold text-gray-900">{item.stat}</span>
+                    <span className="block text-xs text-gray-500 mt-0.5">{item.statLabel}</span>
+                  </div>
+
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Training Programs */}
-      <section id="our-programs" className="py-20 px-4 bg-linear-to-br from-blue-50 to-teal-50 scroll-mt-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-6">
-              <span className="text-gray-900">Our </span>
+      {/* ═══════════════════════════════════════════════════════════════
+          TRAINING PROGRAMS — Modern filterable card grid
+      ═══════════════════════════════════════════════════════════════ */}
+      <section id="our-programs" className="py-16 md:py-20 px-4 bg-gray-50 scroll-mt-24">
+        <div
+          id="programs-section"
+          data-animate
+          className={`max-w-7xl mx-auto transition-all duration-700 ${isVisible('programs-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Curriculum</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our{' '}
               <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Programs</span>
             </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+              Industry-aligned programs designed to get you job-ready with real-world skills and certifications
+            </p>
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center gap-3">
@@ -316,10 +333,10 @@ export default function TrainingPage() {
                 <button
                   key={level}
                   onClick={() => setSelectedLevel(level)}
-                  className={`px-6 py-2 rounded-full font-semibold transition ${
+                  className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
                     selectedLevel === level
-                      ? 'bg-teal-600 text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                      ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/25'
+                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
                   {level.charAt(0).toUpperCase() + level.slice(1)}
@@ -328,74 +345,99 @@ export default function TrainingPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredPrograms.map((program, idx) => (
               <div
                 key={idx}
                 id={program.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
-                className="bg-white rounded-2xl p-8 shadow-lg hover-lift card-shine overflow-hidden relative scroll-mt-24"
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-500 hover:-translate-y-2 relative scroll-mt-24 flex flex-col"
               >
                 {/* NOT AVAILABLE Banner for Azure Data Factory Masterclass */}
                 {program.title === 'Azure Data Factory Masterclass' && (
-                  <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center overflow-hidden">
-                    <div className="w-[140%] py-1.5 bg-red-100/60 text-red-500/80 font-semibold text-base tracking-[0.3em] uppercase text-center transform -rotate-45 border-y border-red-200/60">
-                      Not Available
+                  <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center overflow-hidden">
+                    <div className="w-[140%] py-2 bg-red-500/90 text-white font-bold text-sm tracking-[0.3em] uppercase text-center transform -rotate-45 shadow-lg">
+                      Coming Soon
                     </div>
                   </div>
                 )}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-linear-to-br ${program.color} opacity-10 rounded-bl-full`}></div>
-                <div className="text-5xl mb-4">{program.image}</div>
-                <program.icon className="w-12 h-12 text-teal-600 mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {program.duration}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <DollarSign className="w-4 h-4" />
-                    CAD {program.investment}
-                  </span>
-                </div>
-                <div className="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-sm rounded-full mb-4">
-                  {program.level}
-                </div>
-                <p className="text-gray-700 mb-6">{program.description}</p>
 
-                <div className="mb-6">
-                  <p className="font-semibold text-gray-900 mb-3">You will learn to:</p>
-                  {program.outcomes.slice(0, 3).map((outcome, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                      {outcome}
+                {/* Card Header with gradient */}
+                <div className={`relative h-3 bg-linear-to-r ${program.color}`}></div>
+
+                <div className="p-7 flex-1 flex flex-col">
+                  {/* Icon + Level Badge Row */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${program.color} flex items-center justify-center shadow-lg`}>
+                      <program.icon className="w-7 h-7 text-white" />
                     </div>
-                  ))}
-                </div>
+                    <span className="px-3 py-1 bg-teal-50 text-teal-700 text-xs font-semibold rounded-full border border-teal-100">
+                      {program.level}
+                    </span>
+                  </div>
 
-                <div className="pt-4 border-t border-gray-200 mb-6">
-                  <p className="text-sm text-gray-600 mb-1">Schedule: {program.schedule}</p>
-                  <p className="text-sm text-gray-600">Next Start: <span className="font-semibold text-teal-600">{program.nextStart}</span></p>
-                </div>
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-700 transition-colors">{program.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">{program.description}</p>
 
-                <div className="space-y-3">
-                  <a
-                    href={program.syllabusFile}
-                    className="w-full bg-gray-100 border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition font-semibold hover-lift flex items-center justify-center gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    View Syllabus
-                  </a>
-                  <button
-                    onClick={() => handleEnrollClick(program)}
-                    className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition font-semibold hover-lift"
-                  >
-                    Enroll Now
-                  </button>
-                  <StripeCheckoutButton
-                    programName={program.title}
-                    price={program.investment}
-                    duration={program.duration}
-                  />
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 mb-5 text-sm">
+                    <span className="flex items-center gap-1.5 text-gray-500">
+                      <Clock className="w-4 h-4 text-teal-500" />
+                      {program.duration}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-gray-500">
+                      <DollarSign className="w-4 h-4 text-teal-500" />
+                      CAD {program.investment}
+                    </span>
+                  </div>
+
+                  {/* Outcomes */}
+                  <div className="mb-5 bg-gray-50 rounded-xl p-4 flex-1">
+                    <p className="font-semibold text-gray-800 text-sm mb-3">You will learn to:</p>
+                    <div className="space-y-2">
+                      {program.outcomes.slice(0, 3).map((outcome, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" />
+                          <span>{outcome}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Schedule & Next Start */}
+                  <div className="pt-4 border-t border-gray-100 mb-5">
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-gray-400" />
+                      <span>{program.schedule}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Play className="w-3.5 h-3.5 text-teal-500" />
+                      <span className="text-gray-500">Next Start:{' '}</span>
+                      <span className="font-semibold text-teal-600">{program.nextStart}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-2.5 mt-auto">
+                    <a
+                      href={program.syllabusFile}
+                      className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-700 py-3 rounded-xl hover:bg-gray-100 transition-all font-semibold text-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      View Syllabus
+                    </a>
+                    <button
+                      onClick={() => handleEnrollClick(program)}
+                      className={`w-full bg-linear-to-r ${program.color} text-white py-3 rounded-xl hover:opacity-90 transition-all font-semibold text-sm shadow-md hover:shadow-lg`}
+                    >
+                      Enroll Now
+                    </button>
+                    <StripeCheckoutButton
+                      programName={program.title}
+                      price={program.investment}
+                      duration={program.duration}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
@@ -403,348 +445,432 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Training Formats */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="text-gray-900">Flexible Learning </span>
-            <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Formats</span>
-          </h2>
+      {/* ═══════════════════════════════════════════════════════════════
+          FLEXIBLE LEARNING FORMATS — Modern icon cards
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-28 px-4 bg-white">
+        <div
+          id="formats-section"
+          data-animate
+          className={`max-w-7xl mx-auto transition-all duration-700 ${isVisible('formats-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Learn Your Way</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Flexible Learning{' '}
+              <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Formats</span>
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {formats.map((format, idx) => (
-              <div key={idx} className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover-lift card-shine text-center">
-                <div className="text-6xl mb-4">{format.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{format.title}</h3>
-                <p className="text-gray-600">{format.description}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {formats.map((format, idx) => {
+              const accentColors = {
+                teal: 'from-teal-500 to-cyan-500',
+                blue: 'from-blue-500 to-indigo-500',
+                purple: 'from-purple-500 to-pink-500',
+                orange: 'from-orange-500 to-red-500'
+              };
+              return (
+                <div
+                  key={idx}
+                  className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center overflow-hidden"
+                >
+                  {/* Subtle gradient bg on hover */}
+                  <div className={`absolute inset-0 bg-linear-to-br ${accentColors[format.accent]} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}></div>
+
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 mx-auto bg-linear-to-br ${accentColors[format.accent]} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <format.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{format.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{format.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          TRAINING-TO-HIRE — Dark immersive section
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-[5%] w-80 h-80 bg-teal-500/15 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-[5%] w-96 h-96 bg-blue-500/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '3s' }}></div>
+        </div>
+
+        <div
+          id="hire-section"
+          data-animate
+          className={`max-w-7xl mx-auto relative z-10 transition-all duration-700 ${isVisible('hire-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div>
+              <span className="inline-block text-sm font-semibold text-teal-400 tracking-widest uppercase mb-3">From Student to Professional</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-[1.1]">
+                Training-to-Hire{' '}
+                <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Program</span>
+              </h2>
+              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                85% of our graduates secure positions within 90 days through our placement assistance program. Partner companies across Energy, Financial Services, and Public Sectors actively recruit our talent.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <a href="/contact" className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-teal-600/25 hover:shadow-teal-500/40 hover:-translate-y-0.5">
+                  <Calendar className="w-5 h-5" /> Book Info Session
+                </a>
+                <a href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 border border-white/20 hover:border-white/40">
+                  Join Talent Network <ArrowRight className="w-5 h-5" />
+                </a>
               </div>
-            ))}
+            </div>
+
+            {/* Right — Stats Grid */}
+            <div className="grid grid-cols-2 gap-5">
+              {[
+                { value: '85%', label: 'Placement Rate', sublabel: 'Within 90 days', icon: TrendingUp },
+                { value: '90', label: 'Days Average', sublabel: 'Time to hire', icon: Clock },
+                { value: '50+', label: 'Hiring Partners', sublabel: 'Across industries', icon: Briefcase },
+                { value: '500+', label: 'Graduates', sublabel: 'And counting', icon: GraduationCap }
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                  <stat.icon className="w-8 h-8 text-teal-400 mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                  <p className="text-gray-300 font-medium text-sm">{stat.label}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{stat.sublabel}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Training-to-Hire */}
-      <section className="py-20 px-4 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <GraduationCap className="w-16 h-16 text-teal-400 mx-auto mb-6" />
-          <h2 className="text-4xl font-bold text-white mb-6">Training-to-Hire Program</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            85% of our graduates secure positions within 90 days through our placement assistance program. Partner companies across Energy, Financial Services, and Public Sectors actively recruit our talent.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <div className="text-4xl font-bold text-teal-400 mb-2">85%</div>
-              <p className="text-gray-300">Placement Rate</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <div className="text-4xl font-bold text-teal-400 mb-2">90</div>
-              <p className="text-gray-300">Days Average</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <div className="text-4xl font-bold text-teal-400 mb-2">50+</div>
-              <p className="text-gray-300">Hiring Partners</p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition shadow-xl text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              <Calendar className="w-5 h-5" /> Book Info Session
-            </a>
-            <a href="/contact" className="bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg font-semibold inline-flex items-center gap-2 hover-lift">
-              Join Talent Network <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Student Onboarding Checklist */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <FileText className="w-16 h-16 text-teal-600 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-gray-900">Student Onboarding </span>
+      {/* ═══════════════════════════════════════════════════════════════
+          STUDENT ONBOARDING CHECKLIST — Modern accordion
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-28 px-4 bg-white">
+        <div
+          id="onboarding-section"
+          data-animate
+          className={`max-w-7xl mx-auto transition-all duration-700 ${isVisible('onboarding-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Get Started</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Student Onboarding{' '}
               <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Checklist</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Everything you need to know to prepare for your first day and succeed in your program
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-4">
             {/* Pre-Program Setup */}
-            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
               <button
                 onClick={() => setExpandedSection(expandedSection === 'pre-program' ? null : 'pre-program')}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+                className="w-full px-6 md:px-8 py-5 flex items-center justify-between hover:bg-gray-50/50 transition"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                    <span className="text-teal-700 font-bold">1</span>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-linear-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-sm">01</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">Pre-Program Setup (1 Week Before)</h3>
+                  <div className="text-left">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">Pre-Program Setup</h3>
+                    <p className="text-sm text-gray-500 hidden sm:block">1 week before your start date</p>
+                  </div>
                 </div>
-                {expandedSection === 'pre-program' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${expandedSection === 'pre-program' ? 'bg-teal-100 rotate-180' : 'bg-gray-100'}`}>
+                  <ChevronDown className={`w-5 h-5 ${expandedSection === 'pre-program' ? 'text-teal-600' : 'text-gray-400'}`} />
+                </div>
               </button>
-              {expandedSection === 'pre-program' && (
-                <div className="px-6 pb-6 border-t border-gray-200">
-                  <div className="mt-6 space-y-6">
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-teal-600" />
+              <div className={`overflow-hidden transition-all duration-500 ${expandedSection === 'pre-program' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 md:px-8 pb-8 border-t border-gray-100">
+                  <div className="mt-6 grid md:grid-cols-3 gap-6">
+                    <div className="bg-gray-50 rounded-xl p-5">
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-teal-600" />
                         Administrative Setup
                       </h4>
-                      <ul className="space-y-2 ml-7">
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Complete enrollment paperwork and training agreement</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Submit payment or set up financing</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Join Student Slack workspace (check email for invite)</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Add program dates to your calendar</span>
-                        </li>
+                      <ul className="space-y-2.5">
+                        {['Complete enrollment paperwork and training agreement', 'Submit payment or set up financing', 'Join Student Slack workspace (check email for invite)', 'Add program dates to your calendar'].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                            <span className="text-teal-500 mt-1 shrink-0">&#x2022;</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-teal-600" />
+                    <div className="bg-gray-50 rounded-xl p-5">
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-teal-600" />
                         Technical Setup
                       </h4>
-                      <ul className="space-y-2 ml-7">
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>System Requirements: Windows 10/11 or macOS, 8GB RAM minimum, stable internet</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Install required software (program-specific - check your syllabus)</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Create GitHub account and Microsoft account</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Update LinkedIn profile</span>
-                        </li>
+                      <ul className="space-y-2.5">
+                        {['Windows 10/11 or macOS, 8GB RAM minimum, stable internet', 'Install required software (program-specific - check your syllabus)', 'Create GitHub account and Microsoft account', 'Update LinkedIn profile'].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                            <span className="text-teal-500 mt-1 shrink-0">&#x2022;</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-teal-600" />
+                    <div className="bg-gray-50 rounded-xl p-5">
+                      <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-teal-600" />
                         Learning Platform Access
                       </h4>
-                      <ul className="space-y-2 ml-7">
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Log into learning portal and verify course access</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Download course syllabus and review weekly outline</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Test video conferencing setup (Zoom/Teams)</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <span className="text-teal-600 mt-1">•</span>
-                          <span>Complete pre-assessment if assigned</span>
-                        </li>
+                      <ul className="space-y-2.5">
+                        {['Log into learning portal and verify course access', 'Download course syllabus and review weekly outline', 'Test video conferencing setup (Zoom/Teams)', 'Complete pre-assessment if assigned'].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                            <span className="text-teal-500 mt-1 shrink-0">&#x2022;</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
             {/* First Day */}
-            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
               <button
                 onClick={() => setExpandedSection(expandedSection === 'first-day' ? null : 'first-day')}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+                className="w-full px-6 md:px-8 py-5 flex items-center justify-between hover:bg-gray-50/50 transition"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-700 font-bold">2</span>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-sm">02</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">First Day of Class</h3>
+                  <div className="text-left">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">First Day of Class</h3>
+                    <p className="text-sm text-gray-500 hidden sm:block">Make a great start</p>
+                  </div>
                 </div>
-                {expandedSection === 'first-day' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${expandedSection === 'first-day' ? 'bg-blue-100 rotate-180' : 'bg-gray-100'}`}>
+                  <ChevronDown className={`w-5 h-5 ${expandedSection === 'first-day' ? 'text-blue-600' : 'text-gray-400'}`} />
+                </div>
               </button>
-              {expandedSection === 'first-day' && (
-                <div className="px-6 pb-6 border-t border-gray-200">
-                  <div className="mt-6 space-y-4">
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Log in 15 minutes early to test audio/video</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Have notebook ready for notes (digital or physical)</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Introduce yourself: name, background, career goals</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Review program structure and attendance policy (80% required)</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Learn about support resources (office hours, TA support)</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                        <span>Schedule 1-on-1 with instructor for Week 2-3</span>
-                      </li>
-                    </ul>
+              <div className={`overflow-hidden transition-all duration-500 ${expandedSection === 'first-day' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 md:px-8 pb-8 border-t border-gray-100">
+                  <div className="mt-6 grid sm:grid-cols-2 gap-4">
+                    {[
+                      'Log in 15 minutes early to test audio/video',
+                      'Have notebook ready for notes (digital or physical)',
+                      'Introduce yourself: name, background, career goals',
+                      'Review program structure and attendance policy (80% required)',
+                      'Learn about support resources (office hours, TA support)',
+                      'Schedule 1-on-1 with instructor for Week 2-3'
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                        <CheckCircle className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Week 1 */}
-            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
               <button
                 onClick={() => setExpandedSection(expandedSection === 'week-1' ? null : 'week-1')}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition"
+                className="w-full px-6 md:px-8 py-5 flex items-center justify-between hover:bg-gray-50/50 transition"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-purple-700 font-bold">3</span>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-sm">03</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">Week 1 Action Items</h3>
+                  <div className="text-left">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">Week 1 Action Items</h3>
+                    <p className="text-sm text-gray-500 hidden sm:block">Build momentum in your first week</p>
+                  </div>
                 </div>
-                {expandedSection === 'week-1' ? <ChevronUp className="w-6 h-6 text-gray-400" /> : <ChevronDown className="w-6 h-6 text-gray-400" />}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${expandedSection === 'week-1' ? 'bg-purple-100 rotate-180' : 'bg-gray-100'}`}>
+                  <ChevronDown className={`w-5 h-5 ${expandedSection === 'week-1' ? 'text-purple-600' : 'text-gray-400'}`} />
+                </div>
               </button>
-              {expandedSection === 'week-1' && (
-                <div className="px-6 pb-6 border-t border-gray-200">
-                  <div className="mt-6 space-y-6">
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-3">Academic</h4>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Complete Week 1 labs (due Sunday 11:59 PM MT)</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Join or form a study group (3-4 students)</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Review recorded sessions for concepts you need to revisit</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Ask your first question in Slack or office hours</span>
-                        </li>
+              <div className={`overflow-hidden transition-all duration-500 ${expandedSection === 'week-1' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 md:px-8 pb-8 border-t border-gray-100">
+                  <div className="mt-6 grid md:grid-cols-2 gap-6">
+                    <div className="bg-gray-50 rounded-xl p-5">
+                      <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm">
+                        <BookOpen className="w-4 h-4 text-purple-500" />
+                        Academic
+                      </h4>
+                      <ul className="space-y-3">
+                        {[
+                          'Complete Week 1 labs (due Sunday 11:59 PM MT)',
+                          'Join or form a study group (3-4 students)',
+                          'Review recorded sessions for concepts you need to revisit',
+                          'Ask your first question in Slack or office hours'
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                            <CheckCircle className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-3">Career Prep</h4>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Submit resume for career services review</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Update LinkedIn: Add &quot;Currently enrolled in [Program] at Ripotek&quot;</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Complete career goals form</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                          <span>Join alumni network on LinkedIn</span>
-                        </li>
+                    <div className="bg-gray-50 rounded-xl p-5">
+                      <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm">
+                        <Briefcase className="w-4 h-4 text-purple-500" />
+                        Career Prep
+                      </h4>
+                      <ul className="space-y-3">
+                        {[
+                          'Submit resume for career services review',
+                          'Update LinkedIn: Add "Currently enrolled in [Program] at Ripotek"',
+                          'Complete career goals form',
+                          'Join alumni network on LinkedIn'
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                            <CheckCircle className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
-            {/* Success Tips */}
-            <div className="bg-linear-to-br from-teal-50 to-blue-50 rounded-xl p-8 border-2 border-teal-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Award className="w-6 h-6 text-teal-600" />
-                Quick Tips from Alumni
-              </h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 border-l-4 border-teal-600">
-                  <p className="text-gray-700 italic">&quot;Don&apos;t fall behind on labs - it&apos;s SO hard to catch up. Do them the same week as the lesson.&quot;</p>
-                  <p className="text-sm text-gray-600 mt-2">- Sarah, Azure DE Graduate</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-blue-600">
-                  <p className="text-gray-700 italic">&quot;Join a study group immediately. My group kept me accountable and we all got jobs together.&quot;</p>
-                  <p className="text-sm text-gray-600 mt-2">- Priya, AI Engineer Graduate</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-purple-600">
-                  <p className="text-gray-700 italic">&quot;Use ChatGPT/Copilot to explain errors, but type the code yourself. Copy-paste won&apos;t help you learn.&quot;</p>
-                  <p className="text-sm text-gray-600 mt-2">- Marcus, Power BI Graduate</p>
-                </div>
+            {/* Alumni Tips */}
+            <div
+              id="tips-section"
+              data-animate
+              className={`mt-12 transition-all duration-700 ${isVisible('tips-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            >
+              <div className="text-center mb-8">
+                <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Student Voices</span>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  Quick Tips from{' '}
+                  <span className="bg-linear-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Alumni</span>
+                </h3>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { quote: "Don\u2019t fall behind on labs \u2014 it\u2019s SO hard to catch up. Do them the same week as the lesson.", author: 'Sarah', program: 'Azure DE Graduate', color: 'teal' },
+                  { quote: "Join a study group immediately. My group kept me accountable and we all got jobs together.", author: 'Priya', program: 'AI Engineer Graduate', color: 'blue' },
+                  { quote: "Use ChatGPT/Copilot to explain errors, but type the code yourself. Copy-paste won\u2019t help you learn.", author: 'Marcus', program: 'Power BI Graduate', color: 'purple' }
+                ].map((tip, idx) => {
+                  const borderColors = { teal: 'border-teal-500', blue: 'border-blue-500', purple: 'border-purple-500' };
+                  const bgColors = { teal: 'bg-teal-50', blue: 'bg-blue-50', purple: 'bg-purple-50' };
+                  const textColors = { teal: 'text-teal-600', blue: 'text-blue-600', purple: 'text-purple-600' };
+                  return (
+                    <div key={idx} className={`bg-white rounded-2xl p-6 border-l-4 ${borderColors[tip.color]} shadow-sm hover:shadow-md transition-shadow`}>
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 italic leading-relaxed mb-4">&ldquo;{tip.quote}&rdquo;</p>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full ${bgColors[tip.color]} flex items-center justify-center`}>
+                          <span className={`font-bold text-sm ${textColors[tip.color]}`}>{tip.author[0]}</span>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">{tip.author}</p>
+                          <p className="text-gray-500 text-xs">{tip.program}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Support Resources */}
-            <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Users className="w-6 h-6 text-teal-600" />
+            <div className="mt-8 bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Users className="w-5 h-5 text-teal-600" />
                 Support Resources
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-3">Contact</h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="text-gray-700"><span className="font-semibold">Technical Issues:</span> support@ripotek.com</li>
-                    <li className="text-gray-700"><span className="font-semibold">Career Services:</span> careers@ripotek.com</li>
-                    <li className="text-gray-700"><span className="font-semibold">Instructor Questions:</span> Use Slack or office hours</li>
+                  <h4 className="font-bold text-gray-900 mb-3 text-sm">Contact</h4>
+                  <ul className="space-y-2.5 text-sm">
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Mail className="w-4 h-4 text-teal-500" />
+                      <span><span className="font-semibold text-gray-700">Technical Issues:</span> support@ripotek.com</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Mail className="w-4 h-4 text-teal-500" />
+                      <span><span className="font-semibold text-gray-700">Career Services:</span> careers@ripotek.com</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Users className="w-4 h-4 text-teal-500" />
+                      <span><span className="font-semibold text-gray-700">Instructor Questions:</span> Use Slack or office hours</span>
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-3">Learning Resources</h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="text-gray-700">Office Hours: Tue/Thu 5-6 PM MT</li>
-                    <li className="text-gray-700">Recorded Sessions: Available within 24 hours</li>
-                    <li className="text-gray-700">1-on-1 Mentorship: Book via Calendly</li>
+                  <h4 className="font-bold text-gray-900 mb-3 text-sm">Learning Resources</h4>
+                  <ul className="space-y-2.5 text-sm">
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Clock className="w-4 h-4 text-teal-500" />
+                      <span>Office Hours: Tue/Thu 5-6 PM MT</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Play className="w-4 h-4 text-teal-500" />
+                      <span>Recorded Sessions: Available within 24 hours</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-gray-600">
+                      <Calendar className="w-4 h-4 text-teal-500" />
+                      <span>1-on-1 Mentorship: Book via Calendly</span>
+                    </li>
                   </ul>
                 </div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="bg-linear-to-r from-blue-900 to-teal-600 rounded-xl p-8 text-center text-white">
-              <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-              <p className="text-lg mb-6 text-blue-100">You&apos;re not alone - your cohort, instructors, and TAs are here to help!</p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href="/contact#book-call" className="bg-white text-teal-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
-                  Contact Support
-                </a>
-                <a href="/resources" className="bg-teal-700 text-white px-6 py-3 rounded-lg hover:bg-teal-800 transition font-semibold border-2 border-white/20">
-                  View Resources
-                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ═══════════════════════════════════════════════════════════════
+          READY TO GET STARTED — Full-bleed CTA
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-teal-900"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-teal-500/15 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <GraduationCap className="w-14 h-14 text-teal-400 mx-auto mb-6" />
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Get{' '}
+            <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Started?</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+            You&apos;re not alone — your cohort, instructors, and TAs are here to help every step of the way.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact#book-call" className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg shadow-teal-600/25 hover:shadow-teal-500/40 hover:-translate-y-0.5">
+              Contact Support
+            </a>
+            <a href="/resources" className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 border border-white/20 hover:border-white/40">
+              View Resources <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          FOOTER
+      ═══════════════════════════════════════════════════════════════ */}
       <footer className="bg-gray-900 text-white py-16 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12 mb-12">
@@ -800,7 +926,7 @@ export default function TrainingPage() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
-              <p className="text-gray-300 text-sm">© 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
+              <p className="text-gray-300 text-sm">&copy; 2023-2025 Ripotek Technologies Inc. All rights reserved.</p>
               <div className="flex gap-6 text-sm text-gray-300">
                 <a href="/privacy-policy" className="hover:text-teal-400 transition">Privacy Policy</a>
                 <a href="/terms-of-service" className="hover:text-teal-400 transition">Terms of Service</a>
@@ -850,5 +976,3 @@ export default function TrainingPage() {
     </div>
   );
 }
-
-
