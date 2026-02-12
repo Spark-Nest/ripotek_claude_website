@@ -21,7 +21,7 @@ export default function CaseStudiesPage() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
     );
     const sections = document.querySelectorAll('[data-animate]');
     sections.forEach((section) => observer.observe(section));
@@ -224,19 +224,19 @@ export default function CaseStudiesPage() {
           <div className="absolute bottom-1/4 right-[10%] w-96 h-96 bg-blue-500/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-20 px-4 pt-32 pb-20">
+        <div className="max-w-7xl mx-auto relative z-20 px-4 pt-32 pb-12">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8 animate-fadeInUp">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-6 animate-fadeInUp">
               <Award className="w-4 h-4 text-teal-400" />
               <span className="text-sm text-gray-200 font-medium">Proven Results Across Industries</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-[1.1] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               Client{' '}
               <span className="bg-linear-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Impact</span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Real transformations that drive measurable business impact. See how we help organizations unlock the full potential of their data.
             </p>
 
@@ -251,12 +251,12 @@ export default function CaseStudiesPage() {
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
             {stats.map((stat, idx) => (
-              <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-5 text-center group hover:bg-white/10 transition-all">
-                <stat.icon className="w-6 h-6 text-teal-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+              <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-4 text-center group hover:bg-white/10 transition-all">
+                <stat.icon className="w-5 h-5 text-teal-400 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+                <div className="text-xl md:text-2xl font-bold text-white mb-0.5">{stat.value}</div>
+                <div className="text-xs text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -276,11 +276,10 @@ export default function CaseStudiesPage() {
       {/* ═══════════════════════════════════════════════════════════════
           SUCCESS STORIES — Alternating layout cards
       ═══════════════════════════════════════════════════════════════ */}
-      <section id="stories" className="py-12 md:py-16 px-4 bg-gray-50 scroll-mt-24">
+      <section id="stories" className="pt-10 md:pt-12 pb-12 md:pb-16 px-4 bg-gray-50 scroll-mt-24">
         <div
           id="stories-section"
-          data-animate
-          className={`max-w-7xl mx-auto transition-all duration-700 ${isVisible('stories-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className="max-w-7xl mx-auto"
         >
           <div className="text-center mb-12">
             <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">Case Studies</span>
