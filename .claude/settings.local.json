@@ -16,7 +16,9 @@
       "Read(//c/Users/prand/Desktop/ripotek-website/**)",
       "Bash(sort:*)",
       "Bash(powershell -Command:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git commit:*)",
+      "Bash(cmd //c \"del \\\\?\\\\C:\\\\Users\\\\prand\\\\Desktop\\\\ripotek-website\\\\nul\")"
     ]
   }
 }
