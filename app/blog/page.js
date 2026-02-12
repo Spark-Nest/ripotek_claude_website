@@ -266,8 +266,8 @@ export default function BlogPage() {
               <h4 className="font-bold mb-6 text-sm">Services</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
-                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#analytics-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
                 <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
               </ul>
             </div>

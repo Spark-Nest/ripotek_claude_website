@@ -277,14 +277,14 @@ export default function ServicesPage() {
           <div className="text-center mb-20">
             <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">What We Do</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">Our Service Offerings</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mx-auto whitespace-nowrap">
               From strategy to execution, we deliver solutions that transform how you use data
             </p>
           </div>
 
           <div className="space-y-32">
             {services.map((service, idx) => (
-              <div key={idx} id={service.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-24">
+              <div key={idx} id={service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} className="scroll-mt-24">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                   {/* Image side */}
                   <div className={`relative ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
@@ -515,8 +515,8 @@ export default function ServicesPage() {
               <h4 className="font-bold mb-6 text-sm">Services</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
-                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#analytics-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
                 <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Services</a></li>
               </ul>
             </div>

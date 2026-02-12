@@ -101,31 +101,31 @@ export default function RipotekHomePage() {
     {
       icon: Database,
       title: 'Data Engineering',
-      description: 'Build scalable data platforms with Azure, Databricks & Fabric. Modern lakehouse architectures that power your analytics.',
-      link: '/services',
+      description: 'Build scalable, production-ready data platforms on Azure, Databricks, and Microsoft Fabric. We design modern lakehouse architectures with automated ETL pipelines that power your analytics and reporting needs.',
+      link: '/services#data-platform-build',
       color: 'from-blue-500 to-cyan-500',
       features: ['Data Lakehouse', 'ETL Pipelines', 'Real-time Processing']
     },
     {
       icon: BarChart3,
       title: 'Analytics & BI',
-      description: 'Transform data into insights with enterprise Power BI solutions. Self-service analytics at scale.',
-      link: '/services',
+      description: 'Transform raw data into actionable business insights with enterprise-grade Power BI solutions. We implement governed self-service analytics that scale across your entire organization.',
+      link: '/services#analytics-bi',
       color: 'from-purple-500 to-pink-500',
       features: ['Power BI Dashboards', 'Semantic Models', 'Data Governance']
     },
     {
       icon: Brain,
       title: 'AI & MLOps',
-      description: 'Deploy production-grade AI solutions. From GenAI integration to MLOps automation.',
-      link: '/services',
+      description: 'Deploy production-grade AI and machine learning solutions that deliver measurable business value. From generative AI integration to automated MLOps pipelines and model monitoring.',
+      link: '/services#mlops-ai',
       color: 'from-teal-500 to-green-500',
       features: ['GenAI Integration', 'ML Pipelines', 'Model Monitoring']
     },
     {
       icon: GraduationCap,
       title: 'Professional Training',
-      description: 'Accelerate your career with industry-leading programs. 85% job placement rate.',
+      description: 'Accelerate your data career with comprehensive, instructor-led training programs designed by industry practitioners. Our graduates achieve an 85% job placement rate within 90 days.',
       link: '/training',
       color: 'from-orange-500 to-red-500',
       features: ['Live Instruction', 'Hands-on Projects', 'Career Support']
@@ -136,25 +136,25 @@ export default function RipotekHomePage() {
     {
       icon: Target,
       title: 'Industry Expertise',
-      description: 'Deep experience across Energy, Finance, Healthcare, and Public Sector',
+      description: 'Deep domain knowledge across Energy, Finance, Healthcare, and Public Sector with proven delivery models',
       stat: '10+ Years'
     },
     {
       icon: Users,
       title: 'Knowledge Transfer',
-      description: 'We train your teams to own and evolve the solutions we build',
+      description: 'We train and empower your internal teams to own, maintain, and evolve the data solutions we build together',
       stat: '2000+ Trained'
     },
     {
       icon: Award,
       title: 'Proven Results',
-      description: 'Measurable business impact with every engagement',
+      description: 'Every engagement is tied to measurable business outcomes—reduced costs, faster insights, and higher ROI',
       stat: '$12M+ ROI'
     },
     {
       icon: Sparkles,
       title: 'Modern Stack',
-      description: 'Azure, Databricks, Fabric, Power BI, and cutting-edge AI',
+      description: 'We specialize in Azure, Databricks, Microsoft Fabric, Power BI, Snowflake, and cutting-edge AI technologies',
       stat: '5 Partners'
     }
   ];
@@ -206,7 +206,7 @@ export default function RipotekHomePage() {
               {isMobile ? (
                 /* On mobile: show poster image instead of video to save ~4.8MB bandwidth */
                 <Image
-                  src="/images/video-poster.png"
+                  src="/images/video-poster.webp"
                   alt="Ripotek Technologies - Engineer Intelligence. Deliver Impact."
                   fill
                   className="object-cover"
@@ -220,8 +220,8 @@ export default function RipotekHomePage() {
                   playsInline
                   loop
                   className="w-full h-full object-cover"
-                  preload="metadata"
-                  poster="/images/video-poster.png"
+                  preload="none"
+                  poster="/images/video-poster.webp"
                   webkit-playsinline="true"
                   x5-playsinline="true"
                   disablePictureInPicture
@@ -347,8 +347,8 @@ export default function RipotekHomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Delivering <span className="bg-linear-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Measurable Results</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real outcomes that drive business transformation
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From data platform modernization to AI-powered analytics, our team delivers real outcomes that drive business transformation across Canada and beyond
             </p>
           </div>
 
@@ -461,7 +461,7 @@ export default function RipotekHomePage() {
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              We're not just consultants—we're your partners in transformation
+              We're not just consultants—we're your long-term partners in data-driven transformation, from strategy through execution
             </p>
           </div>
 
@@ -601,7 +601,14 @@ export default function RipotekHomePage() {
       {/* Final CTA Section */}
       <section className="py-24 px-4 bg-linear-to-br from-gray-900 via-blue-900 to-teal-900 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920')] bg-cover bg-center opacity-10"></div>
+          <Image
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=50"
+            alt=""
+            fill
+            className="object-cover opacity-10"
+            loading="lazy"
+            sizes="100vw"
+          />
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -612,7 +619,7 @@ export default function RipotekHomePage() {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Let's discuss how we can help you unlock the full potential of your data and AI investments
+            Whether you need to modernize your data platform, implement enterprise analytics, deploy AI solutions, or upskill your team—let's discuss how Ripotek can help you unlock the full potential of your data investments
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
             <button onClick={() => setDiscoveryCallModalOpen(true)} className="group bg-teal-600 text-white px-10 py-5 rounded-xl hover:bg-teal-700 transition-all shadow-2xl hover:shadow-teal-500/50 flex items-center gap-3 text-lg font-semibold transform hover:scale-105 duration-300">
@@ -654,8 +661,8 @@ export default function RipotekHomePage() {
               <h4 className="font-bold mb-6 text-sm">Services</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/services#data-platform-build" className="text-gray-300 hover:text-teal-400 transition">Data Engineering</a></li>
-                <li><a href="/services#analytics-&-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
-                <li><a href="/services#mlops-&-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
+                <li><a href="/services#analytics-bi" className="text-gray-300 hover:text-teal-400 transition">Analytics & BI</a></li>
+                <li><a href="/services#mlops-ai" className="text-gray-300 hover:text-teal-400 transition">AI & MLOps</a></li>
                 <li><a href="/services#managed-services" className="text-gray-300 hover:text-teal-400 transition">Managed Data Services</a></li>
               </ul>
             </div>

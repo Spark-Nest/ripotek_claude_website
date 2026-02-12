@@ -18,7 +18,8 @@
       "Bash(powershell -Command:*)",
       "Bash(ls:*)",
       "Bash(git commit:*)",
-      "Bash(cmd //c \"del \\\\?\\\\C:\\\\Users\\\\prand\\\\Desktop\\\\ripotek-website\\\\nul\")"
+      "Bash(cmd //c \"del \\\\?\\\\C:\\\\Users\\\\prand\\\\Desktop\\\\ripotek-website\\\\nul\")",
+      "Bash(npx sharp-cli:*)"
     ]
   }
 }

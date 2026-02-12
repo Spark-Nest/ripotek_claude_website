@@ -27,7 +27,7 @@ const navigation = [
         name: 'Analytics & BI',
         tagline: 'Insights that drive decisions',
         description: 'Power BI dashboards and self-service analytics at enterprise scale.',
-        href: '/services#analytics-&-bi',
+        href: '/services#analytics-bi',
         bg: 'bg-teal-600',
         text: 'text-white'
       },
@@ -35,7 +35,7 @@ const navigation = [
         name: 'MLOps & AI',
         tagline: 'Production-ready AI solutions',
         description: 'Deploy machine learning models and GenAI solutions at scale.',
-        href: '/services#mlops-&-ai',
+        href: '/services#mlops-ai',
         bg: 'bg-sky-500',
         text: 'text-white'
       },
@@ -49,7 +49,7 @@ const navigation = [
       }
     ],
     moreLinks: [
-      { name: 'Data Strategy & Governance', href: '/services#strategy-&-governance' },
+      { name: 'Data Strategy & Governance', href: '/services#data-strategy-governance' },
       { name: 'Managed Data Services', href: '/services#managed-services' },
       { name: 'Capabilities Deck', href: '/resources/capabilities-deck' }
     ]
