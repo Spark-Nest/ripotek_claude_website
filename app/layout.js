@@ -60,15 +60,6 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Preconnect to critical third-party origins */}
-        <link rel="preconnect" href="https://embed.tawk.to" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://embed.tawk.to" />
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://upload.wikimedia.org" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
-      </head>
       <body className={inter.className}>
         {children}
         {/* Tawk.to Live Chat - Deferred to lazyOnload for better initial page performance */}

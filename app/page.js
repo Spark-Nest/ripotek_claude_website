@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { ArrowRight, Users, Award, TrendingUp, Database, Brain, BarChart3, Calendar, Download, GraduationCap, Target, Sparkles, Building2, ChevronRight, Star, Rocket, MapPin, Mail, Phone } from 'lucide-react';

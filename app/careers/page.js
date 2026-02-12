@@ -67,19 +67,16 @@ export default function CareersPage() {
       icon: Lightbulb,
       title: 'Innovation First',
       desc: 'We push the boundaries of what data and AI can achieve, always exploring the cutting edge.',
-      image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=400&fit=crop'
     },
     {
       icon: Users,
       title: 'People Matter',
       desc: 'Our team is our greatest asset. We invest in growth, wellness, and a culture of belonging.',
-      image: '/people_matter.jpg'
     },
     {
       icon: TrendingUp,
       title: 'Real Impact',
       desc: 'Every project we take on drives measurable transformation for our clients and communities.',
-      image: '/real_impact.jpg'
     }
   ];
 
@@ -274,21 +271,12 @@ export default function CareersPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, i) => (
-              <div key={i} className="group relative rounded-2xl overflow-hidden h-80 md:h-[420px] shadow-lg hover:shadow-2xl transition-shadow duration-500">
-                <Image
-                  src={value.image}
-                  alt={value.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="w-12 h-12 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-xl flex items-center justify-center mb-4">
-                    <value.icon className="w-6 h-6 text-teal-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{value.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{value.desc}</p>
+              <div key={i} className="group bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-teal-200 hover:shadow-lg transition-all duration-300">
+                <div className="w-14 h-14 bg-linear-to-br from-teal-50 to-cyan-50 rounded-2xl flex items-center justify-center mb-6 group-hover:from-teal-100 group-hover:to-cyan-100 transition-colors">
+                  <value.icon className="w-7 h-7 text-teal-600" />
                 </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
