@@ -203,40 +203,28 @@ export default function RipotekHomePage() {
           <div className="relative overflow-hidden shadow-2xl bg-black group">
             {/* Video Element - Fixed 1920x540 aspect ratio (3.56:1) */}
             <div className="relative w-full" style={{ aspectRatio: '3.56', maxHeight: '540px' }}>
-              {isMobile ? (
-                /* On mobile: show poster image instead of video to save ~4.8MB bandwidth */
-                <Image
-                  src="/images/video-poster.webp"
-                  alt="Ripotek Technologies - Engineer Intelligence. Deliver Impact."
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="100vw"
-                />
-              ) : (
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  className="w-full h-full object-cover"
-                  preload="none"
-                  poster="/images/video-poster.webp"
-                  webkit-playsinline="true"
-                  x5-playsinline="true"
-                  disablePictureInPicture
-                  style={{
-                    WebkitTransform: 'translateZ(0)',
-                    transform: 'translateZ(0)',
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    WebkitPerspective: 1000,
-                    perspective: 1000
-                  }}
-                >
-                  <source src="/videos/ripotek-intro-montage.mp4" type="video/mp4" />
-                </video>
-              )}
+              <video
+                autoPlay
+                muted
+                playsInline
+                loop
+                className="w-full h-full object-cover"
+                preload="metadata"
+                poster="/images/video-poster.webp"
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                disablePictureInPicture
+                style={{
+                  WebkitTransform: 'translateZ(0)',
+                  transform: 'translateZ(0)',
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  WebkitPerspective: 1000,
+                  perspective: 1000
+                }}
+              >
+                <source src={isMobile ? "/videos/ripotek-intro-montage-mobile.mp4" : "/videos/ripotek-intro-montage.mp4"} type="video/mp4" />
+              </video>
 
               {/* Subtle gradient overlay for branding */}
               <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
