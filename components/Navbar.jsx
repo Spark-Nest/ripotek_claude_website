@@ -225,7 +225,9 @@ export default function Navbar() {
   const [sheetReady, setSheetReady] = useState(false);
   const [dragY, setDragY] = useState(0);
   const dragStartY = useRef(null);
+  const dragYRef = useRef(0);
   const sheetRef = useRef(null);
+  const handleRef = useRef(null);
 
   useEffect(() => {
     let ticking = false;
@@ -264,26 +266,45 @@ export default function Navbar() {
     setTimeout(() => setMobileMenuOpen(false), 300);
   }, []);
 
-  // Drag-to-dismiss handlers
-  const handleDragStart = useCallback((e) => {
-    dragStartY.current = e.touches[0].clientY;
-  }, []);
+  // Drag-to-dismiss: use refs for real-time tracking, attach non-passive listeners
+  useEffect(() => {
+    const handle = handleRef.current;
+    if (!handle) return;
 
-  const handleDragMove = useCallback((e) => {
-    if (dragStartY.current === null) return;
-    const delta = e.touches[0].clientY - dragStartY.current;
-    if (delta > 0) {
-      setDragY(delta);
-    }
-  }, []);
+    const onTouchStart = (e) => {
+      dragStartY.current = e.touches[0].clientY;
+      dragYRef.current = 0;
+    };
 
-  const handleDragEnd = useCallback(() => {
-    if (dragY > 100) {
-      closeMobile();
-    }
-    setDragY(0);
-    dragStartY.current = null;
-  }, [dragY, closeMobile]);
+    const onTouchMove = (e) => {
+      if (dragStartY.current === null) return;
+      const delta = e.touches[0].clientY - dragStartY.current;
+      if (delta > 0) {
+        e.preventDefault(); // prevent scroll/pull-to-refresh
+        dragYRef.current = delta;
+        setDragY(delta);
+      }
+    };
+
+    const onTouchEnd = () => {
+      if (dragYRef.current > 80) {
+        closeMobile();
+      }
+      dragYRef.current = 0;
+      setDragY(0);
+      dragStartY.current = null;
+    };
+
+    handle.addEventListener('touchstart', onTouchStart, { passive: true });
+    handle.addEventListener('touchmove', onTouchMove, { passive: false });
+    handle.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
+      handle.removeEventListener('touchstart', onTouchStart);
+      handle.removeEventListener('touchmove', onTouchMove);
+      handle.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [closeMobile, mobileMenuOpen]);
 
   const activeItem = activeDropdown
     ? navigation.find((n) => n.name === activeDropdown)
@@ -491,23 +512,24 @@ export default function Navbar() {
           {/* Bottom Sheet */}
           <div
             ref={sheetRef}
-            className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out ${
-              sheetReady ? 'translate-y-0' : 'translate-y-full'
-            }`}
-            style={{ maxHeight: '85vh', transform: sheetReady && dragY > 0 ? `translateY(${dragY}px)` : undefined }}
+            className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out"
+            style={{
+              maxHeight: '85vh',
+              transform: dragY > 0 ? `translateY(${dragY}px)` : sheetReady ? 'translateY(0)' : 'translateY(100%)',
+              transition: dragY > 0 ? 'none' : undefined
+            }}
           >
             {/* Drag Handle — touch to drag down to dismiss */}
             <div
-              className="flex justify-center pt-3 pb-1 shrink-0 cursor-grab active:cursor-grabbing"
-              onTouchStart={handleDragStart}
-              onTouchMove={handleDragMove}
-              onTouchEnd={handleDragEnd}
+              ref={handleRef}
+              className="flex justify-center py-4 shrink-0 cursor-grab active:cursor-grabbing"
+              style={{ touchAction: 'none' }}
             >
-              <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
+              <div className="w-10 h-1 bg-gray-300 rounded-full" />
             </div>
 
             {/* Sheet Content - Stacked Views (no transforms for reliable mobile scroll) */}
-            <div className="relative" style={{ height: 'calc(85vh - 28px)' }}>
+            <div className="relative" style={{ height: 'calc(85vh - 40px)' }}>
               {/* Main View */}
               <div
                 className={`absolute inset-0 flex flex-col transition-opacity duration-200 ${
