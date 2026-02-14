@@ -306,7 +306,7 @@ export default function Navbar() {
       )}
 
       <nav
-        className={`fixed w-full z-50 transition-[background-color,box-shadow] duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-[background-color,box-shadow] duration-300 ${
           scrolled
             ? 'bg-[#1a2332] shadow-lg shadow-black/10'
             : 'bg-white shadow-sm'

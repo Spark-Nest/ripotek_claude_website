@@ -76,11 +76,11 @@ export default function ContactPage() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section - Communication/Connection Theme */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden max-w-full">
         {/* Layered Background */}
         <div className="absolute inset-0 z-0">
           {/* Base gradient */}
@@ -107,19 +107,19 @@ export default function ContactPage() {
           }}></div>
 
           {/* Floating gradient orbs - Warm connection colors */}
-          <div className="absolute inset-0 z-10">
+          <div className="absolute inset-0 z-10 overflow-hidden">
             <div className="absolute top-10 left-10 md:left-20 w-64 md:w-80 h-64 md:h-80 bg-cyan-500 rounded-full blur-3xl opacity-25 animate-pulse"></div>
             <div className="absolute top-10 right-10 md:right-20 w-72 md:w-96 h-72 md:h-96 bg-teal-500 rounded-full blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[400px] h-80 md:h-[400px] bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
 
-            {/* Floating communication icons */}
-            <div className="absolute top-1/4 right-1/4 w-12 h-12 border-2 border-cyan-400/30 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0s' }}>
+            {/* Floating communication icons - hidden on mobile for performance */}
+            <div className="hidden md:flex absolute top-1/4 right-1/4 w-12 h-12 border-2 border-cyan-400/30 rounded-full animate-float items-center justify-center" style={{ animationDelay: '0s' }}>
               <Mail className="w-6 h-6 text-cyan-400/40" />
             </div>
-            <div className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-teal-400/40 rounded-lg animate-float flex items-center justify-center" style={{ animationDelay: '1.5s' }}>
+            <div className="hidden md:flex absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-teal-400/40 rounded-lg animate-float items-center justify-center" style={{ animationDelay: '1.5s' }}>
               <Phone className="w-6 h-6 text-teal-400/50" />
             </div>
-            <div className="absolute top-1/3 left-1/3 w-14 h-14 border border-blue-400/20 rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '0.8s' }}>
+            <div className="hidden md:flex absolute top-1/3 left-1/3 w-14 h-14 border border-blue-400/20 rounded-full animate-float items-center justify-center" style={{ animationDelay: '0.8s' }}>
               <Send className="w-7 h-7 text-blue-400/30" />
             </div>
             <div className="hidden md:flex absolute top-1/5 right-1/3 w-10 h-10 border-2 border-purple-400/30 rounded-lg animate-float items-center justify-center" style={{ animationDelay: '2s' }}>
@@ -225,11 +225,11 @@ export default function ContactPage() {
                   <p className="text-gray-100">Book a free 30-minute consultation</p>
                 </div>
                 <div className="p-4 sm:p-8 flex-1 flex items-center justify-center min-w-0">
-                  <div className="bg-white rounded-xl overflow-hidden w-full max-w-full min-w-0" style={{ height: '650px' }}>
+                  <div className="bg-white rounded-xl overflow-hidden w-full max-w-full min-w-0 h-[500px] sm:h-[650px]">
                     <iframe
                       src="https://calendly.com/paroyal007/30min"
                       width="100%"
-                      height="650"
+                      height="100%"
                       frameBorder="0"
                       title="Schedule a meeting with Ripotek"
                     ></iframe>

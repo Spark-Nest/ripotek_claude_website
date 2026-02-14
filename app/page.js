@@ -184,7 +184,7 @@ export default function RipotekHomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
       {/* Video Introduction Hero Section */}

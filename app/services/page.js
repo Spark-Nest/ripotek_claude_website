@@ -192,7 +192,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section - Immersive */}
@@ -277,7 +277,7 @@ export default function ServicesPage() {
           <div className="text-center mb-20">
             <span className="inline-block text-sm font-semibold text-teal-600 tracking-widest uppercase mb-3">What We Do</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">Our Service Offerings</h2>
-            <p className="text-xl text-gray-600 mx-auto whitespace-nowrap">
+            <p className="text-xl text-gray-600 mx-auto max-w-2xl">
               From strategy to execution, we deliver solutions that transform how you use data
             </p>
           </div>
@@ -307,8 +307,8 @@ export default function ServicesPage() {
                         </div>
                       </div>
                     </div>
-                    {/* Decorative offset */}
-                    <div className={`absolute -z-10 -bottom-4 ${idx % 2 === 1 ? '-left-4' : '-right-4'} w-full h-full rounded-3xl bg-teal-100/60`}></div>
+                    {/* Decorative offset - hidden on mobile to prevent overflow */}
+                    <div className={`hidden md:block absolute -z-10 -bottom-4 ${idx % 2 === 1 ? '-left-4' : '-right-4'} w-full h-full rounded-3xl bg-teal-100/60`}></div>
                   </div>
 
                   {/* Content side */}
