@@ -27,7 +27,8 @@
       "Bash(\"$FFMPEG\" -i \"c:/Users/prand/Desktop/ripotek-website/public/videos/ripotek-intro-montage.mp4\")",
       "Bash(\"c:/Users/prand/Desktop/ripotek-website/node_modules/ffmpeg-static/ffmpeg.exe\" -i \"c:/Users/prand/Desktop/ripotek-website/public/videos/ripotek-intro-montage.mp4\")",
       "Bash(\"c:/Users/prand/Desktop/ripotek-website/node_modules/ffmpeg-static/ffmpeg.exe\" -i \"c:/Users/prand/Desktop/ripotek-website/public/videos/ripotek-intro-montage.mp4\" -vf \"scale=640:180\" -c:v libx264 -preset slow -crf 28 -profile:v baseline -level 3.0 -movflags +faststart -an -y \"c:/Users/prand/Desktop/ripotek-website/public/videos/ripotek-intro-montage-mobile.mp4\")",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "WebFetch(domain:www.ionos.com)"
     ]
   }
 }
