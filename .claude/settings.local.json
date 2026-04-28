@@ -30,7 +30,9 @@
       "Bash(npm uninstall:*)",
       "WebFetch(domain:www.ionos.com)",
       "Bash(node -e \"const sharp = require\\('sharp'\\); console.log\\('sharp available'\\);\")",
-      "Bash(where inkscape *)"
+      "Bash(where inkscape *)",
+      "Edit(/.claude/skills/refresh-assets/**)",
+      "Bash(claude mcp *)"
     ]
   }
 }
